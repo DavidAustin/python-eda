@@ -27,10 +27,10 @@ def make_connector(n_pins):
     x = p * (n_pins-1)
     y = 0
     od = 2.5
-    g.pinat(x, y, 1.2, od,  1, {'square' : 1})
+    g.pinat(x, y, 1.4, od,  1, {'square' : 1})
     x -= p
     for i in range(2,n_pins+1):
-        g.pinat(x, y, 1.2, od,  i)
+        g.pinat(x, y, 1.4, od,  i)
         x -= p
 
 
