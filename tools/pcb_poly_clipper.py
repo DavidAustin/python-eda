@@ -1,11 +1,37 @@
+# Python-EDA
+# Copyright (C) 2018 Luke Cole
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program. If not, see <http://www.gnu.org/licenses/>.
+
 import sys
 import os
 import re
 import pyclipper
 from ast import literal_eval
 
+if len(sys.argv) < 3:
+  print ("Usage: %s file.poly clip"
+         "\n\n"
+         "NOTES:\n"
+         "* Currently requires you to manually copy the gEDA PCB poly's into\n"
+         "  seperate file (file.poly)\n"
+         "* clip is in mm - +ve will expand poly, and -ve will reduce poly"
+         % (sys.argv[0]))
+  exit()
+
 filename = sys.argv[1]
-cut = float(sys.argv[2])
+clip = float(sys.argv[2])
 
 if not os.path.exists(filename):
   print ("%s - File does not exist") % (filename)
@@ -41,7 +67,7 @@ subj = tuples
 pco = pyclipper.PyclipperOffset()
 pco.AddPath(subj, pyclipper.JT_ROUND, pyclipper.ET_CLOSEDPOLYGON)
 
-solution = pco.Execute(cut * 10000)
+solution = pco.Execute(clip * 10000)
 
 # divide list elements by 10000
 output = ""

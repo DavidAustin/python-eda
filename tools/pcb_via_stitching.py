@@ -1,3 +1,19 @@
+# Python-EDA
+# Copyright (C) 2018 Luke Cole
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program. If not, see <http://www.gnu.org/licenses/>.
+
 import sys
 import os
 import re
@@ -5,6 +21,20 @@ from ast import literal_eval
 from shapely.geometry import Point
 from shapely.geometry.polygon import Polygon
 
+if len(sys.argv) < 12:
+  print ("Usage: %s spacing x_offset y_offset board_width board_height "
+         "top.poly bottom.poly "
+         "top_exclude1.poly top_exclude2.poly "
+         "bottom_exclude1.poly bottom_exclude2.poly"
+         "\n\n"
+         "NOTES:\n"
+         "* Currently requires you to manually copy the gEDA PCB poly's into\n"
+         "  seperate files\n"
+         "* Currently coded to assume two holes in top and bottom layer\n"
+         "  (i.e. (top|bottom)_exclude(1|2).poly) - hack code as needed for now,\n"
+         "  make generic at some stage"
+         % (sys.argv[0]))
+  exit()
 
 spacing = float(sys.argv[1]) # typically 2mm
 x_offset = float(sys.argv[2]) # typically aimed for equal spacing between vertical board edges
