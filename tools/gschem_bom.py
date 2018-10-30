@@ -23,10 +23,11 @@ import json
 import pprint
 
 if len(sys.argv) < 2:
-  print ("Usage: %s geda_circuit_schematic.sch" % (sys.argv[0]))
+  print ("Usage: %s apikey geda_circuit_schematic.sch" % (sys.argv[0]))
   exit()
 
-filename = sys.argv[1]
+apikey = sys.argv[1]
+filename = sys.argv[2]
 
 if not os.path.exists(filename):
   print (("%s - File does not exist") % (filename))
@@ -116,7 +117,7 @@ def process_end(matchobj):
 def parse_octopart(device):
   #print (("processing device=%s..........................................") % (device))
   device = urllib.parse.quote_plus(device)
-  response = urllib.request.urlopen('https://octopart.com/api/v3/parts/match?apikey=f9e2828b&queries=[{"mpn":"%s"}]' % (device))
+  response = urllib.request.urlopen('https://octopart.com/api/v3/parts/match?apikey=&queries=[{"mpn":"%s"}]' % (apikey, device))
   data = response.read()
   data = json.loads(data)
   #if "1N4148WTR" in device:
