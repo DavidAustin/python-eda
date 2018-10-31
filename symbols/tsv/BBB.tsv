@@ -1,0 +1,153 @@
+# This is the template file for creating symbols with tragesym
+# every line starting with '#' is a comment line.
+
+[options]
+# wordswap swaps labels if the pin is on the right side an looks like this:
+#   "PB1 (CLK)". That's useful for micro controller port labels
+# rotate_labels rotates the pintext of top and bottom pins
+#   this is useful for large symbols like FPGAs with more than 100 pins
+# sort_labels will sort the pins by it's labels
+#   useful for address ports, busses, ...
+wordswap=no
+rotate_labels=no
+sort_labels=no
+generate_pinseq=yes
+sym_width=8000
+pinwidthvertical=600
+pinwidthhorizontal=800
+
+[geda_attr]
+# name will be printed in the top of the symbol
+# name is only some graphical text, not an attribute
+# version specifies a gschem version.
+# if you have a device with slots, you'll have to use slot= and slotdef=
+# use comment= if there are special information you want to add
+version=20060113 1
+name=BBB
+device=BBB
+refdes=U?
+footprint=BBB
+description=
+documentation=
+author=
+dist-license=
+use-license=
+numslots=0
+#slot=1
+#slotdef=1:
+#slotdef=2:
+#slotdef=3:
+#slotdef=4:
+#comment=
+#comment=
+#comment=
+
+[pins]
+# tabseparated list of pin descriptions
+# ----------------------------------------
+# pinnr is the physical number of the pin
+# seq is the pinseq= attribute, leave it blank if it doesn't matter
+# type can be (in, out, io, oc, oe, pas, tp, tri, clk, pwr)
+# style can be (line,dot,clk,dotclk,none). none if only want to add a net
+# posit. can be (l,r,t,b) or empty for nets
+# net specifies the name of the net. Vcc or GND for example.
+# label represents the pinlabel.
+#	negation lines can be added with "\_" example: \_enable\_ 
+#	if you want to write a "\" use "\\" as escape sequence
+#-----------------------------------------------------
+#pinnr	seq	type	style	posit.	net	label	
+#-----------------------------------------------------
+0		pwr	line	b		GND
+901		pwr	line	b		GND
+902		pwr	line	b		GND
+934		io	line	b		GNDA_ADC
+943		pwr	line	b		DGND
+944		pwr	line	b		DGND
+945		pwr	line	b		DGND
+946		pwr	line	b		DGND
+903		pwr	line	t		VDD_3V3
+904		pwr	line	t		VDD_3V3
+905		pwr	line	t		VDD_5V
+906		pwr	line	t		VDD_5V
+907		pwr	line	t		SYS_5V
+908		pwr	line	t		SYS_5V
+932		pwr	line	t		VDD_ADC
+909		pwr	line	l		PWR_BUT
+910		pwr	line	l		SYS_RESETn
+919		io	line	l		UART1_RTSn/I2C2_SCL/SPI1_CS1
+920		io	line	l		UART1_CTSn/I2C2_SDA/SPI1_CS0
+939		io	line	l		AIN0
+940		io	line	l		AIN1
+937		io	line	l		AIN2
+938		io	line	l		AIN3
+933		io	line	l		AIN4
+936		io	line	l		AIN5
+935		io	line	l		AIN6
+922		io	line	l		GPIO_2/EHRPWM0A/UART2_RXD/I2C2_SDA/SPI0_SCLK
+921		io	line	l		GPIO_3/EHRPWM0B/UART2_TXD/I2C2_SCL/SPI0_D0
+918		io	line	l		GPIO_4/I2C1_SDA/SPI0_D1
+917		io	line	l		GPIO_5/I2C1_SCL/SPI0_CS0
+942		io	line	l		GPIO_7/ECAPPWM0/UART3_TXD/SPI1_CS1/PRU0_4
+926		io	line	l		GPIO_14/UART1_RXD/I2C1_SDA/PRU1_16in
+924		io	line	l		GPIO_15/UART1_TXD/I2C1_SCL
+941		io	line	l		GPIO_20/PRU0_6
+911		io	line	l		GPIO_30/UART4_RXD
+913		io	line	l		GPIO_31/UART4_TXD
+915		io	line	l		GPIO_48
+923		io	line	l		GPIO_49
+914		io	line	l		GPIO_50/EHRPWM1A
+916		io	line	l		GPIO_51/EHRPWM1B
+912		io	line	l		GPIO_60
+931		io	line	l		GPIO_110/EHRPWM0A/SPI1_SCLK/PRU0_0
+929		io	line	l		GPIO_111/EHRPWM0B/SPI1_D0/PRU0_1
+930		io	line	l		GPIO_112/SPI1_D1/PRU0_2
+928		io	line	l		GPIO_113/ECAPPWM2/SPI1_CS0/PRU0_3
+927		io	line	l		GPIO_115/PRU0_5
+925		io	line	l		GPIO_117/PRU0_7
+
+801		pwr	line	b		GND
+802		pwr	line	b		GND
+835		io	line	r		GPIO_8/LCD_DATA12/UART4_CTSn
+833		io	line	r		GPIO_9/LCD_DATA13/UART4_RTSn
+831		io	line	r		GPIO_10/LCD_DATA14/UART5_CTSn+
+832		io	line	r		GPIO_11/LCD_DATA15/UART5_RTSn
+819		io	line	r		GPIO_22/EHRPWM2A
+813		io	line	r		GPIO_23/EHRPWM2B
+814		io	line	r		GPIO_26
+817		io	line	r		GPIO_27
+825		io	line	r		GPIO_32/MMC1_DAT0
+824		io	line	r		GPIO_33/MMC1_DAT1
+805		io	line	r		GPIO_34/MMC1_DAT2
+806		io	line	r		GPIO_35/MMC1_DAT3
+823		io	line	r		GPIO_36/MMC1_DAT4
+822		io	line	r		GPIO_37/MMC1_DAT5
+803		io	line	r		GPIO_38/MMC1_DAT6
+804		io	line	r		GPIO_39/MMC1_DAT7
+812		io	line	r		GPIO_44/PRU0_14out
+811		io	line	r		GPIO_45/PRU0_15out
+816		io	line	r		GPIO_46
+815		io	line	r		GPIO_47
+826		io	line	r		GPIO_61
+821		io	line	r		GPIO_62/MMC1_CLK/PRU1_12
+820		io	line	r		GPIO_63/MMC1_CMD/PRU1_13
+818		io	line	r		GPIO_65
+807		io	line	r		GPIO_66/TIMER4
+808		io	line	r		GPIO_67/TIMER7
+810		io	line	r		GPIO_68/TIMER6
+809		io	line	r		GPIO_69/TIMER5
+836		io	line	r		GPIO_80/LCD_DATA10/EHRPWM1A/UART3_CTSn
+834		io	line	r		GPIO_81/LCD_DATA11/EHRPWM1B/UART3_RTSn
+827		io	line	r		GPIO_86/LCD_VSYNC/PRU1_8
+829		io	line	r		GPIO_87/LCD_HSYNC/PRU1_9
+828		io	line	r		GPIO_88/LCD_PCLK/PRU1_10
+830		io	line	r		GPIO_89/LCD_AC_BIAS/PRU1_11
+845		io	line	r		GPIO_70/LCD_DATA0/EHRPWM2A/PUR1_0
+846		io	line	r		GPIO_71/LCD_DATA1/EHRPWM2B/PUR1_1
+843		io	line	r		GPIO_72/LCD_DATA2/PUR1_2
+844		io	line	r		GPIO_73/LCD_DATA3/PUR1_3
+841		io	line	r		GPIO_74/LCD_DATA4/PRU1_4
+842		io	line	r		GPIO_75/LCD_DATA5/PUR1_5
+839		io	line	r		GPIO_76/LCD_DATA6/PRU1_6
+840		io	line	r		GPIO_77/LCD_DATA7/PRU1_7
+837		io	line	r		GPIO_78/LCD_DATA8/UART5_TXD+
+838		io	line	r		GPIO_79/LCD_DATA9/UART5_RXD+

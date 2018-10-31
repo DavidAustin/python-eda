@@ -1,0 +1,21 @@
+v 20150930 2
+V 200 200 200 3 10 1 0 -1 -1 0 -1 -1 -1 -1 -1
+V 200 200 100 3 10 1 0 -1 -1 3 10 45 40 -1 -1
+T 200 455 5 10 1 1 0 3 1
+refdes=FID?
+T 195 -455 8 10 0 0 0 5 1
+footprint=fiducial.fp
+T 195 -255 8 10 0 0 0 5 1
+description=Fiducial
+T 200 1355 5 10 0 0 0 3 1
+author=Edward Hennessy
+T 200 1155 5 10 0 0 0 3 1
+copyright=(C) 2014 Edward Hennessy
+T 200 955 5 10 0 0 0 3 1
+dist-license=GPL
+T 200 755 5 10 0 0 0 3 1
+use-license=Unlimited
+T 195 -655 8 10 0 0 0 5 1
+nobom=true
+T 195 -55 8 10 0 0 0 5 1
+device=FIDUCIAL
