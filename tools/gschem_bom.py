@@ -117,7 +117,7 @@ def process_end(matchobj):
 def parse_octopart(device):
   #print (("processing device=%s..........................................") % (device))
   device = urllib.parse.quote_plus(device)
-  response = urllib.request.urlopen('https://octopart.com/api/v3/parts/match?apikey=&queries=[{"mpn":"%s"}]' % (apikey, device))
+  response = urllib.request.urlopen('https://octopart.com/api/v3/parts/match?apikey=%s&queries=[{"mpn":"%s"}]' % (apikey, device))
   data = response.read()
   data = json.loads(data)
   #if "1N4148WTR" in device:
