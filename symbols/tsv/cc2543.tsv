@@ -1,0 +1,92 @@
+# This is the template file for creating symbols with tragesym
+# every line starting with '#' is a comment line.
+
+[options]
+# wordswap swaps labels if the pin is on the right side an looks like this:
+#   "PB1 (CLK)". That's useful for micro controller port labels
+# rotate_labels rotates the pintext of top and bottom pins
+#   this is useful for large symbols like FPGAs with more than 100 pins
+# sort_labels will sort the pins by it's labels
+#   useful for address ports, busses, ...
+wordswap=no
+rotate_labels=no
+sort_labels=no
+generate_pinseq=no
+sym_width=4000
+pinwidthvertical=400
+pinwidthhorizontal=400
+
+[geda_attr]
+# name will be printed in the top of the symbol
+# name is only some graphical text, not an attribute
+# version specifies a gschem version.
+# if you have a device with slots, you'll have to use slot= and slotdef=
+# use comment= if there are special information you want to add
+version=20060113 1
+name=CC2543
+device=CC2543
+refdes=U?
+footprint=QFN32_PAD
+description=
+documentation=
+author=
+dist-license=
+use-license=
+numslots=0
+#slot=1
+#slotdef=1:
+#slotdef=2:
+#slotdef=3:
+#slotdef=4:
+#comment=
+#comment=
+#comment=
+
+[pins]
+# tabseparated list of pin descriptions
+# ----------------------------------------
+# pinnr is the physical number of the pin
+# seq is the pinseq= attribute, leave it blank if it doesn't matter
+# type can be (in, out, io, oc, oe, pas, tp, tri, clk, pwr)
+# style can be (line,dot,clk,dotclk,spacer,none). none if only want to add a net
+# posit. can be (l,r,t,b) or empty for nets.
+# net specifies the name of the net. Vcc or GND for example.
+# label represents the pinlabel.
+#	negation lines can be added with "\_" example: \_enable\_ 
+#	if you want to write a "\" use "\\" as escape sequence
+#-----------------------------------------------------
+#pinnr	seq	type	style	posit.	net	label	
+#-----------------------------------------------------
+11	1	io	line	r		P0_0
+10	2	io	line	r		P0_1
+9	3	io	line	r		P0_2
+8	4	io	line	r		P0_3
+7	5	io	line	r		P0_4
+6	6	io	line	r		P0_5
+5	7	io	line	r		P0_6
+4	8	io	line	r		P0_7
+28	9	io	line	r		P1_0
+27	10	io	line	r		P1_1
+26	11	io	line	r		P1_2
+1	12	io	line	r		P1_3
+32	13	io	line	r		P1_4
+3	14	io	line	r		P2_0
+2	15	io	line	r		P2_1/DD
+14	16	io	line	r		P2_2/DC
+12	17	pwr	line	t		VDD
+15	18	pwr	line	t		VDD
+18	19	pwr	line	t		VDD
+23	20	pwr	line	t		VDD
+24	21	pwr	line	t		VDD
+29	22	pwr	line	t		VDD
+19	23	pwr	line	b		VSS
+22	24	pwr	line	b		VSS
+31	25	pwr	line	b		VSS
+0	26	pwr	line	b		VSS
+20	27	pas	line	l		RF_P
+21	28	pas	line	l		RF_N
+13	29	in	line	l		RESET_N
+16	30	pas	line	l		XOSC_Q1
+17	31	pas	line	l		XOSC_Q2
+25	32	pas	line	l		RBIAS
+30	33	pas	line	l		DCPL1
