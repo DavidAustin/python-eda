@@ -3,5 +3,5 @@ Usage:
 * tsv/ used tor manually created .tsv files
 
 Build:
-1) Run ./build.sh
+1) Run python build.py
 2) Add python-eda/symbols/build/ path to geda gafrc file
