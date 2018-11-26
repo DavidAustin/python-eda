@@ -1,5 +1,5 @@
 # Python-EDA
-# Copyright (C) 2018 Luke Cole
+# Copyright (C) 2018 Luke Cole (ported), David Austin (original author)
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -14,28 +14,33 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-import os
-import shutil
+import math
+from footprintgen import *
 
-build_dir='build'
-pyfp_dir='.'
+g = FootprintGen('SOT23_6')
 
-try:
-    shutil.rmtree(build_dir)
-except:
-    pass
+p = 0.95
+w = 0.6
+h = 1.2
+py = 2.9
 
-os.mkdir(build_dir)
+x = 0.0
+y = 0.0
+for i in range(1,4):
+    g.rect_padat(x, y, w, h, '%d' % i)
+    x += p
 
-f = []
-for (dirpath, dirname, filenames) in os.walk(pyfp_dir):
-    for f in filenames:
-        if "mk_" in f:
-            pyfp_file = os.path.join(pyfp_dir, f)
-            cmd = "python %s" % (pyfp_file)
-            print (cmd)
-            os.system(cmd)
+x = 2 * p
+y = -py
+for i in range(4,7):
+    g.rect_padat(x, y, w, h, '%d' % i)
+    x -= p
 
-cmd = "mv *.fp %s" % (build_dir)
-print (cmd)
-os.system(cmd)
+ox1 = p - 3.0/2
+oy1 = -0.7
+ox2 = ox1 + 3.0
+oy2 = -py + 0.7
+
+g.outlinerect(ox1, oy1, ox2, oy2)
+
+g.write()
