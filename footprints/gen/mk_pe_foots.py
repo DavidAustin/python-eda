@@ -48,7 +48,7 @@ for k in data.keys():
     
     a, b, c, d = data[k]
 
-    g = FootprintGen('my%s' % k)
+    g = FootprintGen('pei%s' % k)
 
     g.rect_padat(0, 0, c, d, '1')
     

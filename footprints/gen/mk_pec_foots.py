@@ -30,7 +30,7 @@ values = {
 
 for n in values.keys():
     
-    g = FootprintGen('mc%s' % n)
+    g = FootprintGen('peci%s' % n)
 
     v = values[n]
     g.rect_padat(0, 0, v['c'], v['d'], '1')
