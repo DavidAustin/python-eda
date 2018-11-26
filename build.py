@@ -38,7 +38,7 @@ os.mkdir(output_dir_symbols)
 sym_dir_full = os.path.join(symbols_dir, sym_dir)
 
 sym_files = os.listdir(sym_dir_full)
-         
+
 for f in sym_files:
     sym_file = os.path.join(sym_dir_full, f)
     if (os.path.isfile(sym_file)):
@@ -46,7 +46,7 @@ for f in sym_files:
         shutil.copy(sym_file, output_dir_symbols)
 
 tsv_dir_full = os.path.join(symbols_dir, tsv_dir)
-        
+
 f = []
 for (dirpath, dirname, filenames) in os.walk(tsv_dir_full):
     for f in filenames:
@@ -71,18 +71,28 @@ except:
 
 os.mkdir(output_dir_footprints)
 
-fp_dir_full = os.path.join(footprints_dir, fp_gen_dir)
+fp_dir_full = os.path.join(footprints_dir, fp_dir)
+
+fp_files = os.listdir(fp_dir_full)
+
+for f in fp_files:
+    fp_file = os.path.join(fp_dir_full, f)
+    if (os.path.isfile(fp_file)):
+        print ("mv %s %s" % (fp_file, output_dir_footprints))
+        shutil.copy(fp_file, output_dir_footprints)
+
+fp_gen_full = os.path.join(footprints_dir, fp_gen_dir)
 
 f = []
-for (dirpath, dirname, filenames) in os.walk(fp_dir_full):
+for (dirpath, dirname, filenames) in os.walk(fp_gen_full):
     for f in filenames:
         if "mk_" in f:
-            fp_gen_file = os.path.join(fp_dir_full, f)
+            fp_gen_file = os.path.join(fp_gen_full, f)
             if (os.path.isfile(fp_gen_file)):
                 cmd = "python %s" % (fp_gen_file)
                 print (cmd)
                 os.system(cmd)
 
-                cmd = "mv *.fp %s" % (output_dir_footprints)
-                print (cmd)
-                os.system(cmd) # TODO: make multi-platform
+cmd = "mv *.fp %s" % (output_dir_footprints)
+print (cmd)
+os.system(cmd) # TODO: make multi-platform
