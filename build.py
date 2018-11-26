@@ -42,7 +42,7 @@ sym_files = os.listdir(sym_dir_full)
 for f in sym_files:
     sym_file = os.path.join(sym_dir_full, f)
     if (os.path.isfile(sym_file)):
-        print ("cp %s %s" % (sym_file, output_dir_symbols))
+        print ("mv %s %s" % (sym_file, output_dir_symbols))
         shutil.copy(sym_file, output_dir_symbols)
 
 tsv_dir_full = os.path.join(symbols_dir, tsv_dir)
@@ -59,3 +59,30 @@ for (dirpath, dirname, filenames) in os.walk(tsv_dir_full):
             print (cmd)
             os.system(cmd)
     break
+
+footprints_dir = 'footprints'
+fp_gen_dir = 'gen'
+fp_dir = 'fp'
+
+try:
+    shutil.rmtree(output_dir_footprints)
+except:
+    pass
+
+os.mkdir(output_dir_footprints)
+
+fp_dir_full = os.path.join(footprints_dir, fp_gen_dir)
+
+f = []
+for (dirpath, dirname, filenames) in os.walk(fp_dir_full):
+    for f in filenames:
+        if "mk_" in f:
+            fp_gen_file = os.path.join(fp_dir_full, f)
+            if (os.path.isfile(fp_gen_file)):
+                cmd = "python %s" % (fp_gen_file)
+                print (cmd)
+                os.system(cmd)
+
+                cmd = "mv *.fp %s" % (output_dir_footprints)
+                print (cmd)
+                os.system(cmd) # TODO: make multi-platform
