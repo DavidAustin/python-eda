@@ -20,6 +20,7 @@ import shutil
 
 if len(sys.argv) < 2:
     print ("Usage: %s output_dir_symbols output_dir_footprints\n")
+    exit()
 
 output_dir_symbols = sys.argv[1]
 output_dir_footprints = sys.argv[2]
