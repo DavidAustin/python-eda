@@ -27,14 +27,15 @@ def make_connector(n_pins, part_w, part_h):
     pad_w = 0.8
     pad_h = 1.5
     
-    x = px * (n_pins / 2 - 1)
+    x = 0
     for i in range(1, n_pins / 2 + 1):
         g.rect_padat(x, 0, pad_w, pad_h, i)
-        x -= px
+        x += px
 
+    j = i
     x = px * (n_pins / 2 - 1)
     for i in range(1, n_pins / 2 + 1):
-        g.rect_padat(x, py, pad_w, pad_h, i)
+        g.rect_padat(x, py, pad_w, pad_h, j + i)
         x -= px
 
     ox1 = (part_h - px * (n_pins / 2 - 1)) / 2
