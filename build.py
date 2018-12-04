@@ -18,7 +18,7 @@ import sys
 import os
 import shutil
 
-if len(sys.argv) < 2:
+if len(sys.argv) < 3:
     print ("Usage: %s output_dir_symbols output_dir_footprints\n")
     exit()
 
