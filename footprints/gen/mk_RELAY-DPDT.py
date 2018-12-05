@@ -31,9 +31,9 @@ g.pinat(20.3, 0.0, d_hole, d_ann, "3")
 g.pinat(20.3 - 5.04, 0.0, d_hole, d_ann, "4")
 g.pinat(20.3 + 5.04, 0.0, d_hole, d_ann, "5")
 
-g.pinat(20.3, py, d_hole, d_ann, "3")
-g.pinat(20.3 - 5.04, py, d_hole, d_ann, "4")
-g.pinat(20.3 + 5.04, py, d_hole, d_ann, "5")
+g.pinat(20.3, py, d_hole, d_ann, "6")
+g.pinat(20.3 - 5.04, py, d_hole, d_ann, "7")
+g.pinat(20.3 + 5.04, py, d_hole, d_ann, "8")
 
 part_w = 12.7
 part_l = 29
