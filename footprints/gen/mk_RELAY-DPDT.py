@@ -17,31 +17,33 @@
 import math
 from footprintgen import *
 
-g = FootprintGen('SSOP4')
+g = FootprintGen('RELAY-DPDT')
 
-part_w = 4.4
-part_h = 2.7
+d_hole = 1.3
+d_ann = 2.5
 
-pin_count_side = 2
+py = 7.5
 
-w = 1.5
-h = 0.6
-px = 6.35
-py = 1.27
+g.pinat(0.0, 0.0, d_hole, d_ann, "1")
+g.pinat(0.0, py, d_hole, d_ann, "2")
 
-g.rect_padat(0.0, 0.0, w, h, "1")
-g.rect_padat(0.0, py, w, h, "2")
-g.rect_padat(px, py, w, h, "3")
-g.rect_padat(px, 0.0, w, h, "4")
+g.pinat(20.3, 0.0, d_hole, d_ann, "3")
+g.pinat(20.3 - 5.04, 0.0, d_hole, d_ann, "4")
+g.pinat(20.3 + 5.04, 0.0, d_hole, d_ann, "5")
 
-ox1 = (part_w - px) / 2
-oy1 = (part_h - py * (pin_count_side - 1)) / 2
+g.pinat(20.3, py, d_hole, d_ann, "3")
+g.pinat(20.3 - 5.04, py, d_hole, d_ann, "4")
+g.pinat(20.3 + 5.04, py, d_hole, d_ann, "5")
 
-ox2 = part_w - ox1
-oy2 = part_h - oy1
+part_w = 12.7
+part_l = 29
+
+ox1 = 22.65 - 20.3
+oy1 = (part_w - py) / 2
+
+ox2 = part_l - ox1
+oy2 = part_w - oy1
 
 g.outlinerect(-ox1, -oy1, ox2, oy2)
-
-g.outlinecirc(-ox1 + 0.3, -oy1 + 0.3, 0.05, 0.2)
 
 g.write()
