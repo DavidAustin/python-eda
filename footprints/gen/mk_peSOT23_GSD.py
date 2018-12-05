@@ -23,9 +23,9 @@ dx = (1.341 + 2.459) / 2.0
 dy = (1.245 + 2.692) / 2.0
 px = 1.0
 py = 1.2
-g.padat(0, 0, px, py, "G")
-g.padat(dx, 0, px, py, "S")
-g.padat(dx / 2.0, -dy, px, py, "D")
+g.rect_padat(0, 0, px, py, "G")
+g.rect_padat(dx, 0, px, py, "S")
+g.rect_padat(dx / 2.0, -dy, px, py, "D")
 
 oo = 0.07
 #g.outlinerect(-px/2, -py/2 - oo, dx + px/2, -dy + py/2 + oo)
