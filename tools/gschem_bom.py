@@ -22,7 +22,7 @@ import urllib.parse
 import json
 import pprint
 
-if len(sys.argv) < 2:
+if len(sys.argv) < 3:
   print ("Usage: %s octopart_apikey geda_circuit_schematic.sch" % (sys.argv[0]))
   exit()
 
