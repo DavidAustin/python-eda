@@ -148,7 +148,7 @@ def parse_octopart(device):
   data = json.loads(data)
 
   if debug:
-    if "1N4148WTR" in device: # change to suit target part to debug
+    if "RT424012" in device: # change to suit target part to debug
       pp = pprint.PrettyPrinter(indent=1)
       pp.pprint(data)
 
