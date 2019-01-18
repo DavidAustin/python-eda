@@ -1,0 +1,104 @@
+# This is the template file for creating symbols with tragesym
+# every line starting with '#' is a comment line.
+
+[options]
+# wordswap swaps labels if the pin is on the right side an looks like this:
+#   "PB1 (CLK)". That's useful for micro controller port labels
+# rotate_labels rotates the pintext of top and bottom pins
+#   this is useful for large symbols like FPGAs with more than 100 pins
+# sort_labels will sort the pins by it's labels
+#   useful for address ports, busses, ...
+wordswap=yes
+rotate_labels=no
+sort_labels=no
+generate_pinseq=yes
+sym_width=6000
+pinwidthvertical=400
+pinwidthhorizontal=1000
+
+[geda_attr]
+# name will be printed in the top of the symbol
+# name is only some graphical text, not an attribute
+# version specifies a gschem version.
+# if you have a device with slots, you'll have to use slot= and slotdef=
+# use comment= if there are special information you want to add
+version=20060113 1
+name=BL652
+device=BL652
+refdes=U?
+footprint=BL653_CRENNELATED
+description=
+documentation=
+author=
+dist-license=
+use-license=
+numslots=0
+#slot=1
+#slotdef=1:
+#slotdef=2:
+#slotdef=3:
+#slotdef=4:
+#comment=
+#comment=
+#comment=
+
+[pins]
+# tabseparated list of pin descriptions
+# ----------------------------------------
+# pinnr is the physical number of the pin
+# seq is the pinseq= attribute, leave it blank if it doesn't matter
+# type can be (in, out, io, oc, oe, pas, tp, tri, clk, pwr)
+# style can be (line,dot,clk,dotclk,spacer,none). none if only want to add a net
+# posit. can be (l,r,t,b) or empty for nets.
+# net specifies the name of the net. Vcc or GND for example.
+# label represents the pinlabel.
+#	negation lines can be added with "\_" example: \_enable\_ 
+#	if you want to write a "\" use "\\" as escape sequence
+#-----------------------------------------------------
+#pinnr	seq	type	style	posit.	net	label	
+#-----------------------------------------------------
+26		pwr	line	t		VDD_nRF
+7		in	line	l		nRESET
+5		io	line	l		SWDIO
+6		io	line	l		SWDCLK
+
+25		io	line	r		SIO0
+24		io	line	r		SIO1
+23		io	line	r		SIO2/AIN0
+22		io	line	r		SIO3/AIN1
+21		io	line	r		SIO4/AIN2
+20		io	line	r		SIO5/AIN3
+19		io	line	r		SIO6/UART_TX
+18		io	line	r		SIO7/UART_CTS
+17		io	line	r		SIO8/UART_RX
+15		io	line	r		SIO9
+14		io	line	r		SIO10
+13		io	line	r		SIO11
+12		io	line	r		SIO12
+28		io	line	r		SIO13/nAUTORUN
+11		io	line	r		SIO14
+29		io	line	r		SIO15
+10		io	line	r		SIO16
+30		io	line	r		SIO17
+9		io	line	r		SIO18
+31		io	line	r		SIO19
+8		io	line	r		SIO20
+4		io	line	r		SIO22
+3		io	line	r		SIO23
+2		io	line	r		SIO24
+38		io	line	r		SID25
+37		io	line	r		SIO26
+36		io	line	r		SIO27
+35		io	line	r		SIO28/AIN4
+34		io	line	r		SIO29/AIN5
+33		io	line	r		SIO30/AIN6
+32		io	line	r		SIO31/AIN7
+
+1		pwr	line	b		GND
+16		pwr	line	b		GND
+27		pwr	line	b		GND
+39		pwr	line	b		GND
+
+
+
+
