@@ -17,7 +17,7 @@
 import math
 from footprintgen import *
 
-g = FootprintGen('RB-220-07A')
+g = FootprintGen('RB-220-07AR')
 
 pad_w = 1
 pad_h = 0.8
