@@ -17,34 +17,25 @@
 import math
 from footprintgen import *
 
-g = FootprintGen('LEDRGB_PLCC6')
-
-#For this LED - 4, 5, 6 is anode/positive
+g = FootprintGen('RB-220-07A')
 
 pad_w = 1
 pad_h = 0.8
 
-pad_gap_x = 2.75 # between centers
-pad_gap_y = 1 # between centers
+hole = 0.9
+ann = 1.5
 
-g.rect_padat(0, 0, pad_w, pad_h, '1')
-g.rect_padat(0, pad_gap_y, pad_w, pad_h, '2')
-g.rect_padat(0, pad_gap_y * 2, pad_w, pad_h, '3')
+g.viaat(0, 0, hole, ann, '1')
+g.viaat(1.6, -1.75, hole, ann, '2')
 
-g.rect_padat(pad_gap_x, 0, pad_w, pad_h, '1')
-g.rect_padat(pad_gap_x, pad_gap_y, pad_w, pad_h, '2')
-g.rect_padat(pad_gap_x, pad_gap_y * 2, pad_w, pad_h, '3')
+part_w = 6.5
+part_h = 4
 
-part_w = 3.4
-part_h = 3.4
-
-ox1 = (part_w - pad_gap_x) / 2
-oy1 = (part_h - pad_gap_y * 2) / 2
-ox2 = pad_gap_x + ox1
-oy2 = pad_gap_y * 2 + oy1
+ox1 = part_w / 2
+oy1 = part_h / 2 + 1.75 / 2
+ox2 = part_w / 2
+oy2 = part_h / 2 - 1.75 / 2
 
 g.outlinerect(-ox1, -oy1, ox2, oy2)
-
-g.outlinecirc(-0.5, -0.5, 0.05)
 
 g.write()
