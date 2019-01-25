@@ -12,7 +12,7 @@ wordswap=no
 rotate_labels=no
 sort_labels=no
 generate_pinseq=yes
-sym_width=2300
+sym_width=4500
 pinwidthvertical=600
 pinwidthhorizontal=600
 
@@ -23,10 +23,10 @@ pinwidthhorizontal=600
 # if you have a device with slots, you'll have to use slot= and slotdef=
 # use comment= if there are special information you want to add
 version=20060113 1
-name=RB-220-07AR
-device=RB-220-07AR
-refdes=S?
-footprint=RB-220-07AR
+name=MSP430F412IPM
+device=MSP430F412IPM
+refdes=U?
+footprint=LQFP64
 description=
 documentation=
 author=
@@ -48,8 +48,8 @@ numslots=0
 # pinnr is the physical number of the pin
 # seq is the pinseq= attribute, leave it blank if it doesn't matter
 # type can be (in, out, io, oc, oe, pas, tp, tri, clk, pwr)
-# style can be (line,dot,clk,dotclk,spacer,none). none if only want to add a net
-# posit. can be (l,r,t,b) or empty for nets.
+# style can be (line,dot,clk,dotclk,none). none if only want to add a net
+# posit. can be (l,r,t,b) or empty for nets
 # net specifies the name of the net. Vcc or GND for example.
 # label represents the pinlabel.
 #	negation lines can be added with "\_" example: \_enable\_ 
@@ -57,5 +57,67 @@ numslots=0
 #-----------------------------------------------------
 #pinnr	seq	type	style	posit.	net	label	
 #-----------------------------------------------------
-1		io	line	t		1
-2		io	line	b		2
+1		pwr	line	t		DVCC
+64		pwr	line	t		AVCC
+63		pwr	line	b		DVSS
+62		pwr	line	b		AVSS1
+10		pwr	line	b		AVSS2
+54		io	line	l		TDO/TDI
+55		i	line	l		TDI/TCLK
+56		io	line	l		TMS
+57		io	line	l		TCK
+58		io	line	l		\_RST\_/NMI
+36		io	line	l		COM0
+40		io	line	l		R03
+8		io	line	l		XIN
+9		io	line	l		XOUT
+7		io	line	l		NC
+11		io	line	l		NC
+53		io	line	r		P1.0
+52		io	line	r		P1.1
+51		io	line	r		P1.2
+50		io	line	r		P1.3
+49		io	line	r		P1.4
+48		io	line	r		P1.5
+47		io	line	r		P1.6
+46		io	line	r		P1.7
+45		io	line	r		P2.0
+44		io	line	r		P2.1
+35		io	line	r		P2.2
+34		io	line	r		P2.3
+33		io	line	r		P2.4
+32		io	line	r		P2.5
+31		io	line	r		P2.6
+30		io	line	r		P2.7
+29		io	line	r		P3.0
+28		io	line	r		P3.1
+27		io	line	r		P3.2
+26		io	line	r		P3.3
+25		io	line	r		P3.4
+24		io	line	r		P3.5
+23		io	line	r		P3.6
+22		io	line	r		P3.7
+21		io	line	r		P4.0
+20		io	line	r		P4.1
+19		io	line	r		P4.2
+18		io	line	r		P4.3
+17		io	line	r		P4.4
+16		io	line	r		P4.5
+15		io	line	r		P4.6
+14		io	line	r		P4.7
+13		io	line	r		P5.0
+12		io	line	r		P5.1
+37		io	line	r		P5.2
+38		io	line	r		P5.3
+39		io	line	r		P5.4
+41		io	line	r		P5.5
+42		io	line	r		P5.6
+43		io	line	r		P5.7
+59		io	line	r		P6.0
+60		io	line	r		P6.1
+61		io	line	r		P6.2
+2		io	line	r		P6.3
+3		io	line	r		P6.4
+4		io	line	r		P6.5
+5		io	line	r		P6.6
+6		io	line	r		P6.7

@@ -57,10 +57,12 @@ part = {
 
 total_unit_cost_1 = 0.0
 total_unit_cost_100 = 0.0
+total_unit_cost_500 = 0.0
 total_unit_cost_1000 = 0.0
 
 total_missing_part_price_1 = 0
 total_missing_part_price_100 = 0
+total_missing_part_price_500 = 0
 total_missing_part_price_1000 = 0
 
 print (",".join(part.keys()))
@@ -95,9 +97,11 @@ def process_refdes(matchobj):
 def process_end(matchobj):
   global total_unit_cost_1
   global total_unit_cost_100
+  global total_unit_cost_500
   global total_unit_cost_1000
   global total_missing_part_price_1
   global total_missing_part_price_100
+  global total_missing_part_price_500
   global total_missing_part_price_1000
 
   if debug:
@@ -113,9 +117,9 @@ def process_end(matchobj):
     print_out = False
     
   if "RESISTOR" in part['device']:
-    part['device'] = part['device'] + " " + part['value'] + " " + part['footprint'].replace("my", "")
+    part['device'] = part['device'] + " " + part['value'] + " " + part['footprint'].replace("pei", "")
   if "CAPACITOR" in part['device']:
-    part['device'] = part['device'] + " " + part['value'] + " " + part['footprint'].replace("my", "")
+    part['device'] = part['device'] + " " + part['value'] + " " + part['footprint'].replace("pei", "")
 
   if print_out:
     parse_octopart(part['device'])
@@ -130,6 +134,11 @@ def process_end(matchobj):
     else:
       total_missing_part_price_100 += 1
 
+    if part['unit_cost_500']:
+      total_unit_cost_500 += float(part['unit_cost_500'])
+    else:
+      total_missing_part_price_500 += 1
+      
     if part['unit_cost_1000']:
       total_unit_cost_1000 += float(part['unit_cost_1000'])
     else:
@@ -148,7 +157,7 @@ def parse_octopart(device):
   data = json.loads(data)
 
   if debug:
-    if "1N4148WTR" in device: # change to suit target part to debug
+    if "RT424012" in device: # change to suit target part to debug
       pp = pprint.PrettyPrinter(indent=1)
       pp.pprint(data)
 
@@ -236,4 +245,5 @@ for l in lines.splitlines():
 
 print ("Total (1x): $%f (%d part prices missing)" % (total_unit_cost_1, total_missing_part_price_1))
 print ("Total (100x): $%f (%d part prices missing)" % (total_unit_cost_100, total_missing_part_price_100))
+print ("Total (500x): $%f (%d part prices missing)" % (total_unit_cost_500, total_missing_part_price_500))
 print ("Total (1000x): $%f (%d part prices missing)" % (total_unit_cost_1000, total_missing_part_price_1000))

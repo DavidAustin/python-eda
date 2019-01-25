@@ -12,9 +12,9 @@ wordswap=no
 rotate_labels=no
 sort_labels=no
 generate_pinseq=yes
-sym_width=2300
-pinwidthvertical=600
-pinwidthhorizontal=600
+sym_width=1500
+pinwidthvertical=400
+pinwidthhorizontal=800
 
 [geda_attr]
 # name will be printed in the top of the symbol
@@ -23,10 +23,10 @@ pinwidthhorizontal=600
 # if you have a device with slots, you'll have to use slot= and slotdef=
 # use comment= if there are special information you want to add
 version=20060113 1
-name=RB-220-07AR
-device=RB-220-07AR
-refdes=S?
-footprint=RB-220-07AR
+name=MTCH101
+device=MTCH101
+refdes=U?
+footprint=SOT23_6
 description=
 documentation=
 author=
@@ -57,5 +57,9 @@ numslots=0
 #-----------------------------------------------------
 #pinnr	seq	type	style	posit.	net	label	
 #-----------------------------------------------------
-1		io	line	t		1
-2		io	line	b		2
+1		io	line	l		MTI
+2		pwr	line	t		VSS
+3		io	line	l		MTSA
+4		io	line	l		MTO
+5		pwr	line	b		VDD
+6		io	line	l		MTPM
