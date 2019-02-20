@@ -31,9 +31,9 @@ g.rect_padat(0, 0, pad_w, pad_h, '1')
 g.rect_padat(0, pad_gap_y, pad_w, pad_h, '2')
 g.rect_padat(0, pad_gap_y * 2, pad_w, pad_h, '3')
 
-g.rect_padat(pad_gap_x, 0, pad_w, pad_h, '1')
-g.rect_padat(pad_gap_x, pad_gap_y, pad_w, pad_h, '2')
-g.rect_padat(pad_gap_x, pad_gap_y * 2, pad_w, pad_h, '3')
+g.rect_padat(pad_gap_x, pad_gap_y * 2, pad_w, pad_h, '4')
+g.rect_padat(pad_gap_x, pad_gap_y, pad_w, pad_h, '5')
+g.rect_padat(pad_gap_x, 0, pad_w, pad_h, '6')
 
 part_w = 3.4
 part_h = 3.4
