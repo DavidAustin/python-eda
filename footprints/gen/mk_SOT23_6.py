@@ -43,4 +43,6 @@ oy2 = -py + 0.7
 
 g.outlinerect(ox1, oy1, ox2, oy2)
 
+g.outlinecirc(ox1 + 0.3, oy1 - 0.3, 0.05, 0.2)
+
 g.write()
