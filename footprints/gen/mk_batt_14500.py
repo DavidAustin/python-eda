@@ -23,7 +23,7 @@ h = 50
 pad_w = 4
 pad_h = 6
 
-g = FootprintGen('batt-14500_outside-top')
+g = FootprintGen('batt-14500-outside_topside_tab')
 
 g.rect_padat(0, 0, pad_w, pad_h, '1')
 g.rect_padat(h + pad_w, 0, pad_w, pad_h, '2')
@@ -38,7 +38,7 @@ g.outlinerect(ox1, oy1, ox2, oy2)
 
 g.write()
 
-g = FootprintGen('batt-14500_outside-bottom')
+g = FootprintGen('batt-14500-outside_bottomside_tab')
 
 g.rect_padat(0, 0, pad_w, pad_h, '1', {'onsolder' : 2})
 g.rect_padat(h + pad_w, 0, pad_w, pad_h, '2', {'onsolder' : 2})
@@ -53,7 +53,7 @@ g.outlinerect(ox1, oy1, ox2, oy2)
 
 g.write()
 
-g = FootprintGen('batt-14500_inside-bottom')
+g = FootprintGen('batt-14500-inside_bottomside_tab')
 
 g.rect_padat(0, 0, pad_w, pad_h, '1', {'onsolder' : 2})
 g.rect_padat(h - pad_w, 0, pad_w, pad_h, '2', {'onsolder' : 2})
