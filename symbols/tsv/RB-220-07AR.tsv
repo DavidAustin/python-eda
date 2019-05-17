@@ -23,8 +23,8 @@ pinwidthhorizontal=600
 # if you have a device with slots, you'll have to use slot= and slotdef=
 # use comment= if there are special information you want to add
 version=20060113 1
-name=RB-220-07AR
-device=RB-220-07AR
+name=RB-220-07A R
+device=RB-220-07A R
 refdes=S?
 footprint=RB-220-07AR
 description=
