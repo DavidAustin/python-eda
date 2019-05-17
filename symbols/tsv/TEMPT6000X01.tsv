@@ -26,7 +26,7 @@ version=20060113 1
 name=TEMPT6000X01
 device=TEMPT6000X01
 refdes=D?
-footprint=my1206
+footprint=1206_3
 description=
 documentation=
 author=
@@ -58,5 +58,5 @@ numslots=0
 #pinnr	seq	type	style	posit.	net	label	
 #-----------------------------------------------------
 1		io	line	t		Collector
-2		io	line	b		NC
+2		io	line	b		Emitter
 3		io	line	b		Emitter
