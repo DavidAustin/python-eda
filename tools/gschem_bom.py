@@ -157,7 +157,7 @@ def parse_octopart(device):
   data = json.loads(data)
 
   if debug:
-    if "RT424012" in device: # change to suit target part to debug
+    if "MTCH101-I/OT" in device: # change to suit target part to debug
       pp = pprint.PrettyPrinter(indent=1)
       pp.pprint(data)
 
@@ -199,8 +199,11 @@ def parse_octopart(device):
       unit_cost_500 = ''
       unit_cost_1000 = ''
       has_prices = False
+
+      if debug:
+        print (packaging)
       
-      if packaging == "Cut Tape" or packaging == "Tray" or packaging == "Tube":
+      if packaging == "Cut Tape" or packaging == "Tray" or packaging == "Tube" or packaging == "Bulk" or packaging == "Bag":
         try:
           unit_cost_1 = data["results"][0]["items"][item_idx]['offers'][offer_idx]['prices']['USD'][0][1]
         except:
