@@ -18,12 +18,9 @@
 import math
 from footprintgen import *
 
-def make_connector(n_pins, part_w, part_h):
-    g = FootprintGen('SOIC-%d-N' % n_pins)
+def make_connector(n_pins, part_w, part_h, px, py):
+    g = FootprintGen('SOIC-%d-%.2fx%.2f-%.2fx%.2f' % (n_pins, part_w, part_h, px, py))
 
-    px = 1.27
-    py = 6.25
-    
     pad_w = 0.8
     pad_h = 1.5
     
@@ -50,6 +47,7 @@ def make_connector(n_pins, part_w, part_h):
 
     g.write()
 
-make_connector(8, 3.9, 4.9) # based on https://en.wikipedia.org/wiki/Small_Outline_Integrated_Circuit#Narrow_SOIC_(JEDEC)
-make_connector(14, 3.9, 8.65) # based on https://en.wikipedia.org/wiki/Small_Outline_Integrated_Circuit#Narrow_SOIC_(JEDEC)
-make_connector(16, 4.4, 10.28) # based on http://optoelectronics.liteon.com/upload/download/DS70-2009-0014/LTV-2X7%20sereis%20Mar17.PDF
+make_connector(8, 3.9, 4.9, 1.27, 6.25) # based on https://en.wikipedia.org/wiki/Small_Outline_Integrated_Circuit#Narrow_SOIC_(JEDEC)
+make_connector(14, 3.9, 8.65, 1.27, 6.25) # based on https://en.wikipedia.org/wiki/Small_Outline_Integrated_Circuit#Narrow_SOIC_(JEDEC)
+make_connector(16, 4.4, 10.28, 1.27, 6.25) # based on http://optoelectronics.liteon.com/upload/download/DS70-2009-0014/LTV-2X7%20sereis%20Mar17.PDF
+make_connector(16, 7.5, 12.8, 1.27, 8.9) # based on http://optoelectronics.liteon.com/upload/download/DS70-2009-0014/LTV-2X7%20sereis%20Mar17.PDF
