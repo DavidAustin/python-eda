@@ -50,4 +50,4 @@ def make_connector(n_pins, part_w, part_h, px, py):
 make_connector(8, 3.9, 4.9, 1.27, 6.25) # based on https://en.wikipedia.org/wiki/Small_Outline_Integrated_Circuit#Narrow_SOIC_(JEDEC)
 make_connector(14, 3.9, 8.65, 1.27, 6.25) # based on https://en.wikipedia.org/wiki/Small_Outline_Integrated_Circuit#Narrow_SOIC_(JEDEC)
 make_connector(16, 4.4, 10.28, 1.27, 6.25) # based on http://optoelectronics.liteon.com/upload/download/DS70-2009-0014/LTV-2X7%20sereis%20Mar17.PDF
-make_connector(16, 7.5, 12.8, 1.27, 8.9) # based on http://optoelectronics.liteon.com/upload/download/DS70-2009-0014/LTV-2X7%20sereis%20Mar17.PDF
+make_connector(16, 7.5, 12.8, 1.27, 8.9) # based on https://www.analog.com/media/en/technical-documentation/data-sheets/ADuM6020-6028.pdf
