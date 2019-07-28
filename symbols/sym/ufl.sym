@@ -36,7 +36,7 @@ T 400 0 5 10 0 0 180 0 1
 pinseq=1
 }
 T 0 795 8 10 1 1 0 0 1
-device=U.FL
+device=U.FL-R-SMT-1(40)
 T 0 -5 8 10 0 1 0 0 1
 numslots=1
 T 500 795 8 10 1 1 0 0 1
