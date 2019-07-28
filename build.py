@@ -41,10 +41,11 @@ sym_dir_full = os.path.join(symbols_dir, sym_dir)
 sym_files = os.listdir(sym_dir_full)
 
 for f in sym_files:
-    sym_file = os.path.join(sym_dir_full, f)
-    if (os.path.isfile(sym_file)):
-        print ("mv %s %s" % (sym_file, output_dir_symbols))
-        shutil.copy(sym_file, output_dir_symbols)
+    if ".tsv" in f:
+        sym_file = os.path.join(sym_dir_full, f)
+        if (os.path.isfile(sym_file)):
+            print ("mv %s %s" % (sym_file, output_dir_symbols))
+            shutil.copy(sym_file, output_dir_symbols)
 
 tsv_dir_full = os.path.join(symbols_dir, tsv_dir)
 
