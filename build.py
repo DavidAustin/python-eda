@@ -41,25 +41,25 @@ sym_dir_full = os.path.join(symbols_dir, sym_dir)
 sym_files = os.listdir(sym_dir_full)
 
 for f in sym_files:
-    if ".tsv" in f:
-        sym_file = os.path.join(sym_dir_full, f)
-        if (os.path.isfile(sym_file)):
-            print ("mv %s %s" % (sym_file, output_dir_symbols))
-            shutil.copy(sym_file, output_dir_symbols)
+    sym_file = os.path.join(sym_dir_full, f)
+    if (os.path.isfile(sym_file)):
+        print ("mv %s %s" % (sym_file, output_dir_symbols))
+        shutil.copy(sym_file, output_dir_symbols)
 
 tsv_dir_full = os.path.join(symbols_dir, tsv_dir)
 
 f = []
 for (dirpath, dirname, filenames) in os.walk(tsv_dir_full):
     for f in filenames:
-        print (f)
-        sym_file = os.path.splitext(f)[0] + ".sym"
-        sym_file = os.path.join(output_dir_symbols, sym_file)
-        tsv_file = os.path.join(tsv_dir_full, f)
-        if (os.path.isfile(tsv_file)):
-            cmd = "tragesym %s %s" % (tsv_file, sym_file)
-            print (cmd)
-            os.system(cmd)
+        if ".tsv" in f:
+            print (f)
+            sym_file = os.path.splitext(f)[0] + ".sym"
+            sym_file = os.path.join(output_dir_symbols, sym_file)
+            tsv_file = os.path.join(tsv_dir_full, f)
+            if (os.path.isfile(tsv_file)):
+                cmd = "tragesym %s %s" % (tsv_file, sym_file)
+                print (cmd)
+                os.system(cmd)
     break
 
 footprints_dir = 'footprints'
