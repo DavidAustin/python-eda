@@ -57,5 +57,5 @@ numslots=0
 #-----------------------------------------------------
 #pinnr	seq	type	style	posit.	net	label	
 #-----------------------------------------------------
-1		pwr	line	t		-ve
-2		pwr	line	b		+ve
+1		pwr	line	b		-ve
+2		pwr	line	t		+ve
