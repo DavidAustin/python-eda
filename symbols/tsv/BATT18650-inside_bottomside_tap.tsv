@@ -23,10 +23,10 @@ pinwidthhorizontal=600
 # if you have a device with slots, you'll have to use slot= and slotdef=
 # use comment= if there are special information you want to add
 version=20060113 1
-name=BATT14500
-device=BATT14500
+name=BATT18650
+device=BATT18650
 refdes=BT?
-footprint=batt-14500-outside_bottomside_tab
+footprint=batt-18650-inside_bottomside_tab
 description=
 documentation=
 author=

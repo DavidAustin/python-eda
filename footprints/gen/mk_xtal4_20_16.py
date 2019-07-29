@@ -1,5 +1,5 @@
 # Python-EDA
-# Copyright (C) 2018 Luke Cole (ported), David Austin (original author)
+# Copyright (C) 2019 Luke Cole (ported), David Austin (original author)
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -17,13 +17,27 @@
 import math
 from footprintgen import *
 
-for dia in range(11):
-    if dia > 0:
-        if int(dia) == dia:
-            g = FootprintGen('M%d' % int(dia))
-        else:
-            g = FootprintGen('M%d_%d' % (int(dia), int(dia * 10) % 10))
+manual_soldering_ext = 0.75
 
-        g.pinat(0, 0, dia, dia * 2, '1')
-    
-        g.write()
+g = FootprintGen('XTAL4_20_16')
+
+w = 1
+h = 0.9
+px = 0.75 + 0.6 + (w - 0.75)
+py = 0.7 + 0.3 + (h - 0.7)
+g.rect_padat(0.0, 0.0, w, h, "1")
+g.rect_padat(px, 0.0, w, h, "3")
+g.rect_padat(0.0, -py, w, h, "3")
+g.rect_padat(px, -py, w, h, "2")
+
+oo = 0.07
+ox1 = 0.0 - 1.7 / 2
+oy1 = 0.0 - 3.2 / 2
+ox2 = 2.0 + 1.7
+oy2 = oy1 + 3.2
+
+#g.outlinerect(ox1 - oo, oy1 - oo, ox2 + oo, oy2 + oo)
+
+g.outline(-0.8, 0.0,  -0.8, 0.0, 0.3)
+
+g.write()

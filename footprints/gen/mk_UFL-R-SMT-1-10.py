@@ -1,5 +1,5 @@
 # Python-EDA
-# Copyright (C) 2018 Luke Cole (ported), David Austin (original author)
+# Copyright (C) 2019 Luke Cole
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -17,13 +17,29 @@
 import math
 from footprintgen import *
 
-for dia in range(11):
-    if dia > 0:
-        if int(dia) == dia:
-            g = FootprintGen('M%d' % int(dia))
-        else:
-            g = FootprintGen('M%d_%d' % (int(dia), int(dia * 10) % 10))
+w = 3
+h = 3
 
-        g.pinat(0, 0, dia, dia * 2, '1')
-    
-        g.write()
+g_pad_w = 1.06
+g_pad_h = 2.2
+
+s_pad_w = 1
+s_pad_h = 1
+
+g = FootprintGen('UFL-R-SMT-1-10')
+# U.FL-R-SMT-1(10)
+# https://www.digikey.com.au/product-detail/en/hirose-electric-co-ltd/U.FL-R-SMT-1-10/H11891CT-ND/2504612
+
+g.rect_padat(0, 0, g_pad_w, g_pad_h, '1')
+g.rect_padat(2.95, 0, g_pad_w, g_pad_h, '2')
+g.rect_padat(1.475, 1.5, s_pad_w, s_pad_h, '3')
+
+ox1 = -0.025
+oy1 = -1.5
+
+ox2 = ox1 + 3
+oy2 = oy1 + 3
+
+g.outlinerect(ox1, oy1, ox2, oy2)
+
+g.write()

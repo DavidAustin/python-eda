@@ -12,9 +12,9 @@ wordswap=no
 rotate_labels=no
 sort_labels=no
 generate_pinseq=yes
-sym_width=1500
-pinwidthvertical=600
-pinwidthhorizontal=600
+sym_width=3500
+pinwidthvertical=400
+pinwidthhorizontal=400
 
 [geda_attr]
 # name will be printed in the top of the symbol
@@ -23,10 +23,10 @@ pinwidthhorizontal=600
 # if you have a device with slots, you'll have to use slot= and slotdef=
 # use comment= if there are special information you want to add
 version=20060113 1
-name=BATT14500
-device=BATT14500
-refdes=BT?
-footprint=batt-14500-outside_bottomside_tab
+name=TPS63000DRCR
+device=TPS63000DRCR
+refdes=U?
+footprint=VSON10
 description=
 documentation=
 author=
@@ -57,5 +57,14 @@ numslots=0
 #-----------------------------------------------------
 #pinnr	seq	type	style	posit.	net	label	
 #-----------------------------------------------------
-1		pwr	line	b		-ve
-2		pwr	line	t		+ve
+4		in	line	l		L1
+5		pwr	line	l		VIN
+8		pwr	line	l		VINA
+6		in	line	l		EN
+7		in	line	l		PS/SYNC
+2		in	line	r		L2
+1		out	line	r		VOUT
+10		in	line	r		FB
+9		pwr	line	b		GND
+3		pwr	line	b		PGND
+0		pwr	line	b		PAD
