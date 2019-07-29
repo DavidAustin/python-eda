@@ -17,12 +17,13 @@
 import math
 from footprintgen import *
 
-for dia in (3.1,):
-    if int(dia) == dia:
-        g = FootprintGen('M%d' % int(dia))
-    else:
-        g = FootprintGen('M%d_%d' % (int(dia), int(dia * 10) % 10))
+for dia in range(11):
+    if dia > 0:
+        if int(dia) == dia:
+            g = FootprintGen('M%d' % int(dia))
+        else:
+            g = FootprintGen('M%d_%d' % (int(dia), int(dia * 10) % 10))
 
-    g.pinat(0, 0, dia, dia * 2, '1')
+        g.pinat(0, 0, dia, dia * 2, '1')
     
-    g.write()
+        g.write()
