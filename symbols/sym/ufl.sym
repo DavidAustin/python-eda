@@ -44,4 +44,4 @@ refdes=C?
 T 0 -5 8 10 0 1 0 0 1
 slotdef=1:1,2,3
 T 0 -5 8 10 0 1 0 0 1
-footprint=ufl_smt
+footprint=UFL-R-SMT-1-10
