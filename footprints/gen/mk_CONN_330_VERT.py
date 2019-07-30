@@ -19,7 +19,7 @@ import math
 from footprintgen import *
 
 def make_it(n_pins):
-    g = FootprintGen('CONN%d_330' % n_pins)
+    g = FootprintGen('CONN%d_330_VERT' % n_pins)
 
     p = 3.3
     x = 0#p * (n_pins-1)
