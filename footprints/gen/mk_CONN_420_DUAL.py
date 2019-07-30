@@ -31,7 +31,6 @@ def make_connector(n_pins):
         if i % 2 == 0:
             g.pinat(x, y, 1.4, od,  i)
             g.pinat(x, y + p, 1.4, od,  i + 1)
-            print n_pins, i
             i += 2
             x += p
 
