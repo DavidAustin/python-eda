@@ -25,10 +25,10 @@ h = 6.73
 pad_w = 3
 pad_h = 1.6
 
-g.rect_padat(0, 0, 6.2, 5.8, '3')
+g.rect_padat(0, 0, 6.2, 5.8, '4')
 
 g.rect_padat(6.2/2+2.58+3/2, (6.17-1.6)/2, pad_w, pad_h, '1')
-g.rect_padat(6.2/2+2.58+3/2, -(6.17-1.6)/2, pad_w, pad_h, '2')
+g.rect_padat(6.2/2+2.58+3/2, -(6.17-1.6)/2, pad_w, pad_h, '3')
 
 ox1 = -w / 2
 oy1 = -h / 2
