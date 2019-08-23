@@ -45,8 +45,8 @@ g.outlinerect(ox1, oy1, ox2, oy2)
 hole_dia = 3.5
 hole_ann = 5.5
 
-hole_x_from_edge = ((77-70)/2)
-hole_y_from_edge = ((47-40)/2)
+hole_x_from_edge = ((77-70)/2.0)
+hole_y_from_edge = ((47-40)/2.0)
 
 hole_x = ox1 + hole_x_from_edge
 hole_y = oy1 + hole_y_from_edge
