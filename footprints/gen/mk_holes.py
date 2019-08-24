@@ -53,3 +53,10 @@ for key, value in holes.items():
         g = FootprintGen('M%d_%d' % (int(key), int(key * 10) % 10))
     g.pinat(0, 0, value, value * 2, '1')
     g.write()
+
+    if int(key) == key:
+        g = FootprintGen('M%d-ann1.4' % int(key))
+    else:
+        g = FootprintGen('M%d_%d-ann1.4' % (int(key), int(key * 10) % 10))
+    g.pinat(0, 0, value, value * 1.4, '1')
+    g.write()
