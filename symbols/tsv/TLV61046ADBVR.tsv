@@ -60,6 +60,6 @@ numslots=0
 1	1	in	line	r		SW
 5	5	pwr	line	r		VOUT
 2	2	pwr	line	b		GND
-3	3	in	line	l		FB
-6       6       pwr     line    l               VIN
+3	3	in	line	r		FB
+6	6	pwr	line	l		VIN
 4	4	in	line	l		EN
