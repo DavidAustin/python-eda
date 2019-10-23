@@ -58,13 +58,13 @@ numslots=0
 #pinnr	seq	type	style	posit.	net	label	
 #-----------------------------------------------------
 21	21	io	line	l		GPA0
-22	22	io	line	l		GPA0
-23	23	io	line	l		GPA0
-24	24	io	line	l		GPA0
-25	25	io	line	l		GPA0
-26	26	io	line	l		GPA0
-27	27	io	line	l		GPA0
-28	28	io	line	l		GPA0
+22	22	io	line	l		GPA1
+23	23	io	line	l		GPA2
+24	24	io	line	l		GPA3
+25	25	io	line	l		GPA4
+26	26	io	line	l		GPA5
+27	27	io	line	l		GPA6
+28	28	io	line	l		GPA7
 1	1	io	line	l		GPB0
 2	2	io	line	l		GPB1
 3	3	io	line	l		GPB2
