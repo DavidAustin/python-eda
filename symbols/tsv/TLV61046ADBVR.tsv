@@ -11,8 +11,8 @@
 wordswap=no
 rotate_labels=no
 sort_labels=no
-generate_pinseq=yes
-sym_width=1400
+generate_pinseq=no
+sym_width=2000
 pinwidthvertical=400
 pinwidthhorizontal=400
 
@@ -23,10 +23,10 @@ pinwidthhorizontal=400
 # if you have a device with slots, you'll have to use slot= and slotdef=
 # use comment= if there are special information you want to add
 version=20060113 1
-name=LTV-247
-device=LTV-247
+name=TLV61046ADBVR
+device=TLV61046ADBVR
 refdes=U?
-footprint=SOIC-16-7.50x12.80-1.27x8.90-0.80x1.50
+footprint=SOT23_6
 description=
 documentation=
 author=
@@ -57,19 +57,9 @@ numslots=0
 #-----------------------------------------------------
 #pinnr	seq	type	style	posit.	net	label	
 #-----------------------------------------------------
-1		io	line	l		Anode1
-2		io	line	l		Cathode1
-3		io	line	l		Anode2
-4		io	line	l		Cathode2
-5		io	line	l		Anode3
-6		io	line	l		Cathode3
-7		io	line	l		Anode4
-8		io	line	l		Cathode4
-16		io	line	r		Collector1
-15		io	line	r		Emitter1
-14		io	line	r		Collector2
-13		io	line	r		Emitter2
-12		io	line	r		Collector3
-11		io	line	r		Emitter3
-10		io	line	r		Collector4
-9		io	line	r		Emitter4
+1	1	in	line	r		SW
+5	5	pwr	line	r		VOUT
+2	2	pwr	line	b		GND
+3	3	in	line	r		FB
+6	6	pwr	line	l		VIN
+4	4	in	line	l		EN

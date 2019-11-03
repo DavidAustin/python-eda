@@ -1,5 +1,5 @@
 # Python-EDA
-# Copyright (C) 2018 Luke Cole (ported), David Austin (original author)
+# Copyright (C) 2018 Luke Cole & David Austin
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -16,14 +16,47 @@
 
 import math
 from footprintgen import *
+import numpy as np
 
-for dia in range(11):
-    if dia > 0:
-        if int(dia) == dia:
-            g = FootprintGen('M%d' % int(dia))
-        else:
-            g = FootprintGen('M%d_%d' % (int(dia), int(dia * 10) % 10))
+# added by Luke
+# https://trfastenings.com/products/knowledgebase/tables-standards-terminology/Tapping-Sizes-and-Clearance-Holes
+holes = {1: 1.2,
+         1.2: 1.4,
+         1.4: 1.6,
+         1.6: 1.8,
+         1.8: 2,
+         2: 2.4,
+         2.2: 2.4,
+         2.5: 2.9,
+         3: 3.4,
+         3.5: 3.9,
+         4: 4.5,
+         5: 5.5,
+         6: 6.6,
+         8: 9,
+         10: 11,
+         12: 13.5,
+         14: 15.5,
+         16: 17.5,
+         18: 20,
+         20: 22,
+         22: 24,
+         24: 26,
+         27: 30,
+         30: 33}
 
-        g.pinat(0, 0, dia, dia * 2, '1')
-    
-        g.write()
+for key, value in holes.items():
+
+    if int(key) == key:
+        g = FootprintGen('M%d' % int(key))
+    else:
+        g = FootprintGen('M%d_%d' % (int(key), int(key * 10) % 10))
+    g.pinat(0, 0, value, value * 2, '1')
+    g.write()
+
+    if int(key) == key:
+        g = FootprintGen('M%d-ann1.4' % int(key))
+    else:
+        g = FootprintGen('M%d_%d-ann1.4' % (int(key), int(key * 10) % 10))
+    g.pinat(0, 0, value, value * 1.4, '1')
+    g.write()

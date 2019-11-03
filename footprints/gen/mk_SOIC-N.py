@@ -18,12 +18,9 @@
 import math
 from footprintgen import *
 
-def make_connector(n_pins, part_w, part_h, px, py):
-    g = FootprintGen('SOIC-%d-%.2fx%.2f-%.2fx%.2f' % (n_pins, part_w, part_h, px, py))
+def make_connector(n_pins, part_w, part_h, px, py, pad_w, pad_h):
+    g = FootprintGen('SOIC-%d-%.2fx%.2f-%.2fx%.2f-%.2fx%.2f' % (n_pins, part_w, part_h, px, py, pad_w, pad_h))
 
-    pad_w = 0.8
-    pad_h = 1.5
-    
     x = 0
     for i in range(1, n_pins / 2 + 1):
         g.rect_padat(x, 0, pad_w, pad_h, i)
@@ -47,7 +44,8 @@ def make_connector(n_pins, part_w, part_h, px, py):
 
     g.write()
 
-make_connector(8, 3.9, 4.9, 1.27, 6.25) # based on https://en.wikipedia.org/wiki/Small_Outline_Integrated_Circuit#Narrow_SOIC_(JEDEC)
-make_connector(14, 3.9, 8.65, 1.27, 6.25) # based on https://en.wikipedia.org/wiki/Small_Outline_Integrated_Circuit#Narrow_SOIC_(JEDEC)
-make_connector(16, 4.4, 10.28, 1.27, 6.25) # based on http://optoelectronics.liteon.com/upload/download/DS70-2009-0014/LTV-2X7%20sereis%20Mar17.PDF
-make_connector(16, 7.5, 12.8, 1.27, 8.9) # based on https://www.analog.com/media/en/technical-documentation/data-sheets/ADuM6020-6028.pdf
+make_connector(8, 3.9, 4.9, 1.27, 6.25, 0.8, 1.5) # based on https://en.wikipedia.org/wiki/Small_Outline_Integrated_Circuit#Narrow_SOIC_(JEDEC)
+make_connector(14, 3.9, 8.65, 1.27, 6.25, 0.8, 1.5) # based on https://en.wikipedia.org/wiki/Small_Outline_Integrated_Circuit#Narrow_SOIC_(JEDEC)
+make_connector(16, 4.4, 10.28, 1.27, 6.25, 0.8, 1.5) # based on http://optoelectronics.liteon.com/upload/download/DS70-2009-0014/LTV-2X7%20sereis%20Mar17.PDF
+make_connector(16, 7.5, 12.8, 1.27, 8.9, 0.8, 1.5) # based on https://www.analog.com/media/en/technical-documentation/data-sheets/ADuM6020-6028.pdf
+make_connector(28, 5.3, 10.2, 0.65, 7.2, 0.45, 1.75) # based on http://ww1.microchip.com/downloads/en/DeviceDoc/20001952C.pdf

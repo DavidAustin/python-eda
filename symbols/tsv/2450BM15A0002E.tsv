@@ -23,8 +23,8 @@ pinwidthhorizontal=400
 # if you have a device with slots, you'll have to use slot= and slotdef=
 # use comment= if there are special information you want to add
 version=20060113 1
-name=2450BM15A0002
-device=2450BM15A0002
+name=2450BM15A0002E
+device=2450BM15A0002E
 refdes=Q?
 footprint=?
 description=
