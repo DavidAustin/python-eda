@@ -26,8 +26,8 @@ pad_y = 2
 
 p = 2.25
 
-g.rect_padat(0.0, 0.0, pad_x, pad_y, "1")
-g.rect_padat(p, 0.0, pad_x, pad_y, "2")
+g.rect_padat(p, 0.0, pad_x, pad_y, "1")
+g.rect_padat(0.0, 0.0, pad_x, pad_y, "2")
 
 ox1 = -(part_w - p) / 2.0
 oy1 = -pad_y / 2.0
