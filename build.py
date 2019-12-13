@@ -62,7 +62,7 @@ footprints_dir = 'footprints'
 fp_gen_dir = 'gen'
 fp_dir = 'fp'
 
-if not os.path.isdir(output_dir_symbols):
+if not os.path.isdir(output_dir_footprints):
     os.mkdir(output_dir_footprints)
 
 fp_dir_full = os.path.join(footprints_dir, fp_dir)
