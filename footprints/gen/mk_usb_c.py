@@ -27,7 +27,6 @@ px1 = 0.65
 px2 = 0.8
 py = -0.5 - h / 2.0
 
-# A row
 g.rect_padat(-px / 2.0 - px * 3 - px1 - px2, py, w * 2, h, '1')
 g.rect_padat(-px / 2.0 - px * 3 - px1, py, w * 2, h, '2')
 g.rect_padat(-px / 2.0 - px * 3, py, w, h, '3')
@@ -40,20 +39,6 @@ g.rect_padat(px / 2.0 + px * 2, py, w, h, '9')
 g.rect_padat(px / 2.0 + px * 3, py, w, h, '10')
 g.rect_padat(px / 2.0 + px * 3 + px1, py, w * 2, h, '11')
 g.rect_padat(px / 2.0 + px * 3 + px1 + px2, py, w * 2, h, '12')
-
-# B row
-g.rect_padat(-px / 2.0 - px * 3 - px1 - px2, py, w * 2, h, '13')
-g.rect_padat(-px / 2.0 - px * 3 - px1, py, w * 2, h, '14')
-g.rect_padat(-px / 2.0 - px * 3, py, w, h, '15')
-g.rect_padat(-px / 2.0 - px * 2, py, w, h, '16')
-g.rect_padat(-px / 2.0 - px * 1, py, w, h, '17')
-g.rect_padat(-px / 2.0, py, w, h, '18')
-g.rect_padat(px / 2.0, py, w, h, '19')
-g.rect_padat(px / 2.0 + px * 1, py, w, h, '20')
-g.rect_padat(px / 2.0 + px * 2, py, w, h, '21')
-g.rect_padat(px / 2.0 + px * 3, py, w, h, '22')
-g.rect_padat(px / 2.0 + px * 3 + px1, py, w * 2, h, '23')
-g.rect_padat(px / 2.0 + px * 3 + px1 + px2, py, w * 2, h, '24')
 
 x = 2.98
 d = 0.65
