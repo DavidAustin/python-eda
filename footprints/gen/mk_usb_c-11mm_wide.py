@@ -40,7 +40,7 @@ g.rect_padat(px / 2.0 + px * 3, py, w, h, '10')
 g.rect_padat(px / 2.0 + px * 3 + px1, py, w * 2, h, '11')
 g.rect_padat(px / 2.0 + px * 3 + px1 + px2, py, w * 2, h, '12')
 
-x = 2.98
+x = 5.78 / 2.0
 d = 0.65
 a = 0.9
 
