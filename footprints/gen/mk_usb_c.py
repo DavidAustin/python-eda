@@ -42,7 +42,7 @@ g.rect_padat(px / 2.0 + px * 3 + px1 + px2, py, w * 2, h, '12')
 
 x = 5.79 / 2.0
 d = 0.65
-a = 0.9
+a = 1.0524
 
 g.pinat(x, 0, d, a, '0')
 g.pinat(-x, 0, d, a, '0')

@@ -19,13 +19,13 @@ from footprintgen import *
 
 g = FootprintGen('usb_c-11mm_wide')
 
-h = 1.15
+h = 1.15 - 0.3 # 0.3 to make smaller footprint
 w = 0.3
 
 px = 0.5
 px1 = 0.65
 px2 = 0.8
-py = -0.5 - h / 2.0
+py = -0.5 - 1.15 / 2.0
 
 g.rect_padat(-px / 2.0 - px * 3 - px1 - px2, py, w * 2, h, '1')
 g.rect_padat(-px / 2.0 - px * 3 - px1, py, w * 2, h, '2')
@@ -42,14 +42,14 @@ g.rect_padat(px / 2.0 + px * 3 + px1 + px2, py, w * 2, h, '12')
 
 x = 5.78 / 2.0
 d = 0.65
-a = 0.9
+a = 1.0524
 
 g.pinat(x, 0, d, a, '0')
 g.pinat(-x, 0, d, a, '0')
 
 h = 2
-w = (11-8.94) / 2.0
-x = 10.22 / 2.0 - (2.18 - w) / 2.0
+w = (11-8.94) / 2.0 # normally 2.18 - but we want smaller footprint
+x = 10.22 / 2.0 - (2.18 - w) / 2.0 # normally 5.11 - but we want smaller footprint
 y = -0.5
 
 g.rect_padat(-x, y, w, h, '0')
