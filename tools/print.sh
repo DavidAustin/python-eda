@@ -1,5 +1,13 @@
 #!/bin/bash
 
+if [ $# -ne 1 ]
+then
+    echo "Usage: $0 files0*.sch"
+    echo ""
+    echo "NOTE: currently need to run in the location where the sch are located."
+    exit
+fi
+
 d=`dirname $0`
 
 for arg in "$@"
