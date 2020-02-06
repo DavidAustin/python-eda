@@ -90,5 +90,6 @@ for m in resistor_multipliers:
                     Vout = vref * (R1 + R2) / R1
                 else:
                     Vout = vref * R2 / (R1 + R2)
+                #print Vout, round(Vout * 10.0) / 10.0
                 if round(Vout * 10.0) / 10.0 == vout_target:
                     print ("R1 = %.1f, R2 = %.1f, Vout = %f" % (R1, R2, Vout))

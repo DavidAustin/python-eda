@@ -1,5 +1,5 @@
 # Python-EDA
-# Copyright (C) 2019 Luke Cole
+# Copyright (C) 2020 Luke Cole
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -14,34 +14,30 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
+import math
 from footprintgen import *
 
-g = FootprintGen("PLCC2")
+g = FootprintGen('TACT3.5mm-smaller')
 
-part_w = 2.7
-part_h = 2
+w = (4.7 - 2.2) / 2.0
+h = (2.5 - 0.4) / 2.0
 
-pad_x = 1
-pad_y = 2
+px = 2.2 + w
+py = 0.4 + h
 
-p = 2.25
+g.rect_padat(-px / 2.0, py / 2.0, w, h, '1')
+g.rect_padat(px / 2.0, py / 2.0, w, h, '1')
 
-g.rect_padat(p, 0.0, pad_x, pad_y, "1")
-g.rect_padat(0.0, 0.0, pad_x, pad_y, "2")
+g.rect_padat(-px / 2.0, -py / 2.0, w, h, '2')
+g.rect_padat(px / 2.0, -py / 2.0, w, h, '2')
 
-ox1 = -(part_w - p) / 2.0
-oy1 = -pad_y / 2.0
-ox2 = ox1 + part_w
-oy2 = oy1 + part_h
+#ox1 = px/2 -3.1
+#ox2 = ox1 + 6.2
+#oy1 = py/2 - 3.1
+#oy2 = oy1 + 6.2
 
-g.outlinerect(ox1, oy1, ox2, oy2)
-
-ox3 = ox2 - 0.8
-oy3 = oy1
-
-ox4 = ox2 - 0.8
-oy4 = oy2
-
-g.outline(ox3, oy3, ox4, oy4)
+#g.outline(ox1, oy1, ox2, oy1)
+#g.outline(ox1, oy2, ox2, oy2)
 
 g.write()
+

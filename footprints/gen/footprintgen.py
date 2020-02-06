@@ -1,5 +1,5 @@
 # Python-EDA
-# Copyright (C) 2018 David Austin
+# Copyright (C) 2018-2019 David Austin
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -119,7 +119,9 @@ class FootprintGen(object):
                     (x1, y1, x2, y2, height, height + frommm(clearance),
                      name, opts_str))
 
-
+    def round_pad_at(self, x, y, r, name, opts={}):
+        self.padat(x,y,r,r,name,opts)
+        
     def one_rounded_padat(self, x, y, w, h, name, opts={}):
         d = opts['dir']
         del opts['dir']
@@ -196,6 +198,53 @@ class FootprintGen(object):
             xx -= cx * step
 
 
+
+    def arc_pad_at(self, x, y, r1, r2, a1, a2, name, nsteps=180):
+        a = math.radians(a1)
+        r = (r1 + r2)/2
+        popts = {'square' : 1}
+        opts_str = make_flags_str(popts)
+        l = 2*math.pi*r2 / nsteps + 0.01
+        w = r2 - r1
+        #print 'want l,w', l,w
+        if l > w:
+            l = l - w
+            radial = False
+        else:
+            radial = True
+            l,w = (w - l, l)
+            
+        #print 'using l,w', l, w, radial
+        all_a = [a]
+        while a < math.radians(a2):
+            all_a.append(a)
+            a += math.radians(360)/nsteps
+        all_a.append(math.radians(a2))
+        #all_a = all_a[0:1]
+        for a in all_a:
+            px = x + r * math.cos(a)
+            py = y + r * math.sin(a)
+            #print px, py, math.degrees(a), l
+            tx = -math.sin(a)/2
+            ty = math.cos(a)/2
+
+            if not radial:
+                self.lines.append(
+                    'Pad[%d %d %d %d %d 2000 %d "" "%s" "%s"]' %
+                    (frommm(px + tx*l), frommm(py + ty*l),
+                     frommm(px - tx*l), frommm(py - ty*l),
+                     frommm(w), frommm(w+ 0.1),
+                     name, opts_str))
+            else:
+                self.lines.append(
+                    'Pad[%d %d %d %d %d 2000 %d "" "%s" "%s"]' %
+                    (frommm(px + ty*l), frommm(py - tx*l),
+                     frommm(px - ty*l), frommm(py + tx*l),
+                     frommm(w), frommm(w+ 0.1),
+                     name, opts_str))
+                
+        
+        
 
     def outline(self, x1, y1, x2, y2, w=0.1):
         self.lines.append(

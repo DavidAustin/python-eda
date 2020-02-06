@@ -1,5 +1,5 @@
 # Python-EDA
-# Copyright (C) 2019 Luke Cole
+# Copyright (C) 2018-2020 Luke Cole (ported), David Austin (original author)
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -14,34 +14,35 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
+import math
 from footprintgen import *
 
-g = FootprintGen("PLCC2")
+g = FootprintGen('VSOF5')
 
-part_w = 2.7
-part_h = 2
+padw = 0.25
+padh = 0.35
+pitch = 0.5
+pitchy = 1.35
 
-pad_x = 1
-pad_y = 2
+cx = pitch
+cy = -pitchy/2.0
 
-p = 2.25
+g.rect_padat(0, 0, padw, padh, '1')
+g.rect_padat(pitch, 0, padw, padh, '2')
+g.rect_padat(2*pitch,0, padw, padh, '3')
 
-g.rect_padat(p, 0.0, pad_x, pad_y, "1")
-g.rect_padat(0.0, 0.0, pad_x, pad_y, "2")
+g.rect_padat(2*pitch, -pitchy, padw, padh, '4')
+g.rect_padat(0, -pitchy, padw, padh, '5')
 
-ox1 = -(part_w - p) / 2.0
-oy1 = -pad_y / 2.0
-ox2 = ox1 + part_w
-oy2 = oy1 + part_h
+ow = 1.6
+oh = 1.2
 
-g.outlinerect(ox1, oy1, ox2, oy2)
+ox1 = cx - ow/2.0
+oy1 = cy + oh/2.0
+ox2 = ox1 + ow
+oy2 = oy1 - oh
 
-ox3 = ox2 - 0.8
-oy3 = oy1
-
-ox4 = ox2 - 0.8
-oy4 = oy2
-
-g.outline(ox3, oy3, ox4, oy4)
+g.outline(ox1, oy1, ox1, oy2)
+g.outline(ox2, oy1, ox2, oy2)
 
 g.write()

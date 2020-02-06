@@ -8,13 +8,13 @@
 #   this is useful for large symbols like FPGAs with more than 100 pins
 # sort_labels will sort the pins by it's labels
 #   useful for address ports, busses, ...
-wordswap=no
+wordswap=yes
 rotate_labels=no
 sort_labels=no
 generate_pinseq=yes
-sym_width=5500
-pinwidthvertical=600
-pinwidthhorizontal=600
+sym_width=4000
+pinwidthvertical=400
+pinwidthhorizontal=400
 
 [geda_attr]
 # name will be printed in the top of the symbol
@@ -23,10 +23,10 @@ pinwidthhorizontal=600
 # if you have a device with slots, you'll have to use slot= and slotdef=
 # use comment= if there are special information you want to add
 version=20060113 1
-name=RPI3
-device=RPI3
+name=LSM9DS1
+device=LSM9DS1
 refdes=U?
-footprint=RPI_HAT
+footprint=LGA24_35x30
 description=
 documentation=
 author=
@@ -48,8 +48,8 @@ numslots=0
 # pinnr is the physical number of the pin
 # seq is the pinseq= attribute, leave it blank if it doesn't matter
 # type can be (in, out, io, oc, oe, pas, tp, tri, clk, pwr)
-# style can be (line,dot,clk,dotclk,none). none if only want to add a net
-# posit. can be (l,r,t,b) or empty for nets
+# style can be (line,dot,clk,dotclk,spacer,none). none if only want to add a net
+# posit. can be (l,r,t,b) or empty for nets.
 # net specifies the name of the net. Vcc or GND for example.
 # label represents the pinlabel.
 #	negation lines can be added with "\_" example: \_enable\_ 
@@ -57,44 +57,31 @@ numslots=0
 #-----------------------------------------------------
 #pinnr	seq	type	style	posit.	net	label	
 #-----------------------------------------------------
-0		pwr	line	b		GND
-6		pwr	line	b		GND
-9		pwr	line	b		GND
-14		pwr	line	b		GND
+22		pwr	line	t		VDD
+23		pwr	line	t		VDD
+1		pwr	line	t		VDDIO
+3		pwr	line	t		VDDIO
+
+2		io	line	l		SCL/SPC
+4		io	line	l		SDA/SDI/SDO
+5		io	line	l		SDO_A/G
+6		io	line	l		SDO_M
+7		in	line	l		CS_A/G
+8		in	line	l		CS_M
+			spacer	l		
+13		in	line	l		DEN_A/G
+
+9		out	line	r		DRDY_M
+10		out	line	r		INT_M
+11		out	line	r		INT1_A/G
+12		out	line	r		INT2_A/G
+
+19		pwr	line	b		GND
 20		pwr	line	b		GND
-25		pwr	line	b		GND
-30		pwr	line	b		GND
-34		pwr	line	b		GND
-39		pwr	line	b		GND
-1		pwr	line	t		3.3V
-17		pwr	line	t		3.3V
-2		pwr	line	t		5.0V
-4		pwr	line	t		5.0V
-27		io	line	l		I2C1_EEPROM_ID_SD
-28		io	line	l		I2C1_EEPROM_ID_SC
-3		io	line	r		GPIO2/I2C1_SDA
-5		io	line	r		GPIO3/I2C1_SCL
-7		io	line	r		GPIO4
-29		io	line	r		GPIO5
-31		io	line	r		GPIO6
-26		io	line	r		GPIO7/SPI0_CE1
-24		io	line	r		GPIO8/SPI0_CE0
-21		io	line	r		GPIO9/SPI0_MISO
-19		io	line	r		GPIO10/SPI0_MOSI
-23		io	line	r		GPIO11/SPI0_SCLK
-32		io	line	r		GPIO12/PWM0
-33		io	line	r		GPIO13/PWM1
-8		io	line	r		GPIO14/UART0_TX
-10		io	line	r		GPIO15/UART0_RX
-36		io	line	r		GPIO16/SPI1_CE2
-11		io	line	r		GPIO17/SPI1_CE1
-12		io	line	r		GPIO18/SPI1_CE0/PWM0
-35		io	line	r		GPIO19/SPI1_MISO/PWM1
-38		io	line	r		GPIO20/SPI1_MOSI
-40		io	line	r		GPIO21/SPI1_SCLK
-15		io	line	r		GPIO22
-16		io	line	r		GPIO23
-18		io	line	r		GPIO24
-22		io	line	r		GPIO25
-37		io	line	r		GPIO26
-13		io	line	r		GPIO27
+14		pas	line	b		RES
+15		pas	line	b		RES
+16		pas	line	b		RES
+17		pas	line	b		RES
+18		pas	line	b		RES
+21		pas	line	b		CAP
+24		pas	line	b		C1

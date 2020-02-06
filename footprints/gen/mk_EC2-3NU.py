@@ -1,5 +1,5 @@
 # Python-EDA
-# Copyright (C) 2018 Luke Cole
+# Copyright (C) 2018-2020 Luke Cole
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -24,15 +24,17 @@ d_ann = 2
 
 py = 5.08
 
+# https://content.kemet.com/datasheets/KEM_R700
+
 g.pinat(0.0, 0.0, d_hole, d_ann, "1")
-g.pinat(0.0, py, d_hole, d_ann, "2")
+g.pinat(0.0, py, d_hole, d_ann, "12")
 
 g.pinat(5.08, 0.0, d_hole, d_ann, "3")
 g.pinat(5.08 + 2.54, 0.0, d_hole, d_ann, "4")
 g.pinat(5.08 + 2.54 * 2, 0.0, d_hole, d_ann, "5")
 
-g.pinat(5.08, py, d_hole, d_ann, "6")
-g.pinat(5.08 + 2.54, py, d_hole, d_ann, "7")
+g.pinat(5.08, py, d_hole, d_ann, "10")
+g.pinat(5.08 + 2.54, py, d_hole, d_ann, "9")
 g.pinat(5.08 + 2.54 * 2, py, d_hole, d_ann, "8")
 
 part_w = 7.3
