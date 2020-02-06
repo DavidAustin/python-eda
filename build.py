@@ -29,6 +29,8 @@ symbols_dir = 'symbols'
 tsv_dir = 'tsv'
 sym_dir = 'sym'
 
+if not os.path.isdir(output_dir_symbols):
+    os.mkdir(output_dir_symbols)
 
 sym_dir_full = os.path.join(symbols_dir, sym_dir)
 
@@ -60,7 +62,8 @@ footprints_dir = 'footprints'
 fp_gen_dir = 'gen'
 fp_dir = 'fp'
 
-
+if not os.path.isdir(output_dir_footprints):
+    os.mkdir(output_dir_footprints)
 
 fp_dir_full = os.path.join(footprints_dir, fp_dir)
 
