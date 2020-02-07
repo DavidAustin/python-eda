@@ -52,6 +52,6 @@ with open(file, newline='') as csvfile:
 
 for i in qtys:
   if i == "device":
-    print (("'%s',qty,%s") % (refdes[i], ','. join(details[i])))
+    print (("\"%s\",qty,%s") % (refdes[i], ','. join(details[i])))
   else:
-    print (("'%s',%s,%s") % (refdes[i], qtys[i], ','. join(details[i])))
+    print (("\"%s\",%s,%s") % (refdes[i], qtys[i], ','. join(details[i])))
