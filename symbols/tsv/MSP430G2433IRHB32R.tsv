@@ -12,7 +12,7 @@ wordswap=yes
 rotate_labels=yes
 sort_labels=no
 generate_pinseq=yes
-sym_width=3500
+sym_width=4500
 pinwidthvertical=400
 pinwidthhorizontal=400
 
@@ -23,8 +23,8 @@ pinwidthhorizontal=400
 # if you have a device with slots, you'll have to use slot= and slotdef=
 # use comment= if there are special information you want to add
 version=20060113 1
-name=MSP430G2433RHB
-device=MSP430G2433RHB
+name=MSP430G2433IRHB32R
+device=MSP430G2433IRHB32R
 refdes=U?
 footprint=QFN32_50x50_PAD
 description=
