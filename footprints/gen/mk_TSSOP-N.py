@@ -48,7 +48,7 @@ def make_connector(n_pins, part_w, part_h, px, py, pad_w, pad_h):
 
 # https://pdfserv.maximintegrated.com/land_patterns/90-0092.PDF
 # https://pdfserv.maximintegrated.com/package_dwgs/21-0036.PDF
-make_connector(8, 3.1, 3.1, 0.65, 4.3, 0.4, 1.35)
+make_connector(8, 3, 3, 0.65, 4.3, 0.4, 1.35)
 
 # http://www.ti.com/lit/ds/symlink/msp430fr2355.pdf
 make_connector(38, 4.4, 9.7, 0.5, 5.6, 0.25, 1.55)

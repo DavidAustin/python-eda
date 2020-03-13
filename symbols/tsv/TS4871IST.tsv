@@ -12,7 +12,7 @@ wordswap=no
 rotate_labels=no
 sort_labels=no
 generate_pinseq=yes
-sym_width=4500
+sym_width=2000
 pinwidthvertical=600
 pinwidthhorizontal=600
 
@@ -23,10 +23,10 @@ pinwidthhorizontal=600
 # if you have a device with slots, you'll have to use slot= and slotdef=
 # use comment= if there are special information you want to add
 version=20060113 1
-name=MSP430FR2355TDBTR
-device=MSP430FR2355TDBTR
+name=TS4871IST
+device=TS4871IST
 refdes=U?
-footprint=TSSOP-38-4.40x9.70-0.50x5.60-0.25x1.55
+footprint=TSSOP-8-3.00x3.00-0.65x4.30-0.40x1.35
 description=
 documentation=
 author=
@@ -57,41 +57,11 @@ numslots=0
 #-----------------------------------------------------
 #pinnr	seq	type	style	posit.	net	label	
 #-----------------------------------------------------
-7		io	line	r		P1.0
-6		io	line	r		P1.1
-5		io	line	r		P1.2
-4		io	line	r		P1.3
-31		io	line	r		P1.4
-30		io	line	r		P1.5
-29		io	line	r		P1.6
-28		io	line	r		P1.7
-27		io	line	r		P2.0
-26		io	line	r		P2.1
-25		io	line	r		P2.2
-24		io	line	r		P2.3
-15		io	line	r		P2.4
-14		io	line	r		P2.5
-13		io	line	r		P2.6
-12		io	line	r		P2.7
-3		io	line	r		P3.0
-2		io	line	r		P3.1
-1		io	line	r		P3.2
-38		io	line	r		P3.3
-35		io	line	r		P3.4
-34		io	line	r		P3.5
-33		io	line	r		P3.6
-32		io	line	r		P3.7
-23		io	line	r		P4.0
-22		io	line	r		P4.1
-21		io	line	r		P4.2
-20		io	line	r		P4.3
-19		io	line	r		P4.4
-18		io	line	r		P4.5
-17		io	line	r		P4.6
-16		io	line	r		P4.7
-37		io	line	r		P5.0
-36		io	line	r		P5.1
-8		i	line	l		TEST/SBWTCK
-9		io	line	l		RST/SBWTDIO
-10		pwr	line	t		VCC
-11		pwr	line	b		VSS
+4		i	line	l		VIN-
+3		i	line	l		VIN+
+2		i	line	l		BYPASS
+1		i	line	l		STANDBY
+5		o	line	r		VOUT1
+6		pwr	line	t		VCC
+7		pwr	line	b		GND
+8		o	line	r		VOUT2
