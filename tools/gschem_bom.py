@@ -51,6 +51,7 @@ part = {
   'unit_cost_100': '',
   'unit_cost_500': '',
   'unit_cost_1000': '',
+  'unit_cost_10000': '',
   'description': '',
   'octopart_url': ''
 }
@@ -59,11 +60,13 @@ total_unit_cost_1 = 0.0
 total_unit_cost_100 = 0.0
 total_unit_cost_500 = 0.0
 total_unit_cost_1000 = 0.0
+total_unit_cost_10000 = 0.0
 
 total_missing_part_price_1 = 0
 total_missing_part_price_100 = 0
 total_missing_part_price_500 = 0
 total_missing_part_price_1000 = 0
+total_missing_part_price_10000 = 0
 
 print (",".join(part.keys()))
 
@@ -81,6 +84,7 @@ def process_start(matchobj):
   part["unit_cost_100"] = ""
   part["unit_cost_500"] = ""
   part["unit_cost_1000"] = ""
+  part["unit_cost_10000"] = ""
 
 def process_device(matchobj):
   part["device"] = matchobj.group(0).replace("device=", "")
@@ -99,10 +103,12 @@ def process_end(matchobj):
   global total_unit_cost_100
   global total_unit_cost_500
   global total_unit_cost_1000
+  global total_unit_cost_10000
   global total_missing_part_price_1
   global total_missing_part_price_100
   global total_missing_part_price_500
   global total_missing_part_price_1000
+  global total_missing_part_price_10000
 
   if debug:
     print (part)
@@ -143,6 +149,11 @@ def process_end(matchobj):
       total_unit_cost_1000 += float(part['unit_cost_1000'])
     else:
       total_missing_part_price_1000 += 1
+
+    if part['unit_cost_10000']:
+      total_unit_cost_10000 += float(part['unit_cost_10000'])
+    else:
+      total_missing_part_price_10000 += 1
       
     if debug:
       print ("%s, %s, %s, %s" % (part['refdes'], part['device'], part['value'], part['footprint']))
@@ -198,6 +209,7 @@ def parse_octopart(device):
       unit_cost_100 = ''
       unit_cost_500 = ''
       unit_cost_1000 = ''
+      unit_cost_10000 = ''
       has_prices = False
 
       if debug:
@@ -224,6 +236,10 @@ def parse_octopart(device):
           unit_cost_1000 = data["results"][0]["items"][item_idx]['offers'][offer_idx]['prices']['USD'][4][1]
         except:
           pass
+        try:
+          unit_cost_10000 = data["results"][0]["items"][item_idx]['offers'][offer_idx]['prices']['USD'][5][1]
+        except:
+          pass
         has_prices = True
 
       if has_prices:
@@ -235,6 +251,7 @@ def parse_octopart(device):
         part['unit_cost_100'] = unit_cost_100
         part['unit_cost_500'] = unit_cost_500
         part['unit_cost_1000'] = unit_cost_1000
+        part['unit_cost_10000'] = unit_cost_10000
         if debug:
           print (part)
 
@@ -250,3 +267,4 @@ print ("Total (1x): $%f (%d part prices missing)" % (total_unit_cost_1, total_mi
 print ("Total (100x): $%f (%d part prices missing)" % (total_unit_cost_100, total_missing_part_price_100))
 print ("Total (500x): $%f (%d part prices missing)" % (total_unit_cost_500, total_missing_part_price_500))
 print ("Total (1000x): $%f (%d part prices missing)" % (total_unit_cost_1000, total_missing_part_price_1000))
+print ("Total (10000x): $%f (%d part prices missing)" % (total_unit_cost_10000, total_missing_part_price_10000))
