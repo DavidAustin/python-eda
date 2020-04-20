@@ -30,11 +30,11 @@ d_ann = d_hole * 2.0
 p = 2.2
 
 d_hole_support = 1.15
-d_ann_support = 0
+d_ann_support = d_hole_support
 p_support = 1.7
 
-g.pinat(-p_support, 0.0, d_hole_support, d_ann_support, "0")
-g.pinat(p * (n_pins - 1) + p_support, 0.0, d_hole_support, d_ann_support, "0")
+g.pinat(-p_support, 0.2, d_hole_support, d_ann_support, "0")
+g.pinat(p * (n_pins - 1) + p_support, 0.2, d_hole_support, d_ann_support, "0")
 
 x = 0
 for i in range(1, n_pins + 1):
