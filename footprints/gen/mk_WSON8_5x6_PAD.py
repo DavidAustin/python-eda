@@ -21,8 +21,8 @@ g = FootprintGen('WSON8_5x6_PAD')
 
 # https://www.cypress.com/file/316171/download
 
-wx = 6.0
-wy = 5.0
+wx = 5.0
+wy = 6.0
 
 pad_w = 0.4 + 0.2
 pad_h = 0.6 + 0.2
@@ -32,19 +32,19 @@ thermal_pad_h = 3.4
 
 p = 1.27
 
-pad_from_cent_x = p * 2.0
-pad_from_cent_y = - pad_h / 2.0 - 0.15 - thermal_pad_h / 2.0
+pad_from_cent_x = p * 1.5
+pad_from_cent_y = -wy / 2.0
 
 x = 0
 y = 0
 
-for i in range(1, 6):
+for i in range(1, 5):
     g.rect_padat(x, y, pad_w, pad_h, '%d' % i)
     x += p
 
 x -= p
-for i in range(6, 11):
-    g.rect_padat(x, y + pad_from_cent_y * 2.0, pad_w, pad_h, '%d' % i)
+for i in range(5, 9):
+    g.rect_padat(x, -wy, pad_w, pad_h, '%d' % i)
     x -= p
 
 g.rect_padat(pad_from_cent_x, pad_from_cent_y, thermal_pad_w, thermal_pad_h, '0')
