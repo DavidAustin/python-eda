@@ -26,11 +26,11 @@ part_w = 15
 part_h = 6.66
 
 d_hole = 0.9
-d_ann = d_hole * 2.0
+d_ann = d_hole * 1.75
 p = 2.2
 
 d_hole_support = 1.15
-d_ann_support = d_hole_support
+d_ann_support = d_hole_support + 0.153 * 2.0 # i.e. min
 p_support = 1.7
 
 g.pinat(-p_support, 0.2, d_hole_support, d_ann_support, "0")
