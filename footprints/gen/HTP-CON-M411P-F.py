@@ -16,7 +16,7 @@
 
 from footprintgen import *
 
-g = FootprintGen("HTP-CON-M417")
+g = FootprintGen("HTP-CON-M411P-F")
 
 # https://www.hyte.pro/upload/hytepro-product/file/drawing/pdf/hytepro-magnetic-connector/HTP-CON-M417.pdf
 
