@@ -26,7 +26,7 @@ version=20060113 1
 name=USB C
 device=
 refdes=C?
-footprint=usb_c
+footprint=usb_c-8_dummy
 description=
 documentation=
 author=
@@ -59,14 +59,14 @@ numslots=0
 #-----------------------------------------------------
 0		pas	line	b		CHASSIS
 1		pas	line	r		GND
-2		pas	line	r		TX1+
-3		pas	line	r		TX1-
-4		pas	line	r		VBUS
-5		pas	line	r		CC1
-6		pas	line	r		D+
-7		pas	line	r		D-
-8		pas	line	r		SBU1
-9		pas	line	r		VBUS
-10		pas	line	r		RX2-
-11		pas	line	r		RX2+
+2		pas	line	r		VBUS
+3		pas	line	r		SBU2
+4		pas	line	r		CC1
+5		pas	line	r		D2-
+6		pas	line	r		D1+
+7		pas	line	r		D1-
+8		pas	line	r		D2+
+9		pas	line	r		SBU1
+10		pas	line	r		CC2
+11		pas	line	r		VBUS
 12		pas	line	r		GND

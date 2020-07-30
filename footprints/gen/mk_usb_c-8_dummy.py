@@ -17,7 +17,7 @@
 import math
 from footprintgen import *
 
-g = FootprintGen('usb_c')
+g = FootprintGen('usb_c-8_dummy')
 
 h = 1.15
 w = 0.3

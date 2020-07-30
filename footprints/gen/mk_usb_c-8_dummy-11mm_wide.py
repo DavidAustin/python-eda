@@ -17,7 +17,7 @@
 import math
 from footprintgen import *
 
-g = FootprintGen('usb_c-11mm_wide')
+g = FootprintGen('usb_c-8_dummy-11mm_wide')
 
 h = 1.15 - 0.3 # 0.3 to make smaller footprint
 w = 0.3
