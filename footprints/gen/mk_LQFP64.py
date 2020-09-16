@@ -42,7 +42,7 @@ for i in range(1, 17):
     y += p
 
 y -= p
-for i in range(33, 48):
+for i in range(33, 49):
     g.rect_padat(11.4, y, pad_h, pad_w, '%d' % i)
     y -= p
 
