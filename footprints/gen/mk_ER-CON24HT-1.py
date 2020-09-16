@@ -47,7 +47,7 @@ g.rect_padat(big_pad_w / 2.0 - 2.54, -big_pad_h / 2.0 + h / 2.0 - 1.45, big_pad_
 g.rect_padat(25.0 * p - big_pad_w + 2.54, -big_pad_h / 2.0 + h / 2.0 - 1.45, big_pad_w, big_pad_h, '0')
     
 ox1 = (23 * p - wx) / 2.0
-oy1 = 0
+oy1 = h / 2.0 - 1.45
 
 ox2 = ox1 + wx
 oy2 = oy1 - wy
