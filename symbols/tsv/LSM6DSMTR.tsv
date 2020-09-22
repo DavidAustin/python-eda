@@ -57,7 +57,11 @@ numslots=0
 #-----------------------------------------------------
 #pinnr	seq	type	style	posit.	net	label	
 #-----------------------------------------------------
+13		pwr	line	l		SCL
+14		pwr	line	l		SDA
 1		pwr	line	l		SDO/SA0
+12		pwr	line	l		CS
+
 2		pwr	line	r		SDx
 3		pwr	line	r		SCx
 4		pwr	line	r		INT1
@@ -68,6 +72,3 @@ numslots=0
 9		pwr	line	r		INT2
 10		pwr	line	r		OCS_AUX
 11		pwr	line	r		SDO_AUX
-12		pwr	line	l		CS
-13		pwr	line	l		SCL
-14		pwr	line	l		SDA
