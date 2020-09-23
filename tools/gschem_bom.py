@@ -273,6 +273,8 @@ def parse_octopart(device):
           print (part)
 
 for l in lines.splitlines():
+  if is_debug:
+    print (l)
   lines = re.sub(r'{', process_start, l)
   lines = re.sub(r'device=.+', process_device, l)
   lines = re.sub(r'value=.+', process_value, l)
