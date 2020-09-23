@@ -1,5 +1,5 @@
 # Python-EDA
-# Copyright (C) 2018 Luke Cole
+# Copyright (C) 2018-2000 Luke Cole
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -14,6 +14,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
+import argparse
 import sys
 import os
 import re
@@ -22,14 +23,30 @@ import urllib.parse
 import json
 import pprint
 
-if len(sys.argv) < 3:
-  print ("Usage: %s octopart_apikey geda_circuit_schematic.sch" % (sys.argv[0]))
-  exit()
+#==============================================================================
+# default settings
 
-apikey = sys.argv[1]
-filename = sys.argv[2]
+is_debug = False
+apikey = None
+filename = None
 
-debug = False
+#==============================================================================
+# parse arguments
+
+parser = argparse.ArgumentParser(description='gEDA gschem BOM Generation Tool')
+parser.add_argument("-d", '--debug', action='store_true', help='Print debug comments')
+parser.add_argument("-k", '--octopart_apikey', metavar='KEY', type=str, nargs=1, help='Register with octopart.com', required = True)
+parser.add_argument("-i", '--input_file', metavar='PATH', type=str, nargs=1, help='Example: example01.sch', required = True)
+
+args = parser.parse_args()
+is_debug = args.debug
+if args.octopart_apikey:
+  apikey = args.octopart_apikey[0]
+if args.input_file:
+  filename = args.input_file[0]
+
+#==============================================================================
+# process
 
 if not os.path.exists(filename):
   print (("%s - File does not exist") % (filename))
@@ -110,7 +127,7 @@ def process_end(matchobj):
   global total_missing_part_price_1000
   global total_missing_part_price_10000
 
-  if debug:
+  if is_debug:
     print (part)
   print_out = True
   if not part["device"]:
@@ -155,11 +172,11 @@ def process_end(matchobj):
     else:
       total_missing_part_price_10000 += 1
       
-    if debug:
+    if is_debug:
       print ("%s, %s, %s, %s" % (part['refdes'], part['device'], part['value'], part['footprint']))
 
 def parse_octopart(device):
-  if debug:
+  if is_debug:
     print (("processing device=%s..........................................") % (device))
 
   device = urllib.parse.quote_plus(device)
@@ -167,7 +184,7 @@ def parse_octopart(device):
   data = response.read()
   data = json.loads(data)
 
-  if debug:
+  if is_debug:
     if "MTCH101-I/OT" in device: # change to suit target part to debug
       pp = pprint.PrettyPrinter(indent=1)
       pp.pprint(data)
@@ -180,21 +197,21 @@ def parse_octopart(device):
     item_idx = -1
     offer_idx = -1
 
-    if debug:
+    if is_debug:
       print ("items_count=%d" % (len(items)))
       
     for i in range(len(items)):
       offers = data["results"][0]["items"][i]['offers']
-      if debug:
+      if is_debug:
         print ("offers_count=%d" % (len(offers)))
       for j in range(len(offers)):
         seller_name = data["results"][0]["items"][i]['offers'][j]['seller']['name']
-        if debug:
+        if is_debug:
           print (seller_name)
         if seller_name == "Digi-Key":
           item_idx = i
           offer_idx = j
-          if debug:
+          if is_debug:
             print ("item_idx=%d offer_idx=%d" % (item_idx, offer_idx))
           break
         
@@ -212,7 +229,7 @@ def parse_octopart(device):
       unit_cost_10000 = ''
       has_prices = False
 
-      if debug:
+      if is_debug:
         print (packaging)
       
       if packaging == "Cut Tape" or packaging == "Tray" or packaging == "Tube" or packaging == "Bulk" or packaging == "Bag":
@@ -252,7 +269,7 @@ def parse_octopart(device):
         part['unit_cost_500'] = unit_cost_500
         part['unit_cost_1000'] = unit_cost_1000
         part['unit_cost_10000'] = unit_cost_10000
-        if debug:
+        if is_debug:
           print (part)
 
 for l in lines.splitlines():
