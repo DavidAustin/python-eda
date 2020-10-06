@@ -17,42 +17,41 @@
 import math
 from footprintgen import *
 
-g = FootprintGen('LGA14')
+g = FootprintGen('XFQFN10_2x1.5_PAD')
 
-part_w = 3.0
-part_h = 2.5
+part_w = 2.0
+part_h = 1.5
 
 p = 0.5
 
-pad_w = 0.475
-pad_h = 0.25
+pad_w = 0.30
+pad_h = 0.58
 
 x = 0
 y = 0
 for i in range(1, 5):
     g.rect_padat(x, y, pad_w, pad_h, '%d' % i)
-    y += p
-
-x = (part_w - 0.1 * 2.0 - pad_w) / 2.0 - p
-y = p * 1.5 + (part_h - 0.1 * 2.0 - pad_h) / 2.0
-for i in range(5, 8):
-    g.rect_padat(x, y, pad_h, pad_w, '%d' % i)
     x += p
 
-x = part_w - 0.1 * 2.0 - pad_w
-y = p * 3.0
-for i in range(8, 12):
+x = p * 3
+y = 1.85 - pad_h
+for i in range(6, 10):
     g.rect_padat(x, y, pad_w, pad_h, '%d' % i)
-    y -= p
-
-x = (part_w - 0.1 * 2.0 - pad_w) / 2.0 + p
-y = p * 1.5 - (part_h - 0.1 * 2.0 - pad_h) / 2.0
-for i in range(12, 15):
-    g.rect_padat(x, y, pad_h, pad_w, '%d' % i)
     x -= p
 
-ox1 = (part_w - (part_w - 0.1 * 2.0 - pad_w)) / 2.0
-oy1 = (part_h - p * 3) / 2.0
+pad_w = 0.35
+pad_h = 0.63
+    
+x = p * 3.0 + (2.35 - 1.5) / 2.0 - pad_h / 2.0
+y = (1.85 - pad_h) / 2.0
+g.rect_padat(x, y, pad_h, pad_w, '5')
+    
+x = -((2.35 - 1.5) / 2.0 - pad_h / 2.0)
+y = (1.85 - pad_h) / 2.0
+g.rect_padat(x, y, pad_h, pad_w, '10')
+    
+ox1 = (part_w - p * 3) / 2.0
+oy1 = (part_h - (1.85 - 0.58)) / 2.0
 
 ox2 = part_w - ox1
 oy2 = part_h - oy1
