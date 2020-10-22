@@ -1,0 +1,97 @@
+# This is the template file for creating symbols with tragesym
+# every line starting with '#' is a comment line.
+
+[options]
+# wordswap swaps labels if the pin is on the right side an looks like this:
+#   "PB1 (CLK)". That's useful for micro controller port labels
+# rotate_labels rotates the pintext of top and bottom pins
+#   this is useful for large symbols like FPGAs with more than 100 pins
+# sort_labels will sort the pins by it's labels
+#   useful for address ports, busses, ...
+wordswap=no
+rotate_labels=no
+sort_labels=no
+generate_pinseq=yes
+sym_width=4000
+pinwidthvertical=500
+pinwidthhorizontal=500
+
+[geda_attr]
+# name will be printed in the top of the symbol
+# name is only some graphical text, not an attribute
+# version specifies a gschem version.
+# if you have a device with slots, you'll have to use slot= and slotdef=
+# use comment= if there are special information you want to add
+version=20060113 1
+name=LTC2497CUHF#PBF
+device=LTC2497CUHF#PBF
+refdes=U?
+footprint=SOIC-16-7.50x12.80-1.27x8.90-0.80x1.50
+description=
+documentation=
+author=
+dist-license=
+use-license=
+numslots=0
+#slot=1
+#slotdef=1:
+#slotdef=2:
+#slotdef=3:
+#slotdef=4:
+#comment=
+#comment=
+#comment=
+
+[pins]
+# tabseparated list of pin descriptions
+# ----------------------------------------
+# pinnr is the physical number of the pin
+# seq is the pinseq= attribute, leave it blank if it doesn't matter
+# type can be (in, out, io, oc, oe, pas, tp, tri, clk, pwr)
+# style can be (line,dot,clk,dotclk,spacer,none). none if only want to add a net
+# posit. can be (l,r,t,b) or empty for nets.
+# net specifies the name of the net. Vcc or GND for example.
+# label represents the pinlabel.
+#	negation lines can be added with "\_" example: \_enable\_ 
+#	if you want to write a "\" use "\\" as escape sequence
+#-----------------------------------------------------
+#pinnr	seq	type	style	posit.	net	label	
+#-----------------------------------------------------
+1		pwr	line	b		GND
+3		io	line	l		SDA
+2		i	line	l		SCL
+4		pwr	line	b		GND
+5		io	line	l		NC
+6		pwr	line	b		GND
+7		pwr	line	b		COM
+8		i	line	r		CH0
+9		i	line	r		CH1
+10		i	line	r		CH2
+11		i	line	r		CH3
+12		i	line	r		CH4
+13		i	line	r		CH5
+14		i	line	r		CH6
+15		i	line	r		CH7
+16		i	line	r		CH8
+17		i	line	r		CH9
+18		i	line	r		CH10
+19		i	line	r		CH11
+20		i	line	r		CH12
+21		i	line	r		CH13
+22		i	line	r		CH14
+23		i	line	r		CH15
+25		pwr	line	l		ADCINP
+26		pwr	line	l		ADCINN
+24		pwr	line	l		MUXOUTP
+27		pwr	line	l		MUXOUTN
+28		pwr	line	t		VCC
+29		pwr	line	l		REF+
+30		pwr	line	l		REF-
+31		pwr	line	b		GND
+32		pwr	line	b		GND
+33		pwr	line	b		GND
+34		pwr	line	b		GND
+35		io	line	l		t0
+36		io	line	l		CA0
+37		io	line	l		CA1
+38		io	line	l		CA2
