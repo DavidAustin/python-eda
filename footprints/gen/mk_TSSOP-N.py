@@ -18,7 +18,7 @@
 import math
 from footprintgen import *
 
-def make_connector(n_pins, part_w, part_h, px, py, pad_w, pad_h):
+def make_fp(n_pins, part_w, part_h, px, py, pad_w, pad_h):
     g = FootprintGen('TSSOP-%d-%.2fx%.2f-%.2fx%.2f-%.2fx%.2f' % (n_pins, part_w, part_h, px, py, pad_w, pad_h))
 
     x = 0
@@ -47,16 +47,16 @@ def make_connector(n_pins, part_w, part_h, px, py, pad_w, pad_h):
 # https://en.wikipedia.org/wiki/Small_outline_integrated_circuit#Thin-shrink_small-outline_package_(TSSOP)
 
 # http://ww1.microchip.com/downloads/en/DeviceDoc/22147a.pdf
-make_connector(6, 1.25, 2, 0.65, 2.2, 0.4, 0.9)
+make_fp(6, 1.25, 2, 0.65, 2.2, 0.4, 0.9)
 
 # https://pdfserv.maximintegrated.com/land_patterns/90-0092.PDF
 # https://pdfserv.maximintegrated.com/package_dwgs/21-0036.PDF
-make_connector(8, 3, 3, 0.65, 4.3, 0.4, 1.35)
+make_fp(8, 3, 3, 0.65, 4.3, 0.4, 1.35)
 
 # https://www.ti.com/lit/ds/symlink/msp430fr2111.pdf
-make_connector(16, 4.4, 5.0, 0.65, 5.8, 0.45, 1.5)
+make_fp(16, 4.4, 5.0, 0.65, 5.8, 0.45, 1.5)
 
 # http://www.ti.com/lit/ds/symlink/msp430fr2355.pdf
-make_connector(38, 4.4, 9.7, 0.5, 5.6, 0.25, 1.55)
+make_fp(38, 4.4, 9.7, 0.5, 5.6, 0.25, 1.55)
 
-# TODO: make_connector() up to 64-pin
+# TODO: make_fp() up to 64-pin
