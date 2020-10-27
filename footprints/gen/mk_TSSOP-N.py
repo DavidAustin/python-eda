@@ -1,5 +1,5 @@
 # Python-EDA
-# Copyright (C) 2018 Luke Cole
+# Copyright (C) 2020 Luke Cole
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -52,6 +52,9 @@ make_connector(6, 1.25, 2, 0.65, 2.2, 0.4, 0.9)
 # https://pdfserv.maximintegrated.com/land_patterns/90-0092.PDF
 # https://pdfserv.maximintegrated.com/package_dwgs/21-0036.PDF
 make_connector(8, 3, 3, 0.65, 4.3, 0.4, 1.35)
+
+# https://www.ti.com/lit/ds/symlink/msp430fr2111.pdf
+make_connector(16, 4.4, 5.0, 0.65, 5.8, 0.45, 1.5)
 
 # http://www.ti.com/lit/ds/symlink/msp430fr2355.pdf
 make_connector(38, 4.4, 9.7, 0.5, 5.6, 0.25, 1.55)
