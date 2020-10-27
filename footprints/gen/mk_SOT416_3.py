@@ -17,7 +17,7 @@
 import math
 from footprintgen import *
 
-g = FootprintGen('SOT416_6')
+g = FootprintGen('SOT416_3')
 
 # file:///home/cole/Downloads/user_browser/DF3D6.8MS_datasheet_en_20141016.pdf
 
