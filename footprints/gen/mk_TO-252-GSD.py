@@ -1,5 +1,5 @@
 # Python-EDA
-# Copyright (C) 2019 Luke Cole
+# Copyright (C) 2020 Luke Cole
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -17,7 +17,7 @@
 import math
 from footprintgen import *
 
-g = FootprintGen('TO-252-3')
+g = FootprintGen('TO-252-GSD')
 
 w = 6.22+1.27
 h = 6.73
