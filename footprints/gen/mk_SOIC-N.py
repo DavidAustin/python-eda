@@ -22,18 +22,18 @@ def make_fp(n_pins, part_w, part_h, px, py, pad_w, pad_h):
     g = FootprintGen('SOIC-%d-%.2fx%.2f-%.2fx%.2f-%.2fx%.2f' % (n_pins, part_w, part_h, px, py, pad_w, pad_h))
 
     x = 0
-    for i in range(1, n_pins / 2 + 1):
+    for i in range(1, n_pins // 2 + 1):
         g.rect_padat(x, 0, pad_w, pad_h, i)
         x += px
 
     j = i
-    x = px * (n_pins / 2 - 1)
-    for i in range(1, n_pins / 2 + 1):
+    x = px * (n_pins / 2.0 - 1)
+    for i in range(1, n_pins // 2 + 1):
         g.rect_padat(x, -py, pad_w, pad_h, j + i)
         x -= px
 
-    ox1 = (part_h - px * (n_pins / 2 - 1)) / 2
-    oy1 = (part_w + py) / 2
+    ox1 = (part_h - px * (n_pins / 2.0 - 1)) / 2.0
+    oy1 = (part_w + py) / 2.0
 
     ox2 = part_h - ox1
     oy2 = part_w - oy1
