@@ -78,3 +78,6 @@ def make_fp(x_pins, y_pins, part_w, part_h, x_pads_offset, y_pads_offset, px, py
 
 # https://www.analog.com/media/en/technical-documentation/data-sheets/2497fb.pdf
 make_fp(12, 7, 7.0, 5.0, 5.5 - 0.7, 7.5 - 0.7, 0.5, 0.5, 0.25, 0.7, 5.15, 3.15)
+
+# http://www.smc-diodes.com/propdf/S14C03-8%20THRU%20S14C36-8%20N0287%20REV.-.pdf
+make_fp(10, 10, 6, 6, 5.8, 5.8, 0.5, 0.5, 0.3, 0.8, 4.13, 4.13)
