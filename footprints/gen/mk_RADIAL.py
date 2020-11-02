@@ -18,7 +18,7 @@ import math
 from footprintgen import *
 
 def make_radial(d, p, d_hole, d_ann):
-    g = FootprintGen('RADIAL-%f-%f-%f-%f' % (d, p, d_hole, d_ann))
+    g = FootprintGen('RADIAL-%.2f-%.2f-%.2f-%.2f' % (d, p, d_hole, d_ann))
     
     g.pinat(0, 0, d_hole, d_ann,  1, {'square' : 1})
     g.pinat(p, 0, d_hole, d_ann,  2)
