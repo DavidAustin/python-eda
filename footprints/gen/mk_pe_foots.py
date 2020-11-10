@@ -68,7 +68,7 @@ data = {
     '2512' : [8.0, 4.4, 1.8, 3.0]
 }
 
-# e.g. https://content.kemet.com/datasheets/KEM_T2005_T491.pdf
+# e.g. 1uF 50V tan T491C105M050AT - https://content.kemet.com/datasheets/KEM_T2005_T491.pdf
 data_pol = {
     '2312' : [6.0, 3.2, 1.4, 2.4],
 }
