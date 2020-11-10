@@ -1,7 +1,8 @@
 The following is up for discussion:
 
 * use a footpring family generator such as:
-  mk_QFN-N.py, mk_WFDFN-N.py, mk_SOIC-N.py, mk_TSSOP-N.py
+  mk_QFN-N.py, mk_WFDFN-N.py, mk_SOIC-N.py, mk_TSSOP-N.py,
+  mk_CONN*.py, mk_RADIAL.py, mk_pe*.py
 * w/x vs h/y definition/clarification - perhaps vertical/horizontal
 * .sym generator (replacing .tsv) - particular for families
 * .sym to match manufacturer part number - likely the high level .sym
