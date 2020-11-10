@@ -2,8 +2,9 @@ The following is up for discussion:
 
 1) use a footprint family generator such as:
    mk_QFN-N.py, mk_WFDFN-N.py, mk_SOIC-N.py, mk_TSSOP-N.py,
-   mk_CONN*.py, mk_RADIAL.py, mk_pe*.py
-2) w/x vs h/y definition/clarification - perhaps vertical/horizontal
-3) .sym generator (replacing .tsv) - particular for families
-4) .sym to match manufacturer part number - likely the high level .sym
+   mk_CONN*.py, mk_RADIAL.py, mk_pe*.py, mk_holes.py
+2) Naming standard for family generators - perhaps postfix with "-N"
+3) w/x vs h/y definition/clarification - perhaps vertical/horizontal
+4) .sym generator (replacing .tsv) - particular for families
+5) .sym to match manufacturer part number - likely the high level .sym
    generator should produce all names in the family
