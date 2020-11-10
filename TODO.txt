@@ -9,3 +9,5 @@ The following is up for discussion:
 5) .sym generator (replacing .tsv) - particular for families
 6) .sym to match manufacturer part number - likely the high level .sym
    generator should produce all names in the family
+7) Check hole sizes - seems tight
+8) Produce ruler for checking footprints

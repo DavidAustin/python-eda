@@ -30,12 +30,10 @@ def make_connector(n_pins):
     g.pinat(0, y, dia, od,  1, {'square' : 1})
     g.pinat(0, y + p, dia, od,  2)
     x += p
-    for i in range(3, n_pins + 1):
-        if i % 2 == 0:
-            g.pinat(x, y, dia, od,  i)
-            g.pinat(x, y + p, dia, od,  i + 1)
-            i += 2
-            x += p
+    for i in range(3, n_pins + 1, 2):
+        g.pinat(x, y, dia, od,  i)
+        g.pinat(x, y + p, dia, od,  i + 1)
+        x += p
     
     p_len = (n_pins / 2.0 - 1) * p
     C = p_len + (58.4 - 48.26)
