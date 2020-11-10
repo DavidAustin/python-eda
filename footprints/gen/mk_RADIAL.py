@@ -26,8 +26,26 @@ def make_radial(d, p, d_hole, d_ann):
     g.outlinecirc(p / 2.0, 0, d / 2.0)
     
     g.write()
-
-# 500C602T040AB2B - https://www.cde.com/resources/catalogs/500C.pdf
+    
+# 6000uF 40V 500C602T040AB2B - https://www.cde.com/resources/catalogs/500C.pdf
 d_hole = 8 + 1 # i.e. 9mm for M8
 d_ann = d_hole + 2
 make_radial(34.93, 12.7, d_hole, d_ann)
+
+clearance = 0.3
+
+# 2000uF 50V EKYC500ELL202ML30S - http://www.chemi-con.co.jp/cgi-bin/CAT_DB/SEARCH/cat_db_al.cgi?e=e&j=p&pdfname=kyc
+d_hole = 0.8 + clearance
+d_ann = d_hole * 1.75
+make_radial(16, 7.5, d_hole, d_ann)
+
+# 1000uF 50V UVR1H102MHD1TO - https://www.nichicon.co.jp/english/products/pdfs/e-uvr.pdf
+d_hole = 0.6 + clearance
+d_ann = d_hole * 1.75
+make_radial(12.5, 5.0, d_hole, d_ann)
+
+# 470uF 50V ESH477M050AH4AA - https://www.nichicon.co.jp/english/products/pdfs/e-uvr.pdf
+d_hole = 0.6 + clearance
+d_ann = d_hole * 1.75
+make_radial(10.0, 5.0, d_hole, d_ann)
+
