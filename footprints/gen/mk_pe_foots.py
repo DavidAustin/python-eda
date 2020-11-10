@@ -17,16 +17,43 @@
 import math
 from footprintgen import *
 
-data = {
-    '0201' : [0.75, 0.30, 0.30, 0.30, 0.20, 1.10, 0.50],
-    '0402' : [1.50, 0.50, 0.50, 0.60, 0.10, 1.90, 1.00],
-    '0603' : [2.10, 0.90, 0.60, 0.90, 0.50, 2.35, 1.45],
-    '0805' : [2.60, 1.20, 0.70, 1.30, 0.75, 2.85, 1.90],
-    '1206' : [3.80, 2.00, 0.90, 1.60, 1.60, 4.05, 2.25],
-    '1218' : [3.80, 2.00, 0.90, 4.80, 1.40, 4.20, 5.50],
-    '2010' : [5.60, 3.80, 0.90, 2.80, 3.40, 5.85, 3.15],
-    '2512' : [7.00, 3.80, 1.60, 3.50, 3.40, 7.25, 3.85]
-}
+def make_fp(k, data, pol = False):
+    a, b, c, d = data
+
+    if pol:
+        g = FootprintGen('pei%s_pol' % k)
+    else:
+        g = FootprintGen('pei%s' % k)
+
+    g.rect_padat(0, 0, c, d, '1')
+    
+    g.rect_padat(c + b, 0, c, d, '2')
+
+    cx = (c + b) / 2
+    cy = 0
+    oo = 0.25
+
+    csx = 1.0
+    csy = 1.1
+    
+    g.outlinerect(cx - a / 2 * csx - oo, cy - d / 2 * csy - oo, 
+                  cx + a / 2 * csx + oo, cy + d / 2 * csy + oo, 0.15)
+
+    if pol:
+
+        ox1 = a
+        oy1 = oo
+        ox2 = a
+        oy2 = -oo        
+        g.outline(ox1, oy1, ox2, oy2)
+
+        ox1 = a - oo
+        oy1 = 0
+        ox2 = a + oo
+        oy2 = 0
+        g.outline(ox1, oy1, ox2, oy2)
+        
+    g.write()
 
 data = {
     '0100' : [0.48, 0.12, 0.18, 0.2],
@@ -41,24 +68,13 @@ data = {
     '2512' : [8.0, 4.4, 1.8, 3.0]
 }
 
-csx = 1.0
-csy = 1.1
+# e.g. https://content.kemet.com/datasheets/KEM_T2005_T491.pdf
+data_pol = {
+    '2312' : [6.0, 3.2, 1.4, 2.4],
+}
 
 for k in data.keys():
-    
-    a, b, c, d = data[k]
+    make_fp(k, data[k])
 
-    g = FootprintGen('pei%s' % k)
-
-    g.rect_padat(0, 0, c, d, '1')
-    
-    g.rect_padat(c + b, 0, c, d, '2')
-
-    cx = (c + b) / 2
-    cy = 0
-    oo = 0.25
-    
-    g.outlinerect(cx - a / 2 * csx - oo, cy - d / 2 * csy - oo, 
-                  cx + a / 2 * csx + oo, cy + d / 2 * csy + oo, 0.15)
-    
-    g.write()
+for k in data_pol.keys():
+    make_fp(k, data_pol[k], True)
