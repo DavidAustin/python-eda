@@ -15,12 +15,14 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 
-import math
 from footprintgen import *
 
-def make_fp(n_pins, part_w, part_h, px, py, pad_w, pad_h):
-    g = FootprintGen('TSSOP-%d-%.2fx%.2f-%.2fx%.2f-%.2fx%.2f' % (n_pins, part_w, part_h, px, py, pad_w, pad_h))
+def make_fp(n_pins, part_w, part_h, px, py, pad_w, pad_h, thermal_pad_w, thermal_pad_h):
+    g = FootprintGen('WFDFN-%d-%.2fx%.2f-%.2fx%.2f-%.2fx%.2f-%.2fx%.2f' % (n_pins, part_w, part_h, px, py, pad_w, pad_h, thermal_pad_w, thermal_pad_h))
 
+    pad_from_cent_x = (n_pins // 2 - 1) / 2.0 * px
+    pad_from_cent_y = -py / 2.0
+    
     x = 0
     for i in range(1, n_pins // 2 + 1):
         g.rect_padat(x, 0, pad_w, pad_h, i)
@@ -32,27 +34,23 @@ def make_fp(n_pins, part_w, part_h, px, py, pad_w, pad_h):
         g.rect_padat(x, -py, pad_w, pad_h, j + i)
         x -= px
 
-    ox1 = (part_h - px * (n_pins / 2.0 - 1)) / 2
-    oy1 = (part_w + py) / 2.0
+    g.rect_padat(pad_from_cent_x, pad_from_cent_y, thermal_pad_w, thermal_pad_h, '0')
+        
+    ox1 = (part_w - px * (n_pins / 2.0 - 1)) / 2
+    oy1 = (part_h + py) / 2.0
 
-    ox2 = part_h - ox1
-    oy2 = part_w - oy1
-
+    ox2 = part_w - ox1
+    oy2 = part_h - oy1
+    
     g.outlinerect(-ox1, -oy1, ox2, oy2)
 
     g.outlinecirc(-ox1 + 0.3, oy1 - py - 0.3, 0.05, 0.2)
 
     g.write()
 
-# https://en.wikipedia.org/wiki/Small_outline_integrated_circuit#Thin-shrink_small-outline_package_(TSSOP)
-
-# http://ww1.microchip.com/downloads/en/DeviceDoc/22147a.pdf
-make_fp(6, 1.25, 2, 0.65, 2.2, 0.4, 0.9)
-
-# https://www.ti.com/lit/ds/symlink/msp430fr2111.pdf
-make_fp(16, 4.4, 5.0, 0.65, 5.8, 0.45, 1.5)
-
-# http://www.ti.com/lit/ds/symlink/msp430fr2355.pdf
-make_fp(38, 4.4, 9.7, 0.5, 5.6, 0.25, 1.55)
-
-# TODO: make_fp() up to 64-pin
+# https://www.diodes.com/assets/Package-Files/U-DFN3030-10.pdf
+make_fp(10, 3.0, 3.0, 0.5, 2.7, 0.35, 0.6, 2.6, 1.8)
+    
+# https://pdfserv.maximintegrated.com/package_dwgs/21-0036.PDF
+# https://pdfserv.maximintegrated.com/land_patterns/90-0247.PDF
+make_fp(10, 3.0, 4.0, 0.5, 3.84, 0.3, 0.79, 2.3, 2.6)
