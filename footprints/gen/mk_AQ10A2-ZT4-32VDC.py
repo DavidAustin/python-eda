@@ -43,22 +43,39 @@ py = -9.1
 g.pinat(px / 2.0 - 20.0, py, d_hole, d_ann, "0")
 g.pinat(px / 2.0 + 20.0, py, d_hole, d_ann, "0")
 
+# main part
+
 part_w = 33.0
 part_h = 12.0
 
 ox1 = px / 2.0 - part_w / 2.0
-oy1 = part_h - 6.9
+oy1 = -6.9
 
 ox2 = ox1 + part_w
-oy2 = oy1 - part_h
+oy2 = oy1 + part_h
 
 g.outlinerect(ox1, oy1, ox2, oy2)
+
+# main part heatshink mounting plate
 
 part_w = 54.0
 part_h = 2.0
 
 ox1 = px / 2.0 - part_w / 2.0
-oy1 = part_h - 6.9
+oy1 = - 6.9
+
+ox2 = ox1 + part_w
+oy2 = oy1 + part_h
+
+g.outlinerect(ox1, oy1, ox2, oy2)
+
+# heatshink
+
+part_w = 58.0
+part_h = 30.0
+
+ox1 = px / 2.0 - part_w / 2.0
+oy1 = -6.9
 
 ox2 = ox1 + part_w
 oy2 = oy1 - part_h
