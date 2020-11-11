@@ -17,6 +17,8 @@
 import math
 from footprintgen import *
 
+# https://www.digikey.com/en/products/detail/panasonic-electric-works/AQ10A2-ZT4-32VDC/3992067
+
 g = FootprintGen('AQ10A2-ZT4-32VDC')
 
 d_hole = 1.2
