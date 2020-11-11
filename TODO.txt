@@ -4,7 +4,8 @@ The following is up for discussion:
    mk_QFN-N.py, mk_WFDFN-N.py, mk_SOIC-N.py, mk_TSSOP-N.py,
    mk_CONN*.py, mk_RADIAL.py, mk_pe*.py, mk_holes.py
 2) Naming standard for family generators - perhaps postfix with "-N"
-3) w/x vs h/y definition/clarification - perhaps vertical/horizontal
+3) w/x vs l/h/y definition/clarification - perhaps vertical/horizontal
+   or stick with x/y standard coordinated frame: x = left/right, y = up/down
 4) Merge mk_peSOT23_GSD.py and mk_SOT23_3.py
 5) .sym generator (replacing .tsv) - particular for families
 6) .sym to match manufacturer part number - likely the high level .sym
