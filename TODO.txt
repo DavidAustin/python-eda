@@ -12,4 +12,7 @@ The following is up for discussion:
 7) Check hole sizes - seems tight
 8) Produce ruler for checking footprints
 9) Add comment to link datasheet (to clarify dimensions)
-10) More standardization - uppercase vs lowercase, - vs _
+10) More standardization:
+    * uppercase vs lowercase
+    * - vs _
+    * should / characters be replaced with -
