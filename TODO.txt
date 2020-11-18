@@ -20,3 +20,5 @@ The following is up for discussion:
 11) Should connectors show the minimal outline and maximum outline
    (e.g. plug) - or perhaps two different footprints depending on size
    objectives
+12) Enforce 80 char line limit?
+13) Increase pin clearance suitable for pcbway design rules
