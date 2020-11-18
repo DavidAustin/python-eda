@@ -69,7 +69,6 @@ origin_x = 0
 origin_y = 0
 origin_dia = data['10000uF 50V UVR1H103MRD'][0]
 origin_pitch = data['10000uF 50V UVR1H103MRD'][1]
-print origin_dia, origin_pitch
 i = 0
 
 data = sorted(data.items(), key=lambda x: x[1], reverse=True)
