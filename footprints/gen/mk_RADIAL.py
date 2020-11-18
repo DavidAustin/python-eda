@@ -17,58 +17,71 @@
 import math
 from footprintgen import *
 
-def make_radial(d, p, d_hole, d_ann):
-    g = FootprintGen('RADIAL-%.2f-%.2f-%.2f-%.2f' % (d, p, d_hole, d_ann))
-    
-    g.pinat(0, 0, d_hole, d_ann,  1, {'square' : 1})
-    g.pinat(p, 0, d_hole, d_ann,  2)
-    
-    g.outlinecirc(p / 2.0, 0, d / 2.0)
+class footprintradial:
 
-    oo = 0.5
-
-    ox = p / 2.0 + (d / 2.0) * math.cos(math.radians(45)) + oo
-    oy = (d / 2.0) * math.sin(math.radians(45)) + oo
-
-    ox1 = ox - oo
-    oy1 = oy
-    ox2 = ox + oo
-    oy2 = oy
-    g.outline(ox1, oy1, ox2, oy2)
-
-    ox1 = ox
-    oy1 = oy - oo
-    ox2 = ox
-    oy2 = oy + oo
-    g.outline(ox1, oy1, ox2, oy2)
+    def __init__(self, name):
+        self.g = FootprintGen(name)
     
-    g.write()
+    def make_radial(self, d, p, d_hole, d_ann, origin_x = 0, origin_y = 0):
+        self.g.pinat(origin_x, origin_y, d_hole, d_ann,  1, {'square' : 1})
+        self.g.pinat(origin_x + p, origin_y, d_hole, d_ann,  2)
     
+        self.g.outlinecirc(origin_x + p / 2.0, origin_y, d / 2.0)
+
+        oo = 0.5
+
+        ox = origin_x + p / 2.0 + (d / 2.0) * math.cos(math.radians(45)) + oo
+        oy = origin_y + (d / 2.0) * math.sin(math.radians(45)) + oo
+        
+        ox1 = ox - oo
+        oy1 = oy
+        ox2 = ox + oo
+        oy2 = oy
+        self.g.outline(ox1, oy1, ox2, oy2)
+
+        ox1 = ox
+        oy1 = oy - oo
+        ox2 = ox
+        oy2 = oy + oo
+        self.g.outline(ox1, oy1, ox2, oy2)
+
+    def write(self):
+        self.g.write()
+
 clearance = 0.3
 
-# 10000uF 50V UVR1H103MRD https://www.nichicon.co.jp/english/products/pdfs/e-uvr.pdf
-# I think this is the biggest before screw terminals are required
-d_hole = 1.0 + clearance
-d_ann = d_hole * 1.75
-make_radial(25, 12.5, d_hole, d_ann)
+data = {
+    '10000uF 50V UVR1H103MRD': [25, 12.5, 1.0 + clearance], # https://www.nichicon.co.jp/english/products/pdfs/e-uvr.pdf - I think this is the biggest before screw terminals are required
+    '2000uF 50V EKYC500ELL202ML30S' : [16, 7.5, 0.8 + clearance], # http://www.chemi-con.co.jp/cgi-bin/CAT_DB/SEARCH/cat_db_al.cgi?e=e&j=p&pdfname=kyc
+    '1000uF 50V UVR1H102MHD1TO' : [12.5, 5.0, 0.6 + clearance], # https://www.nichicon.co.jp/english/products/pdfs/e-uvr.pdf
+    '470uF 50V ESH477M050AH4AA' : [10.0, 5.0, 0.6 + clearance], # https://www.nichicon.co.jp/english/products/pdfs/e-uvr.pdf
+    '10uF 50V 860020672010' : [5.0, 2.0, 0.5 + clearance] # https://www.we-online.de/katalog/datasheet/860020672010.pdf
+}
 
-# 2000uF 50V EKYC500ELL202ML30S - http://www.chemi-con.co.jp/cgi-bin/CAT_DB/SEARCH/cat_db_al.cgi?e=e&j=p&pdfname=kyc
-d_hole = 0.8 + clearance
-d_ann = d_hole * 1.75
-make_radial(16, 7.5, d_hole, d_ann)
+for v in data.values():
+    d_ann = v[2] * 1.75
+    r = footprintradial('RADIAL-%.2f-%.2f-%.2f-%.2f' % (v[0], v[1], v[2], d_ann))
+    r.make_radial(v[0], v[1], v[2], d_ann)
+    r.write()
 
-# 1000uF 50V UVR1H102MHD1TO - https://www.nichicon.co.jp/english/products/pdfs/e-uvr.pdf
-d_hole = 0.6 + clearance
-d_ann = d_hole * 1.75
-make_radial(12.5, 5.0, d_hole, d_ann)
+r = footprintradial('RADIAL-multi')
+origin_x = 0
+origin_y = 0
+origin_dia = data['10000uF 50V UVR1H103MRD'][0]
+origin_pitch = data['10000uF 50V UVR1H103MRD'][1]
+print origin_dia, origin_pitch
+i = 0
 
-# 470uF 50V ESH477M050AH4AA - https://www.nichicon.co.jp/english/products/pdfs/e-uvr.pdf
-d_hole = 0.6 + clearance
-d_ann = d_hole * 1.75
-make_radial(10.0, 5.0, d_hole, d_ann)
+data = sorted(data.items(), key=lambda x: x[1], reverse=True)
 
-# 10uF 50V 860020672010 - https://www.we-online.de/katalog/datasheet/860020672010.pdf
-d_hole = 0.5 + clearance
-d_ann = d_hole * 1.75
-make_radial(5.0, 2.0, d_hole, d_ann)
-
+for v in data:
+    d = v[1]
+    d_ann = d[2] * 1.75
+    if i > 0:
+        origin_x = (origin_pitch - d[1]) / 2.0
+        origin_y = (d[0] - origin_dia) / 2.0
+        r.make_radial(d[0], d[1], d[2], d_ann)
+    r.make_radial(d[0], d[1], d[2], d_ann, origin_x, origin_y)
+    r.make_radial(d[0], d[1], d[2], d_ann, origin_x, -origin_y)
+    i += 1
+r.write()
