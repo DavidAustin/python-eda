@@ -12,7 +12,7 @@ wordswap=no
 rotate_labels=no
 sort_labels=no
 generate_pinseq=yes
-sym_width=4000
+sym_width=4500
 pinwidthvertical=500
 pinwidthhorizontal=500
 
@@ -57,7 +57,7 @@ numslots=0
 #-----------------------------------------------------
 #pinnr	seq	type	style	posit.	net	label	
 #-----------------------------------------------------
-0		pwr	line	b		GND
+0		pwr	line	b		PAD
 1		pwr	line	b		GND
 3		io	line	l		SDA
 2		i	line	l		SCL
