@@ -1,5 +1,5 @@
 # Python-EDA
-# Copyright (C) 2018 David Austin
+# Copyright (C) 2020 Luke Cole
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -19,15 +19,12 @@ import math
 from footprintgen import *
 
 # designed for both Weidmuller and more cost-effective Würth Elektronik connectors
-# e.g. note these are RA ones
+# e.g.
 # https://www.digikey.com/en/products/detail/w%C3%BCrth-elektronik/691312510002/2060560
 # https://www.digikey.com/en/products/detail/weidm%C3%BCller/1148030000/4017500
-#
-# LC - perhaps we should include a outline for the plug
 
 def make_connector(n_pins):
-    g = FootprintGen('CONN%d_508_VERT' % n_pins)
-
+    g = FootprintGen('CONN%d_508_RA' % n_pins)
     
     p = 5.08
     x = p * (n_pins-1)
@@ -39,15 +36,15 @@ def make_connector(n_pins):
         g.pinat(x, y, 1.4, od,  i)
         x -= p
 
-
-    ow = p * (n_pins-1) + 3.54 * 2 + 0.2
     ox1 = -3.54
-    ox2 = ox1 + ow
-    oh = 8.6
-    oy1 = -3.8
-    oy2 = oy1 + oh
+    oy1 = -2.0
+    ox2 = p * (n_pins - 1) + 3.54
+    oy2 = oy1 + 12.0
+    
     g.outlinerect(ox1, oy1, ox2, oy2, 0.1)
+    
     oy3 = oy2 - 0.3
+    
     g.outline(ox1, oy3, ox2, oy3, 0.1)
     #oy4 = oy1 + 15
     #outline(f, ox1, oy4, ox2, oy4, 0.1)
