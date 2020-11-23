@@ -18,7 +18,7 @@
 import math
 from footprintgen import *
 
-# designed for both Weidmuller and more cost-effective Würth Elektronik connectors
+# designed for both Weidmuller and more cost-effective Wurth Elektronik connectors
 # e.g. note these are RA ones
 # https://www.digikey.com/en/products/detail/w%C3%BCrth-elektronik/691312510002/2060560
 # https://www.digikey.com/en/products/detail/weidm%C3%BCller/1148030000/4017500
