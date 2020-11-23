@@ -24,7 +24,7 @@ wy = 14.45
 
 p = 1.905
 d_hole = 0.7
-d_ann = 1.0
+d_ann = d_hole * 1.75
 
 large_p = 2.54
 large_d_hole = 1.5
