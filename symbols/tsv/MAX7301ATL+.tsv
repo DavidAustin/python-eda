@@ -1,4 +1,4 @@
-# This is the template file for creating symbols with tragesym
+1;5202;0c# This is the template file for creating symbols with tragesym
 # every line starting with '#' is a comment line.
 
 [options]
@@ -57,6 +57,8 @@ numslots=0
 #-----------------------------------------------------
 #pinnr	seq	type	style	posit.	net	label	
 #-----------------------------------------------------
+0		pwr	line	b		PAD
+
 1		o	line	r		P4
 2		o	line	r		P5
 3		o	line	r		P6
