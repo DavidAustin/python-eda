@@ -64,6 +64,8 @@ for v in data.values():
     r.make_radial(v[0], v[1], v[2], d_ann)
     r.write()
 
+# TODO - the below needs work to avoid duplicated pins - use fp/RADIAL-multi.fp for now
+'''
 r = footprintradial('RADIAL-multi')
 origin_x = 0
 origin_y = 0
@@ -84,3 +86,4 @@ for v in data:
     r.make_radial(d[0], d[1], d[2], d_ann, origin_x, -origin_y)
     i += 1
 r.write()
+'''
