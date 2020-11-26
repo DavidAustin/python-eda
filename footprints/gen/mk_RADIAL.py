@@ -30,7 +30,7 @@ class footprintradial:
 
         oo = 0.5
 
-        ox = origin_x + p / 2.0 + (d / 2.0) * math.cos(math.radians(45)) + oo
+        ox = origin_x + p / 2.0 - (d / 2.0) * math.cos(math.radians(45)) - oo
         oy = origin_y + (d / 2.0) * math.sin(math.radians(45)) + oo
         
         ox1 = ox - oo
