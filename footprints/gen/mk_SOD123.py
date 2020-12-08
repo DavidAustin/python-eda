@@ -19,7 +19,7 @@ from footprintgen import *
 
 # settings
 
-fp_name = 'SOD123-LC'
+fp_name = 'SOD123'
 
 # physical part dimensions (not including pins)
 part_w = 1.6
@@ -34,7 +34,7 @@ px = 0 # distance between centre of pins
 py = 3.46 # distance between centre of pins
 
 # pin1 marker settings
-pin1_depth = part_h - 0.3
+pin1_depth = 0.3
 pin1_option = 'x_line'
 
 # shouldn't have to edit below this line
