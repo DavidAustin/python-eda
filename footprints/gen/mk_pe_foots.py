@@ -41,15 +41,15 @@ def make_fp(k, data, pol = False):
 
     if pol:
 
-        ox1 = a
+        ox1 = -c - 0.25
         oy1 = oo
-        ox2 = a
+        ox2 = -c - 0.25
         oy2 = -oo        
         g.outline(ox1, oy1, ox2, oy2)
 
-        ox1 = a - oo
+        ox1 = -c - 0.25 - oo
         oy1 = 0
-        ox2 = a + oo
+        ox2 = -c - 0.25 + oo
         oy2 = 0
         g.outline(ox1, oy1, ox2, oy2)
         

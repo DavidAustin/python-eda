@@ -63,5 +63,4 @@ numslots=0
 4		in	line	l		IN-
 5		out	line	r		OUT0
 6		out	line	r		OUT1
-7		out	line	r		NC
 8		out	line	r		OUT2
