@@ -19,13 +19,13 @@ from footprintgen import *
 
 g = FootprintGen('usb_c-8_dummy')
 
-h = 1.15
+h = 1.15 - 0.3
 w = 0.3
 
 px = 0.5
 px1 = 0.65
 px2 = 0.8
-py = -0.5 - h / 2.0
+py = -0.5 - 1.15 / 2.0
 
 g.rect_padat(-px / 2.0 - px * 3 - px1 - px2, py, w * 2, h, '1')
 g.rect_padat(-px / 2.0 - px * 3 - px1, py, w * 2, h, '2')
