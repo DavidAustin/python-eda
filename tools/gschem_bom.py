@@ -136,8 +136,6 @@ def process_end(matchobj):
     print_out = False
   if part['device'] == "TESTPOINT":
     print_out = False
-  if "CONNECTOR" in part['device']:
-    print_out = False
     
   if "RESISTOR" in part['device']:
     part['device'] = part['device'] + " " + part['value'] + " " + part['footprint'].replace("pei", "")
