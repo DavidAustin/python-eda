@@ -35,14 +35,20 @@ filename = None
 
 parser = argparse.ArgumentParser(description='gEDA gschem BOM Generation Tool')
 parser.add_argument("-d", '--debug', action='store_true', help='Print debug comments')
+parser.add_argument("-p", '--debug_part', metavar='KEY', type=str, nargs=1, help='Print debug info for this part')
 parser.add_argument("-k", '--octopart_apikey', metavar='KEY', type=str, nargs=1, help='Register with octopart.com', required = True)
 parser.add_argument("-i", '--input_file', metavar='PATH', type=str, nargs=1, help='Example: example01.sch', required = True)
 
 args = parser.parse_args()
 is_debug = args.debug
+debug_part = ""
+if args.debug_part:
+  debug_part = args.debug_part[0]
 if args.octopart_apikey:
   apikey = args.octopart_apikey[0]
 if args.input_file:
+  filename = args.input_file[0]
+if args.debug_part:
   filename = args.input_file[0]
 
 #==============================================================================
@@ -184,10 +190,9 @@ def parse_octopart(device):
   data = response.read()
   data = json.loads(data)
 
-  if is_debug:
-    if "MTCH101-I/OT" in device: # change to suit target part to debug
-      pp = pprint.PrettyPrinter(indent=1)
-      pp.pprint(data)
+  if debug_part in device:
+    pp = pprint.PrettyPrinter(indent=1)
+    pp.pprint(data)
 
   hits = data["results"][0]['hits']
   
@@ -232,7 +237,7 @@ def parse_octopart(device):
       if is_debug:
         print (packaging)
       
-      if packaging == "Cut Tape" or packaging == "Tray" or packaging == "Tube" or packaging == "Bulk" or packaging == "Bag":
+      if packaging == "Cut Tape" or packaging == "Tray" or packaging == "Tube" or packaging == "Bulk" or packaging == "Bag" or packaging == "Box":
         try:
           unit_cost_1 = data["results"][0]["items"][item_idx]['offers'][offer_idx]['prices']['USD'][0][1]
         except:
