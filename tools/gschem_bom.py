@@ -48,8 +48,6 @@ if args.octopart_apikey:
   apikey = args.octopart_apikey[0]
 if args.input_file:
   filename = args.input_file[0]
-if args.debug_part:
-  filename = args.input_file[0]
 
 #==============================================================================
 # process
@@ -188,7 +186,7 @@ def parse_octopart(device):
   data = response.read()
   data = json.loads(data)
 
-  if debug_part in device:
+  if debug_part and debug_part in device:
     pp = pprint.PrettyPrinter(indent=1)
     pp.pprint(data)
 
