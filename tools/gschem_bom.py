@@ -233,7 +233,7 @@ def parse_octopart(device):
       if is_debug:
         print (packaging)
       
-      if packaging == "Cut Tape" or packaging == "Tray" or packaging == "Tube" or packaging == "Bulk" or packaging == "Bag" or packaging == "Box":
+      if packaging == "Tape & Reel" or packaging == "Cut Tape" or packaging == "Tray" or packaging == "Tube" or packaging == "Bulk" or packaging == "Bag" or packaging == "Box":
         try:
           unit_cost_1 = data["results"][0]["items"][item_idx]['offers'][offer_idx]['prices']['USD'][0][1]
         except:
