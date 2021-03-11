@@ -45,15 +45,15 @@ g.outline(ox2, oy1, ox2, oy2)
 oo = 0.1
 
 ox1 = part_w / 2.0 + 0.5 - oo
-oy1 = part_h / 2.0
+oy1 = -part_h / 2.0
 ox2 = part_w / 2.0 + 0.5 + oo
 oy2 = oy1
 g.outline(ox1, oy1, ox2, oy2)
 
 ox1 = part_w / 2.0 + 0.5
-oy1 = part_h / 2.0 + oo
+oy1 = -part_h / 2.0 + oo
 ox2 = ox1
-oy2 = part_h / 2.0 - oo
+oy2 = -part_h / 2.0 - oo
 g.outline(ox1, oy1, ox2, oy2)
 
 g.write()
