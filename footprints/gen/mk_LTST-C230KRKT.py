@@ -17,21 +17,18 @@
 import math
 from footprintgen import *
 
-g = FootprintGen('PTS526-SM15-SMTR2-LFS')
+g = FootprintGen('LTST-C230KRKT')
 
-part_w = 5.2
-part_h = 5.2
+part_w = 1.6
+part_h = 3.2
 
-w = (7.0 - 5.0) / 2.0
-h = 0.7
+w = 1.6 + 0.2
+h = (part_h - 1.49) / 2.0 + 0.2
 
-px = 5 + w
-py = 3.7
+px = 0
+py = h + 1.49
 
 g.rect_padat(-px / 2.0, py / 2.0, w, h, '1')
-g.rect_padat(px / 2.0, py / 2.0, w, h, '1')
-
-g.rect_padat(-px / 2.0, -py / 2.0, w, h, '2')
 g.rect_padat(px / 2.0, -py / 2.0, w, h, '2')
 
 ox1 = -(part_w - px) / 2.0 - px / 2.0
@@ -45,5 +42,18 @@ g.outline(ox1, oy2, ox2, oy2)
 g.outline(ox1, oy1, ox1, oy2)
 g.outline(ox2, oy1, ox2, oy2)
 
-g.write()
+oo = 0.1
 
+ox1 = part_w / 2.0 + 0.5 - oo
+oy1 = part_h / 2.0
+ox2 = part_w / 2.0 + 0.5 + oo
+oy2 = oy1
+g.outline(ox1, oy1, ox2, oy2)
+
+ox1 = part_w / 2.0 + 0.5
+oy1 = part_h / 2.0 + oo
+ox2 = ox1
+oy2 = part_h / 2.0 - oo
+g.outline(ox1, oy1, ox2, oy2)
+
+g.write()
