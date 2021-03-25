@@ -1,5 +1,5 @@
 # Python-EDA
-# Copyright (C) 2020 David Austin
+# Copyright (C) 2018 David Austin
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -18,16 +18,29 @@
 import math
 from footprintgen import *
 
-g = FootprintGen("TO252_3")
+g = FootprintGen("LFPAK5_50x60")
 
-w = 1.2
-h = 2.2
+w = 0.7
+h = 1.15
 
-py = 10.6 - 6.4/2 - 2.2/2
-px = 5.76 - 1.2
+px = 1.27
 
-g.rect_padat(0,        0, w, h, 'G')
-g.rect_padat(px,       0, w, h, 'S')
-g.rect_padat(px/2,   -py, 5.8, 6.4, 'D')
 
+y = (3.3 + 2.15)/2
+g.rect_padat(-1.5*px, y, w, h, 'S')
+g.rect_padat(-0.5*px, y, w, h, 'S')
+g.rect_padat( 0.5*px, y, w, h, 'S')
+g.rect_padat( 1.5*px, y, w, h, 'G')
+
+
+g.rect_padat(0, -(1.6-1.1), 4.2, 3.2, 'D')
+
+g.rect_padat(0, -2 - 0.75, 4.7, 1.5, 'D')
+
+
+oy = 5.0
+ox = 5.0
+
+#g.outline(px/2 - ox/2, py * 1.5 - oy/2, px/2 + ox/2, py * 1.5 - oy/2)
+#g.outline(px/2 - ox/2, py * 1.5 + oy/2, px/2 + ox/2, py * 1.5 + oy/2)
 g.write()

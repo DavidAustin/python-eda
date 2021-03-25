@@ -18,16 +18,13 @@
 import math
 from footprintgen import *
 
-g = FootprintGen("TO252_3")
+g = FootprintGen("TO220_2")
 
-w = 1.2
-h = 2.2
 
-py = 10.6 - 6.4/2 - 2.2/2
-px = 5.76 - 1.2
-
-g.rect_padat(0,        0, w, h, 'G')
-g.rect_padat(px,       0, w, h, 'S')
-g.rect_padat(px/2,   -py, 5.8, 6.4, 'D')
+px = 5.08
+d = 3.0
+dh = 1.0
+g.pinat(0,    0, dh, d, '1', {'square' : 1})
+g.pinat(px,   0, dh, d, '2')
 
 g.write()

@@ -18,16 +18,17 @@
 import math
 from footprintgen import *
 
-g = FootprintGen("TO252_3")
+g = FootprintGen("IND_175x175")
 
-w = 1.2
-h = 2.2
 
-py = 10.6 - 6.4/2 - 2.2/2
-px = 5.76 - 1.2
+g.rect_padat(0.0, 0.0, 12.5, 3.15, "1")
+g.rect_padat(0.0, -12.2-3.15, 12.5, 3.15, "2")
 
-g.rect_padat(0,        0, w, h, 'G')
-g.rect_padat(px,       0, w, h, 'S')
-g.rect_padat(px/2,   -py, 5.8, 6.4, 'D')
+
+ow = 17.5
+oh = 17.5
+oy1 = 2.15/2
+g.outline(-ow/2, oy1, -ow/2, oy1 - oh, 0.15)
+g.outline(ow/2, oy1, ow/2, oy1 - oh, 0.15)
 
 g.write()

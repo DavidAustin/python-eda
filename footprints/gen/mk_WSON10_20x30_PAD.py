@@ -15,19 +15,53 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 
-import math
 from footprintgen import *
 
-g = FootprintGen("TO252_3")
+g = FootprintGen('WSON10_20x30_PAD')
 
-w = 1.2
-h = 2.2
+wx = 2.0
+wy = 3.0
 
-py = 10.6 - 6.4/2 - 2.2/2
-px = 5.76 - 1.2
+pad_w = 0.5
+pad_h = 0.25
 
-g.rect_padat(0,        0, w, h, 'G')
-g.rect_padat(px,       0, w, h, 'S')
-g.rect_padat(px/2,   -py, 5.8, 6.4, 'D')
+thermal_pad_w = 0.84
+thermal_pad_h = 2.4
+
+p = 0.5
+
+
+x = 0
+y = 0
+
+for i in range(1, 6):
+    g.rect_padat(x, y, pad_w, pad_h, '%d' % i)
+    y += p
+
+y -= p
+x = 1.9
+for i in range(6, 11):
+    g.rect_padat(x, y, pad_w, pad_h, '%d' % i)
+    y -= p
+
+
+cx = 1.9/2
+cy = p * 2
+g.rect_padat(cx, cy, thermal_pad_w, thermal_pad_h, '0')
+
+ox1 = -(wx - cx * 2.0) / 2.0
+oy1 = (wy + cy * 2.0) / 2.0
+ox2 = ox1 + wx
+oy2 = oy1 - wy
+
+ood = 0.3
+
+#g.outline(ox1, oy1, ox1, oy2)
+g.outline(ox1, oy1, ox2, oy1)
+
+g.outline(ox1, oy2, ox2, oy2)
+#g.outline(ox2, oy1, ox2, oy2)
+
+g.outline(ox1, oy2 - ood, ox1, oy2 - ood, 0.3)
 
 g.write()
