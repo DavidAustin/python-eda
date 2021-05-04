@@ -1,5 +1,5 @@
 # Python-EDA
-# Copyright (C) 2020 David Austin
+# Copyright (C) 2019 David Austin
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -15,19 +15,32 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 
-import math
 from footprintgen import *
 
-g = FootprintGen("TO252_3")
+g = FootprintGen('TSOP362_UP')
 
-w = 1.2
-h = 2.2
 
-py = 10.6 - 6.4/2 - 2.2/2
-px = 5.76 - 1.2
+wx = 7.5
+wy = 5.3
+px = 1.27
+pw = 0.9
+ph = 2.2
+g.rect_padat(0.0, 0.0, pw, ph, '1')
+g.rect_padat(px, 0.0, pw, ph, '2')
+g.rect_padat(2*px, 0.0, pw, ph, '3')
+g.rect_padat(3*px, 0.0, pw, ph, '4')
 
-g.rect_padat(0,        0, w, h, 'G')
-g.rect_padat(px,       0, w, h, 'S')
-g.rect_padat(px/2,   -py, 5.8, 6.4, 'D')
+oo = 0.1
+cx = 1.5 * px
+cy = 1.5/2 - wy/2
+g.outline(cx - wx/2 - oo, cy - wy/2 - oo, cx + wx/2 + oo, cy - wy/2 - oo)
+g.outline(cx - wx/2 - oo, cy + wy/2 + oo, cx - wx/2 - oo, cy - wy/2 - oo)
+g.outline(cx + wx/2 + oo, cy + wy/2 + oo, cx + wx/2 + oo, cy - wy/2 - oo)
+
+xo = 0.2
+g.outline(cx - xo, cy, cx + xo, cy)
+g.outline(cx, cy - xo, cx, cy + xo)
+
+g.outline(-1, 1.5, -1, 1.5, 0.3)
 
 g.write()

@@ -18,16 +18,16 @@
 import math
 from footprintgen import *
 
-g = FootprintGen("TO252_3")
+g = FootprintGen("TO263_DIODE")
 
-w = 1.2
-h = 2.2
+w = 1.6
+h = 4.3
 
-py = 10.6 - 6.4/2 - 2.2/2
-px = 5.76 - 1.2
+py = 16.586 - h/2 - 9.296/2
+px = 5.08
 
-g.rect_padat(0,        0, w, h, 'G')
-g.rect_padat(px,       0, w, h, 'S')
-g.rect_padat(px/2,   -py, 5.8, 6.4, 'D')
+g.rect_padat(0,        0, w, h, '0')
+g.rect_padat(px,       0, w, h, '1')
+g.rect_padat(px/2,   -py, 11.07, 9.296, '2')
 
 g.write()

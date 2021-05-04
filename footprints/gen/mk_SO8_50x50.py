@@ -14,20 +14,40 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-
 import math
 from footprintgen import *
 
-g = FootprintGen("TO252_3")
+g = FootprintGen('SO8_50x50')
 
-w = 1.2
-h = 2.2
+part_w = 5.0
+part_h = 5.0
 
-py = 10.6 - 6.4/2 - 2.2/2
-px = 5.76 - 1.2
+w = 1.8
+h = 0.55
+px = 7.9
+py = 1.27
 
-g.rect_padat(0,        0, w, h, 'G')
-g.rect_padat(px,       0, w, h, 'S')
-g.rect_padat(px/2,   -py, 5.8, 6.4, 'D')
+
+x = 0
+y = 0
+for i in range(1,5):
+    g.rect_padat(x, y, w, h, str(i))
+    y += py
+
+x += px
+y -= py
+for i in range(5,9):
+    g.rect_padat(x, y, w, h, str(i))
+    y -= py
+
+ox1 = (part_w - px) / 2
+oy1 = (part_h - py * (4 - 1)) / 2
+
+ox2 = part_w - ox1
+oy2 = part_h - oy1
+
+g.outlinerect(-ox1, -oy1, ox2, oy2)
+
+g.outlinecirc(0, -oy1 - 0.5, 0.05, 0.5)
 
 g.write()

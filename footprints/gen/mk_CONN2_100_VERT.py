@@ -18,16 +18,37 @@
 import math
 from footprintgen import *
 
-g = FootprintGen("TO252_3")
 
-w = 1.2
-h = 2.2
+def make_connector(n_pins):
+    g = FootprintGen('CONN%d_100_VERT' % n_pins)
 
-py = 10.6 - 6.4/2 - 2.2/2
-px = 5.76 - 1.2
+    
+    p = 10.0
+    x = p * (n_pins-1)
+    y = 0
+    od = 2.5
+    g.pinat(x, y, 1.4, od,  1, {'square' : 1})
+    x -= p
+    for i in range(2,n_pins+1):
+        g.pinat(x, y, 1.4, od,  i)
+        x -= p
 
-g.rect_padat(0,        0, w, h, 'G')
-g.rect_padat(px,       0, w, h, 'S')
-g.rect_padat(px/2,   -py, 5.8, 6.4, 'D')
 
-g.write()
+    ow = p * (n_pins-1) + 2.6 * 2
+    ox1 = -2.6
+    ox2 = ox1 + ow
+    oh = 7.25
+    oy1 = -3.0
+    oy2 = oy1 + oh
+    g.outlinerect(ox1, oy1, ox2, oy2, 0.1)
+    oy3 = oy2 - 0.3
+    g.outline(ox1, oy3, ox2, oy3, 0.1)
+    #oy4 = oy1 + 15
+    #outline(f, ox1, oy4, ox2, oy4, 0.1)
+
+    g.write()
+
+for i in range(2,21):
+    make_connector(i)
+
+

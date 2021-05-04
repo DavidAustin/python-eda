@@ -1,5 +1,5 @@
 # Python-EDA
-# Copyright (C) 2020 David Austin
+# Copyright (C) 2019 David Austin
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -18,16 +18,33 @@
 import math
 from footprintgen import *
 
-g = FootprintGen("TO252_3")
 
-w = 1.2
-h = 2.2
+def make_it(n_pins):
+    g = FootprintGen('CONN_JST_ZH%d_15_RA' % n_pins)
 
-py = 10.6 - 6.4/2 - 2.2/2
-px = 5.76 - 1.2
+    
+    px = 1.5
+    w = 0.7 
+    h = 7-4.3
 
-g.rect_padat(0,        0, w, h, 'G')
-g.rect_padat(px,       0, w, h, 'S')
-g.rect_padat(px/2,   -py, 5.8, 6.4, 'D')
+    x = 0#p * (n_pins-1)
+    y = 0
+    x = 0
+    y = 4.3 + h/2
+    for i in range(1,n_pins+1):
+        g.rect_padat(x, y, w, h, str(i))
+        x -= px
 
-g.write()
+    y = 4.3-1.4-1.9/2
+    g.rect_padat(1.4+1.1/2, y, 1.1, 1.9, '0')
+    g.rect_padat(-(n_pins-1)*px-1.4-1.1/2, y, 1.1, 1.9, '0')
+
+    g.outline(1.4, 0.0, -1.4-(n_pins-1)*px, 0.0, 0.5)
+
+
+    g.write()
+
+for i in range(2,11):
+    make_it(i)
+
+
