@@ -22,17 +22,17 @@ g = FootprintGen('EN3P6FX')
 d_hole = 1 # TODO
 d_ann = 2 # TODO
 p = 4 # TODO
-d = 15.49
+d = 15.5
 
 opts = {}
 opts['square'] = 1
         
-g.pinat(p * -2, 0, d_hole, d_ann, '1', opts)
+g.pinat(p * -1, p, d_hole, d_ann, '1', opts)
 g.pinat(p * -1, 0, d_hole, d_ann, '2')
-g.pinat(p, 0, d_hole, d_ann, '3')
+g.pinat(0, 0, d_hole, d_ann, '3')
 g.pinat(p * 1, 0, d_hole, d_ann, '4')
-g.pinat(p * 2, 0, d_hole, d_ann, '5')
-g.pinat(p * 3, 0, d_hole, d_ann, '6')
+g.pinat(p * 1, p, d_hole, d_ann, '5')
+g.pinat(p * 1, -p, d_hole, d_ann, '6')
 
 g.outlinecirc(0, 0, d / 2.0)
 
