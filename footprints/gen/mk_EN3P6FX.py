@@ -27,8 +27,12 @@ d = 15.49
 opts = {}
 opts['square'] = 1
         
-g.pinat(-p / 2.0, 0, d_hole, d_ann, '1', opts)
-g.pinat(p / 2.0, 0, d_hole, d_ann, '2')
+g.pinat(0, 0, d_hole, d_ann, '1', opts)
+g.pinat(p, 0, d_hole, d_ann, '2')
+g.pinat(p * 2, 0, d_hole, d_ann, '3')
+g.pinat(p * 3, 0, d_hole, d_ann, '4')
+g.pinat(p * 4, 0, d_hole, d_ann, '5')
+g.pinat(p * 5, 0, d_hole, d_ann, '6')
 
 g.outlinecirc(0, 0, d / 2.0)
 
