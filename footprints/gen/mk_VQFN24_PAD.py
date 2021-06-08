@@ -1,5 +1,5 @@
 # Python-EDA
-# Copyright (C) 2020 Luke Cole
+# Copyright (C) 2020-2021 Luke Cole
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -19,11 +19,14 @@ from footprintgen import *
 
 g = FootprintGen('VQFN24_PAD')
 
+# https://www.ti.com/lit/ds/symlink/msp430fr2000.pdf
+
 p = 0.4
 p1 = 0.5
 w = 0.25
 w1 = 0.45
 h = 0.25
+h_extra = 0.5 # not in datasheet, but choosen based on experience
 padw = 1.9
 padh = 1.9
 
@@ -33,37 +36,37 @@ cy = p * 2 + p1
 g.rect_padat(cx, cy, padw, padh, '0')
 
 # top
-g.rect_padat(p, 0, w, h, '24')
-g.rect_padat(0, 0, w, h, '1')
-g.rect_padat(-p, 0, w, h, '2')
-g.rect_padat(-p - p1, 0, w1, h, '3')
-g.rect_padat(-p - p1 * 2, 0, w, h, '4')
-g.rect_padat(-p * 2 - p1 * 2, 0, w, h, '5')
-g.rect_padat(-p * 3 - p1 * 2, 0, w, h, '6')
+g.rect_padat(p, -h_extra / 2.0, w, h + h_extra, '24')
+g.rect_padat(0, -h_extra / 2.0, w, h + h_extra, '1')
+g.rect_padat(-p, -h_extra / 2.0, w, h + h_extra, '2')
+g.rect_padat(-p - p1, -h_extra / 2.0, w1, h + h_extra, '3')
+g.rect_padat(-p - p1 * 2, -h_extra / 2.0, w, h + h_extra, '4')
+g.rect_padat(-p * 2 - p1 * 2, -h_extra / 2.0, w, h + h_extra, '5')
+g.rect_padat(-p * 3 - p1 * 2, -h_extra / 2.0, w, h + h_extra, '6')
 
 # bottom
 y = p * 4 + p1 * 2
-g.rect_padat(p, y, w, h, '18')
-g.rect_padat(0, y, w, h, '17')
-g.rect_padat(-p, y, w, h, '16')
-g.rect_padat(-p - p1, y, w1, h, '15')
-g.rect_padat(-p - p1 * 2, y, w, h, '14')
-g.rect_padat(-p * 2 - p1 * 2, y, w, h, '13')
-g.rect_padat(-p * 3 - p1 * 2, y, w, h, '12')
+g.rect_padat(p, y + h_extra / 2.0, w, h + h_extra, '18')
+g.rect_padat(0, y + h_extra / 2.0, w, h + h_extra, '17')
+g.rect_padat(-p, y + h_extra / 2.0, w, h + h_extra, '16')
+g.rect_padat(-p - p1, y + h_extra / 2.0, w1, h + h_extra, '15')
+g.rect_padat(-p - p1 * 2, y + h_extra / 2.0, w, h + h_extra, '14')
+g.rect_padat(-p * 2 - p1 * 2, y + h_extra / 2.0, w, h + h_extra, '13')
+g.rect_padat(-p * 3 - p1 * 2, y + h_extra / 2.0, w, h + h_extra, '12')
 
 # left
-g.rect_padat(-p * 3 - p1 * 2, p, h, w, '7')
-g.rect_padat(-p * 3 - p1 * 2, p * 2, h, w, '8')
-g.rect_padat(-p * 3 - p1 * 2, p * 2 + p1, h, w1, '9')
-g.rect_padat(-p * 3 - p1 * 2, p * 2 + p1 * 2, h, w, '10')
-g.rect_padat(-p * 3 - p1 * 2, p * 3 + p1 * 2, h, w, '11')
+g.rect_padat(-p * 3 - p1 * 2 - h_extra / 2.0, p, h + h_extra, w, '7')
+g.rect_padat(-p * 3 - p1 * 2 - h_extra / 2.0, p * 2, h + h_extra, w, '8')
+g.rect_padat(-p * 3 - p1 * 2 - h_extra / 2.0, p * 2 + p1, h + h_extra, w1, '9')
+g.rect_padat(-p * 3 - p1 * 2 - h_extra / 2.0, p * 2 + p1 * 2, h + h_extra, w, '10')
+g.rect_padat(-p * 3 - p1 * 2 - h_extra / 2.0, p * 3 + p1 * 2, h + h_extra, w, '11')
 
 # right
-g.rect_padat(p, p, h, w, '23')
-g.rect_padat(p, p * 2, h, w, '22')
-g.rect_padat(p, p * 2 + p1, h, w1, '21')
-g.rect_padat(p, p * 2 + p1 * 2, h, w, '20')
-g.rect_padat(p, p * 3 + p1 * 2, h, w, '19')
+g.rect_padat(p + h_extra / 2.0, p, h + h_extra, w, '23')
+g.rect_padat(p + h_extra / 2.0, p * 2, h + h_extra, w, '22')
+g.rect_padat(p + h_extra / 2.0, p * 2 + p1, h + h_extra, w1, '21')
+g.rect_padat(p + h_extra / 2.0, p * 2 + p1 * 2, h + h_extra, w, '20')
+g.rect_padat(p + h_extra / 2.0, p * 3 + p1 * 2, h + h_extra, w, '19')
 
 ow = 3.15
 oh = 3.15
