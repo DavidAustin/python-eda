@@ -71,8 +71,8 @@ numslots=0
 12	12	io	line	r		DB5
 13	13	io	line	r		DB6
 14	14	io	line	r		DB7
-15	15	pwr	line	r		VDD
-16	16	pwr	line	l		VSS
+15	15	pwr	line	t		VDD
+16	16	pwr	line	b		VSS
 17	17	io	line	l		VOUT
 18	18	io	line	l		CAP3+
 19	19	io	line	l		CAP1-
