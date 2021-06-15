@@ -12,7 +12,7 @@ wordswap=no
 rotate_labels=no
 sort_labels=no
 generate_pinseq=no
-sym_width=2000
+sym_width=3000
 pinwidthvertical=500
 pinwidthhorizontal=500
 
