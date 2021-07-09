@@ -35,7 +35,7 @@ filename = None
 
 parser = argparse.ArgumentParser(description='gEDA gschem BOM Generation Tool')
 parser.add_argument("-d", '--debug', action='store_true', help='Print debug comments')
-parser.add_argument("-p", '--debug_part', metavar='KEY', type=str, nargs=1, help='Print debug info for this part')
+parser.add_argument("-p", '--debug_part', metavar='SKU', type=str, nargs=1, help='Print debug info for this part')
 parser.add_argument("-k", '--octopart_apikey', metavar='KEY', type=str, nargs=1, help='Register with octopart.com', required = True)
 parser.add_argument("-i", '--input_file', metavar='PATH', type=str, nargs=1, help='Example: example01.sch', required = True)
 
