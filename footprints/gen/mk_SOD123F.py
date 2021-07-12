@@ -17,21 +17,23 @@
 import math
 from footprintgen import *
 
+# https://www.diodes.com/assets/Package-Files/SOD123F.pdf
+
 # settings
 
 fp_name = 'SOD123F'
 
 # physical part dimensions (not including pins)
-part_w = 1.85
-part_h = 2.75
+part_w = 1.8
+part_h = 2.7
 two_sides = False
 pin_count_yside = 2 # number of pins on vertical side
 
 # pin dimensions
-w = 1.5
-h = 0.5
+w = 1.8
+h = 1.34
 px = 0 # distance between centre of pins
-py = (3.7 - 2.75) / 2.0 + 2.75 # distance between centre of pins
+py = 2.86
 
 # pin1 marker settings
 pin1_depth = 0.3
