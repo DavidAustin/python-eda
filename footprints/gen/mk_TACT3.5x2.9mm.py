@@ -17,7 +17,9 @@
 import math
 from footprintgen import *
 
-g = FootprintGen('TACT3.5mm')
+g = FootprintGen('TACT3.5x2.9mm')
+
+# https://b2b-api.panasonic.eu/file_stream/pids/fileversion/2431 pg2 or pg3
 
 part_w = 3.5
 part_h = 2.9
