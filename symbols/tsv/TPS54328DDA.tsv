@@ -65,3 +65,4 @@ numslots=0
 6		out	line	r		SW
 2		in	line	r		VFB
 5		pwr	line	b		GND
+0		pwr	line	b		PAD
