@@ -36,7 +36,7 @@ px = 0 # distance between centre of pins
 py = 2.24 + w # distance between centre of pins
 
 # pin1 marker settings
-pin1_depth = 0.3
+pin1_depth = 0.4
 pin1_option = 'x_line'
 
 # shouldn't have to edit below this line

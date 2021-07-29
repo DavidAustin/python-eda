@@ -23,8 +23,8 @@ pinwidthhorizontal=600
 # if you have a device with slots, you'll have to use slot= and slotdef=
 # use comment= if there are special information you want to add
 version=20060113 1
-name=LM3478
-device=LM3478
+name=LM335DT
+device=LM335DT
 refdes=U?
 footprint=SOIC-8-3.90x4.90-1.27x6.25-0.80x1.50
 description=

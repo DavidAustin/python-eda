@@ -20,6 +20,8 @@ from footprintgen import *
 # settings
 
 fp_name = 'peSOD123'
+# https://www.taiwansemi.com/assets/uploads/datasheet/1N4148W-G_D1601.pdf
+# https://assets.nexperia.com/documents/data-sheet/PDZ-GW_SER.pdf
 
 # physical part dimensions (not including pins)
 part_w = 1.6
@@ -28,13 +30,13 @@ two_sides = False
 pin_count_yside = 2 # number of pins on vertical side
 
 # pin dimensions
-w = 0.7
-h = 0.5
+w = 0.91
+h = 1.22
 px = 0 # distance between centre of pins
-py = 3.46 # distance between centre of pins
+py = 3.27 # distance between centre of pins
 
 # pin1 marker settings
-pin1_depth = 0.3
+pin1_depth = 0.5
 pin1_option = 'x_line'
 
 # shouldn't have to edit below this line
