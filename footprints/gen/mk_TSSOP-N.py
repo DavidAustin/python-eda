@@ -49,6 +49,9 @@ def make_fp(n_pins, part_w, part_h, px, py, pad_w, pad_h):
 # http://ww1.microchip.com/downloads/en/DeviceDoc/22147a.pdf
 make_fp(6, 1.25, 2, 0.65, 2.2, 0.4, 0.9)
 
+# https://www.ti.com/lit/ds/symlink/lm4889.pdf
+make_fp(8, 3.0, 3.0, 0.65, 4.4, 0.45, 1.5)
+
 # https://www.ti.com/lit/ds/symlink/msp430fr2111.pdf
 make_fp(16, 4.4, 5.0, 0.65, 5.8, 0.45, 1.5)
 

@@ -51,3 +51,4 @@ Where,
 16) Increase pin clearance suitable for pcbway design rules
 17) Ensure CONN prefix for all connectors - e.g. usb
 18) Ensure footprints pads are larger then part pads
+19) Ensure pin spacing is 500
