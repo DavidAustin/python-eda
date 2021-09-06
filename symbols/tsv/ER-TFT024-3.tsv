@@ -94,7 +94,7 @@ numslots=0
 31	31	io	line	r		DB01
 32	32	io	line	r		DB00
 10	10	io	line	r		RESET
-33	33	io	line	r		SD0
+33	33	io	line	r		SDO
 34	34	io	line	r		SDI
 35	35	io	line	r		RD
 38	38	io	line	r		CSX
