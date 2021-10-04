@@ -58,6 +58,6 @@ numslots=0
 #pinnr	seq	type	style	posit.	net	label	
 #-----------------------------------------------------
 1		io	line	t		+
-2		io	line	b		BLUE-
-3		io	line	b		GREEN-
 4		io	line	b		RED-
+3		io	line	b		GREEN-
+2		io	line	b		BLUE-
