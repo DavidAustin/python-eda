@@ -23,8 +23,8 @@ pinwidthhorizontal=500
 # if you have a device with slots, you'll have to use slot= and slotdef=
 # use comment= if there are special information you want to add
 version=20060113 1
-name=MCP601T-E-OTVAO
-device=MCP601T-E-OTVAO
+name=MCP601RT-I/OT
+device=MCP601RT-I/OT
 refdes=U?
 footprint=SOT23_5
 description=
@@ -58,7 +58,7 @@ numslots=0
 #pinnr	seq	type	style	posit.	net	label	
 #-----------------------------------------------------
 1		out	line	l		VOUT
-2		pwr	line	b		VSS
+5		pwr	line	b		VSS
 3		in	line	r		VIN+
 4		in	line	r		VIN-
-5		pwr	line	t		VDD
+2		pwr	line	t		VDD
