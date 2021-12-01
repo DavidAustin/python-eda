@@ -26,7 +26,7 @@ version=20060113 1
 name=MSP430F5308IPT
 device=MSP430F5308IPT
 refdes=U?
-footprint=VQFN64
+footprint=VQFN64_PAD
 description=
 documentation=
 author=
@@ -57,6 +57,7 @@ numslots=0
 #-----------------------------------------------------
 #pinnr	seq	type	style	posit.	net	label	
 #-----------------------------------------------------
+0		io	line	b		PAD
 11		io	line	t		AVCC
 14		io	line	b		AVSS
 15		io	line	t		DVCC
