@@ -1,5 +1,5 @@
 # Python-EDA
-# Copyright (C) 2019 Luke Cole
+# Copyright (C) 2021 Luke Cole
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -19,32 +19,29 @@ from footprintgen import *
 
 g = FootprintGen('LEDRGB_PLCC6')
 
-#For this LED - 4, 5, 6 is anode/positive
+pad_w = 0.8
+pad_h = 0.4
 
-pad_w = 1
-pad_h = 0.8
+p = 0.68
+p_inside = 0.66 + pad_h
+p_outside = 0.81
+py = 0.8 / 2 + 0.6 / 2
 
-pad_gap_x = 2.75 # between centers
-pad_gap_y = 1 # between centers
+g.rect_padat(0, 0, 0.66, pad_w, '1')
+g.rect_padat(p_outside, py, pad_h, pad_w, '2')
+g.rect_padat(p_outside + p, py, pad_h, pad_w, '3')
+g.rect_padat(p_outside + p + p_inside, py, pad_h, pad_w, '4')
+g.rect_padat(p_outside + p * 2 + p_inside, py, pad_h, pad_w, '5')
+g.rect_padat(p_outside * 2 + p * 2 + p_inside, 0, 0.66, pad_w, '6')
 
-g.rect_padat(0, 0, pad_w, pad_h, '1')
-g.rect_padat(0, pad_gap_y, pad_w, pad_h, '2')
-g.rect_padat(0, pad_gap_y * 2, pad_w, pad_h, '3')
+part_w = 4.7
+part_h = 1.5
 
-g.rect_padat(pad_gap_x, pad_gap_y * 2, pad_w, pad_h, '4')
-g.rect_padat(pad_gap_x, pad_gap_y, pad_w, pad_h, '5')
-g.rect_padat(pad_gap_x, 0, pad_w, pad_h, '6')
+ox1 = -(part_w - (p_outside * 2 + p * 2 + p_inside)) / 2.0
+oy1 = -0.4
+ox2 = ox1 + part_w
+oy2 = oy1 + part_h
 
-part_w = 3.4
-part_h = 3.4
-
-ox1 = (part_w - pad_gap_x) / 2
-oy1 = (part_h - pad_gap_y * 2) / 2
-ox2 = pad_gap_x + ox1
-oy2 = pad_gap_y * 2 + oy1
-
-g.outlinerect(-ox1, -oy1, ox2, oy2)
-
-g.outlinecirc(-ox1 + 0.3, -oy1 + 0.3, 0.05, 0.2)
+g.outlinerect(ox1, oy1, ox2, oy2)
 
 g.write()
