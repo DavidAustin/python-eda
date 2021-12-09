@@ -19,6 +19,7 @@ from footprintgen import *
 
 def make_fp(k, data, pol = False):
     a, b, c, d = data
+    # width, gap, pad_w, pad_h
 
     if pol:
         g = FootprintGen('pei%s_pol' % k)
@@ -70,9 +71,11 @@ data = {
 
 # e.g. 1uF 50V tan T491C105M050AT - https://content.kemet.com/datasheets/KEM_T2005_T491.pdf
 # e.g. 0603 LEDs - https://www.we-online.de/katalog/datasheet/150060RS75000.pdf
+# e.g. 0402 cap (case K) - https://www.vishay.com/docs/40065/298d298w.pdf
 data_pol = {
     '2312' : [6.0, 3.2, 1.4, 2.4],
     '0603' : [2.6, 0.8, 0.9, 0.8],
+    '0402' : [1.5, 0.5, 0.5, 0.6],
 }
 
 for k in data.keys():
