@@ -17,6 +17,8 @@
 import math
 from footprintgen import *
 
+# https://cree-led.com/media/documents/1397-QLS6BFKW.pdf
+
 g = FootprintGen('LEDRGB_PLCC6')
 
 pad_w = 0.8
