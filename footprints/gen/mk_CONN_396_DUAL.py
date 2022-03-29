@@ -47,7 +47,7 @@ def make_connector(n_pins):
     
     g.write()
 
-for i in range(4,26):
+for i in range(2,14):
     make_connector(i)
 
 
