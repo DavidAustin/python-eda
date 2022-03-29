@@ -27,7 +27,7 @@ h = 3.5
 py = 10.05 - 2.9/2.0 - 6.1/2.0
 px = 4.572
 
-g.rect_padat(0,        0, w, h, '0')
+g.rect_padat(0,        0, w, h, '1')
 g.rect_padat(px,       0, w, h, '1')
 g.rect_padat(px/2,   -py, 6.5, 6.1, '2')
 
