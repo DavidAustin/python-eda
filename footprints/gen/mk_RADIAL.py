@@ -1,5 +1,5 @@
 # Python-EDA
-# Copyright (C) 2020 Luke Cole
+# Copyright (C) 2020-2022 Luke Cole
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -52,9 +52,11 @@ clearance = 0.3
 
 data = {
     '10000uF 50V UVR1H103MRD': [25, 12.5, 1.0 + clearance], # https://www.nichicon.co.jp/english/products/pdfs/e-uvr.pdf - I think this is the biggest before screw terminals are required
+    #'10000uF 6.3V UVR0J103MHD1TN': [16, 7.5, 0.8 + clearance], # https://www.nichicon.co.jp/english/products/pdfs/e-uvr.pdf
     '2000uF 50V EKYC500ELL202ML30S' : [16, 7.5, 0.8 + clearance], # http://www.chemi-con.co.jp/cgi-bin/CAT_DB/SEARCH/cat_db_al.cgi?e=e&j=p&pdfname=kyc
     '1000uF 50V UVR1H102MHD1TO' : [12.5, 5.0, 0.6 + clearance], # https://www.nichicon.co.jp/english/products/pdfs/e-uvr.pdf
     '470uF 50V ESH477M050AH4AA' : [10.0, 5.0, 0.6 + clearance], # https://www.nichicon.co.jp/english/products/pdfs/e-uvr.pdf
+    '1000uF 6.3V ESK108M6R3AG3AA' : [8.0, 3.5, 0.6 + clearance], # https://api.kemet.com/component-edge/download/specsheet/ESK108M6R3AG3AA.pdf
     '10uF 50V 860020672010' : [5.0, 2.0, 0.5 + clearance] # https://www.we-online.de/katalog/datasheet/860020672010.pdf
 }
 
