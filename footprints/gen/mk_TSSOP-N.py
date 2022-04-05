@@ -1,5 +1,5 @@
 # Python-EDA
-# Copyright (C) 2020 Luke Cole
+# Copyright (C) 2020-2022 Luke Cole
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -54,6 +54,9 @@ make_fp(8, 3.0, 3.0, 0.65, 4.4, 0.45, 1.5)
 
 # https://www.ti.com/lit/ds/symlink/msp430fr2111.pdf
 make_fp(16, 4.4, 5.0, 0.65, 5.8, 0.45, 1.5)
+
+# https://toshiba.semicon-storage.com/info/docget.jsp?did=13949&prodName=74VHCT245AFT
+make_fp(20, 4.4, 6.5, 0.65, 5.4, 0.45, 1.5)
 
 # http://www.ti.com/lit/ds/symlink/msp430fr2355.pdf
 make_fp(38, 4.4, 9.7, 0.5, 5.6, 0.25, 1.55)
