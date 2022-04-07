@@ -269,3 +269,17 @@ class FootprintGen(object):
                                                    frommm(r), frommm(r),
                                                    start_ang, arc_ang,
                                                    frommm(w)))
+
+    def outlineplus(self, x, y, size=0.5):
+        ox1 = x - size
+        oy1 = y
+        ox2 = x + size
+        oy2 = y
+        self.outline(ox1, oy1, ox2, oy2)
+        
+        ox1 = x
+        oy1 = y - size
+        ox2 = x
+        oy2 = y + size
+        self.outline(ox1, oy1, ox2, oy2)
+

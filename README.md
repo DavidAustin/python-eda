@@ -53,3 +53,5 @@ Where,
 18) Ensure footprints pads are larger then part pads
 19) Ensure sch part pin spacing is 500
 20) Ensure CONN 0,0 is at pin 1
+21) Prefix SMT CAPs with CAP-SMT
+22) Remove old radials scripts and use mk_RADIAL.py only
