@@ -14,7 +14,7 @@ sort_labels=no
 generate_pinseq=yes
 sym_width=2000
 pinwidthvertical=500
-pinwidthhorizontal=500
+pinwidthhorizontal=1000
 
 [geda_attr]
 # name will be printed in the top of the symbol
