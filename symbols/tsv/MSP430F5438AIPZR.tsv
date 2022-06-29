@@ -1,0 +1,160 @@
+# This is the template file for creating symbols with tragesym
+# every line starting with '#' is a comment line.
+
+[options]
+# wordswap swaps labels if the pin is on the right side an looks like this:
+#   "PB1 (CLK)". That's useful for micro controller port labels
+# rotate_labels rotates the pintext of top and bottom pins
+#   this is useful for large symbols like FPGAs with more than 100 pins
+# sort_labels will sort the pins by it's labels
+#   useful for address ports, busses, ...
+wordswap=no
+rotate_labels=no
+sort_labels=no
+generate_pinseq=yes
+sym_width=4500
+pinwidthvertical=600
+pinwidthhorizontal=600
+
+[geda_attr]
+# name will be printed in the top of the symbol
+# name is only some graphical text, not an attribute
+# version specifies a gschem version.
+# if you have a device with slots, you'll have to use slot= and slotdef=
+# use comment= if there are special information you want to add
+version=20060113 1
+name=MSP430F5438AIPZR
+device=MSP430F5438AIPZR
+refdes=U?
+footprint=LQFP100
+description=
+documentation=
+author=
+dist-license=
+use-license=
+numslots=0
+#slot=1
+#slotdef=1:
+#slotdef=2:
+#slotdef=3:
+#slotdef=4:
+#comment=
+#comment=
+#comment=
+
+[pins]
+# tabseparated list of pin descriptions
+# ----------------------------------------
+# pinnr is the physical number of the pin
+# seq is the pinseq= attribute, leave it blank if it doesn't matter
+# type can be (in, out, io, oc, oe, pas, tp, tri, clk, pwr)
+# style can be (line,dot,clk,dotclk,none). none if only want to add a net
+# posit. can be (l,r,t,b) or empty for nets
+# net specifies the name of the net. Vcc or GND for example.
+# label represents the pinlabel.
+#	negation lines can be added with "\_" example: \_enable\_ 
+#	if you want to write a "\" use "\\" as escape sequence
+#-----------------------------------------------------
+#pinnr	seq	type	style	posit.	net	label	
+#-----------------------------------------------------
+0		pwr	line	r		PAD
+11		pwr	line	t		AVCC
+12		pwr	line	b		AVSS
+15		pwr	line	b		DVSS1
+16		pwr	line	t		DVCC1
+37		pwr	line	b		DVSS3
+38		pwr	line	t		DVCC3
+62		pwr	line	t		VCORE
+63		pwr	line	b		DVSS2
+64		pwr	line	t		DVCC2
+87		pwr	line	t		DVCC4
+88		pwr	line	b		DVSS4
+91		i	line	l		TEST/SBWTCK
+96		io	line	l		\_RST\_/NMI/SBWTDIO
+17		io	line	r		P1.0
+18		io	line	r		P1.1
+19		io	line	r		P1.2
+20		io	line	r		P1.3
+21		io	line	r		P1.4
+22		io	line	r		P1.5
+23		io	line	r		P1.6
+24		io	line	r		P1.7
+25		io	line	r		P2.0
+26		io	line	r		P2.1
+27		io	line	r		P2.2
+28		io	line	r		P2.3
+29		io	line	r		P2.4
+30		io	line	r		P2.5
+31		io	line	r		P2.6
+32		io	line	r		P2.7
+33		io	line	r		P3.0
+34		io	line	r		P3.1
+35		io	line	r		P3.2
+36		io	line	r		P3.3
+39		io	line	r		P3.4
+40		io	line	r		P3.5
+41		io	line	r		P3.6
+42		io	line	r		P3.7
+43		io	line	r		P4.0
+44		io	line	r		P4.1
+45		io	line	r		P4.2
+46		io	line	r		P4.3
+47		io	line	r		P4.4
+48		io	line	r		P4.5
+49		io	line	r		P4.6
+50		io	line	r		P4.7
+9		io	line	r		P5.0
+10		io	line	r		P5.1
+51		io	line	r		P5.4
+89		io	line	r		P5.2
+90		io	line	r		P5.3
+52		io	line	r		P5.5
+53		io	line	r		P5.6
+54		io	line	r		P5.7
+97		io	line	l		P6.0
+98		io	line	l		P6.1
+99		io	line	l		P6.2
+100		io	line	l		P6.3
+1		io	line	l		P6.4
+2		io	line	l		P6.5
+3		io	line	l		P6.6
+4		io	line	l		P6.7
+13		io	line	l		P7.0
+14		io	line	l		P7.1
+55		io	line	l		P7.2
+56		io	line	l		P7.3
+5		io	line	l		P7.4
+6		io	line	l		P7.5
+7		io	line	l		P7.6
+8		io	line	l		P7.7
+57		io	line	l		P8.0
+58		io	line	l		P8.1
+59		io	line	l		P8.2
+60		io	line	l		P8.3
+61		io	line	l		P8.4
+65		io	line	l		P8.5
+66		io	line	l		P8.6
+67		io	line	l		P8.7
+68		io	line	l		P9.0
+69		io	line	l		P9.1
+70		io	line	l		P9.2
+71		io	line	l		P9.3
+72		io	line	l		P9.4
+73		io	line	l		P9.5
+74		io	line	l		P9.6
+75		io	line	l		P9.7
+76		io	line	l		P10.0
+77		io	line	l		P10.1
+78		io	line	l		P10.2
+79		io	line	l		P10.3
+70		io	line	l		P10.4
+81		io	line	l		P10.5
+82		io	line	l		P10.6
+83		io	line	l		P10.7
+84		io	line	l		P11.0
+85		io	line	l		P11.1
+86		io	line	l		P11.2
+92		io	line	r		PJ.0
+93		io	line	r		PJ.1
+94		io	line	r		PJ.2
+95		io	line	r		PJ.3
