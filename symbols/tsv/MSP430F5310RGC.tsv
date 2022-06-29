@@ -23,8 +23,8 @@ pinwidthhorizontal=600
 # if you have a device with slots, you'll have to use slot= and slotdef=
 # use comment= if there are special information you want to add
 version=20060113 1
-name=MSP430F5308IPT
-device=MSP430F5308IPT
+name=MSP430F5310RGC
+device=MSP430F5310RGC
 refdes=U?
 footprint=LQFP48_7
 description=
@@ -57,51 +57,67 @@ numslots=0
 #-----------------------------------------------------
 #pinnr	seq	type	style	posit.	net	label	
 #-----------------------------------------------------
-14		io	line	r		P1.0
-15		io	line	r		P1.1
-16		io	line	r		P1.2
-17		io	line	r		P1.3
-18		io	line	r		P1.4
-19		io	line	r		P1.5
-20		io	line	r		P1.6
-21		io	line	r		P1.7
-22		io	line	r		P2.0
-29		io	line	r		P4.0
-30		io	line	r		P4.1
-31		io	line	r		P4.2
-32		io	line	r		P4.3
-33		io	line	r		P4.4
-34		io	line	r		P4.5
-35		io	line	r		P4.6
-36		io	line	r		P4.7
-5		io	line	r		P5.0
-6		io	line	r		P5.1
-45		io	line	r		P5.2
-46		io	line	r		P5.3
-8		io	line	r		P5.4
-9		io	line	r		P5.5
 1		io	line	r		P6.0
 2		io	line	r		P6.1
 3		io	line	r		P6.2
 4		io	line	r		P6.3
-23		io	line	r		PJ.0
-24		io	line	r		PJ.1
-25		io	line	r		PJ.2
-26		io	line	r		PJ.3
-38		io	line	r		PU.0
-40		io	line	r		PU.1
-48		io	line	l		RST/SBWTDIO
-47		io	line	l		TEST/SBWTCK
-43		io	line	l		NC
-39		io	line	l		NC
-41		io	line	l		LDOI
-42		io	line	l		LDOO
-7		pwr	line	t		AVCC1
-11		pwr	line	t		DVCC1
-28		pwr	line	t		DVCC2
-13		pwr	line	t		VCORE
-10		pwr	line	b		AVSS1
-44		pwr	line	b		AVSS2
-12		pwr	line	b		DVSS1
-27		pwr	line	b		DVSS2
-37		pwr	line	b		VSSU
+5		io	line	r		P6.4
+6		io	line	r		P6.5
+7		pwr	line	t		P6.6
+8		io	line	r		P6.7
+9		io	line	r		P5.0
+10		pwr	line	b		P5.1
+11		pwr	line	t		AVCC1
+12		pwr	line	b		P5.4/XIN
+13		pwr	line	t		P5.5/XOUT
+14		io	line	r		AVSS1
+15		io	line	r		DVCC1
+16		io	line	r		DVSS1
+17		io	line	r		VCORE
+18		io	line	r		P1.0
+19		io	line	r		P1.1
+20		io	line	r		P1.2
+21		io	line	r		P1.3
+22		io	line	r		P1.4
+23		io	line	r		P1.5
+24		io	line	r		P1.6
+25		io	line	r		P1.7
+26		io	line	r		P2.0
+27		pwr	line	b		P2.1
+28		pwr	line	t		P2.2
+29		io	line	r		P2.3
+30		io	line	r		P2.4
+31		io	line	r		P2.5
+32		io	line	r		P2.6
+33		io	line	r		P2.7
+34		io	line	r		P3.0
+35		io	line	r		P3.1
+36		io	line	r		P3.2
+37		pwr	line	b		P3.3
+38		io	line	r		P3.4
+39		io	line	l		DVSS2
+40		io	line	r		DVCC2
+41		io	line	l		P4.0
+42		io	line	l		P4.1
+43		io	line	l		P4.2
+44		pwr	line	b		P4.3
+45		io	line	r		P4.4
+46		io	line	r		P4.5
+47		io	line	l		P4.6
+48		io	line	l		P4.7
+49		io	line	l		VSSU
+50		io	line	l		PU.0
+51		io	line	l		NC
+52		io	line	l		PU.1
+53		io	line	l		LDOI
+54		pwr	line	b		LDOO
+55		io	line	r		NC
+56		io	line	r		AVSS2
+57		io	line	l		P5.2
+58		io	line	l		P5.3
+59		io	line	l		TEST/SBWTCK
+60		io	line	l		PJ.0
+61		io	line	l		PJ.1
+62		io	line	l		PJ.2
+63		io	line	l		PJ.3
+64		pwr	line	b		\_RESET\_/NMI/SBWTDIO

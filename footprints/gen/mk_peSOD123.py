@@ -17,51 +17,31 @@
 import math
 from footprintgen import *
 
-# settings
-
-fp_name = 'peSOD123'
 # https://www.taiwansemi.com/assets/uploads/datasheet/1N4148W-G_D1601.pdf
 # https://assets.nexperia.com/documents/data-sheet/PDZ-GW_SER.pdf
 
-# physical part dimensions (not including pins)
 part_w = 1.6
 part_h = 2.69
-two_sides = False
-pin_count_yside = 2 # number of pins on vertical side
 
-# pin dimensions
 w = 0.91
 h = 1.22
 px = 0 # distance between centre of pins
 py = 3.27 # distance between centre of pins
 
-# pin1 marker settings
-pin1_depth = 0.5
-pin1_option = 'x_line'
+g = FootprintGen('peSOD123')
 
-# shouldn't have to edit below this line
-
-g = FootprintGen(fp_name)
-
-for i in range(0, pin_count_yside):
-    g.rect_padat(0.0, py * i, w, h, i + 1)
-if two_sides == True:
-    for i in range(0, pin_count_yside):
-        g.rect_padat(px, py * i, w, h, pin_count_yside * 2 - i)
+# NOTE: this order is based on gschem built-in diodes symbols
+g.rect_padat(0.0, 0.0, w, h, 2)
+g.rect_padat(0.0, py, w, h, 1)
 
 ox1 = (part_w - px) / 2
-oy1 = (part_h - py * (pin_count_yside - 1)) / 2
+oy1 = (part_h - py * 1) / 2
 
 ox2 = part_w - ox1
 oy2 = part_h - oy1
 
 g.outlinerect(-ox1, -oy1, ox2, oy2)
 
-if pin1_option == 'dot':
-    g.outlinecirc(-ox1 + pin1_depth, -oy1 + pin1_depth, 0.05, 0.2)
-elif pin1_option == 'x_line':
-    g.outline(-ox1, -oy1 + pin1_depth, ox2, -oy1 + pin1_depth)
-elif pin2_option == 'y_line':
-    g.outline(-ox1 + pin1_depth, -oy1, -ox1 + pin1_depth, oy2)
+g.outline(-ox1, -oy1 + 0.5, ox2, -oy1 + 0.5)
 
 g.write()
