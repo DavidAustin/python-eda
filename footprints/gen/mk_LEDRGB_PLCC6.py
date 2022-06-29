@@ -29,12 +29,12 @@ p_inside = 0.66 + pad_h
 p_outside = 0.81
 py = 0.8 / 2 + 0.6 / 2
 
-g.rect_padat(0, 0, 0.66, pad_w, '1')
-g.rect_padat(p_outside, py, pad_h, pad_w, '2')
-g.rect_padat(p_outside + p, py, pad_h, pad_w, '3')
-g.rect_padat(p_outside + p + p_inside, py, pad_h, pad_w, '4')
-g.rect_padat(p_outside + p * 2 + p_inside, py, pad_h, pad_w, '5')
-g.rect_padat(p_outside * 2 + p * 2 + p_inside, 0, 0.66, pad_w, '6')
+g.rect_padat(0, 0, 0.66, pad_w, '6')
+g.rect_padat(p_outside, py, pad_h, pad_w, '5')
+g.rect_padat(p_outside + p, py, pad_h, pad_w, '4')
+g.rect_padat(p_outside + p + p_inside, py, pad_h, pad_w, '3')
+g.rect_padat(p_outside + p * 2 + p_inside, py, pad_h, pad_w, '2')
+g.rect_padat(p_outside * 2 + p * 2 + p_inside, 0, 0.66, pad_w, '1')
 
 part_w = 4.7
 part_h = 1.5
