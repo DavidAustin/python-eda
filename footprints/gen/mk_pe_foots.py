@@ -56,6 +56,8 @@ def make_fp(k, data, pol = False):
         
     g.write()
 
+# mostly sized by DA using unknown doc
+# 2220 - 10uF 100V https://datasheets.kyocera-avx.com/X7RDielectric.pdf
 data = {
     '0100' : [0.48, 0.12, 0.18, 0.2],
     '0201' : [1.0, 0.3, 0.35, 0.4],
@@ -66,6 +68,7 @@ data = {
     '1210' : [4.2, 2.2, 1.0, 2.4],
     '1218' : [4.2, 2.2, 1.0, 4.8],
     '2010' : [6.1, 3.3, 1.4, 2.4],
+    '2220' : [5.7, 5.0, 1.4, 5.0],
     '2512' : [8.0, 4.4, 1.8, 3.0]
 }
 
