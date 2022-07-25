@@ -57,7 +57,7 @@ numslots=0
 #-----------------------------------------------------
 #pinnr	seq	type	style	posit.	net	label	
 #-----------------------------------------------------
-0		pwr	line	r		PAD
+0		pwr	line	b		PAD
 11		pwr	line	t		AVCC
 12		pwr	line	b		AVSS
 15		pwr	line	b		DVSS1
