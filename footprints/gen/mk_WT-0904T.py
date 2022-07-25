@@ -21,7 +21,7 @@ g = FootprintGen('WT-0904T')
 
 part_dia = 9.2
 
-d = 2.5
+d = 1.0
 d_ann = d * 1.5
 p = 4.0
 
