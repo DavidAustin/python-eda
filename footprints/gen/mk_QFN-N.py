@@ -1,5 +1,5 @@
 # Python-EDA
-# Copyright (C) 2020 Luke Cole
+# Copyright (C) 2020-2022 Luke Cole
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -47,7 +47,8 @@ def make_fp(x_pins, y_pins, part_w, part_h, x_pads_offset, y_pads_offset, px, py
         g.rect_padat(x, y, pad_h, pad_w, '%d' % i)
         y += py
 
-    g.rect_padat(pad_from_cent_x, pad_from_cent_y, ground_pad_w, ground_pad_h, '0')
+    if ground_pad_w != 0:
+        g.rect_padat(pad_from_cent_x, pad_from_cent_y, ground_pad_w, ground_pad_h, '0')
 
     ox1 = pad_from_cent_x - part_w / 2.0
     oy1 = pad_from_cent_y + part_h / 2.0
@@ -81,3 +82,6 @@ make_fp(12, 7, 7.0, 5.0, 5.5 - 0.7, 7.5 - 0.7, 0.5, 0.5, 0.25, 0.7, 5.15, 3.15)
 
 # http://www.smc-diodes.com/propdf/S14C03-8%20THRU%20S14C36-8%20N0287%20REV.-.pdf
 make_fp(10, 10, 6, 6, 5.8, 5.8, 0.5, 0.5, 0.3, 0.8, 4.13, 4.13)
+
+# https://www.ti.com/lit/ds/symlink/msp430f5418a.pdf
+make_fp(25, 25, 14, 14, 15.2, 15.2, 0.5, 0.5, 0.3, 1.6, 0, 0)
