@@ -1,5 +1,5 @@
 # Python-EDA
-# Copyright (C) 2018-2000 Luke Cole
+# Copyright (C) 2018-2022 Luke Cole
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -18,8 +18,9 @@ import argparse
 import sys
 import os
 import re
-import urllib.request
-import urllib.parse
+import requests
+#import urllib.request
+#import urllib.parse
 import json
 import pprint
 
@@ -27,7 +28,7 @@ import pprint
 # default settings
 
 is_debug = False
-apikey = None
+access_token = None
 filename = None
 
 #==============================================================================
@@ -36,7 +37,7 @@ filename = None
 parser = argparse.ArgumentParser(description='gEDA gschem BOM Generation Tool')
 parser.add_argument("-d", '--debug', action='store_true', help='Print debug comments')
 parser.add_argument("-p", '--debug_part', metavar='SKU', type=str, nargs=1, help='Print debug info for this part')
-parser.add_argument("-k", '--octopart_apikey', metavar='KEY', type=str, nargs=1, help='Register with octopart.com', required = True)
+parser.add_argument("-k", '--octopart_nexar_access_token', metavar='KEY', type=str, nargs=1, help='Register with octopart.com/nexar.com', required = True)
 parser.add_argument("-i", '--input_file', metavar='PATH', type=str, nargs=1, help='Example: example01.sch', required = True)
 
 args = parser.parse_args()
@@ -44,8 +45,8 @@ is_debug = args.debug
 debug_part = ""
 if args.debug_part:
   debug_part = args.debug_part[0]
-if args.octopart_apikey:
-  apikey = args.octopart_apikey[0]
+if args.octopart_nexar_access_token:
+  access_token = args.octopart_nexar_access_token[0]
 if args.input_file:
   filename = args.input_file[0]
 
@@ -181,20 +182,35 @@ def parse_octopart(device):
   if is_debug:
     print (("processing device=%s..........................................") % (device))
 
-  device = urllib.parse.quote_plus(device)
-  response = urllib.request.urlopen('https://octopart.com/api/v3/parts/match?apikey=%s&queries=[{"mpn":"%s"}]' % (apikey, device))
-  data = response.read()
-  data = json.loads(data)
+  headers = {
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer %s' % (access_token),
+  }
+
+  data = '{"query": "query{ supSearchMpn( q:\\"%s\\" ) { hits results { part { mpn manufacturer { name homepageUrl } sellers { company { name } offers { prices { price quantity }}}}}}}"}"' % (device)
+
+  response = requests.post('https://api.nexar.com/graphql', headers=headers, data=data)
+  if response.status_code != 200:
+    print ("error HTTP status_code=%d" % response.status_code)
+    exit(1)
+    
+  data = response.json()
+  pp = pprint.PrettyPrinter(indent=1)
+
+  if is_debug:
+    pp.pprint (data)
+  
+  hits = data["data"]["supSearchMpn"]["hits"]
 
   if debug_part and debug_part in device:
-    pp = pprint.PrettyPrinter(indent=1)
     pp.pprint(data)
 
-  hits = data["results"][0]['hits']
-  
   if hits > 0:
+
+    results = data["data"]["supSearchMpn"]["results"][0]["part"]["sellers"]
+    offers = data["data"]["supSearchMpn"]["results"][0]["part"]["sellers"]
     
-    items = data["results"][0]["items"]
+    items = data["data"]["supSearchMpn"]["results"]
     item_idx = -1
     offer_idx = -1
 
@@ -202,11 +218,11 @@ def parse_octopart(device):
       print ("items_count=%d" % (len(items)))
       
     for i in range(len(items)):
-      offers = data["results"][0]["items"][i]['offers']
+      offers = data["data"]["supSearchMpn"]["results"][i]["part"]["sellers"]
       if is_debug:
         print ("offers_count=%d" % (len(offers)))
       for j in range(len(offers)):
-        seller_name = data["results"][0]["items"][i]['offers'][j]['seller']['name']
+        seller_name = data["data"]["supSearchMpn"]["results"][i]["part"]["sellers"][j]["company"]["name"]
         if is_debug:
           print (seller_name)
         if seller_name == "Digi-Key":
@@ -218,10 +234,10 @@ def parse_octopart(device):
         
     if offer_idx >= 0:
       
-      octopart_url = data["results"][0]["items"][item_idx]['octopart_url']
-      seller_name = data["results"][0]["items"][item_idx]['offers'][offer_idx]['seller']['name']
-      sku = data["results"][0]["items"][item_idx]['offers'][offer_idx]['sku']
-      packaging = data["results"][0]["items"][item_idx]['offers'][offer_idx]['packaging']
+      octopart_url = "https://octopart.com/search?q=%s" % (device)
+      seller_name = data["data"]["supSearchMpn"]["results"][item_idx]["part"]["sellers"][offer_idx]["company"]["name"]
+      sku = data["data"]["supSearchMpn"]["results"][item_idx]["part"]["mpn"]
+      #packaging = results[item_idx]['offers'][offer_idx]['packaging']
       unit_cost_1 = ''
       unit_cost_10 = ''
       unit_cost_100 = ''
@@ -230,35 +246,31 @@ def parse_octopart(device):
       unit_cost_10000 = ''
       has_prices = False
 
-      if is_debug:
-        print (packaging)
+      #if is_debug:
+      #  print (packaging)
       
-      if packaging == "Tape & Reel" or packaging == "Cut Tape" or packaging == "Tray" or packaging == "Tube" or packaging == "Bulk" or packaging == "Bag" or packaging == "Box":
-        try:
-          unit_cost_1 = data["results"][0]["items"][item_idx]['offers'][offer_idx]['prices']['USD'][0][1]
-        except:
-          pass
-        try:
-          unit_cost_10 = data["results"][0]["items"][item_idx]['offers'][offer_idx]['prices']['USD'][1][1]
-        except:
-          pass
-        try:
-          unit_cost_100 = data["results"][0]["items"][item_idx]['offers'][offer_idx]['prices']['USD'][2][1]
-        except:
-          pass
-        try:
-          unit_cost_500 = data["results"][0]["items"][item_idx]['offers'][offer_idx]['prices']['USD'][3][1]
-        except:
-          pass
-        try:
-          unit_cost_1000 = data["results"][0]["items"][item_idx]['offers'][offer_idx]['prices']['USD'][4][1]
-        except:
-          pass
-        try:
-          unit_cost_10000 = data["results"][0]["items"][item_idx]['offers'][offer_idx]['prices']['USD'][5][1]
-        except:
-          pass
-        has_prices = True
+      #if packaging == "Tape & Reel" or packaging == "Cut Tape" or packaging == "Tray" or packaging == "Tube" or packaging == "Bulk" or packaging == "Bag" or packaging == "Box":
+
+      prices = data["data"]["supSearchMpn"]["results"][item_idx]["part"]["sellers"][offer_idx]["offers"][0]["prices"]
+      for p in prices:
+        if p["quantity"] == 1:
+          unit_cost_1 = str(p["price"])
+          has_prices = True
+        if p["quantity"] == 10:
+          unit_cost_10 = str(p["price"])
+          has_prices = True
+        if p["quantity"] == 100:
+          unit_cost_100 = str(p["price"])
+          has_prices = True
+        if p["quantity"] == 500:
+          unit_cost_500 = str(p["price"])
+          has_prices = True
+        if p["quantity"] == 1000:
+          unit_cost_1000 = str(p["price"])
+          has_prices = True
+        if p["quantity"] == 10000:
+          unit_cost_10000 = str(p["price"])
+          has_prices = True
 
       if has_prices:
         part['octopart_url'] = octopart_url
