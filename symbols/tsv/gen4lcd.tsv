@@ -26,7 +26,7 @@ version=20060113 1
 name=GEN4LCD
 device=GEN4LCD
 refdes=U?
-footprint=CONN31_GEN4LCD
+footprint=CONN30_GEN4LCD
 description=
 documentation=
 author=
@@ -88,4 +88,3 @@ numslots=0
 28		pwr	line	t		VDD
 29		pwr	line	t		VDD
 30		pwr	line	b		GND
-31		pwr	line	b		GND

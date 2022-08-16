@@ -1,5 +1,5 @@
 # Python-EDA
-# Copyright (C) 2017-2020 Luke Cole
+# Copyright (C) 2017-2022 Luke Cole
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -17,13 +17,13 @@
 import math
 from footprintgen import *
 
-g = FootprintGen('CONN31_GEN4LCD')
+g = FootprintGen('CONN30_GEN4LCD')
 
 # physical part dimensions (not including pins)
 part_w = 4.4
 part_h = 20.93
 two_sides = False # set True for IC
-pin_count_yside = 31 # number of pins on left side counting vertically
+pin_count_yside = 30 # number of pins on left side counting vertically
 
 # pin dimensions
 w = 3.5
