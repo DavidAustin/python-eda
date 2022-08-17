@@ -51,6 +51,7 @@ numslots=0
 # style can be (line,dot,clk,dotclk,spacer,none). none if only want to add a net
 # posit. can be (l,r,t,b) or empty for nets.
 # net specifies the name of the net. Vcc or GND for example.
+
 # label represents the pinlabel.
 #	negation lines can be added with "\_" example: \_enable\_ 
 #	if you want to write a "\" use "\\" as escape sequence
@@ -61,8 +62,8 @@ numslots=0
 1		io	line	t		C1_VCC
 2		io	line	l		C2_RST
 3		io	line	l		C3_CLK
-4		io	line	l		C4_RSVD
+4		io	line	l		C4_CD
 5		io	line	b		C5_GND
 6		io	line	l		C6_VPP
 7		io	line	l		C7_IO
-8		io	line	l		C8_RSVD
+8		io	line	l		C8_CD
