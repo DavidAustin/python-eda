@@ -19,8 +19,8 @@
 import math
 from footprintgen import *
 
-def make_connector(n_pins):
-    g = FootprintGen('CONN%d_DB_F_RA' % n_pins)
+def make_connector(n_pins, sex = "M"):
+    g = FootprintGen('CONN%d_DB_%s_RA' % (n_pins, sex))
 
     if n_pins == 9:
         A = 30.81
@@ -49,19 +49,33 @@ def make_connector(n_pins):
     y = 0
     dia = 1.0
     od = dia * 2.0
-    
-    g.pinat(x, y, dia, od,  1, {'square' : 1})
-    x += px
-    for i in range(2, int(n_pins / 2.0) + 2):
-        g.pinat(x, y, dia, od,  i)
+
+    if sex == "M":
+        g.pinat(x, y, dia, od,  1, {'square' : 1})
         x += px
+        for i in range(2, int(n_pins / 2.0) + 2):
+            g.pinat(x, y, dia, od,  i)
+            x += px
 
-    x -= 1.5 * px
-    y = py
-    for i in range(int(n_pins / 2.0) + 2, n_pins + 1):
-        g.pinat(x, y, dia, od,  i)
+        x = 0.5 * px
+        y = py
+        for i in range(int(n_pins / 2.0) + 2, n_pins + 1):
+            g.pinat(x, y, dia, od,  i)
+            x += px
+    else:
+        x = px * int(n_pins / 2.0)
+        g.pinat(x, y, dia, od,  1, {'square' : 1})
         x -= px
+        for i in range(2, int(n_pins / 2.0) + 2):
+            g.pinat(x, y, dia, od,  i)
+            x -= px
 
+        x = px * int(n_pins / 2.0) - 0.5 * px
+        y = py
+        for i in range(int(n_pins / 2.0) + 2, n_pins + 1):
+            g.pinat(x, y, dia, od,  i)
+            x -= px
+            
     p = (B - E) / 2.0
         
     x = -p
@@ -85,7 +99,12 @@ def make_connector(n_pins):
     
     g.write()
 
-make_connector(9)
-make_connector(15)
-make_connector(25)
-make_connector(37)
+make_connector(9, "M")
+make_connector(15, "M")
+make_connector(25, "M")
+make_connector(37, "M")
+
+make_connector(9, "F")
+make_connector(15, "F")
+make_connector(25, "F")
+make_connector(37, "F")
