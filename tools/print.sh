@@ -12,7 +12,8 @@ d=`dirname $0`
 
 for arg in "$@"
 do
-    gschem -p -o $arg.ps -s $d/print.scm $arg
+    #gschem -p -o $arg.ps -s $d/print.scm $arg
+    lepton-cli export -p iso_a4 -o $arg.ps $arg
 done
 
 gs -sDEVICE=pdfwrite -dNOPAUSE -dBATCH -dSAFER -sOutputFile=circuit_schematic.pdf *.ps
