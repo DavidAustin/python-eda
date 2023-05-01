@@ -31,8 +31,8 @@ px = 1.9
 py = 2.0
 
 g.rect_padat(0, 0, w, h, 1)
-g.rect_padat(px, 0, w, h, 2)
-g.rect_padat(px / 2.0, py, w, h, 3)
+g.rect_padat(-px, 0, w, h, 2)
+g.rect_padat(-px / 2.0, py, w, h, 3)
 
 ox1 = -(part_w - px) / 2.0
 oy1 = -(part_h - py) / 2.0

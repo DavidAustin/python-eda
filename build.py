@@ -53,9 +53,19 @@ for (dirpath, dirname, filenames) in os.walk(tsv_dir_full):
             sym_file = os.path.join(output_dir_symbols, sym_file)
             tsv_file = os.path.join(tsv_dir_full, f)
             if (os.path.isfile(tsv_file)):
-                cmd = "tragesym %s %s" % (tsv_file, sym_file)
-                print (cmd)
-                os.system(cmd)
+                try:
+                    cmd = "tragesym %s %s" % (tsv_file, sym_file)
+                    print (cmd)
+                    os.system(cmd)
+                except:
+                    pass
+                try:
+                    cmd = "lepton-tragesym %s %s" % (tsv_file, sym_file)
+                    print (cmd)
+                    os.system(cmd)
+                except:
+                    pass
+                
     break
 
 footprints_dir = 'footprints'
