@@ -193,7 +193,7 @@ def parse_octopart(device):
   if response.status_code != 200:
     print ("error HTTP status_code=%d" % response.status_code)
     exit(1)
-    
+
   data = response.json()
   pp = pprint.PrettyPrinter(indent=1)
 
@@ -224,8 +224,8 @@ def parse_octopart(device):
       for j in range(len(offers)):
         seller_name = data["data"]["supSearchMpn"]["results"][i]["part"]["sellers"][j]["company"]["name"]
         if is_debug:
-          print (seller_name)
-        if seller_name == "Digi-Key":
+          print ("Seller: %s" % seller_name)
+        if seller_name == "Digi-Key" or seller_name == "DigiKey":
           item_idx = i
           offer_idx = j
           if is_debug:
