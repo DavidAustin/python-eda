@@ -14,6 +14,8 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
+# https://www.analog.com/media/en/package-pcb-resources/land-pattern/tqfn/90-0022.pdf
+
 import math
 from footprintgen import *
 
@@ -21,17 +23,17 @@ manual_soldering_ext = 0.1
 
 g = FootprintGen('QFN24_PAD')  # Change the footprint name to QFN24
 
-wx = 5.0
-wy = 5.0
+wx = 4.0
+wy = 4.0
 
-tpadw = 3.0
-tpadh = 3.0
+tpadw = 2.6
+tpadh = 2.6
 
 padw = 0.3
 padh = 0.8
-pitch = 0.65
+pitch = 0.5
 cx = 2.5 * pitch
-cy = padh / 2.0 - 5.75 / 2.0
+cy = padh / 2.0 - (wy + padh) / 2.0
 
 # First side with 6 pads
 x = 0
@@ -41,7 +43,7 @@ for i in range(1, 7):
     x += pitch
 
 # Second side with 6 pads
-x = cx + 5.75 / 2.0 - padh / 2.0
+x = cx + (wy + padh) / 2.0 - padh / 2.0
 y = cy + 2.5 * pitch
 for i in range(7, 13):
     g.one_rounded_padat(x, y, padh, padw, '%d' % i, {'dir': (-1, 0)})
@@ -49,13 +51,13 @@ for i in range(7, 13):
 
 # Third side with 6 pads
 x = 5 * pitch
-y = -(5.75 - padh)
+y = -((wy + padh) - padh)
 for i in range(13, 19):
     g.one_rounded_padat(x, y, padw, padh, '%d' % i, {'dir': (0, 1)})
     x -= pitch
 
 # Fourth side with 6 pads
-x = cx - (5.75 / 2.0 - padh / 2.0)
+x = cx - ((wy + padh) / 2.0 - padh / 2.0)
 y = cy - 2.5 * pitch
 for i in range(19, 25):
     g.one_rounded_padat(x, y, padh, padw, '%d' % i, {'dir': (1, 0)})
