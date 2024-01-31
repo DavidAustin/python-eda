@@ -60,5 +60,5 @@ numslots=0
 1		o	line	l		STAT
 2		pwr	line	b		VSS
 3		pwr	line	r		VBATT
-4		i	line	r		PROG
-5		pwr	line	t		VDD
+4		pwr	line	t		VDD
+5		i	line	r		PROG
