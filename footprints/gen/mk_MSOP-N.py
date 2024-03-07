@@ -35,9 +35,9 @@ def make_fp(n_pins, part_w, part_h, px, py, pad_w, pad_h, thermal_pad_w = False,
         g.rect_padat(x, -py, pad_w, pad_h, j + i)
         x -= px
 
-    cx = part_w / 2.0
+    cx = px * (n_pins / 2.0 - 1) / 2.0
     cy = -py / 2.0
-    
+
     if thermal_pad_w and thermal_pad_h:
         g.rect_padat(cx, cy, thermal_pad_w, thermal_pad_h, '0')
         
@@ -53,4 +53,8 @@ def make_fp(n_pins, part_w, part_h, px, py, pad_w, pad_h, thermal_pad_w = False,
 
     g.write()
 
-make_fp(10, 3.0, 3.0, 0.5, 3.0 + 1.0, 0.3, 1.0) # based on https://www.analog.com/media/en/technical-documentation/data-sheets/max3311e-max3313e.pdf
+# based on https://www.ti.com/lit/ds/symlink/lm5085.pdf
+make_fp(8, 3.0, 3.0, 0.65, 4.4, 0.45, 1.4, 3.0 * 0.65, 3.0 * 0.65) 
+    
+# based on https://www.analog.com/media/en/technical-documentation/data-sheets/max3311e-max3313e.pdf
+make_fp(10, 3.0, 3.0, 0.5, 3.0 + 1.0, 0.3, 1.4) 
