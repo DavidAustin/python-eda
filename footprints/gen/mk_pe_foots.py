@@ -21,6 +21,8 @@ def make_fp(k, data, pol = False):
     a, b, c, d = data
     # width, gap, pad_w, pad_h
 
+    print (k, a, b, c, d)
+    
     if pol:
         g = FootprintGen('pei%s_pol' % k)
     else:
@@ -28,7 +30,7 @@ def make_fp(k, data, pol = False):
 
     g.rect_padat(0, 0, c, d, '1')
     
-    g.rect_padat(c + b, 0, c, d, '2')
+    g.rect_padat(c + b, 0.0, c, d, '2')
 
     cx = (c + b) / 2
     cy = 0
@@ -58,12 +60,14 @@ def make_fp(k, data, pol = False):
 
 # mostly sized by DA using unknown doc
 # 2220 - 10uF 100V https://datasheets.kyocera-avx.com/X7RDielectric.pdf
+# 1008 - 1uF 3.3A https://www.murata.com/~/media/webrenewal/products/inductor/chip/tokoproducts/wirewoundmetalalloychiptype/m_dfe252012f.ashx
 data = {
     '0100' : [0.48, 0.12, 0.18, 0.2],
     '0201' : [1.0, 0.3, 0.35, 0.4],
     '0402' : [1.5, 0.5, 0.5, 0.6],
     '0603' : [2.6, 0.8, 0.9, 0.8],
     '0805' : [3.0, 1.2, 0.9, 1.2], 
+    '1008' : [2.5, 1.2, 0.8, 2.0], 
     '1206' : [4.2, 2.2, 1.0, 1.5],
     '1210' : [4.2, 2.2, 1.0, 2.4],
     '1218' : [4.2, 2.2, 1.0, 4.8],
