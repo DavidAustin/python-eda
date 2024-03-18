@@ -32,11 +32,11 @@ def make_fp(n_pins, part_w, part_h, px, py, pad_w, pad_h):
         g.rect_padat(x, -py, pad_w, pad_h, j + i)
         x -= px
 
-    ox1 = (part_h - px * (n_pins / 2.0 - 1)) / 2
-    oy1 = (part_w + py) / 2.0
+    ox1 = (part_w - px * (n_pins / 2.0 - 1)) / 2
+    oy1 = (part_h + py) / 2.0
 
-    ox2 = part_h - ox1
-    oy2 = part_w - oy1
+    ox2 = part_w - ox1
+    oy2 = part_h - oy1
 
     g.outlinerect(-ox1, -oy1, ox2, oy2)
 
@@ -47,18 +47,21 @@ def make_fp(n_pins, part_w, part_h, px, py, pad_w, pad_h):
 # https://en.wikipedia.org/wiki/Small_outline_integrated_circuit#Thin-shrink_small-outline_package_(TSSOP)
 
 # http://ww1.microchip.com/downloads/en/DeviceDoc/22147a.pdf
-make_fp(6, 1.25, 2, 0.65, 2.2, 0.4, 0.9)
+make_fp(6, 2, 1.25, 0.65, 2.2, 0.4, 0.9)
 
 # https://www.ti.com/lit/ds/symlink/lm4889.pdf
 make_fp(8, 3.0, 3.0, 0.65, 4.4, 0.45, 1.5)
 
 # https://www.ti.com/lit/ds/symlink/msp430fr2111.pdf
-make_fp(16, 4.4, 5.0, 0.65, 5.8, 0.45, 1.5)
+# https://www.ti.com/lit/ds/symlink/msp430fr2000.pdf
+make_fp(16, 5.0, 4.4, 0.65, 5.8, 0.45, 1.5)
 
 # https://toshiba.semicon-storage.com/info/docget.jsp?did=13949&prodName=74VHCT245AFT
-make_fp(20, 4.4, 6.5, 0.65, 5.4, 0.45, 1.5)
+make_fp(20, 6.5, 4.4, 0.65, 5.4, 0.45, 1.5)
 
 # http://www.ti.com/lit/ds/symlink/msp430fr2355.pdf
-make_fp(38, 4.4, 9.7, 0.5, 5.6, 0.25, 1.55)
+make_fp(38, 9.7, 4.4, 0.5, 5.6, 0.25, 1.55)
+
+# NOTE: 18/3/24 corrected part_w and part_h to align with x, y
 
 # TODO: make_fp() up to 64-pin
