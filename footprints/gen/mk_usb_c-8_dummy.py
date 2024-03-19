@@ -17,6 +17,8 @@
 import math
 from footprintgen import *
 
+# based on https://www.digikey.com/en/products/detail/gct/USB4110-GF-A/10384547
+
 g = FootprintGen('usb_c-8_dummy')
 
 h = 1.15 - 0.3
@@ -40,25 +42,31 @@ g.rect_padat(px / 2.0 + px * 3, py, w, h, '10')
 g.rect_padat(px / 2.0 + px * 3 + px1, py, w * 2, h, '11')
 g.rect_padat(px / 2.0 + px * 3 + px1 + px2, py, w * 2, h, '12')
 
-x = 5.79 / 2.0
+# alignment holes
+
+p = 5.79
 d = 0.65
 a = 1.0524
 
-g.pinat(x, 0, d, a, '0')
-g.pinat(-x, 0, d, a, '0')
+g.pinat(p / 2.0, 0, d, a, '0')
+g.pinat(-p / 2.0, 0, d, a, '0')
 
-h = 2
-w = 2.18
-x = 5.11
+# ground pads
+
+p = 10.22
 y = -0.5
+w = 2.18
+h = 2
 
-g.rect_padat(-x, y, w, h, '0')
-g.rect_padat(x, y, w, h, '0')
+g.rect_padat(-p / 2.0, y, w, h, '0')
+g.rect_padat(p / 2.0, y, w, h, '0')
 
 y += 3.93
 
-g.rect_padat(-x, y, w, h, '0')
-g.rect_padat(x, y, w, h, '0')
+g.rect_padat(-p / 2.0, y, w, h, '0')
+g.rect_padat(p / 2.0, y, w, h, '0')
+
+# outline
 
 w = 8.34
 h = 2.85 + 3.93 + 1.15 / 2.0
