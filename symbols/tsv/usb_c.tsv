@@ -23,10 +23,10 @@ pinwidthhorizontal=400
 # if you have a device with slots, you'll have to use slot= and slotdef=
 # use comment= if there are special information you want to add
 version=20060113 1
-name=USB C (USB4110-GF-A)
+name=USB C (USB4056-03-A)
 device=
 refdes=C?
-footprint=usb_c-8_dummy
+footprint=usb_c
 description=
 documentation=
 author=
@@ -58,15 +58,27 @@ numslots=0
 #pinnr	seq	type	style	posit.	net	label	
 #-----------------------------------------------------
 0		pas	line	b		CHASSIS
-1		pas	line	r		GND
-2		pas	line	r		VBUS
-3		pas	line	r		SBU2
-4		pas	line	r		CC1
-5		pas	line	r		D2-
-6		pas	line	r		D1+
-7		pas	line	r		D1-
-8		pas	line	r		D2+
-9		pas	line	r		SBU1
-10		pas	line	r		CC2
-11		pas	line	r		VBUS
-12		pas	line	r		GND
+A1		pas	line	l		GND
+A2		pas	line	l		SSTX1+
+A3		pas	line	l		SSTX1-
+A4		pas	line	l		VBUS
+A5		pas	line	l		CC1
+A6		pas	line	l		D1+
+A7		pas	line	l		D1-
+A8		pas	line	l		SBU1
+A9		pas	line	l		VBUS
+A10		pas	line	l		SSRX2-
+A11		pas	line	l		SSRX2+
+A12		pas	line	l		GND
+B1		pas	line	r		GND
+B2		pas	line	r		SSTX2+
+B3		pas	line	r		SSTX2-
+B4		pas	line	r		VBUS
+B5		pas	line	r		CC2
+B6		pas	line	r		D2+
+B7		pas	line	r		D2-
+B8		pas	line	r		SBU2
+B9		pas	line	r		VBUS
+B10		pas	line	r		SSRX1-
+B11		pas	line	r		SSRX1+
+B12		pas	line	r		GND
