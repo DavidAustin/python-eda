@@ -57,24 +57,24 @@ numslots=0
 #-----------------------------------------------------
 #pinnr	seq	type	style	posit.	net	label	
 #-----------------------------------------------------
-A1		pwr	line	t		GND
-A2		pwr	line	l		FB
-A3		pwr	line	l		PGOOD
-A4		pwr	line	l		RUN
 A5		pwr	line	l		VIN
 A6		pwr	line	l		VIN
 A7		pwr	line	l		VIN
 A8		pwr	line	l		VIN
 A9		pwr	line	l		VIN
-B1		pwr	line	l		CTRL2
-B2		pwr	line	l		VREF
-B3		pwr	line	t		GND
-B4		pwr	line	t		GND
 B5		pwr	line	l		VIN
 B6		pwr	line	l		VIN
 B7		pwr	line	l		VIN
 B8		pwr	line	l		VIN
 B9		pwr	line	l		VIN
+A1		pwr	line	t		GND
+A2		pwr	line	l		FB
+A3		pwr	line	l		PGOOD
+A4		pwr	line	l		RUN
+B1		pwr	line	l		CTRL2
+B2		pwr	line	l		VREF
+B3		pwr	line	t		GND
+B4		pwr	line	t		GND
 C1		pwr	line	l		CTRL1
 C2		pwr	line	t		GND
 C3		pwr	line	t		GND
