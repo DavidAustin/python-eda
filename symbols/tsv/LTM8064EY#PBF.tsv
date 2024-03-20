@@ -1,0 +1,167 @@
+# This is the template file for creating symbols with tragesym
+# every line starting with '#' is a comment line.
+
+[options]
+# wordswap swaps labels if the pin is on the right side an looks like this:
+#   "PB1 (CLK)". That's useful for micro controller port labels
+# rotate_labels rotates the pintext of top and bottom pins
+#   this is useful for large symbols like FPGAs with more than 100 pins
+# sort_labels will sort the pins by it's labels
+#   useful for address ports, busses, ...
+wordswap=no
+rotate_labels=no
+sort_labels=no
+generate_pinseq=yes
+sym_width=4500
+pinwidthvertical=500
+pinwidthhorizontal=500
+
+[geda_attr]
+# name will be printed in the top of the symbol
+# name is only some graphical text, not an attribute
+# version specifies a gschem version.
+# if you have a device with slots, you'll have to use slot= and slotdef=
+# use comment= if there are special information you want to add
+version=20060113 1
+name=LTM8064EY#PBF
+device=LTM8064EY#PBF
+refdes=U?
+footprint=QFN-12x7-7.00x5.00-4.80x6.80-0.50x0.50-0.25x0.70
+description=
+documentation=
+author=
+dist-license=
+use-license=
+numslots=0
+#slot=1
+#slotdef=1:
+#slotdef=2:
+#slotdef=3:
+#slotdef=4:
+#comment=
+#comment=
+#comment=
+
+[pins]
+# tabseparated list of pin descriptions
+# ----------------------------------------
+# pinnr is the physical number of the pin
+# seq is the pinseq= attribute, leave it blank if it doesn't matter
+# type can be (in, out, io, oc, oe, pas, tp, tri, clk, pwr)
+# style can be (line,dot,clk,dotclk,spacer,none). none if only want to add a net
+# posit. can be (l,r,t,b) or empty for nets.
+# net specifies the name of the net. Vcc or GND for example.
+# label represents the pinlabel.
+#	negation lines can be added with "\_" example: \_enable\_ 
+#	if you want to write a "\" use "\\" as escape sequence
+#-----------------------------------------------------
+#pinnr	seq	type	style	posit.	net	label	
+#-----------------------------------------------------
+A1		pwr	line	t		GND
+A2		pwr	line	l		FB
+A3		pwr	line	l		PGOOD
+A4		pwr	line	l		RUN
+A5		pwr	line	l		VIN
+A6		pwr	line	l		VIN
+A7		pwr	line	l		VIN
+A8		pwr	line	l		VIN
+A9		pwr	line	l		VIN
+B1		pwr	line	l		CTRL2
+B2		pwr	line	l		VREF
+B3		pwr	line	t		GND
+B4		pwr	line	t		GND
+B5		pwr	line	l		VIN
+B6		pwr	line	l		VIN
+B7		pwr	line	l		VIN
+B8		pwr	line	l		VIN
+B9		pwr	line	l		VIN
+C1		pwr	line	l		CTRL1
+C2		pwr	line	t		GND
+C3		pwr	line	t		GND
+C5		pwr	line	t		GND
+C6		pwr	line	t		GND
+C4		pwr	line	t		GND
+C7		pwr	line	t		GND
+C8		pwr	line	t		GND
+C9		pwr	line	t		GND
+D1		pwr	line	l		SS
+D2		pwr	line	t		GND
+D3		pwr	line	t		GND
+D4		pwr	line	t		GND
+D5		pwr	line	t		GND
+D6		pwr	line	t		GND
+D7		pwr	line	t		GND
+D8		pwr	line	t		GND
+D9		pwr	line	t		GND
+E1		pwr	line	l		IOUTMON
+E2		pwr	line	l		RT
+E3		pwr	line	t		GND
+E4		pwr	line	t		GND
+E5		pwr	line	t		GND
+E6		pwr	line	t		GND
+E7		pwr	line	t		GND
+E8		pwr	line	t		GND
+E9		pwr	line	t		GND
+F1		pwr	line	l		SYNC
+F2		pwr	line	l		MODE
+F3		pwr	line	t		GND
+F4		pwr	line	t		GND
+F5		pwr	line	t		GND
+F6		pwr	line	t		GND
+F7		pwr	line	t		GND
+F8		pwr	line	t		GND
+F9		pwr	line	t		GND
+G1		pwr	line	b		GND
+G2		pwr	line	b		GND
+G3		pwr	line	b		GND
+G4		pwr	line	b		GND
+G5		pwr	line	b		GND
+G6		pwr	line	b		GND
+G7		pwr	line	b		GND
+G8		pwr	line	b		GND
+G9		pwr	line	b		GND
+H1		pwr	line	r		VOUT
+H2		pwr	line	r		VOUT
+H3		pwr	line	r		VOUT
+H4		pwr	line	r		VOUT
+H5		pwr	line	b		GND
+H6		pwr	line	b		GND
+H7		pwr	line	b		GND
+H8		pwr	line	b		GND
+H9		pwr	line	b		GND
+J1		pwr	line	r		VOUT
+J2		pwr	line	r		VOUT
+J3		pwr	line	r		VOUT
+J4		pwr	line	r		VOUT
+J5		pwr	line	b		GND
+J6		pwr	line	b		GND
+J7		pwr	line	b		GND
+J8		pwr	line	b		GND
+J9		pwr	line	b		GND
+K1		pwr	line	r		VOUT
+K2		pwr	line	r		VOUT
+K3		pwr	line	r		VOUT
+K4		pwr	line	r		VOUT
+K5		pwr	line	b		GND
+K6		pwr	line	b		GND
+K7		pwr	line	b		GND
+K8		pwr	line	b		GND
+K9		pwr	line	b		GND
+L1		pwr	line	r		VOUT
+L2		pwr	line	r		VOUT
+L3		pwr	line	r		VOUT
+L4		pwr	line	r		VOUT
+L5		pwr	line	b		GND
+L6		pwr	line	b		GND
+L7		pwr	line	b		GND
+L8		pwr	line	b		GND
+L9		pwr	line	b		GND
+M1		pwr	line	b		VOUT
+M2		pwr	line	r		VOUT
+M3		pwr	line	r		VOUT
+M4		pwr	line	r		VOUT
+M5		pwr	line	b		GND
+M6		pwr	line	b		GND
+M7		pwr	line	b		GND
+M8		pwr	line	b		GND
+M9		pwr	line	b		GND
