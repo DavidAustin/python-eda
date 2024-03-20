@@ -67,10 +67,10 @@ B6		pwr	line	l		VIN
 B7		pwr	line	l		VIN
 B8		pwr	line	l		VIN
 B9		pwr	line	l		VIN
+A4		pwr	line	l		RUN
 A1		pwr	line	t		GND
 A2		pwr	line	l		FB
 A3		pwr	line	l		PGOOD
-A4		pwr	line	l		RUN
 B1		pwr	line	l		CTRL2
 B2		pwr	line	l		VREF
 B3		pwr	line	t		GND
