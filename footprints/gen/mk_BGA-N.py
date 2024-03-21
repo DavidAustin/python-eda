@@ -17,6 +17,14 @@
 
 from footprintgen import *
 
+def index_to_letter(index, uppercase=True):
+    if uppercase:
+        # Add index to ASCII code of 'A' (65) and convert to character
+        return chr(65 + index)
+    else:
+        # Add index to ASCII code of 'a' (97) and convert to character
+        return chr(97 + index)
+
 def make_fp(x_pins, y_pins, part_w, part_h, px, py, pad_w, pad_h):
     g = FootprintGen('BGA-%dx%d-%.2fx%.2f-%.2fx%.2f-%.2fx%.2f' % (x_pins, y_pins, part_w, part_h, px, py, pad_w, pad_h))
 
@@ -26,7 +34,8 @@ def make_fp(x_pins, y_pins, part_w, part_h, px, py, pad_w, pad_h):
         for i in range(0, x_pins):
             x = i * px
             y = j * py
-            g.rect_padat(x, y, pad_w, pad_h, '%d' % i)
+            label = "%s%d" % (index_to_letter(j), i + 1)
+            g.rect_padat(x, y, pad_w, pad_h, '%s' % label)
 
     oo = 0.25
             
