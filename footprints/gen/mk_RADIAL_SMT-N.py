@@ -55,6 +55,8 @@ data = {
     '39uF 63V A780KN396M1JLAS040' : [8.0, 3.1 + 4.2, 4.2, 2.2] # https://connect.kemet.com:7667/gateway/IntelliData-ComponentDocumentation/1.0/download/datasheet/A780KN396M1JLAS040
 }
 
+# TODO: more port such as mk_HHXD500ARA150MF80G.py
+
 for v in data.values():
     d_ann = v[2] * 1.75
     r = footprintradial('RADIAL_SMT-%.2f-%.2f-%.2f-%.2f' % (v[0], v[1], v[2], d_ann))
