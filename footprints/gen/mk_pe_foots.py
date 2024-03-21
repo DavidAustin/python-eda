@@ -1,5 +1,5 @@
 # Python-EDA
-# Copyright (C) 2018 Luke Cole (ported), David Austin (original author)
+# Copyright (C) 2018-2014 Luke Cole (ported), David Austin (original author)
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -19,7 +19,10 @@ from footprintgen import *
 
 def make_fp(k, data, pol = False):
     a, b, c, d = data
-    # width, gap, pad_w, pad_h
+    # part_length, pad_gap, pad_w, pad_h
+    # NOTES:
+    # * part_width is defined automatically based on pad_h
+    # * pitch/p = pad_gap + pad_w
 
     print (k, a, b, c, d)
     
@@ -76,11 +79,13 @@ data = {
     '2512' : [8.0, 4.4, 1.8, 3.0]
 }
 
-# e.g. 1uF 50V tan T491C105M050AT - https://content.kemet.com/datasheets/KEM_T2005_T491.pdf
+# e.g. 2917 150uF 16V tan cap 293D157X9016D2TE3 - https://www.vishay.com/docs/40002/293d.pdf
+# e.g. 2312 1uF 50V tan cap T491C105M050AT - https://content.kemet.com/datasheets/KEM_T2005_T491.pdf
 # e.g. 1206 LEDs - https://www.sunledusa.com/products/spec/XZMDKCBD55W-4.pdf
 # e.g. 0603 LEDs - https://www.we-online.de/katalog/datasheet/150060RS75000.pdf
 # e.g. 0402 cap (case K) - https://www.vishay.com/docs/40065/298d298w.pdf
 data_pol = {
+    '2917' : [7.3, 3.0, 2.5, 4.0],
     '2312' : [6.0, 3.2, 1.4, 2.4],
     '1206' : [4.2, 2.2, 1.0, 1.5],
     '0603' : [2.6, 0.8, 0.9, 0.8],
