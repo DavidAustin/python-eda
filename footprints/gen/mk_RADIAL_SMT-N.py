@@ -31,8 +31,8 @@ class footprintradial:
 
         oo = 0.5
 
-        ox = -p / 2.0
-        oy = d / 2.0 + oo
+        ox = -p / 2.0 - pad_w / 2.0 - oo
+        oy = d / 2.0 - oo
         
         ox1 = ox - oo
         oy1 = oy
@@ -52,7 +52,8 @@ class footprintradial:
 clearance = 0.3
 
 data = {
-    '39uF 63V A780KN396M1JLAS040' : [8.0, 3.1 + 4.2, 4.2, 2.2] # https://connect.kemet.com:7667/gateway/IntelliData-ComponentDocumentation/1.0/download/datasheet/A780KN396M1JLAS040
+    '39uF 63V A780KN396M1JLAS040' : [8.0, 3.1 + 4.2, 4.2, 2.2], # https://connect.kemet.com:7667/gateway/IntelliData-ComponentDocumentation/1.0/download/datasheet/A780KN396M1JLAS040
+    '39uF 63V 63SXV39MX' : [10.0, 4.6 + 4.2, 4.2, 2.2] # https://industrial.panasonic.com/cdbs/www-data/pdf/AAB8000/AAB8000C259.pdf
 }
 
 # TODO: more port such as mk_HHXD500ARA150MF80G.py
