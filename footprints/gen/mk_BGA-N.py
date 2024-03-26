@@ -25,7 +25,19 @@ def index_to_letter(index, uppercase=True):
         # Add index to ASCII code of 'a' (97) and convert to character
         return chr(97 + index)
 
-def make_fp(x_pins, y_pins, part_w, part_h, px, py, pad_w, pad_h):
+def index_to_letter_skip_i(index, uppercase=True):
+  # Determine the ASCII code for 'A' or 'a' based on the uppercase flag
+    base = 65 if uppercase else 97
+
+    # Adjust the index to skip 'I'
+    # 'I' is the 9th letter, so we adjust if index is 8 (0-based for 'I') or higher
+    if index >= 8:  # Corresponds to 'I'
+        index += 1  # Skip over 'I'
+
+    # Add the adjusted index to the base ASCII code and convert to character
+    return chr(base + index)
+    
+def make_fp(x_pins, y_pins, part_w, part_h, px, py, pad_w, pad_h, skip_i=False):
     g = FootprintGen('BGA-%dx%d-%.2fx%.2f-%.2fx%.2f-%.2fx%.2f' % (x_pins, y_pins, part_w, part_h, px, py, pad_w, pad_h))
 
     x = 0
@@ -34,7 +46,10 @@ def make_fp(x_pins, y_pins, part_w, part_h, px, py, pad_w, pad_h):
         for i in range(0, x_pins):
             x = i * px
             y = j * py
-            label = "%s%d" % (index_to_letter(j), i + 1)
+            if skip_i:
+                label = "%s%d" % (index_to_letter_skip_i(j), i + 1)
+            else:
+                label = "%s%d" % (index_to_letter(j), i + 1)
             g.rect_padat(x, y, pad_w, pad_h, '%s' % label)
 
     oo = 0.25
@@ -73,4 +88,4 @@ def make_fp(x_pins, y_pins, part_w, part_h, px, py, pad_w, pad_h):
 # mk_WQFN16_3x3_PAD.py
 
 # https://www.analog.com/media/en/technical-documentation/data-sheets/8064fa.pdf
-make_fp(9, 12, 11.9, 16.0, 1.27, 1.27, 0.63, 0.63)
+make_fp(9, 12, 11.9, 16.0, 1.27, 1.27, 0.63, 0.63, True)
