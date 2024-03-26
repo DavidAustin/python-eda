@@ -156,7 +156,7 @@ L6		pwr	line	b		GND
 L7		pwr	line	b		GND
 L8		pwr	line	b		GND
 L9		pwr	line	b		GND
-M1		pwr	line	b		VOUT
+M1		pwr	line	r		VOUT
 M2		pwr	line	r		VOUT
 M3		pwr	line	r		VOUT
 M4		pwr	line	r		VOUT
