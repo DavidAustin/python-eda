@@ -43,7 +43,7 @@ g.rect_padat(px / 2.0 + px * 5, py, w, h, 'A12')
 px = 0.8
 py = 5.64 - 4.29 - 0.7
 d = 0.4
-a = 0.6
+a = 0.71
 
 g.pinat(-px / 2.0 - px * 3, py, d, a, 'B12')
 g.pinat(-px / 2.0 - px * 1, py, d, a, 'B9')
@@ -55,7 +55,7 @@ g.pinat(px / 2.0 + px * 3, py, d, a, 'B1')
 px = 0.8
 py += 0.7
 d = 0.4
-a = 0.6
+a = 0.71
 
 g.pinat(-px * 3, py, d, a, 'B11')
 g.pinat(-px * 2, py, d, a, 'B10')
@@ -68,7 +68,7 @@ g.pinat(px * 3, py, d, a, 'B2')
 
 p = 7.2
 d = 0.65
-a = 0.7
+a = 0.96
 
 g.pinat(p / 2.0, 0, d, a, '0')
 g.pinat(-p / 2.0, 0, d, a, '0')
@@ -78,7 +78,7 @@ g.pinat(-p / 2.0, 0, d, a, '0')
 p = 8.26
 y = 5.64 - 4.4
 d = 1.1
-a = 1.9
+a = 1.7
 
 g.pinat(-p / 2.0, y, d, a, '0')
 g.pinat(p / 2.0, y, d, a, '0')
