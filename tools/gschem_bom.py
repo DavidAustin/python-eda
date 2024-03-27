@@ -211,6 +211,7 @@ def parse_octopart(device):
     offers = data["data"]["supSearchMpn"]["results"][0]["part"]["sellers"]
     
     items = data["data"]["supSearchMpn"]["results"]
+    is_found = False
     item_idx = -1
     offer_idx = -1
 
@@ -218,16 +219,20 @@ def parse_octopart(device):
       print ("items_count=%d" % (len(items)))
       
     for i in range(len(items)):
+      if is_found:
+        break
       offers = data["data"]["supSearchMpn"]["results"][i]["part"]["sellers"]
+      sku = data["data"]["supSearchMpn"]["results"][i]["part"]["mpn"]
       if is_debug:
-        print ("offers_count=%d" % (len(offers)))
+        print ("offers_count=%d sku=%s" % (len(offers), sku))
       for j in range(len(offers)):
         seller_name = data["data"]["supSearchMpn"]["results"][i]["part"]["sellers"][j]["company"]["name"]
         if is_debug:
           print ("Seller: %s" % seller_name)
-        if seller_name == "Digi-Key" or seller_name == "DigiKey":
+        if sku == device and (seller_name == "Digi-Key" or seller_name == "DigiKey"):
           item_idx = i
           offer_idx = j
+          is_found = True
           if is_debug:
             print ("item_idx=%d offer_idx=%d" % (item_idx, offer_idx))
           break
@@ -252,6 +257,11 @@ def parse_octopart(device):
       #if packaging == "Tape & Reel" or packaging == "Cut Tape" or packaging == "Tray" or packaging == "Tube" or packaging == "Bulk" or packaging == "Bag" or packaging == "Box":
 
       prices = data["data"]["supSearchMpn"]["results"][item_idx]["part"]["sellers"][offer_idx]["offers"][0]["prices"]
+
+      if is_debug:
+          print ("prices for sku=%s index_idx=%d offer_idx=%d:" % (sku, item_idx, offer_idx))
+          print (prices)
+
       for p in prices:
         if p["quantity"] == 1:
           unit_cost_1 = str(p["price"])
@@ -284,6 +294,9 @@ def parse_octopart(device):
         part['unit_cost_10000'] = unit_cost_10000
         if is_debug:
           print (part)
+      else:
+        if is_debug:
+          print ("no prices found!")
 
 for l in lines.splitlines():
   if is_debug:
