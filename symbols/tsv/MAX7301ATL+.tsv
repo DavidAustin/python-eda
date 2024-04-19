@@ -1,4 +1,4 @@
-1;5202;0c# This is the template file for creating symbols with tragesym
+# This is the template file for creating symbols with tragesym
 # every line starting with '#' is a comment line.
 
 [options]
