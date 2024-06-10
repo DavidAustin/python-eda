@@ -1,5 +1,5 @@
 # Python-EDA
-# Copyright (C) 2020-2022 Luke Cole
+# Copyright (C) 2024 Luke Cole
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -19,7 +19,7 @@ import math
 from footprintgen import *
 
 def make_fp(n_pins, part_w, part_h, px, py, pad_w, pad_h):
-    g = FootprintGen('TSSOP-%d-%.2fx%.2f-%.2fx%.2f-%.2fx%.2f' % (n_pins, part_w, part_h, px, py, pad_w, pad_h))
+    g = FootprintGen('SSOP-%d-%.2fx%.2f-%.2fx%.2f-%.2fx%.2f' % (n_pins, part_w, part_h, px, py, pad_w, pad_h))
 
     x = 0
     for i in range(1, n_pins // 2 + 1):
@@ -44,26 +44,11 @@ def make_fp(n_pins, part_w, part_h, px, py, pad_w, pad_h):
 
     g.write()
 
-# https://en.wikipedia.org/wiki/Small_outline_integrated_circuit#Thin-shrink_small-outline_package_(TSSOP)
+# https://en.wikipedia.org/wiki/Small_outline_integrated_circuit
+# https://www.holtek.com/webapi/106680/Footprints_for_SOP_SSOP_Series_20230710.pdf/b3eb1361-295e-4f22-b705-8f1008399503
 
-# http://ww1.microchip.com/downloads/en/DeviceDoc/22147a.pdf
-make_fp(6, 2, 1.25, 0.65, 2.2, 0.4, 0.9)
-
-# https://www.ti.com/lit/ds/symlink/lm4889.pdf
-make_fp(8, 3.0, 3.0, 0.65, 4.4, 0.45, 1.5)
-
-# https://www.ti.com/lit/ds/symlink/msp430fr2111.pdf
-# https://www.ti.com/lit/ds/symlink/msp430fr2000.pdf
-make_fp(16, 5.0, 4.4, 0.65, 5.8, 0.45, 1.5)
-
-# https://toshiba.semicon-storage.com/info/docget.jsp?did=13949&prodName=74VHCT245AFT
-make_fp(20, 6.5, 4.4, 0.65, 5.4, 0.45, 1.5)
-
-# https://www.nxp.com/docs/en/data-sheet/PCA9685.pdf
-make_fp(28, 9.7, 4.4, 0.65, 5.4, 0.45, 1.5)
-
-# http://www.ti.com/lit/ds/symlink/msp430fr2355.pdf
-make_fp(38, 9.7, 4.4, 0.5, 5.6, 0.25, 1.55)
+make_fp(28, 9.7, 5.3, 0.635, 5.4, 0.35, 1.5)
+#make_fp(28, 9.7, 5.3, 0.635, 7.3, 0.35, 1.5)
 
 # NOTE: 18/3/24 corrected part_w and part_h to align with x, y
 

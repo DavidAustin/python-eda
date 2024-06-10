@@ -17,7 +17,8 @@
 import math
 from footprintgen import *
 
-# http://www.on-shore.com/wp-content/uploads/2018/04/302-SXX1.pdf
+# http://www.on-shore.com/wp-content/uploads/2018/04/302-SXX1.pdf - 404, try this one:
+# https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/6025/302-S.pdf
 
 def make_connector(n_pins):
     g = FootprintGen('CONN%d_254_DUAL' % n_pins)

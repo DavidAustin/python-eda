@@ -28,8 +28,8 @@ Where,
 3) fp gen - Support for two-way and four-way symmetrical arrays of pins and
    pads
 4) use a footprint family generator such as:
-   mk_QFN-N.py, mk_WFDFN-N.py, mk_SOIC-N.py, mk_TSSOP-N.py, mk_WSOP-N.py, mk_BGA-N.py, mk_uSIP-N.py,
-   mk_CONN*.py, mk_RADIAL*.py, mk_pe*.py, mk_holes.py
+   mk_QFN-N.py, mk_WFDFN-N.py, mk_SOIC-N.py, mk_SSOP-N.py, mk_TSSOP-N.py, mk_HTSSOP-N.py, mk_WSOP-N.py,
+   mk_BGA-N.py, mk_uSIP-N.py, mk_CONN*.py, mk_RADIAL*.py, mk_pe*.py, mk_holes.py
 5) Naming standard for family generators - perhaps postfix with "-N"
 6) w/x vs l/h/y definition/clarification - perhaps vertical/horizontal
    or stick with x/y standard coordinated frame: x = left/right, y = up/down
