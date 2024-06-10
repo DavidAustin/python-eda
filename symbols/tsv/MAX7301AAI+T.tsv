@@ -57,12 +57,10 @@ numslots=0
 #-----------------------------------------------------
 #pinnr	seq	type	style	posit.	net	label	
 #-----------------------------------------------------
-0		pwr	line	b		PAD
-
-1		o	line	r		ISET
-2		o	line	r		GND
-3		o	line	r		GND
-4		o	line	r		DOUT
+1		o	line	l		ISET
+2		o	line	b		GND
+3		o	line	b		GND
+4		o	line	l		DOUT
 5		o	line	r		P12
 6		o	line	r		P13
 7		o	line	r		P14
@@ -70,7 +68,7 @@ numslots=0
 9		o	line	r		P16
 
 10		o	line	r		P17
-11		o	line	l		P18
+11		o	line	r		P18
 12		o	line	r		P19
 13		o	line	r		P20
 14		o	line	r		P21
@@ -80,12 +78,12 @@ numslots=0
 18		o	line	r		P25
 19		o	line	r		P26
 
-20		o	line	l		P27
+20		o	line	r		P27
 21		o	line	r		P28
 22		o	line	r		P29
 23		o	line	r		P30
 24		o	line	r		P31
-25		o	line	r		SCLK
-26		o	line	r		DIN
-27		o	line	r		\_CS\_
-28		o	line	r		V+
+25		o	line	l		SCLK
+26		o	line	l		DIN
+27		o	line	l		\_CS\_
+28		o	line	t		V+
