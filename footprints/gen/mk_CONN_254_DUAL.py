@@ -1,5 +1,5 @@
 # Python-EDA
-# Copyright (C) 2020 Luke Cole
+# Copyright (C) 2020-2024 Luke Cole
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -19,6 +19,7 @@ from footprintgen import *
 
 # http://www.on-shore.com/wp-content/uploads/2018/04/302-SXX1.pdf - 404, try this one:
 # https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/6025/302-S.pdf
+# https://www.pcb-3d.com/wordpress/tutorials/how-to-calculate-pth-hole-and-pad-diameter-sizes-according-to-ipc-7251-ipc-2222-and-ipc-2221-standards/
 
 def make_connector(n_pins):
     g = FootprintGen('CONN%d_254_DUAL' % n_pins)
@@ -26,8 +27,8 @@ def make_connector(n_pins):
     p = 2.54
     x = 0
     y = 0
-    dia = 1.02
-    od = dia * 1.75
+    dia = 1.1
+    od = dia + 0.7
     g.pinat(0, y + p, dia, od,  1, {'square' : 1})
     g.pinat(0, y, dia, od,  2)
     x += p
