@@ -23,6 +23,8 @@ from footprintgen import *
 # https://www.digikey.com/en/products/detail/samtec-inc/MPT-08-01-01-T-RA-SD/10218439
 # https://www.digikey.com/en/products/detail/samtec-inc/MPS-08-7-70-01-L-V/2685334
 # https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/6239/mpsx-mptx.pdf
+# https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/6129/mpt-xx-01-xx-x-ra-xx-mkt.pdf
+# https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/6129/mps-xx-x.xx-xx-x-v-xx-mkt.pdf
 
 def make_connector(n_pins):
     g = FootprintGen('CONN%d_PowerStrip30MPT_500_RA' % n_pins)
