@@ -12,7 +12,7 @@ wordswap=no
 rotate_labels=no
 sort_labels=no
 generate_pinseq=yes
-sym_width=2000
+sym_width=3000
 pinwidthvertical=500
 pinwidthhorizontal=500
 
@@ -57,12 +57,23 @@ numslots=0
 #-----------------------------------------------------
 #pinnr	seq	type	style	posit.	net	label	
 #-----------------------------------------------------
-8		in	line	l		VIN
-1		in	line	l		EN
-3		out	line	l		VREG5
-4		in	line	l		SS
-7		in	line	r		VBST
-6		out	line	r		SW
-2		in	line	r		VFB
-5		pwr	line	b		GND
-0		pwr	line	b		PAD
+2		pwr	line	t		VCCA
+19		pwr	line	t		VCCB
+11		pwr	line	b		GND
+1		io	line	l		A1
+3		io	line	l		A2
+4		io	line	l		A3
+5		io	line	l		A4
+6		io	line	l		A5
+7		io	line	l		A6
+8		io	line	l		A7
+9		io	line	l		A8
+10		in	line	l		OE
+20		io	line	r		B1
+18		io	line	r		B2
+17		io	line	r		B3
+16		io	line	r		B4
+15		io	line	r		B5
+14		io	line	r		B6
+13		io	line	r		B7
+12		io	line	r		B8
