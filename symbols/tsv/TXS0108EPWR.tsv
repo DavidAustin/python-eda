@@ -12,7 +12,7 @@ wordswap=no
 rotate_labels=no
 sort_labels=no
 generate_pinseq=yes
-sym_width=3000
+sym_width=2000
 pinwidthvertical=500
 pinwidthhorizontal=500
 
@@ -23,8 +23,8 @@ pinwidthhorizontal=500
 # if you have a device with slots, you'll have to use slot= and slotdef=
 # use comment= if there are special information you want to add
 version=20060113 1
-name=74VHCT245AFT
-device=74VHCT245AFT
+name=TXS0108EPWR
+device=TXS0108EPWR
 refdes=U?
 footprint=TSSOP-20-6.50x4.40-0.65x5.80-0.45x1.50
 description=
@@ -57,23 +57,12 @@ numslots=0
 #-----------------------------------------------------
 #pinnr	seq	type	style	posit.	net	label	
 #-----------------------------------------------------
-1		io	line	l		DIR
-2		io	line	l		A1
-3		io	line	l		A2
-4		io	line	l		A3
-5		io	line	l		A4
-6		io	line	l		A5
-7		io	line	l		A6
-8		io	line	l		A7
-9		io	line	l		A8
-10		pwr	line	b		GND
-19		io	line	r		\_OE\_
-18		io	line	r		B1
-17		io	line	r		B2
-16		io	line	r		B3
-15		io	line	r		B4
-14		io	line	r		B5
-13		io	line	r		B6
-12		io	line	r		B7
-11		io	line	r		B8
-20		pwr	line	t		VCC
+8		in	line	l		VIN
+1		in	line	l		EN
+3		out	line	l		VREG5
+4		in	line	l		SS
+7		in	line	r		VBST
+6		out	line	r		SW
+2		in	line	r		VFB
+5		pwr	line	b		GND
+0		pwr	line	b		PAD
