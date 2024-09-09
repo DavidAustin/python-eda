@@ -54,3 +54,5 @@ make_fp(10, 3.0, 3.0, 0.5, 2.7, 0.35, 0.6, 2.6, 1.8)
 # https://pdfserv.maximintegrated.com/package_dwgs/21-0036.PDF
 # https://pdfserv.maximintegrated.com/land_patterns/90-0247.PDF
 make_fp(10, 3.0, 3.0, 0.5, 3.84, 0.3, 0.79, 2.3, 2.6)
+
+make_fp(10, 3.0, 4.0, 0.5, 3.84, 0.3, 0.79, 2.3, 2.6)
