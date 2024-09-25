@@ -46,8 +46,10 @@ def make_fp(n_pins, part_w, part_h, px, py, pad_w, pad_h):
 
 # https://en.wikipedia.org/wiki/Small_outline_integrated_circuit
 # https://www.holtek.com/webapi/106680/Footprints_for_SOP_SSOP_Series_20230710.pdf/b3eb1361-295e-4f22-b705-8f1008399503
+# https://pdfserv.maximintegrated.com/land_patterns/90-0095.PDF
 
-make_fp(28, 9.7, 5.3, 0.635, 5.4, 0.35, 1.5)
+make_fp(28, 10.185, 3.81, 0.635, 5.4, 0.35, 1.5) # 150mil version (3.81mm)
+make_fp(28, 10.185, 5.3, 0.65, 7.3, 0.4, 2.0) # 209mil version (5.3mm)
 #make_fp(28, 9.7, 5.3, 0.635, 7.3, 0.35, 1.5)
 
 # NOTE: 18/3/24 corrected part_w and part_h to align with x, y
