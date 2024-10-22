@@ -32,15 +32,16 @@ def make_connector(n_pins):
     p = 5.00
     x = p * (n_pins-1)
     y = 0
-    od = 2.5
-    g.pinat(x, y, 1.4, od, 1, {'square' : 1})
-    g.pinat(x, y + 2.54, 1.4, od, 1, {'square' : 1})
-    g.pinat(x, y + 2.54 * 2, 1.4, od, 1, {'square' : 1})
+    id = 2.6
+    od = id * 1.6
+    g.pinat(x, y, id, od, 1, {'square' : 1})
+    g.pinat(x, y + 2.54, id, od, 1, {'square' : 1})
+    g.pinat(x, y + 2.54 * 2, id, od, 1, {'square' : 1})
     x -= p
     for i in range(2,n_pins+1):
-        g.pinat(x, y, 1.4, od,  i)
-        g.pinat(x, y + 2.54, 1.4, od,  i)
-        g.pinat(x, y + 2.54 * 2, 1.4, od,  i)
+        g.pinat(x, y, id, od,  i)
+        g.pinat(x, y + 2.54, id, od,  i)
+        g.pinat(x, y + 2.54 * 2, id, od,  i)
         x -= p
 
     w = p * (n_pins-1) + 7.55
