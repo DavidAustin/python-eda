@@ -25,7 +25,7 @@ h = 0.9
 w = 0.3
 
 px = 0.5
-py = 0
+py = -1.5/2
 
 g.rect_padat(-px / 2.0 - px * 5, py, w, h, 'A1')
 g.rect_padat(-px / 2.0 - px * 4, py, w, h, 'A2')
@@ -41,7 +41,7 @@ g.rect_padat(px / 2.0 + px * 4, py, w, h, 'A11')
 g.rect_padat(px / 2.0 + px * 5, py, w, h, 'A12')
 
 px = 0.5
-py = 1.5
+py = 1.5/2
 
 g.rect_padat(-px / 2.0 - px * 5, py, w, h, 'B1')
 g.rect_padat(-px / 2.0 - px * 4, py, w, h, 'B2')
@@ -56,66 +56,36 @@ g.rect_padat(px / 2.0 + px * 3, py, w, h, 'B10')
 g.rect_padat(px / 2.0 + px * 4, py, w, h, 'B11')
 g.rect_padat(px / 2.0 + px * 5, py, w, h, 'B12')
 
+# alignment holes (ground pins)
 
-#g.pinat(-px / 2.0 - px * 3, py, d, a, 'B12')
-#g.pinat(-px / 2.0 - px * 1, py, d, a, 'B9')
-#g.pinat(-px / 2.0, py, d, a, 'B7')
-#g.pinat(px / 2.0, py, d, a, 'B6')
-#g.pinat(px / 2.0 + px * 1, py, d, a, 'B4')
-#g.pinat(px / 2.0 + px * 3, py, d, a, 'B1')
+p = 7.1
+d = 1.07
+#d = 0.8
+d = 0.9
+a = d * 1.2
 
-#px = 0.8
-#py += 0.7
-#d = 0.4
-#a = 0.706
+y = -1.5/2 + (1.07/2+1.15) - (1.35/2+0.7)
+g.pinat(p / 2.0, y, d, a, '0')
+g.pinat(-p / 2.0, y, d, a, '0')
 
-#g.pinat(-px * 3, py, d, a, 'B11')
-#g.pinat(-px * 2, py, d, a, 'B10')
-#g.pinat(-px * 1, py, d, a, 'B8')
-#g.pinat(px * 1, py, d, a, 'B5')
-#g.pinat(px * 2, py, d, a, 'B3')
-#g.pinat(px * 3, py, d, a, 'B2')
-
-# alignment holes
-
-#p = 7.2
-#d = 0.65
-#a = 0.96
-
-#g.pinat(p / 2.0, 0, d, a, '0')
-#g.pinat(-p / 2.0, 0, d, a, '0')
-
-# ground pins
-
-#p = 8.26
-#y = 5.64 - 4.4
-#d = 1.1
-#a = 1.7
-
-#g.pinat(-p / 2.0, y, d, a, '0')
-#g.pinat(p / 2.0, y, d, a, '0')
-
-#p = 8.98
-#y = 5.64
-
-#g.pinat(-p / 2.0, y, d, a, '0')
-#g.pinat(p / 2.0, y, d, a, '0')
+y = 1.5/2 - ((1.07/2+1.15) - (1.35/2+0.7))
+g.pinat(p / 2.0, y, d, a, '0')
+g.pinat(-p / 2.0, y, d, a, '0')
 
 # outline
 
-#w = 9.85
-#h = 9.87
+w = 8.25
+h = 3.5
 
-#ox1 = -w / 2.0
-#oy1 = -(9.87 - 5.64 - 2.53)
-#ox2 = ox1 + w
-#oy2 = oy1 + h
+ox1 = -w / 2.0
+oy1 = -h/2
+ox2 = ox1 + w
+oy2 = oy1 + h
 
-#g.outline(ox1, oy1, ox2, oy1)
-#g.outline(ox1, oy2, ox2, oy2)
+g.outline(ox1, oy1, ox2, oy1)
+g.outline(ox1, oy2, ox2, oy2)
 
-#g.outline(ox1, oy1, ox1, oy2)
-#g.outline(ox2, oy1, ox2, oy2)
+g.outline(ox1, oy1, ox1, oy2)
+g.outline(ox2, oy1, ox2, oy2)
 
 g.write()
-
