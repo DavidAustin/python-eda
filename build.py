@@ -44,28 +44,31 @@ for f in sym_files:
 
 tsv_dir_full = os.path.join(symbols_dir, tsv_dir)
 
+# Determine which command exists: tragesym or lepton-tragesym
+command = None
+if shutil.which("tragesym"):
+    command = "tragesym"
+elif shutil.which("lepton-tragesym"):
+    command = "lepton-tragesym"
+else:
+    raise EnvironmentError("Neither 'tragesym' nor 'lepton-tragesym' is available in the system PATH.")
+
+# Process the TSV files
 f = []
 for (dirpath, dirname, filenames) in os.walk(tsv_dir_full):
     for f in filenames:
         if ".tsv" in f:
-            print (f)
+            print(f)
             sym_file = os.path.splitext(f)[0] + ".sym"
             sym_file = os.path.join(output_dir_symbols, sym_file)
             tsv_file = os.path.join(tsv_dir_full, f)
-            if (os.path.isfile(tsv_file)):
+            if os.path.isfile(tsv_file):
                 try:
-                    cmd = "tragesym %s %s" % (tsv_file, sym_file)
-                    print (cmd)
+                    cmd = f"{command} {tsv_file} {sym_file}"
+                    print(cmd)
                     os.system(cmd)
-                except:
-                    pass
-                try:
-                    cmd = "lepton-tragesym %s %s" % (tsv_file, sym_file)
-                    print (cmd)
-                    os.system(cmd)
-                except:
-                    pass
-                
+                except Exception as e:
+                    print(f"Error processing {tsv_file}: {e}")
     break
 
 footprints_dir = 'footprints'
