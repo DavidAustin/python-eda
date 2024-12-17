@@ -55,3 +55,4 @@ Where,
 20) Ensure CONN 0,0 is at pin 1
 21) Prefix SMT CAPs with CAP-SMT
 22) Remove old radials scripts and use mk_RADIAL.py only
+23) Cleanup usb sym's - pin number depends on USB version and connector type.
