@@ -75,7 +75,7 @@ oy1 = y - pin_w / 2.0
 ox2 = ox1 + pin_l
 oy2 = oy1 + pin_w
 g.outlinerect(ox1, oy1, ox2, oy2)
-g.rect_padat(x, y - pin_w, w, pin_w, '3')
+g.rect_padat(x, y - pin_w, w, pin_w, '4')
 #g.pinat(px / 2 + px2, py, d, a, '4')
 
 py = 1.23/2
@@ -90,7 +90,7 @@ oy1 = y - pin_w / 2.0
 ox2 = ox1 + pin_l
 oy2 = oy1 + pin_w
 g.outlinerect(ox1, oy1, ox2, oy2)
-g.rect_padat(x, y + pin_w, w, pin_w, '3')
+g.rect_padat(x, y + pin_w, w, pin_w, '5')
 #g.pinat(-px * 2, py, d, a, '5')
 
 x = -px
@@ -100,7 +100,7 @@ oy1 = y - pin_w / 2.0
 ox2 = ox1 + pin_l
 oy2 = oy1 + pin_w
 g.outlinerect(ox1, oy1, ox2, oy2)
-g.rect_padat(x, y + pin_w, w, pin_w, '3')
+g.rect_padat(x, y + pin_w, w, pin_w, '6')
 #g.pinat(-px, py, d, a, '6')
 
 x = 0
@@ -110,7 +110,7 @@ oy1 = y - pin_w / 2.0
 ox2 = ox1 + pin_l
 oy2 = oy1 + pin_w
 g.outlinerect(ox1, oy1, ox2, oy2)
-g.rect_padat(x, y + pin_w, w, pin_w, '3')
+g.rect_padat(x, y + pin_w, w, pin_w, '7')
 #g.pinat(0, py, d, a, '7')
 
 x = px
@@ -120,7 +120,7 @@ oy1 = y - pin_w / 2.0
 ox2 = ox1 + pin_l
 oy2 = oy1 + pin_w
 g.outlinerect(ox1, oy1, ox2, oy2)
-g.rect_padat(x, y + pin_w, w, pin_w, '3')
+g.rect_padat(x, y + pin_w, w, pin_w, '8')
 #g.pinat(px, py, d, a, '8')
 
 x = px * 2
@@ -130,7 +130,7 @@ oy1 = y - pin_w / 2.0
 ox2 = ox1 + pin_l
 oy2 = oy1 + pin_w
 g.outlinerect(ox1, oy1, ox2, oy2)
-g.rect_padat(x, y + pin_w, w, pin_w, '3')
+g.rect_padat(x, y + pin_w, w, pin_w, '9')
 #g.pinat(px * 2, py, d, a, '9')
 
 # large alignment holes (ground pins) - slot right then left
