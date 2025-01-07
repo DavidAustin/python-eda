@@ -57,3 +57,6 @@ def make_fp(n_pins, part_w, part_h, px, py, pad_w, pad_h, thermal_pad_w = False,
 
 # https://www.ti.com/lit/ds/symlink/tlc6c5816-q1.pdf
 make_fp(28, 9.7, 4.4, 0.65, 5.6, 0.25, 1.55, 9.7, 3.4)
+
+# https://www.nxp.com/docs/en/data-sheet/PCA9955B.pdf
+make_fp(28, 9.7, 4.4, 0.65, 6.1, 0.4, 1.35, 3.4, 2.2)
