@@ -136,7 +136,7 @@ oy1 = y - h / 2.0
 ox2 = ox1 + w
 oy2 = oy1 + h
 g.outlinerect(ox1, oy1, ox2, oy2)
-g.rect_padat(x, y + h, w, h, 'B1')
+g.rect_padat(x, y + h, w, h, 'B12')
 
 x = -px / 2.0 - px * 4
 ox1 = x - w / 2.0
@@ -144,7 +144,7 @@ oy1 = y - h / 2.0
 ox2 = ox1 + w
 oy2 = oy1 + h
 g.outlinerect(ox1, oy1, ox2, oy2)
-g.rect_padat(x, y + h, w, h, 'B2')
+g.rect_padat(x, y + h, w, h, 'B11')
 
 x = -px / 2.0 - px * 3
 ox1 = x - w / 2.0
@@ -152,7 +152,7 @@ oy1 = y - h / 2.0
 ox2 = ox1 + w
 oy2 = oy1 + h
 g.outlinerect(ox1, oy1, ox2, oy2)
-g.rect_padat(x, y + h, w, h, 'B3')
+g.rect_padat(x, y + h, w, h, 'B10')
 
 x = -px / 2.0 - px * 2
 ox1 = x - w / 2.0
@@ -160,7 +160,7 @@ oy1 = y - h / 2.0
 ox2 = ox1 + w
 oy2 = oy1 + h
 g.outlinerect(ox1, oy1, ox2, oy2)
-g.rect_padat(x, y + h, w, h, 'B4')
+g.rect_padat(x, y + h, w, h, 'B9')
 
 x = -px / 2.0 - px * 1
 ox1 = x - w / 2.0
@@ -168,7 +168,7 @@ oy1 = y - h / 2.0
 ox2 = ox1 + w
 oy2 = oy1 + h
 g.outlinerect(ox1, oy1, ox2, oy2)
-g.rect_padat(x, y + h, w, h, 'B5')
+g.rect_padat(x, y + h, w, h, 'B8')
 
 x = -px / 2.0
 ox1 = x - w / 2.0
@@ -176,7 +176,7 @@ oy1 = y - h / 2.0
 ox2 = ox1 + w
 oy2 = oy1 + h
 g.outlinerect(ox1, oy1, ox2, oy2)
-g.rect_padat(x, y + h, w, h, 'B6')
+g.rect_padat(x, y + h, w, h, 'B7')
 
 x = px / 2.0
 ox1 = x - w / 2.0
@@ -184,7 +184,7 @@ oy1 = y - h / 2.0
 ox2 = ox1 + w
 oy2 = oy1 + h
 g.outlinerect(ox1, oy1, ox2, oy2)
-g.rect_padat(x, y + h, w, h, 'B7')
+g.rect_padat(x, y + h, w, h, 'B6')
 
 x = px / 2.0 + px * 1
 ox1 = x - w / 2.0
@@ -192,7 +192,7 @@ oy1 = y - h / 2.0
 ox2 = ox1 + w
 oy2 = oy1 + h
 g.outlinerect(ox1, oy1, ox2, oy2)
-g.rect_padat(x, y + h, w, h, 'B8')
+g.rect_padat(x, y + h, w, h, 'B5')
 
 x = px / 2.0 + px * 2
 ox1 = x - w / 2.0
@@ -200,7 +200,7 @@ oy1 = y - h / 2.0
 ox2 = ox1 + w
 oy2 = oy1 + h
 g.outlinerect(ox1, oy1, ox2, oy2)
-g.rect_padat(x, y + h, w, h, 'B9')
+g.rect_padat(x, y + h, w, h, 'B4')
 
 x = px / 2.0 + px * 3
 ox1 = x - w / 2.0
@@ -208,7 +208,7 @@ oy1 = y - h / 2.0
 ox2 = ox1 + w
 oy2 = oy1 + h
 g.outlinerect(ox1, oy1, ox2, oy2)
-g.rect_padat(x, y + h, w, h, 'B10')
+g.rect_padat(x, y + h, w, h, 'B3')
 
 x = px / 2.0 + px * 4
 ox1 = x - w / 2.0
@@ -216,7 +216,7 @@ oy1 = y - h / 2.0
 ox2 = ox1 + w
 oy2 = oy1 + h
 g.outlinerect(ox1, oy1, ox2, oy2)
-g.rect_padat(x, y + h, w, h, 'B11')
+g.rect_padat(x, y + h, w, h, 'B2')
 
 x = px / 2.0 + px * 5
 ox1 = x - w / 2.0
@@ -224,7 +224,7 @@ oy1 = y - h / 2.0
 ox2 = ox1 + w
 oy2 = oy1 + h
 g.outlinerect(ox1, oy1, ox2, oy2)
-g.rect_padat(x, y + h, w, h, 'B12')
+g.rect_padat(x, y + h, w, h, 'B1')
 
 # alignment holes (ground pins)
 
