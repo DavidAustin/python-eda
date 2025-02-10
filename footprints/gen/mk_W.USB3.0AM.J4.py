@@ -137,7 +137,7 @@ oy1 = y - h / 2.0
 ox2 = ox1 + w
 oy2 = oy1 + h
 g.outlinerect(ox1, oy1, ox2, oy2)
-g.rect_padat(x + w + 0.25, y, w + 0.5, h + 0.5, '0')
+g.rect_padat(x + w, y, w, h, '0')
 
 x = -p / 2.0
 
@@ -146,7 +146,7 @@ oy1 = y - h / 2.0
 ox2 = ox1 + w
 oy2 = oy1 + h
 g.outlinerect(ox1, oy1, ox2, oy2)
-g.rect_padat(x - w - 0.25, y, w + 0.5, h + 0.5, '0')
+g.rect_padat(x - w, y, w, h, '0')
 
 # smaller alignment holes (ground pins) - slot right then left
 
@@ -161,7 +161,7 @@ oy1 = y - h / 2.0
 ox2 = ox1 + w
 oy2 = oy1 + h
 g.outlinerect(ox1, oy1, ox2, oy2)
-g.rect_padat(x + w + 0.25, y, w + 0.5, h + 0.5, '0')
+g.rect_padat(x + w, y, w, h, '0')
 
 x = -p / 2.0
 
@@ -170,7 +170,7 @@ oy1 = y - h / 2.0
 ox2 = ox1 + w
 oy2 = oy1 + h
 g.outlinerect(ox1, oy1, ox2, oy2)
-g.rect_padat(x - w - 0.25, y, w + 0.5, h + 0.5, '0')
+g.rect_padat(x - w, y, w, h, '0')
 
 # outline
 
