@@ -1,5 +1,5 @@
 # Python-EDA
-# Copyright (C) 2024 Luke Cole
+# Copyright (C) 2025 Luke Cole
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -24,6 +24,11 @@ g = FootprintGen('699C124-2A6-111')
 h = 0.7
 w = 0.3
 
+# settings for array of pins
+spacing = 0.01
+d = 0.3
+a = 0.4
+
 px = 0.5
 py = -1.5/2
 
@@ -35,7 +40,14 @@ oy1 = y - h / 2.0
 ox2 = ox1 + w
 oy2 = oy1 + h
 g.outlinerect(ox1, oy1, ox2, oy2)
-g.rect_padat(x, y - h / 2, w, h * 2, 'A1')
+g.rect_padat(x, y - h / 2, a, h * 2, 'A1')
+xx = (ox2 - ox1) / 2 + ox1
+current_y = oy1
+index = 0
+while current_y <= oy2:
+    g.pinat(xx, current_y, d, a, f'{index}')
+    current_y += spacing
+    index += 1
 
 x = -px / 2.0 - px * 4
 ox1 = x - w / 2.0
@@ -43,7 +55,14 @@ oy1 = y - h / 2.0
 ox2 = ox1 + w
 oy2 = oy1 + h
 g.outlinerect(ox1, oy1, ox2, oy2)
-g.rect_padat(x, y - h / 2, w, h * 2, 'A2')
+g.rect_padat(x, y - h / 2, a, h * 2, 'A2')
+xx = (ox2 - ox1) / 2 + ox1
+current_y = oy1
+index = 0
+while current_y <= oy2:
+    g.pinat(xx, current_y, d, a, f'{index}')
+    current_y += spacing
+    index += 1
 
 x = -px / 2.0 - px * 3
 ox1 = x - w / 2.0
@@ -51,7 +70,14 @@ oy1 = y - h / 2.0
 ox2 = ox1 + w
 oy2 = oy1 + h
 g.outlinerect(ox1, oy1, ox2, oy2)
-g.rect_padat(x, y - h / 2, w, h * 2, 'A3')
+g.rect_padat(x, y - h / 2, a, h * 2, 'A3')
+xx = (ox2 - ox1) / 2 + ox1
+current_y = oy1
+index = 0
+while current_y <= oy2:
+    g.pinat(xx, current_y, d, a, f'{index}')
+    current_y += spacing
+    index += 1
 
 x = -px / 2.0 - px * 2
 ox1 = x - w / 2.0
@@ -59,7 +85,14 @@ oy1 = y - h / 2.0
 ox2 = ox1 + w
 oy2 = oy1 + h
 g.outlinerect(ox1, oy1, ox2, oy2)
-g.rect_padat(x, y - h / 2, w, h * 2, 'A4')
+g.rect_padat(x, y - h / 2, a, h * 2, 'A4')
+xx = (ox2 - ox1) / 2 + ox1
+current_y = oy1
+index = 0
+while current_y <= oy2:
+    g.pinat(xx, current_y, d, a, f'{index}')
+    current_y += spacing
+    index += 1
 
 x = -px / 2.0 - px * 1
 ox1 = x - w / 2.0
@@ -67,7 +100,14 @@ oy1 = y - h / 2.0
 ox2 = ox1 + w
 oy2 = oy1 + h
 g.outlinerect(ox1, oy1, ox2, oy2)
-g.rect_padat(x, y - h / 2, w, h * 2, 'A5')
+g.rect_padat(x, y - h / 2, a, h * 2, 'A5')
+xx = (ox2 - ox1) / 2 + ox1
+current_y = oy1
+index = 0
+while current_y <= oy2:
+    g.pinat(xx, current_y, d, a, f'{index}')
+    current_y += spacing
+    index += 1
 
 x = -px / 2.0
 ox1 = x - w / 2.0
@@ -75,7 +115,14 @@ oy1 = y - h / 2.0
 ox2 = ox1 + w
 oy2 = oy1 + h
 g.outlinerect(ox1, oy1, ox2, oy2)
-g.rect_padat(x, y - h / 2, w, h * 2, 'A6')
+g.rect_padat(x, y - h / 2, a, h * 2, 'A6')
+xx = (ox2 - ox1) / 2 + ox1
+current_y = oy1
+index = 0
+while current_y <= oy2:
+    g.pinat(xx, current_y, d, a, f'{index}')
+    current_y += spacing
+    index += 1
 
 x = px / 2.0
 ox1 = x - w / 2.0
@@ -83,7 +130,14 @@ oy1 = y - h / 2.0
 ox2 = ox1 + w
 oy2 = oy1 + h
 g.outlinerect(ox1, oy1, ox2, oy2)
-g.rect_padat(x, y - h / 2, w, h * 2, 'A7')
+g.rect_padat(x, y - h / 2, a, h * 2, 'A7')
+xx = (ox2 - ox1) / 2 + ox1
+current_y = oy1
+index = 0
+while current_y <= oy2:
+    g.pinat(xx, current_y, d, a, f'{index}')
+    current_y += spacing
+    index += 1
 
 x = px / 2.0 + px * 1
 ox1 = x - w / 2.0
@@ -91,7 +145,14 @@ oy1 = y - h / 2.0
 ox2 = ox1 + w
 oy2 = oy1 + h
 g.outlinerect(ox1, oy1, ox2, oy2)
-g.rect_padat(x, y - h / 2, w, h * 2, 'A8')
+g.rect_padat(x, y - h / 2, a, h * 2, 'A8')
+xx = (ox2 - ox1) / 2 + ox1
+current_y = oy1
+index = 0
+while current_y <= oy2:
+    g.pinat(xx, current_y, d, a, f'{index}')
+    current_y += spacing
+    index += 1
 
 x = px / 2.0 + px * 2
 ox1 = x - w / 2.0
@@ -99,7 +160,14 @@ oy1 = y - h / 2.0
 ox2 = ox1 + w
 oy2 = oy1 + h
 g.outlinerect(ox1, oy1, ox2, oy2)
-g.rect_padat(x, y - h / 2, w, h * 2, 'A9')
+g.rect_padat(x, y - h / 2, a, h * 2, 'A9')
+xx = (ox2 - ox1) / 2 + ox1
+current_y = oy1
+index = 0
+while current_y <= oy2:
+    g.pinat(xx, current_y, d, a, f'{index}')
+    current_y += spacing
+    index += 1
 
 x = px / 2.0 + px * 3
 ox1 = x - w / 2.0
@@ -107,7 +175,14 @@ oy1 = y - h / 2.0
 ox2 = ox1 + w
 oy2 = oy1 + h
 g.outlinerect(ox1, oy1, ox2, oy2)
-g.rect_padat(x, y - h / 2, w, h * 2, 'A10')
+g.rect_padat(x, y - h / 2, a, h * 2, 'A10')
+xx = (ox2 - ox1) / 2 + ox1
+current_y = oy1
+index = 0
+while current_y <= oy2:
+    g.pinat(xx, current_y, d, a, f'{index}')
+    current_y += spacing
+    index += 1
 
 x = px / 2.0 + px * 4
 ox1 = x - w / 2.0
@@ -115,7 +190,14 @@ oy1 = y - h / 2.0
 ox2 = ox1 + w
 oy2 = oy1 + h
 g.outlinerect(ox1, oy1, ox2, oy2)
-g.rect_padat(x, y - h / 2, w, h * 2, 'A11')
+g.rect_padat(x, y - h / 2, a, h * 2, 'A11')
+xx = (ox2 - ox1) / 2 + ox1
+current_y = oy1
+index = 0
+while current_y <= oy2:
+    g.pinat(xx, current_y, d, a, f'{index}')
+    current_y += spacing
+    index += 1
 
 x = px / 2.0 + px * 5
 ox1 = x - w / 2.0
@@ -123,7 +205,14 @@ oy1 = y - h / 2.0
 ox2 = ox1 + w
 oy2 = oy1 + h
 g.outlinerect(ox1, oy1, ox2, oy2)
-g.rect_padat(x, y - h / 2, w, h * 2, 'A12')
+g.rect_padat(x, y - h / 2, a, h * 2, 'A12')
+xx = (ox2 - ox1) / 2 + ox1
+current_y = oy1
+index = 0
+while current_y <= oy2:
+    g.pinat(xx, current_y, d, a, f'{index}')
+    current_y += spacing
+    index += 1
 
 px = 0.5
 py = 1.5/2
@@ -136,7 +225,14 @@ oy1 = y - h / 2.0
 ox2 = ox1 + w
 oy2 = oy1 + h
 g.outlinerect(ox1, oy1, ox2, oy2)
-g.rect_padat(x, y + h / 2, w, h * 2, 'B12')
+g.rect_padat(x, y + h / 2, a, h * 2, 'B12')
+xx = (ox2 - ox1) / 2 + ox1
+current_y = oy1
+index = 0
+while current_y <= oy2:
+    g.pinat(xx, current_y, d, a, f'{index}')
+    current_y += spacing
+    index += 1
 
 x = -px / 2.0 - px * 4
 ox1 = x - w / 2.0
@@ -144,7 +240,14 @@ oy1 = y - h / 2.0
 ox2 = ox1 + w
 oy2 = oy1 + h
 g.outlinerect(ox1, oy1, ox2, oy2)
-g.rect_padat(x, y + h / 2, w, h * 2, 'B11')
+g.rect_padat(x, y + h / 2, a, h * 2, 'B11')
+xx = (ox2 - ox1) / 2 + ox1
+current_y = oy1
+index = 0
+while current_y <= oy2:
+    g.pinat(xx, current_y, d, a, f'{index}')
+    current_y += spacing
+    index += 1
 
 x = -px / 2.0 - px * 3
 ox1 = x - w / 2.0
@@ -152,7 +255,14 @@ oy1 = y - h / 2.0
 ox2 = ox1 + w
 oy2 = oy1 + h
 g.outlinerect(ox1, oy1, ox2, oy2)
-g.rect_padat(x, y + h / 2, w, h * 2, 'B10')
+g.rect_padat(x, y + h / 2, a, h * 2, 'B10')
+xx = (ox2 - ox1) / 2 + ox1
+current_y = oy1
+index = 0
+while current_y <= oy2:
+    g.pinat(xx, current_y, d, a, f'{index}')
+    current_y += spacing
+    index += 1
 
 x = -px / 2.0 - px * 2
 ox1 = x - w / 2.0
@@ -160,7 +270,14 @@ oy1 = y - h / 2.0
 ox2 = ox1 + w
 oy2 = oy1 + h
 g.outlinerect(ox1, oy1, ox2, oy2)
-g.rect_padat(x, y + h / 2, w, h * 2, 'B9')
+g.rect_padat(x, y + h / 2, a, h * 2, 'B9')
+xx = (ox2 - ox1) / 2 + ox1
+current_y = oy1
+index = 0
+while current_y <= oy2:
+    g.pinat(xx, current_y, d, a, f'{index}')
+    current_y += spacing
+    index += 1
 
 x = -px / 2.0 - px * 1
 ox1 = x - w / 2.0
@@ -168,7 +285,14 @@ oy1 = y - h / 2.0
 ox2 = ox1 + w
 oy2 = oy1 + h
 g.outlinerect(ox1, oy1, ox2, oy2)
-g.rect_padat(x, y + h / 2, w, h * 2, 'B8')
+g.rect_padat(x, y + h / 2, a, h * 2, 'B8')
+xx = (ox2 - ox1) / 2 + ox1
+current_y = oy1
+index = 0
+while current_y <= oy2:
+    g.pinat(xx, current_y, d, a, f'{index}')
+    current_y += spacing
+    index += 1
 
 x = -px / 2.0
 ox1 = x - w / 2.0
@@ -176,7 +300,14 @@ oy1 = y - h / 2.0
 ox2 = ox1 + w
 oy2 = oy1 + h
 g.outlinerect(ox1, oy1, ox2, oy2)
-g.rect_padat(x, y + h / 2, w, h * 2, 'B7')
+g.rect_padat(x, y + h / 2, a, h * 2, 'B7')
+xx = (ox2 - ox1) / 2 + ox1
+current_y = oy1
+index = 0
+while current_y <= oy2:
+    g.pinat(xx, current_y, d, a, f'{index}')
+    current_y += spacing
+    index += 1
 
 x = px / 2.0
 ox1 = x - w / 2.0
@@ -184,7 +315,14 @@ oy1 = y - h / 2.0
 ox2 = ox1 + w
 oy2 = oy1 + h
 g.outlinerect(ox1, oy1, ox2, oy2)
-g.rect_padat(x, y + h / 2, w, h * 2, 'B6')
+g.rect_padat(x, y + h / 2, a, h * 2, 'B6')
+xx = (ox2 - ox1) / 2 + ox1
+current_y = oy1
+index = 0
+while current_y <= oy2:
+    g.pinat(xx, current_y, d, a, f'{index}')
+    current_y += spacing
+    index += 1
 
 x = px / 2.0 + px * 1
 ox1 = x - w / 2.0
@@ -192,7 +330,14 @@ oy1 = y - h / 2.0
 ox2 = ox1 + w
 oy2 = oy1 + h
 g.outlinerect(ox1, oy1, ox2, oy2)
-g.rect_padat(x, y + h / 2, w, h * 2, 'B5')
+g.rect_padat(x, y + h / 2, a, h * 2, 'B5')
+xx = (ox2 - ox1) / 2 + ox1
+current_y = oy1
+index = 0
+while current_y <= oy2:
+    g.pinat(xx, current_y, d, a, f'{index}')
+    current_y += spacing
+    index += 1
 
 x = px / 2.0 + px * 2
 ox1 = x - w / 2.0
@@ -200,7 +345,14 @@ oy1 = y - h / 2.0
 ox2 = ox1 + w
 oy2 = oy1 + h
 g.outlinerect(ox1, oy1, ox2, oy2)
-g.rect_padat(x, y + h / 2, w, h * 2, 'B4')
+g.rect_padat(x, y + h / 2, a, h * 2, 'B4')
+xx = (ox2 - ox1) / 2 + ox1
+current_y = oy1
+index = 0
+while current_y <= oy2:
+    g.pinat(xx, current_y, d, a, f'{index}')
+    current_y += spacing
+    index += 1
 
 x = px / 2.0 + px * 3
 ox1 = x - w / 2.0
@@ -208,7 +360,14 @@ oy1 = y - h / 2.0
 ox2 = ox1 + w
 oy2 = oy1 + h
 g.outlinerect(ox1, oy1, ox2, oy2)
-g.rect_padat(x, y + h / 2, w, h * 2, 'B3')
+g.rect_padat(x, y + h / 2, a, h * 2, 'B3')
+xx = (ox2 - ox1) / 2 + ox1
+current_y = oy1
+index = 0
+while current_y <= oy2:
+    g.pinat(xx, current_y, d, a, f'{index}')
+    current_y += spacing
+    index += 1
 
 x = px / 2.0 + px * 4
 ox1 = x - w / 2.0
@@ -216,7 +375,14 @@ oy1 = y - h / 2.0
 ox2 = ox1 + w
 oy2 = oy1 + h
 g.outlinerect(ox1, oy1, ox2, oy2)
-g.rect_padat(x, y + h / 2, w, h * 2, 'B2')
+g.rect_padat(x, y + h / 2, a, h * 2, 'B2')
+xx = (ox2 - ox1) / 2 + ox1
+current_y = oy1
+index = 0
+while current_y <= oy2:
+    g.pinat(xx, current_y, d, a, f'{index}')
+    current_y += spacing
+    index += 1
 
 x = px / 2.0 + px * 5
 ox1 = x - w / 2.0
@@ -224,7 +390,14 @@ oy1 = y - h / 2.0
 ox2 = ox1 + w
 oy2 = oy1 + h
 g.outlinerect(ox1, oy1, ox2, oy2)
-g.rect_padat(x, y + h / 2, w, h * 2, 'B1')
+g.rect_padat(x, y + h / 2, a, h * 2, 'B1')
+xx = (ox2 - ox1) / 2 + ox1
+current_y = oy1
+index = 0
+while current_y <= oy2:
+    g.pinat(xx, current_y, d, a, f'{index}')
+    current_y += spacing
+    index += 1
 
 # alignment holes (ground pins)
 
