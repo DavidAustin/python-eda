@@ -4,7 +4,7 @@
 [options]
 # wordswap swaps labels if the pin is on the right side an looks like this:
 #   "PB1 (CLK)". That's useful for micro controller port labels
-# rotate_labels rotates the pintext of top and bottom pins
+# rotae_labels rotates the pintext of top and bottom pins
 #   this is useful for large symbols like FPGAs with more than 100 pins
 # sort_labels will sort the pins by it's labels
 #   useful for address ports, busses, ...
@@ -57,6 +57,7 @@ numslots=0
 #-----------------------------------------------------
 #pinnr	seq	type	style	posit.	net	label	
 #-----------------------------------------------------
+0		pwr	line	b		EPAD
 1		pwr	line	b		GND
 2		pwr	line	t		VCC
 3		in	line	l		EN
@@ -97,4 +98,3 @@ numslots=0
 36		io	line	l		RXD0
 37		io	line	l		TXD0
 40		pwr	line	b		GND
-41		pwr	line	b		EPAD
