@@ -12,7 +12,7 @@ wordswap=no
 rotate_labels=no
 sort_labels=no
 generate_pinseq=no
-sym_width=3000
+sym_width=1000
 pinwidthvertical=500
 pinwidthhorizontal=500
 
@@ -23,10 +23,10 @@ pinwidthhorizontal=500
 # if you have a device with slots, you'll have to use slot= and slotdef=
 # use comment= if there are special information you want to add
 version=20060113 1
-name=MCP2518FDT-E/SL
-device=MCP2518FDT-E/SL
-refdes=U?
-footprint=SOIC-14
+name=LFXTAL035939
+device=LFXTAL035939
+refdes=XT?
+footprint=LFXTAL035939
 description=
 documentation=
 author=
@@ -57,17 +57,5 @@ numslots=0
 #-----------------------------------------------------
 #pinnr	seq	type	style	posit.	net	label	
 #-----------------------------------------------------
-1		out	line	r		TXCAN
-2		in	line	r		RXCAN
-3		out	line	l		CLKO/SOF
-4		out	line	l		\_INT\_
-5		out	line	r		OSC2
-6		in	line	r		OSC1
-7		pwr	line	b		VSS
-8		io	line	l		\_INT1\_/GPIO1
-9		io	line	l		\_INT0\_/GPIO0/XSTBY
-10		in	line	l		SCK
-11		in	line	l		SDI
-12		out	line	l		SDO
-13		in	line	l		nCS
-14		pwr	line	t		VDD
+1	1	pas	line	l		XIN
+2	2	pas	line	r		XOUT

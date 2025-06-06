@@ -11,7 +11,7 @@
 wordswap=no
 rotate_labels=no
 sort_labels=no
-generate_pinseq=no
+generate_pinseq=yes
 sym_width=3000
 pinwidthvertical=500
 pinwidthhorizontal=500
@@ -23,10 +23,10 @@ pinwidthhorizontal=500
 # if you have a device with slots, you'll have to use slot= and slotdef=
 # use comment= if there are special information you want to add
 version=20060113 1
-name=MCP2518FDT-E/SL
-device=MCP2518FDT-E/SL
+name=MAX33042EAKA+T
+device=MAX33042EAKA+T
 refdes=U?
-footprint=SOIC-14
+footprint=SOT-23-8
 description=
 documentation=
 author=
@@ -48,8 +48,8 @@ numslots=0
 # pinnr is the physical number of the pin
 # seq is the pinseq= attribute, leave it blank if it doesn't matter
 # type can be (in, out, io, oc, oe, pas, tp, tri, clk, pwr)
-# style can be (line,dot,clk,dotclk,spacer,none). none if only want to add a net
-# posit. can be (l,r,t,b) or empty for nets.
+# style can be (line,dot,clk,dotclk,none). none if only want to add a net
+# posit. can be (l,r,t,b) or empty for nets
 # net specifies the name of the net. Vcc or GND for example.
 # label represents the pinlabel.
 #	negation lines can be added with "\_" example: \_enable\_ 
@@ -57,17 +57,11 @@ numslots=0
 #-----------------------------------------------------
 #pinnr	seq	type	style	posit.	net	label	
 #-----------------------------------------------------
-1		out	line	r		TXCAN
-2		in	line	r		RXCAN
-3		out	line	l		CLKO/SOF
-4		out	line	l		\_INT\_
-5		out	line	r		OSC2
-6		in	line	r		OSC1
-7		pwr	line	b		VSS
-8		io	line	l		\_INT1\_/GPIO1
-9		io	line	l		\_INT0\_/GPIO0/XSTBY
-10		in	line	l		SCK
-11		in	line	l		SDI
-12		out	line	l		SDO
-13		in	line	l		nCS
-14		pwr	line	t		VDD
+1		in	line	l		TXD
+2		pwr	line	b		GND
+3		pwr	line	t		VDD
+4		out	line	l		RXD
+5		in	line	l		SHDN
+6		io	line	r		CANL
+7		io	line	r		CANH
+8		pwr	line	l		STBY
