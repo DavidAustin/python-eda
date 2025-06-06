@@ -4,17 +4,17 @@
 [options]
 # wordswap swaps labels if the pin is on the right side an looks like this:
 #   "PB1 (CLK)". That's useful for micro controller port labels
-# rotae_labels rotates the pintext of top and bottom pins
+# rotate_labels rotates the pintext of top and bottom pins
 #   this is useful for large symbols like FPGAs with more than 100 pins
 # sort_labels will sort the pins by it's labels
 #   useful for address ports, busses, ...
 wordswap=no
 rotate_labels=no
 sort_labels=no
-generate_pinseq=yes
-sym_width=5000
-pinwidthvertical=600
-pinwidthhorizontal=600
+generate_pinseq=no
+sym_width=3000
+pinwidthvertical=400
+pinwidthhorizontal=400
 
 [geda_attr]
 # name will be printed in the top of the symbol
@@ -23,10 +23,10 @@ pinwidthhorizontal=600
 # if you have a device with slots, you'll have to use slot= and slotdef=
 # use comment= if there are special information you want to add
 version=20060113 1
-name=ESP32-S3-WROOM-1U-N16R8
-device=ESP32-S3-WROOM-1U-N16R8
+name=MCP2518FDT-E/SL
+device=MCP2518FDT-E/SL
 refdes=U?
-footprint=ESP32-WROOM
+footprint=SOIC-14
 description=
 documentation=
 author=
@@ -48,8 +48,8 @@ numslots=0
 # pinnr is the physical number of the pin
 # seq is the pinseq= attribute, leave it blank if it doesn't matter
 # type can be (in, out, io, oc, oe, pas, tp, tri, clk, pwr)
-# style can be (line,dot,clk,dotclk,none). none if only want to add a net
-# posit. can be (l,r,t,b) or empty for nets
+# style can be (line,dot,clk,dotclk,spacer,none). none if only want to add a net
+# posit. can be (l,r,t,b) or empty for nets.
 # net specifies the name of the net. Vcc or GND for example.
 # label represents the pinlabel.
 #	negation lines can be added with "\_" example: \_enable\_ 
@@ -57,44 +57,17 @@ numslots=0
 #-----------------------------------------------------
 #pinnr	seq	type	style	posit.	net	label	
 #-----------------------------------------------------
-0		pwr	line	b		EPAD
-1		pwr	line	b		GND
-2		pwr	line	t		VCC
-3		in	line	l		EN
-27		io	line	r		IO0
-39		io	line	r		IO1
-38		io	line	r		IO2
-15		io	line	r		IO3
-4		io	line	r		IO4
-5		io	line	r		IO5
-6		io	line	r		IO6
-7		io	line	r		IO7
-12		io	line	r		IO8
-17		io	line	r		IO9
-18		io	line	r		IO10
-19		io	line	r		IO11
-20		io	line	r		IO12
-21		io	line	r		IO13
-22		io	line	r		IO14
-8		in	line	r		IO15
-9		io	line	r		IO16
-10		in	line	r		IO17
-11		in	line	r		IO18
-13		io	line	r		IO19
-14		io	line	r		IO20
-23		io	line	r		IO21
-28		io	line	r		IO35
-29		io	line	r		IO36
-30		io	line	r		IO37
-31		io	line	r		IO38
-32		io	line	r		IO39
-33		io	line	r		IO40
-34		io	line	r		IO41
-35		io	line	r		IO42
-26		io	line	r		IO45
-16		io	line	r		IO46
-24		io	line	r		IO47
-25		io	line	r		IO48
-36		io	line	l		RXD0
-37		io	line	l		TXD0
-40		pwr	line	b		GND
+1		out	line	r		TXCAN
+2		in	line	r		RXCAN
+3		out	line	l		CLKO/SOF
+4		out	line	l		\_INT_\
+5		out	line	r		OSC2
+6		in	line	r		OSC1
+7		pwr	line	b		VSS
+8		io	line	l		\_INT1\_/GPIO1
+9		io	line	l		\_INT0\_/GPIO0/XSTBY
+10		in	line	l		SCK
+11		in	line	l		SDI
+12		out	line	l		SDO
+13		in	line	l		nCS
+14		pwr	line	t		VDD

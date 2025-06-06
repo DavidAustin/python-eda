@@ -4,7 +4,7 @@
 [options]
 # wordswap swaps labels if the pin is on the right side an looks like this:
 #   "PB1 (CLK)". That's useful for micro controller port labels
-# rotae_labels rotates the pintext of top and bottom pins
+# rotate_labels rotates the pintext of top and bottom pins
 #   this is useful for large symbols like FPGAs with more than 100 pins
 # sort_labels will sort the pins by it's labels
 #   useful for address ports, busses, ...
@@ -12,9 +12,9 @@ wordswap=no
 rotate_labels=no
 sort_labels=no
 generate_pinseq=yes
-sym_width=5000
-pinwidthvertical=600
-pinwidthhorizontal=600
+sym_width=3000
+pinwidthvertical=500
+pinwidthhorizontal=500
 
 [geda_attr]
 # name will be printed in the top of the symbol
@@ -23,10 +23,10 @@ pinwidthhorizontal=600
 # if you have a device with slots, you'll have to use slot= and slotdef=
 # use comment= if there are special information you want to add
 version=20060113 1
-name=ESP32-S3-WROOM-1U-N16R8
-device=ESP32-S3-WROOM-1U-N16R8
+name=MAX33046EASA+T
+device=MAX33046EASA+T
 refdes=U?
-footprint=ESP32-WROOM
+footprint=SOIC-8
 description=
 documentation=
 author=
@@ -57,44 +57,11 @@ numslots=0
 #-----------------------------------------------------
 #pinnr	seq	type	style	posit.	net	label	
 #-----------------------------------------------------
-0		pwr	line	b		EPAD
-1		pwr	line	b		GND
-2		pwr	line	t		VCC
-3		in	line	l		EN
-27		io	line	r		IO0
-39		io	line	r		IO1
-38		io	line	r		IO2
-15		io	line	r		IO3
-4		io	line	r		IO4
-5		io	line	r		IO5
-6		io	line	r		IO6
-7		io	line	r		IO7
-12		io	line	r		IO8
-17		io	line	r		IO9
-18		io	line	r		IO10
-19		io	line	r		IO11
-20		io	line	r		IO12
-21		io	line	r		IO13
-22		io	line	r		IO14
-8		in	line	r		IO15
-9		io	line	r		IO16
-10		in	line	r		IO17
-11		in	line	r		IO18
-13		io	line	r		IO19
-14		io	line	r		IO20
-23		io	line	r		IO21
-28		io	line	r		IO35
-29		io	line	r		IO36
-30		io	line	r		IO37
-31		io	line	r		IO38
-32		io	line	r		IO39
-33		io	line	r		IO40
-34		io	line	r		IO41
-35		io	line	r		IO42
-26		io	line	r		IO45
-16		io	line	r		IO46
-24		io	line	r		IO47
-25		io	line	r		IO48
-36		io	line	l		RXD0
-37		io	line	l		TXD0
-40		pwr	line	b		GND
+1		out	line	l		RO
+2		in	line	l		\_RE\_
+3		in	line	l		DE
+4		in	line	l		DI
+5		pwr	line	b		GND
+6		io	line	r		A
+7		io	line	r		B
+8		pwr	line	t		VCC
