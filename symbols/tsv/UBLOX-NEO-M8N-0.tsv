@@ -12,9 +12,9 @@ wordswap=yes
 rotate_labels=no
 sort_labels=no
 generate_pinseq=yes
-sym_width=14000
+sym_width=3000
 pinwidthvertical=500
-pinwidthhorizontal=500
+pinwidthhorizontal=1000
 
 [geda_attr]
 # name will be printed in the top of the symbol
@@ -57,27 +57,27 @@ numslots=0
 #-----------------------------------------------------
 #pinnr	seq	type	style	posit.	net	label	
 #-----------------------------------------------------
-1		in	line	l		SAFEBOOT_N
-2		in	line	l		D_SEL
-3		out	line	l		TIMEPULSE
-4		in	line	l		EXTINT
-5		io	line	l		USB_DM
-6		io	line	l		USB_DP
-7		pwr	line	t		VDD_USB
-8		in	line	l		RESET_N
-9		out	line	t		VCC_RF
+1		in	line	r		SAFEBOOT_N
+2		in	line	r		D_SEL
+3		out	line	r		TIMEPULSE
+4		in	line	r		EXTINT
+5		io	line	r		USB_DM
+6		io	line	r		USB_DP
+7		pwr	line	r		VDD_USB
+8		in	line	r		RESET_N
+9		out	line	r		VCC_RF
 10		pwr	line	b		GND
-11		in	line	l		RF_IN
+11		in	line	r		RF_IN
 12		pwr	line	b		GND
 13		pwr	line	b		GND
-14		out	line	l		LNA_EN
+14		out	line	r		LNA_EN
 15		pas	line	r		RESERVED
 16		pas	line	r		RESERVED
 17		pas	line	r		RESERVED
-18		io	line	l		SDA/SPI_CS
-19		io	line	l		SCL/SPI_CLK
+18		io	line	r		SDA/SPI_CS
+19		io	line	r		SCL/SPI_CLK
 20		out	line	l		TXD/SPI_MISO
 21		in	line	l		RXD/SPI_MOSI
-22		pwr	line	l		V_BCKP
+22		pwr	line	r		V_BCKP
 23		pwr	line	t		VCC
 24		pwr	line	b		GND
