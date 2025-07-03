@@ -57,13 +57,13 @@ numslots=0
 #-----------------------------------------------------
 #pinnr	seq	type	style	posit.	net	label	
 #-----------------------------------------------------
-0		pas	line	b		GND
+0		pas	line	b		CHASSIS
 1		pas	line	l		DAT2
 2		pas	line	l		CD/DAT3
 3		pas	line	l		CMD
 4		pas	line	t		VDD
 5		pas	line	l		CLK
-6		pas	line	l		VSS
+6		pas	line	b		VSS
 7		pas	line	l		DAT0
 8		pas	line	l		DAT1
 9		pas	line	l		CD
