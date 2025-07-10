@@ -28,8 +28,8 @@ if len(sys.argv) < 3:
          "  seperate file (file.poly)\n"
          "* clip is in mm - +ve will expand poly, and -ve will reduce poly\n"
          "KNOWN ISSUES:\n"
-         "* space required between [x y] pts\m"
-         "* any 0.0 value must have dimension (e.g. 0.0mm)\m"
+         "* space required between [x y] pts\n"
+         "* any 0.0 value must have dimension (e.g. 0.0mm)\n"
          % (sys.argv[0]))
   exit()
 
