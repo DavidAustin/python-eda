@@ -8,11 +8,11 @@
 #   this is useful for large symbols like FPGAs with more than 100 pins
 # sort_labels will sort the pins by it's labels
 #   useful for address ports, busses, ...
-wordswap=yes
+wordswap=no
 rotate_labels=no
 sort_labels=no
 generate_pinseq=yes
-sym_width=2500
+sym_width=2300
 pinwidthvertical=500
 pinwidthhorizontal=500
 
