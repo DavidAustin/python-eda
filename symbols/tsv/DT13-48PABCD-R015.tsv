@@ -12,9 +12,9 @@ wordswap=no
 rotate_labels=no
 sort_labels=no
 generate_pinseq=yes
-sym_width=4500
-pinwidthvertical=600
-pinwidthhorizontal=600
+sym_width=3000
+pinwidthvertical=500
+pinwidthhorizontal=500
 
 [geda_attr]
 # name will be printed in the top of the symbol
