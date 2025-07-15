@@ -1,0 +1,110 @@
+# This is the template file for creating symbols with tragesym
+# every line starting with '#' is a comment line.
+
+[options]
+# wordswap swaps labels if the pin is on the right side an looks like this:
+#   "PB1 (CLK)". That's useful for micro controller port labels
+# rotate_labels rotates the pintext of top and bottom pins
+#   this is useful for large symbols like FPGAs with more than 100 pins
+# sort_labels will sort the pins by it's labels
+#   useful for address ports, busses, ...
+wordswap=no
+rotate_labels=no
+sort_labels=no
+generate_pinseq=yes
+sym_width=4500
+pinwidthvertical=600
+pinwidthhorizontal=600
+
+[geda_attr]
+# name will be printed in the top of the symbol
+# name is only some graphical text, not an attribute
+# version specifies a gschem version.
+# if you have a device with slots, you'll have to use slot= and slotdef=
+# use comment= if there are special information you want to add
+version=20060113 1
+name=DT13-48PABCD-R015
+device=DT13-48PABCD-R015
+refdes=U?
+footprint=DT13-48PABCD-R015
+description=
+documentation=
+author=
+dist-license=
+use-license=
+numslots=0
+#slot=1
+#slotdef=1:
+#slotdef=2:
+#slotdef=3:
+#slotdef=4:
+#comment=
+#comment=
+#comment=
+
+[pins]
+# tabseparated list of pin descriptions
+# ----------------------------------------
+# pinnr is the physical number of the pin
+# seq is the pinseq= attribute, leave it blank if it doesn't matter
+# type can be (in, out, io, oc, oe, pas, tp, tri, clk, pwr)
+# style can be (line,dot,clk,dotclk,none). none if only want to add a net
+# posit. can be (l,r,t,b) or empty for nets
+# net specifies the name of the net. Vcc or GND for example.
+# label represents the pinlabel.
+#	negation lines can be added with "\_" example: \_enable\_ 
+#	if you want to write a "\" use "\\" as escape sequence
+#-----------------------------------------------------
+#pinnr	seq	type	style	posit.	net	label	
+#-----------------------------------------------------
+A1		io	line	l		A1
+A2		io	line	l		A2
+A3		io	line	l		A3
+A4		io	line	l		A4
+A5		io	line	l		A5
+A6		io	line	l		A6
+A7		io	line	l		A7
+A8		io	line	l		A8
+A9		io	line	l		A9
+A10		io	line	l		A10
+A11		io	line	l		A11
+A12		io	line	l		A12
+
+B1		io	line	l		B1
+B2		io	line	l		B2
+B3		io	line	l		B3
+B4		io	line	l		B4
+B5		io	line	l		B5
+B6		io	line	l		B6
+B7		io	line	l		B7
+B8		io	line	l		B8
+B9		io	line	l		B9
+B10		io	line	l		B10
+B11		io	line	l		B11
+B12		io	line	l		B12
+
+C1		io	line	r		C1
+C2		io	line	r		C2
+C3		io	line	r		C3
+C4		io	line	r		C4
+C5		io	line	r		C5
+C6		io	line	r		C6
+C7		io	line	r		C7
+C8		io	line	r		C8
+C9		io	line	r		C9
+C10		io	line	r		C10
+C11		io	line	r		C11
+C12		io	line	r		C12
+
+D1		io	line	r		D1
+D2		io	line	r		D2
+D3		io	line	r		D3
+D4		io	line	r		D4
+D5		io	line	r		D5
+D6		io	line	r		D6
+D7		io	line	r		D7
+D8		io	line	r		D8
+D9		io	line	r		D9
+D10		io	line	r		D10
+D11		io	line	r		D11
+D12		io	line	r		D12
