@@ -12,7 +12,7 @@ wordswap=no
 rotate_labels=no
 sort_labels=no
 generate_pinseq=yes
-sym_width=2300
+sym_width=4500
 pinwidthvertical=500
 pinwidthhorizontal=500
 
@@ -23,10 +23,10 @@ pinwidthhorizontal=500
 # if you have a device with slots, you'll have to use slot= and slotdef=
 # use comment= if there are special information you want to add
 version=20060113 1
-name=MCP601RT-I/OT
-device=MCP601RT-I/OT
+name=MSP430FR2433IRGER
+device=MSP430FR2433IRGER
 refdes=U?
-footprint=SOT23_5
+footprint=VQFN24_PAD
 description=
 documentation=
 author=
@@ -48,8 +48,8 @@ numslots=0
 # pinnr is the physical number of the pin
 # seq is the pinseq= attribute, leave it blank if it doesn't matter
 # type can be (in, out, io, oc, oe, pas, tp, tri, clk, pwr)
-# style can be (line,dot,clk,dotclk,spacer,none). none if only want to add a net
-# posit. can be (l,r,t,b) or empty for nets.
+# style can be (line,dot,clk,dotclk,none). none if only want to add a net
+# posit. can be (l,r,t,b) or empty for nets
 # net specifies the name of the net. Vcc or GND for example.
 # label represents the pinlabel.
 #	negation lines can be added with "\_" example: \_enable\_ 
@@ -57,8 +57,32 @@ numslots=0
 #-----------------------------------------------------
 #pinnr	seq	type	style	posit.	net	label	
 #-----------------------------------------------------
-1		out	line	l		VOUT
-5		pwr	line	b		VSS
-3		in	line	r		VIN+
-4		in	line	r		VIN-
-2		pwr	line	t		VDD
+
+0		pwr	line	b		PAD
+1		in	line	l		\_RST\_/SBWTDIO
+2		in	line	l		TEST/SBWTCK
+18		pwr	line	b		VSS
+23		pwr	line	b		VSS
+24		pwr	line	t		VCC
+
+7		io	line	r		P1.0
+8		io	line	r		P1.1
+9		io	line	r		P1.2
+10		io	line	r		P1.3
+3		io	line	r		P1.4
+4		io	line	r		P1.5
+5		io	line	r		P1.6
+6		io	line	r		P1.7
+
+21		io	line	r		P2.0
+22		io	line	r		P2.1
+11		io	line	r		P2.2
+13		io	line	r		P2.3
+15		io	line	r		P2.4
+16		io	line	r		P2.5
+17		io	line	r		P2.6
+19		io	line	r		P2.7
+
+12		io	line	l		P3.0
+14		io	line	l		P3.1
+20		io	line	l		P3.2

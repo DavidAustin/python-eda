@@ -12,7 +12,7 @@ wordswap=no
 rotate_labels=no
 sort_labels=no
 generate_pinseq=yes
-sym_width=2300
+sym_width=2000
 pinwidthvertical=500
 pinwidthhorizontal=500
 
@@ -23,10 +23,10 @@ pinwidthhorizontal=500
 # if you have a device with slots, you'll have to use slot= and slotdef=
 # use comment= if there are special information you want to add
 version=20060113 1
-name=MCP601RT-I/OT
-device=MCP601RT-I/OT
-refdes=U?
-footprint=SOT23_5
+name=SDCARD
+device=MSD-4-A
+refdes=CONN?
+footprint=MSD-4-A
 description=
 documentation=
 author=
@@ -57,8 +57,13 @@ numslots=0
 #-----------------------------------------------------
 #pinnr	seq	type	style	posit.	net	label	
 #-----------------------------------------------------
-1		out	line	l		VOUT
-5		pwr	line	b		VSS
-3		in	line	r		VIN+
-4		in	line	r		VIN-
-2		pwr	line	t		VDD
+0		pas	line	b		CHASSIS
+1		pas	line	l		DAT2
+2		pas	line	l		CD/DAT3
+3		pas	line	l		CMD
+4		pas	line	t		VDD
+5		pas	line	l		CLK
+6		pas	line	b		VSS
+7		pas	line	l		DAT0
+8		pas	line	l		DAT1
+9		pas	line	l		CD

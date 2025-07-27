@@ -8,13 +8,13 @@
 #   this is useful for large symbols like FPGAs with more than 100 pins
 # sort_labels will sort the pins by it's labels
 #   useful for address ports, busses, ...
-wordswap=no
+wordswap=yes
 rotate_labels=no
 sort_labels=no
 generate_pinseq=yes
-sym_width=2300
+sym_width=3000
 pinwidthvertical=500
-pinwidthhorizontal=500
+pinwidthhorizontal=1000
 
 [geda_attr]
 # name will be printed in the top of the symbol
@@ -23,10 +23,10 @@ pinwidthhorizontal=500
 # if you have a device with slots, you'll have to use slot= and slotdef=
 # use comment= if there are special information you want to add
 version=20060113 1
-name=MCP601RT-I/OT
-device=MCP601RT-I/OT
+name=UBLOX-NEO-M8N-0
+device=UBLOX-NEO-M8N-0
 refdes=U?
-footprint=SOT23_5
+footprint=NEO-M8N
 description=
 documentation=
 author=
@@ -57,8 +57,27 @@ numslots=0
 #-----------------------------------------------------
 #pinnr	seq	type	style	posit.	net	label	
 #-----------------------------------------------------
-1		out	line	l		VOUT
-5		pwr	line	b		VSS
-3		in	line	r		VIN+
-4		in	line	r		VIN-
-2		pwr	line	t		VDD
+1		in	line	r		SAFEBOOT_N
+2		in	line	r		D_SEL
+3		out	line	r		TIMEPULSE
+4		in	line	r		EXTINT
+5		io	line	r		USB_DM
+6		io	line	r		USB_DP
+7		pwr	line	r		VDD_USB
+8		in	line	r		RESET_N
+9		out	line	r		VCC_RF
+10		pwr	line	b		GND
+11		in	line	r		RF_IN
+12		pwr	line	b		GND
+13		pwr	line	b		GND
+14		out	line	r		LNA_EN
+15		pas	line	r		RESERVED
+16		pas	line	r		RESERVED
+17		pas	line	r		RESERVED
+18		io	line	r		SDA/SPI_CS
+19		io	line	r		SCL/SPI_CLK
+20		out	line	l		TXD/SPI_MISO
+21		in	line	l		RXD/SPI_MOSI
+22		pwr	line	r		V_BCKP
+23		pwr	line	t		VCC
+24		pwr	line	b		GND

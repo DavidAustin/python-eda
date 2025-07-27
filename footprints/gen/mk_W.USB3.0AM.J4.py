@@ -21,11 +21,9 @@ from footprintgen import *
 
 g = FootprintGen('W.USB3.0AM.J4')
 
-d = 1.0
-a = d * 1.5
-
 px = 2.0
 px2 = 2.5
+<<<<<<< HEAD
 py = -1.58/2
 
 # SuperSpeed data transmission (USB3.0)
@@ -33,32 +31,156 @@ g.pinat(-px / 2 - px2, py, d, a, '1')
 g.pinat(-px / 2, py, d, a, '2')
 g.pinat(px / 2, py, d, a, '3')
 g.pinat(px / 2 + px2, py, d, a, '4')
+=======
 
-px = 2.0
-py = 1.58/2
+py = -1.23/2
+>>>>>>> 0d2a23702bf78f6598dc4a052c0408d753c5dbd0
 
-#  USB 2.0 interface
-g.pinat(-px * 2, py, d, a, '5')
-g.pinat(-px, py, d, a, '6')
-g.pinat(0, py, d, a, '7')
-g.pinat(px, py, d, a, '8')
-g.pinat(px * 2, py, d, a, '9')
+w = 0.9 + 0.1 * 2
+h = 0.3 + 0.1 * 2
 
-# alignment holes (ground pins)
+pin_w = 0.3 + 0.1 * 2
+pin_l = 0.9 + 0.1 * 2
 
-p = 12.0
+x = -px2 / 2 - px2
+y = py
 
-d = 1.4
-a = d * 1.4
+# SuperSpeed data transmission (USB3.0) - slot top
+
+ox1 = x - w / 2.0
+oy1 = y - h / 2.0
+ox2 = ox1 + w
+oy2 = oy1 + h
+g.outlinerect(ox1, oy1, ox2, oy2)
+g.rect_padat(x, y - h / 2, w, h * 2, '1')
+
+x = -px2 / 2
+
+ox1 = x - w / 2.0
+oy1 = y - h / 2.0
+ox2 = ox1 + w
+oy2 = oy1 + h
+g.outlinerect(ox1, oy1, ox2, oy2)
+g.rect_padat(x, y - h / 2, w, h * 2, '2')
+
+x = px2 / 2
+
+ox1 = x - w / 2.0
+oy1 = y - h / 2.0
+ox2 = ox1 + w
+oy2 = oy1 + h
+g.outlinerect(ox1, oy1, ox2, oy2)
+g.rect_padat(x, y - h / 2, w, h * 2, '3')
+
+x = px2 / 2 + px2
+
+ox1 = x - w / 2.0
+oy1 = y - h / 2.0
+ox2 = ox1 + w
+oy2 = oy1 + h
+g.outlinerect(ox1, oy1, ox2, oy2)
+g.rect_padat(x, y - h / 2, w, h * 2, '4')
+
+py = 1.23/2
+
+#  USB 2.0 interface - slot bottom
+# NOTE: should be px (2.0) below as per datasheet/3D model, however real part is px2 (2.5)
+
+x = -px2 * 2
+y = py
+
+ox1 = x - w / 2.0
+oy1 = y - h / 2.0
+ox2 = ox1 + w
+oy2 = oy1 + h
+g.outlinerect(ox1, oy1, ox2, oy2)
+g.rect_padat(x, y + h / 2, w, h * 2, '5')
+
+x = -px2
+
+ox1 = x - w / 2.0
+oy1 = y - h / 2.0
+ox2 = ox1 + w
+oy2 = oy1 + h
+g.outlinerect(ox1, oy1, ox2, oy2)
+g.rect_padat(x, y + h / 2, w, h * 2, '6')
+
+x = 0
+
+ox1 = x - w / 2.0
+oy1 = y - h / 2.0
+ox2 = ox1 + w
+oy2 = oy1 + h
+g.outlinerect(ox1, oy1, ox2, oy2)
+g.rect_padat(x, y + h / 2, w, h * 2, '7')
+
+x = px2
+
+ox1 = x - w / 2.0
+oy1 = y - h / 2.0
+ox2 = ox1 + w
+oy2 = oy1 + h
+g.outlinerect(ox1, oy1, ox2, oy2)
+g.rect_padat(x, y + h / 2, w, h * 2, '8')
+
+x = px2 * 2
+
+ox1 = x - w / 2.0
+oy1 = y - h / 2.0
+ox2 = ox1 + w
+oy2 = oy1 + h
+g.outlinerect(ox1, oy1, ox2, oy2)
+g.rect_padat(x, y + h / 2, w, h * 2, '9')
+
+# large alignment holes (ground pins) - slot right then left
+
+p = 11.7
+
+x = p / 2.0
 y = 4.5/2 - 0.5 - 1.4/2 #+ (1.07/2+1.15) - (1.35/2+0.7)
-g.pinat(p / 2.0, y, d, a, '0')
-g.pinat(-p / 2.0, y, d, a, '0')
 
-d = 0.9
-a = d * 1.5
+w = 0.3 + 0.1 * 2
+h = 1.4 + 0.1 * 2
+
+ox1 = x - w / 2.0
+oy1 = y - h / 2.0
+ox2 = ox1 + w
+oy2 = oy1 + h
+g.outlinerect(ox1, oy1, ox2, oy2)
+g.rect_padat(x + w, y, w, h, '0')
+
+x = -p / 2.0
+
+ox1 = x - w / 2.0
+oy1 = y - h / 2.0
+ox2 = ox1 + w
+oy2 = oy1 + h
+g.outlinerect(ox1, oy1, ox2, oy2)
+g.rect_padat(x - w, y, w, h, '0')
+
+# smaller alignment holes (ground pins) - slot right then left
+
+x = p / 2.0
 y = 4.5/2 - 0.5 - 1.4 - 0.8 - 0.9/2 #+ (1.07/2+1.15) - (1.35/2+0.7)
-g.pinat(p / 2.0, y, d, a, '0')
-g.pinat(-p / 2.0, y, d, a, '0')
+
+w = 0.3 + 0.1 * 2
+h = 0.9 + 0.1 * 2
+
+ox1 = x - w / 2.0
+oy1 = y - h / 2.0
+ox2 = ox1 + w
+oy2 = oy1 + h
+g.outlinerect(ox1, oy1, ox2, oy2)
+g.rect_padat(x - w, y, w, h, '0')
+
+x = -p / 2.0
+
+ox1 = x - w / 2.0
+oy1 = y - h / 2.0
+ox2 = ox1 + w
+oy2 = oy1 + h
+g.outlinerect(ox1, oy1, ox2, oy2)
+g.rect_padat(x + w, y, w, h, '0')
 
 # outline
 

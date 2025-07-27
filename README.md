@@ -55,3 +55,6 @@ Where,
 20) Ensure CONN 0,0 is at pin 1
 21) Prefix SMT CAPs with CAP-SMT
 22) Remove old radials scripts and use mk_RADIAL.py only
+23) Cleanup usb sym's - pin number depends on USB version and connector type.
+24) ensure bom created can handle part names with ,
+25) Improve inductor making standing (e.g. mk_IND_*.py, mk_SRN8040-3R3Y.py, mk_SRR6038-100Y.py, mk_SRU1048-100Y.py, mk_NPI54C100MTRF.py)

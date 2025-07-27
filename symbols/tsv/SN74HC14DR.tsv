@@ -12,7 +12,7 @@ wordswap=no
 rotate_labels=no
 sort_labels=no
 generate_pinseq=yes
-sym_width=2300
+sym_width=3000
 pinwidthvertical=500
 pinwidthhorizontal=500
 
@@ -23,10 +23,10 @@ pinwidthhorizontal=500
 # if you have a device with slots, you'll have to use slot= and slotdef=
 # use comment= if there are special information you want to add
 version=20060113 1
-name=MCP601RT-I/OT
-device=MCP601RT-I/OT
+name=SN74HC14DR
+device=SN74HC14DR
 refdes=U?
-footprint=SOT23_5
+footprint=SOIC14
 description=
 documentation=
 author=
@@ -57,8 +57,17 @@ numslots=0
 #-----------------------------------------------------
 #pinnr	seq	type	style	posit.	net	label	
 #-----------------------------------------------------
-1		out	line	l		VOUT
-5		pwr	line	b		VSS
-3		in	line	r		VIN+
-4		in	line	r		VIN-
-2		pwr	line	t		VDD
+1		in	line	l		1A
+2		out	line	r		1Y
+3		in	line	l		2A
+4		out	line	r		2Y
+3		in	line	l		3A
+4		out	line	r		3Y
+5		pwr	line	b		GND
+6		in	line	l		4A
+7		out	line	r		4Y
+8		in	line	l		4A
+9		out	line	r		4Y
+10		in	line	l		4A
+11		out	line	r		4Y
+12		pwr	line	t		VCC

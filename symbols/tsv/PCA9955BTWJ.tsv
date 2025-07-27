@@ -12,7 +12,7 @@ wordswap=no
 rotate_labels=no
 sort_labels=no
 generate_pinseq=yes
-sym_width=2300
+sym_width=3000
 pinwidthvertical=500
 pinwidthhorizontal=500
 
@@ -23,10 +23,10 @@ pinwidthhorizontal=500
 # if you have a device with slots, you'll have to use slot= and slotdef=
 # use comment= if there are special information you want to add
 version=20060113 1
-name=MCP601RT-I/OT
-device=MCP601RT-I/OT
+name=PCA9955BTWJ
+device=PCA9955BTWJ
 refdes=U?
-footprint=SOT23_5
+footprint=HTSSOP-28-9.70x4.40-0.65x6.10-0.40x1.35-3.40x2.20
 description=
 documentation=
 author=
@@ -48,8 +48,8 @@ numslots=0
 # pinnr is the physical number of the pin
 # seq is the pinseq= attribute, leave it blank if it doesn't matter
 # type can be (in, out, io, oc, oe, pas, tp, tri, clk, pwr)
-# style can be (line,dot,clk,dotclk,spacer,none). none if only want to add a net
-# posit. can be (l,r,t,b) or empty for nets.
+# style can be (line,dot,clk,dotclk,none). none if only want to add a net
+# posit. can be (l,r,t,b) or empty for nets
 # net specifies the name of the net. Vcc or GND for example.
 # label represents the pinlabel.
 #	negation lines can be added with "\_" example: \_enable\_ 
@@ -57,8 +57,31 @@ numslots=0
 #-----------------------------------------------------
 #pinnr	seq	type	style	posit.	net	label	
 #-----------------------------------------------------
-1		out	line	l		VOUT
-5		pwr	line	b		VSS
-3		in	line	r		VIN+
-4		in	line	r		VIN-
-2		pwr	line	t		VDD
+6  		o	line	r		LED0
+7 		o	line	r		LED1
+8		o	line	r		LED2
+9		o	line	r		LED3
+10		pwr	line	b		GND
+11		o	line	r		LED4
+12		o	line	r		LED5
+13		o	line	r		LED6
+14		o	line	r		LED7
+15		o	line	r		LED8
+16 		o	line	r		LED9
+17		o	line	r		LED10
+18		o	line	r		LED11
+19		pwr	line	b		GND
+20		o	line	r		LED12
+21		o	line	r		LED13
+22		o	line	r		LED14
+23		o	line	r		LED15
+24		pwr	line	b		GND
+1		i	line	l		REXT
+26		i	line	l		SCL
+27		i	line	l		SDA
+5		i	line	l		\_OE\_
+25 		i	line	l		\_RESET\_
+2		i	line	l		AD0
+3		i	line	l		AD1
+4		i	line	l		AD2
+28		pwr	line	t		VDD

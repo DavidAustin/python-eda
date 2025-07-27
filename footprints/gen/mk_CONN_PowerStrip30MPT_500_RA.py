@@ -32,34 +32,56 @@ def make_connector(n_pins):
     p = 5.00
     x = p * (n_pins-1)
     y = 0
-    id = 2.6
-    od = id * 1.6
-    g.pinat(x, y, id, od, 1, {'square' : 1})
-    g.pinat(x, y + 2.54, id, od, 1, {'square' : 1})
-    g.pinat(x, y + 2.54 * 2, id, od, 1, {'square' : 1})
+    id = 0.85
+    od = id * 2.0
+
+    pp = 1.88
+    
+    g.pinat(x - pp / 2, y, id, od, 1, {'square' : 1})
+    g.pinat(x + pp / 2, y, id, od, 1, {'square' : 1})
+
+    g.pinat(x - pp / 2, y + 2.54, id, od, 1, {'square' : 1})
+    g.pinat(x + pp / 2, y + 2.54, id, od, 1, {'square' : 1})
+    
+    g.pinat(x - pp / 2, y + 2.54 * 2, id, od, 1, {'square' : 1})
+    g.pinat(x + pp / 2, y + 2.54 * 2, id, od, 1, {'square' : 1})
+
     x -= p
     for i in range(2,n_pins+1):
-        g.pinat(x, y, id, od,  i)
-        g.pinat(x, y + 2.54, id, od,  i)
-        g.pinat(x, y + 2.54 * 2, id, od,  i)
+        g.pinat(x - pp / 2, y, id, od,  i)
+        g.pinat(x + pp / 2, y, id, od,  i)
+        g.pinat(x - pp / 2, y + 2.54, id, od,  i)
+        g.pinat(x + pp / 2, y + 2.54, id, od,  i)
+        g.pinat(x - pp / 2, y + 2.54 * 2, id, od,  i)
+        g.pinat(x + pp / 2, y + 2.54 * 2, id, od,  i)
         x -= p
 
-    w = p * (n_pins-1) + 7.55
-    h = 14.81
+    # outline
         
-    ox1 = -7.55 / 2.0
-    oy1 = -1.4
+    w = p * (n_pins) + 7.55
+    h = 14.81
+
+    ox1 = -(w - p * (n_pins-1)) / 2.0
+    oy1 = -1.0
     ox2 = ox1 + w
     oy2 = oy1 + h
     
     g.outlinerect(ox1, oy1, ox2, oy2, 0.1)
-    
-    oy3 = oy2 - 0.3
-    
-    g.outline(ox1, oy3, ox2, oy3, 0.1)
-    #oy4 = oy1 + 15
-    #outline(f, ox1, oy4, ox2, oy4, 0.1)
 
+    # cut-in
+    
+    oy3 = y + 2.54 * 2 + 3.25
+    g.outline(ox1, oy3, ox2, oy3, 0.1)
+
+    # holes
+    
+    P = 6.28 + p * (n_pins)
+
+    id = 3.6
+    od = id * 1.1
+    g.holeat(ox1 + (w - P) / 2, oy1 + 14.81 - 12.27, id)
+    g.holeat(ox2 - (w - P) / 2, oy1 + 14.81 - 12.27, id)
+        
     g.write()
 
 for i in range(2,21):
