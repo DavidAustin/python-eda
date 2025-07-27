@@ -25,13 +25,14 @@ d = 1.0
 a = d * 1.5
 
 px = 2.0
+px2 = 2.5
 py = -1.58/2
 
 # SuperSpeed data transmission (USB3.0)
-g.pinat(-px / 2 - px, py, d, a, '1')
+g.pinat(-px / 2 - px2, py, d, a, '1')
 g.pinat(-px / 2, py, d, a, '2')
 g.pinat(px / 2, py, d, a, '3')
-g.pinat(px / 2 + px, py, d, a, '4')
+g.pinat(px / 2 + px2, py, d, a, '4')
 
 px = 2.0
 py = 1.58/2
