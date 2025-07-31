@@ -23,18 +23,8 @@ g = FootprintGen('W.USB3.0AM.J4')
 
 px = 2.0
 px2 = 2.5
-<<<<<<< HEAD
-py = -1.58/2
-
-# SuperSpeed data transmission (USB3.0)
-g.pinat(-px / 2 - px2, py, d, a, '1')
-g.pinat(-px / 2, py, d, a, '2')
-g.pinat(px / 2, py, d, a, '3')
-g.pinat(px / 2 + px2, py, d, a, '4')
-=======
 
 py = -1.23/2
->>>>>>> 0d2a23702bf78f6598dc4a052c0408d753c5dbd0
 
 w = 0.9 + 0.1 * 2
 h = 0.3 + 0.1 * 2

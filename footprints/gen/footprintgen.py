@@ -67,7 +67,7 @@ class FootprintGen(object):
                           (x, y, d_hole + frommm(clearance), 
                            frommm(clearance), 
                            d_hole + frommm(clearance), d_hole))
-  
+         
     def rect_padat(self, x, y, w, h, name, opts={}):
         clearance = self.FG_DEFAULTS['clearance']
         opts['square'] = 1
