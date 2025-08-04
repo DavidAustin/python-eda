@@ -13,8 +13,8 @@ rotate_labels=no
 sort_labels=no
 generate_pinseq=yes
 sym_width=5000
-pinwidthvertical=600
-pinwidthhorizontal=600
+pinwidthvertical=500
+pinwidthhorizontal=500
 
 [geda_attr]
 # name will be printed in the top of the symbol
