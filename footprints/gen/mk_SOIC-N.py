@@ -55,6 +55,7 @@ def make_fp(n_pins, part_w, part_h, px, py, pad_w, pad_h, thermal_pad_w = False,
 
 make_fp(8, 3.9, 4.9, 1.27, 6.25, 0.8, 1.5) # based on https://en.wikipedia.org/wiki/Small_Outline_Integrated_Circuit#Narrow_SOIC_(JEDEC)
 make_fp(8, 3.9, 4.9, 1.27, 5.75, 0.45, 2.15, 3.1, 2.4) # based on https://www.ti.com/lit/ds/symlink/tps54328.pdf
+make_fp(8, 3.9, 4.9, 1.27, 4.93, 0.53, 1.98) # based on https://www.analog.com/media/en/technical-documentation/data-sheets/DS3231M.pdf
 make_fp(14, 3.9, 8.65, 1.27, 6.25, 0.8, 1.5) # based on https://en.wikipedia.org/wiki/Small_Outline_Integrated_Circuit#Narrow_SOIC_(JEDEC)
 make_fp(16, 3.9, 9.9, 1.27, 5.4, 0.8, 1.5) # based on https://ww1.microchip.com/downloads/en/DeviceDoc/21295d.pdf
 make_fp(16, 4.4, 10.28, 1.27, 6.25, 0.8, 1.5) # based on http://optoelectronics.liteon.com/upload/download/DS70-2009-0014/LTV-2X7%20sereis%20Mar17.PDF
