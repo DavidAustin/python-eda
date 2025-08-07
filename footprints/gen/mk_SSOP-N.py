@@ -1,5 +1,5 @@
 # Python-EDA
-# Copyright (C) 2024 Luke Cole
+# Copyright (C) 2024-2025 Luke Cole
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -46,8 +46,10 @@ def make_fp(n_pins, part_w, part_h, px, py, pad_w, pad_h):
 
 # https://en.wikipedia.org/wiki/Small_outline_integrated_circuit
 # https://www.holtek.com/webapi/106680/Footprints_for_SOP_SSOP_Series_20230710.pdf/b3eb1361-295e-4f22-b705-8f1008399503
-# https://pdfserv.maximintegrated.com/land_patterns/90-0095.PDF
 
+make_fp(16, 4.8895, 6.0075, 0.635, 5.1435, 0.4191, 1.143) # based on https://www.analog.com/media/en/technical-documentation/data-sheets/LTC1863-1867.pdf
+
+# https://pdfserv.maximintegrated.com/land_patterns/90-0095.PDF
 make_fp(28, 10.185, 3.81, 0.635, 5.4, 0.35, 1.5) # 150mil version (3.81mm)
 make_fp(28, 10.185, 5.3, 0.65, 7.3, 0.4, 2.0) # 209mil version (5.3mm)
 #make_fp(28, 9.7, 5.3, 0.635, 7.3, 0.35, 1.5)
