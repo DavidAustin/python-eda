@@ -53,6 +53,8 @@ def make_fp(n_pins, part_w, part_h, px, py, pad_w, pad_h, thermal_pad_w = False,
 
     g.write()
 
+make_fp(6, 4.4, 3.6, 1.27, 6.46, 0.64, 1.8) # based on https://docs.broadcom.com/doc/AV02-2150EN (SO-5)
+    
 make_fp(8, 3.9, 4.9, 1.27, 6.25, 0.8, 1.5) # based on https://en.wikipedia.org/wiki/Small_Outline_Integrated_Circuit#Narrow_SOIC_(JEDEC)
 make_fp(8, 3.9, 4.9, 1.27, 5.75, 0.45, 2.15, 3.1, 2.4) # based on https://www.ti.com/lit/ds/symlink/tps54328.pdf
 make_fp(8, 3.9, 4.9, 1.27, 4.93, 0.53, 1.98) # based on https://www.analog.com/media/en/technical-documentation/data-sheets/DS3231M.pdf
