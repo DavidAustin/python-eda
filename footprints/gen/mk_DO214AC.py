@@ -1,5 +1,5 @@
 # Python-EDA
-# Copyright (C) 2019 David Austin
+# Copyright (C) 2019-2025 Luke Cole (originally by David Austin)
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -14,23 +14,32 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
+# https://www.diodes.com/assets/Package-Files/SMA.pdf
+
 import math
 from footprintgen import *
 
-g = FootprintGen('DO214AC')
+g = FootprintGen('DO214AC') # aka SMA or SMAJ
 
+part_w = 4.3
+part_h = 2.605
 
-g.rect_padat(0.0, 0.0, 1.68, 1.52, "1")
-g.rect_padat(0.0, -5.28+1.52, 1.68, 1.52, "2")
+w = 2.5
+h = 1.7
 
+px = 4.0 # distance between centers
+g.rect_padat(0.0, 0, w, h, "1")
+g.rect_padat(px, 0, w, h, "2")
 
-my = (-5.28+1.52)/2
-g.outline(-1.4, my-2, -1.4, my+2, 0.15)
-g.outline(1.4, my-2, 1.4, my+2, 0.15)
+ox1 = (part_w - px) / 2
+oy1 = part_h / 2
 
-g.outline(1.4, my-2, 1.0, my-2, 0.15)
-g.outline(1.4, my-2.1, 1.0, my-2.1, 0.15)
-g.outline(-1.4, my-2, -1.0, my-2, 0.15)
-g.outline(-1.4, my-2.1, -1.0, my-2.1, 0.15)
+ox2 = part_w - ox1
+oy2 = part_h - oy1
+
+g.outlinerect(-ox1, -oy1, ox2, oy2)
+
+# pin1 line/marker (y direction)
+g.outline(-ox1 + 1.1, -oy1, -ox1 + 1.1, oy2)
 
 g.write()

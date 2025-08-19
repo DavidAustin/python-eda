@@ -1,5 +1,5 @@
 # Python-EDA
-# Copyright (C) 2018-2025 Luke Cole
+# Copyright (C) 2019 David Austin
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -14,32 +14,23 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-# https://www.diodes.com/assets/Package-Files/SMC.pdf
-
 import math
 from footprintgen import *
 
-g = FootprintGen('DO214AB') # aka SMC or SMCJ
+g = FootprintGen('DO214AC') # aka SMA or SMAJ
 
-part_w = 6.855
-part_h = 5.905
 
-w = 2.5
-h = 3.3
+g.rect_padat(0.0, 0.0, 1.68, 1.52, "1")
+g.rect_padat(0.0, -5.28+1.52, 1.68, 1.52, "2")
 
-px = 6.9 # distance between centers
-g.rect_padat(0.0, 0, w, h, "1")
-g.rect_padat(px, 0, w, h, "2")
 
-ox1 = (part_w - px) / 2
-oy1 = part_h / 2
+my = (-5.28+1.52)/2
+g.outline(-1.4, my-2, -1.4, my+2, 0.15)
+g.outline(1.4, my-2, 1.4, my+2, 0.15)
 
-ox2 = part_w - ox1
-oy2 = part_h - oy1
-
-g.outlinerect(-ox1, -oy1, ox2, oy2)
-
-# pin1 line/marker (y direction)
-g.outline(-ox1 + 1.1, -oy1, -ox1 + 1.1, oy2)
+g.outline(1.4, my-2, 1.0, my-2, 0.15)
+g.outline(1.4, my-2.1, 1.0, my-2.1, 0.15)
+g.outline(-1.4, my-2, -1.0, my-2, 0.15)
+g.outline(-1.4, my-2.1, -1.0, my-2.1, 0.15)
 
 g.write()

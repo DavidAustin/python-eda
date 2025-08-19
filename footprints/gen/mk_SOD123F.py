@@ -21,7 +21,7 @@ from footprintgen import *
 
 # settings
 
-fp_name = 'SOD123F'
+fp_name = 'SOD123F' # aka SOD123FL
 
 # physical part dimensions (not including pins)
 part_w = 1.8
