@@ -1,5 +1,5 @@
 # Python-EDA
-# Copyright (C) 2018-2025 Luke Cole
+# Copyright (C) 2025 Luke Cole
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -14,21 +14,20 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-# https://www.diodes.com/assets/Package-Files/SMB.pdf
-# e.g. https://www.smc-diodes.com/propdf/SMBJ%20SERIES%20N0193%20REV.D.pdf
+# https://www.diodes.com/assets/Package-Files/SOD323.pdf
 
 import math
 from footprintgen import *
 
-g = FootprintGen('DO214AA') # aka SMB or SMBJ
+g = FootprintGen('peSOD323') # aka SOD323/MO567/SC90
 
-part_w = 4.32
-part_h = 3.62
+part_w = 1.7
+part_h = 1.3
 
-w = 2.5
-h = 2.3
+w = 0.59
+h = 0.45
 
-px = 4.3 # distance between centers
+px = 2.11 # distance between centers
 g.rect_padat(0.0, 0, w, h, "1")
 g.rect_padat(px, 0, w, h, "2")
 
@@ -41,6 +40,6 @@ oy2 = part_h - oy1
 g.outlinerect(-ox1, -oy1, ox2, oy2)
 
 # pin1 line/marker (y direction)
-g.outline(-ox1 + 1.1, -oy1, -ox1 + 1.1, oy2)
+g.outline(-ox1 + 0.5, -oy1, -ox1 + 0.5, oy2)
 
 g.write()

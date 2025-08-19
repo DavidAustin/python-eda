@@ -60,11 +60,13 @@ Where,
 25) Improve inductor making standing (e.g. mk_IND_*.py, mk_SRN8040-3R3Y.py, mk_SRR6038-100Y.py, mk_SRU1048-100Y.py, mk_NPI54C100MTRF.py)
 26) Drop tvs_vert.sym? Now replaced via tvs_bi.sym ("CA") and tvs_uni.sym ("A")
 27) symlinks for common names of JEDEC DO-codes? See below notes, currently effecting fp's:
-    mk_DO214AC.py (aka SMA)
-    mk_DO214AA.py (aka SMB)
-    mk_DO214AB.py, depreciated/mk_SMC.py (aka SMA, both really JEDEC DO-214AB - see below)
-    mk_DO219AB.py, depreciated/mk_peSOD123.py, depreciated/mk_SOD123F.py depreciated/mk_SOD123FL.py, (aka SOD123F/SOD123FL, both really JEDEC DO-219AB - see below)
+    mk_SMA.py (aka DO214AC)
+    mk_SMB.py (aka DO214AA)
+    mk_SMC.py depreciated/mk_SMC.py (aka DO214AB)
+    mk_peSOD123FL.py depreciated/mk_SOD123F.py depreciated/mk_SOD123FL.py, (aka DO219AB/SOD123F/SOD123FL)
     mk_SOD_923.py - I don't think this fits the JEDEC DO-codes?
+    NOTE: mk_peSOD123 is not like SOD123F/SOD123FL - and not a JEDEC standard name
+
 
 ## 📘 JEDEC DO-codes and Common Names
 

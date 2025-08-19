@@ -37,7 +37,7 @@ filename = None
 parser = argparse.ArgumentParser(description='gEDA gschem BOM Generation Tool')
 parser.add_argument("-d", '--debug', action='store_true', help='Print debug comments')
 parser.add_argument("-p", '--debug_part', metavar='SKU', type=str, nargs=1, help='Print debug info for this part')
-parser.add_argument("-k", '--octopart_nexar_access_token', metavar='KEY', type=str, nargs=1, help='Register with octopart.com/nexar.com', required = True)
+parser.add_argument("-k", '--octopart_nexar_access_token', metavar='KEY', type=str, nargs=1, help='(optional) Register with octopart.com/nexar.com', required = False)
 parser.add_argument("-i", '--input_file', metavar='PATH', type=str, nargs=1, help='Example: example01.sch', required = True)
 
 args = parser.parse_args()
@@ -148,7 +148,8 @@ def process_end(matchobj):
     part['device'] = part['device'] + " " + part['value'] + " " + part['footprint'].replace("pei", "")
 
   if print_out:
-    parse_octopart(part['device'])
+    if access_token:
+      parse_octopart(part['device'])
     print (",".join(part.values()))
     if part['unit_cost_1']:
       total_unit_cost_1 += float(part['unit_cost_1'])
