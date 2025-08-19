@@ -76,9 +76,9 @@ THT: mk_CONN*.py, mk_RADIAL*.py, mk_holes.py
 
 | JEDEC Code   | Common Name           | Size (L × W mm, approx) | Notes                                        |
 | ------------ | --------------------- | ----------------------- | -------------------------------------------- |
-| **DO-214AC** | **SMA**               | 4.3 × 2.5               | Smallest of SMA/SMB/SMC family (\~400 W TVS) |
-| **DO-214AA** | **SMB** (a.k.a. SMBJ) | 4.6 × 3.6               | Mid-size (\~600 W TVS)                       |
-| **DO-214AB** | **SMC**               | 7.0 × 6.2               | Largest (\~1500 W TVS)                       |
+| **DO-214AA** | **SMA**               | 4.3 × 2.5               | Smallest of SMA/SMB/SMC family (\~400 W TVS) |
+| **DO-214AB** | **SMB**               | 4.6 × 3.6               | Mid-size (\~600 W TVS)                       |
+| **DO-214AC** | **SMC**               | 7.0 × 6.2               | Largest (\~1500 W TVS)                       |
 
 ---
 
@@ -106,7 +106,7 @@ THT: mk_CONN*.py, mk_RADIAL*.py, mk_holes.py
 | --------------------- | ------------------- | ------------------------- | ------------------------------ |
 | **DO-213AB**          | **MELF / MiniMELF** | Cylindrical, \~3.5 × 1.6  | Glass body, e.g., LL4148       |
 | **DO-213AA**          | **MicroMELF**       | Smaller MELF (\~2 × 1.25) | Rare today                     |
-| **MO-567** (not “DO”) | **SOD-323**         | 2.5 × 1.25                | ESD suppressors, logic TVS     |
+| **MO-567**            | **SOD-323**         | 2.5 × 1.25                | ESD suppressors, logic TVS     |
 | **JEDEC MO-178**      | **SOT-23**          | 3.0 × 1.3                 | Multi-diode arrays, regulators |
 
 ---
