@@ -63,7 +63,7 @@ Where,
     mk_DO214AC.py (aka SMA)
     mk_DO214AA.py (aka SMB)
     mk_DO214AB.py, depreciated/mk_SMC.py (aka SMA, both really JEDEC DO-214AB - see below)
-    mk_DO219AB.py, depreciated/mk_SOD123F.py depreciated/mk_SOD123FL.py, (aka SOD123F/SOD123FL, both really JEDEC DO-219AB - see below)
+    mk_DO219AB.py, depreciated/mk_peSOD123.py, depreciated/mk_SOD123F.py depreciated/mk_SOD123FL.py, (aka SOD123F/SOD123FL, both really JEDEC DO-219AB - see below)
     mk_SOD_923.py - I don't think this fits the JEDEC DO-codes?
 
 ## 📘 JEDEC DO-codes and Common Names
