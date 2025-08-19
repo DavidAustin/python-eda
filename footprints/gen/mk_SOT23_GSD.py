@@ -17,7 +17,7 @@
 import math
 from footprintgen import *
 
-g = FootprintGen('peSOT23_GSD')
+g = FootprintGen('SOT23_GSD')
 
 dx = (1.341 + 2.459) / 2.0
 dy = (1.245 + 2.692) / 2.0

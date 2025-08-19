@@ -1,5 +1,5 @@
 # Python-EDA
-# Copyright (C) 2018 David Austin
+# Copyright (C) 2018-2025 Luke Cole
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -14,30 +14,32 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
+# https://www.diodes.com/assets/Package-Files/SMC.pdf
+
+import math
 from footprintgen import *
 
-g = FootprintGen("SMC") # aka SMCJ or DO214AB
+g = FootprintGen('DIODE_SMC_DO214AC') # aka SMC/SMCJ/DO214AC
 
+part_w = 6.855
+part_h = 5.905
 
+w = 2.5
+h = 3.3
 
+px = 6.9 # distance between centers
+g.rect_padat(0.0, 0, w, h, "1")
+g.rect_padat(px, 0, w, h, "2")
 
-g.rect_padat(0.0, 0.0, 1.52, 3.2, "2")
-g.rect_padat(4.69+1.52, 0.0, 1.52, 3.2, "1")
+ox1 = (part_w - px) / 2
+oy1 = part_h / 2
 
-oo = 0.07
-ox1 = 1.52 / 2 + 4.69/2 - 7.0/2
-oy1 = 0.0 - 6.0 / 2
-ox2 = ox1 + 7.0
-oy2 = oy1 + 6.0
+ox2 = part_w - ox1
+oy2 = part_h - oy1
 
-g.outline(ox1 - oo, oy1 - oo, ox2 + oo, oy1 - oo)
-g.outline(ox1 - oo, oy2 + oo, ox2 + oo, oy2 + oo)
+g.outlinerect(-ox1, -oy1, ox2, oy2)
 
-g.outline(ox1 - oo, oy1 - oo,  ox1 - oo, -3.2/2-oo)
-g.outline(ox1 - oo, oy2 + oo,  ox1 - oo, 3.2/2+oo)
-g.outline(ox1, oy1 - oo,  ox1, -3.2/2-oo)
-g.outline(ox1, oy2 + oo,  ox1, 3.2/2+oo)
-g.outline(ox1 - oo*2, oy1 - oo,  ox1 -oo*2, -3.2/2-oo)
-g.outline(ox1 - oo*2, oy2 + oo,  ox1 -oo*2, 3.2/2+oo)
+# pin1 line/marker (y direction)
+g.outline(-ox1 + 1.1, -oy1, -ox1 + 1.1, oy2)
 
 g.write()

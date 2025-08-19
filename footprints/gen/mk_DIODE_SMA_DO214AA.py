@@ -1,5 +1,5 @@
 # Python-EDA
-# Copyright (C) 2018-2025 Luke Cole
+# Copyright (C) 2019-2025 Luke Cole (originally by David Austin)
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -14,20 +14,20 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-# https://www.diodes.com/assets/Package-Files/SMC.pdf
+# https://www.diodes.com/assets/Package-Files/SMA.pdf
 
 import math
 from footprintgen import *
 
-g = FootprintGen('SMC') # aka SMC/SMCJ/DO214AB
+g = FootprintGen('DIODE_SMA_DO214AA') # aka SMA/SMAJ/DO214AA
 
-part_w = 6.855
-part_h = 5.905
+part_w = 4.3
+part_h = 2.605
 
 w = 2.5
-h = 3.3
+h = 1.7
 
-px = 6.9 # distance between centers
+px = 4.0 # distance between centers
 g.rect_padat(0.0, 0, w, h, "1")
 g.rect_padat(px, 0, w, h, "2")
 

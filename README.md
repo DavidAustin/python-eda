@@ -19,6 +19,26 @@ Where,
 * symbols/sym/ - for manually crafted *.sym files
 * symbols/tsv/ - for *.tsv files (used to auto generate *.sym files)
 
+# Goal
+
+Try to standardise fp gen's to:
+
+* DIODE_* - diodes
+* IND_* - inductors
+* CAP_* - caps
+* CONN_* - connectors (created by fp generators mk_CONN*.py)
+* CONN_USB_* - USB connectors
+* LED_* - LEDs
+* RADIAL_* - THT parts (created by fp generator mk_RADIAL*.py)
+
+# Current fp generators:
+
+Should always be postfixed with "-N.py"
+
+SMT: mk_QFN-N.py, mk_WFDFN-N.py, mk_SOIC-N.py, mk_SSOP-N.py, mk_TSSOP-N.py, mk_HTSSOP-N.py, mk_WSOP-N.py, mk_BGA-N.py, mk_uSIP-N.py, mk_pe*.py
+
+THT: mk_CONN*.py, mk_RADIAL*.py, mk_holes.py
+
 # To Do List - up for discussion
 
 1) fp gen - Support for arrays of pins/pads - should be able to do a whole row
@@ -27,46 +47,28 @@ Where,
    footprint metadata
 3) fp gen - Support for two-way and four-way symmetrical arrays of pins and
    pads
-4) use a footprint family generator such as:
-   mk_QFN-N.py, mk_WFDFN-N.py, mk_SOIC-N.py, mk_SSOP-N.py, mk_TSSOP-N.py, mk_HTSSOP-N.py, mk_WSOP-N.py,
-   mk_BGA-N.py, mk_uSIP-N.py, mk_CONN*.py, mk_RADIAL*.py, mk_pe*.py, mk_holes.py
-5) Naming standard for family generators - perhaps postfix with "-N"
-6) w/x vs l/h/y definition/clarification - perhaps vertical/horizontal
+4) w/x vs l/h/y definition/clarification - perhaps vertical/horizontal
    or stick with x/y standard coordinated frame: x = left/right, y = up/down
-7) Merge mk_peSOT23_GSD.py and mk_SOT23_3.py
-8) .sym generator (replacing .tsv) - particular for families
-9) .sym to match manufacturer part number - likely the high level .sym
+5) .sym generator (replacing .tsv) - particular for families
+6) .sym to match manufacturer part number - likely the high level .sym
    generator should produce all names in the family
-10) Check hole sizes - seems tight
-11) Produce ruler for checking footprints
-12) Add comment to link datasheet (to clarify dimensions)
-13) More standardization:
-    * uppercase vs lowercase
-    * - vs _
-    * should / characters be replaced with -
-14) Should connectors show the minimal outline and maximum outline
+7) Check hole sizes - seems tight
+8) Produce ruler for checking footprints
+9) Add comment to link datasheet (to clarify dimensions)
+10) Should connectors show the minimal outline and maximum outline
    (e.g. plug) - or perhaps two different footprints depending on size
    objectives
-15) Enforce 80 char line limit?
-16) Increase pin clearance suitable for pcbway design rules
-17) Ensure CONN prefix for all connectors - e.g. usb
-18) Ensure footprints pads are larger then part pads
-19) Ensure sch part pin spacing is 500
-20) Ensure CONN 0,0 is at pin 1
-21) Prefix SMT CAPs with CAP-SMT
-22) Remove old radials scripts and use mk_RADIAL.py only
-23) Cleanup usb sym's - pin number depends on USB version and connector type.
-24) ensure bom created can handle part names with ,
-25) Improve inductor making standing (e.g. mk_IND_*.py, mk_SRN8040-3R3Y.py, mk_SRR6038-100Y.py, mk_SRU1048-100Y.py, mk_NPI54C100MTRF.py)
-26) Drop tvs_vert.sym? Now replaced via tvs_bi.sym ("CA") and tvs_uni.sym ("A")
-27) symlinks for common names of JEDEC DO-codes? See below notes, currently effecting fp's:
-    mk_SMA.py, depreciated/mk_DO214AC.py (aka DO214AC)
-    mk_SMB.py (aka DO214AA)
-    mk_SMC.py, depreciated/mk_SMC.py, depreciated/mk_DO214AB.py (aka DO214AB)
-    mk_peSOD123FL.py depreciated/mk_SOD123F.py depreciated/mk_SOD123FL.py, (aka DO219AB/SOD123F/SOD123FL)
-    mk_SOD_923.py - I don't think this fits the JEDEC DO-codes?
-    NOTE: mk_peSOD123 is not like SOD123F/SOD123FL - and not a JEDEC standard name
+11) Enforce 80 char line limit?
+12) Increase pin clearance suitable for pcbway design rules
+13) Ensure footprints pads are larger then part pads
+14) Ensure sch part pin spacing is 500
+15) Ensure CONN 0,0 is at pin 1
+16) Prefix SMT CAPs with CAP_SMT
+17) Remove old radials scripts and use mk_RADIAL.py only
+18) Cleanup usb sym's - pin number depends on USB version and connector type.
+19) ensure bom created can handle part names with ,
 
+# Footprint naming
 
 ## 📘 JEDEC DO-codes and Common Names
 

@@ -17,7 +17,7 @@
 import math
 from footprintgen import *
 
-g = FootprintGen('SRR6038-100Y')
+g = FootprintGen('IND_SRR6038-100Y')
 
 # settings
 

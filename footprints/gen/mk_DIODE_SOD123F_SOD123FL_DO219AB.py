@@ -1,5 +1,5 @@
 # Python-EDA
-# Copyright (C) 2022 Luke Cole
+# Copyright (C) 2018-2025 Luke Cole
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -14,21 +14,32 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-# http://www.smc-diodes.com/propdf/SBRD10200%20N1314%20REV.A.pdf
+# https://www.diodes.com/assets/Package-Files/SOD123F.pdf
 
 import math
 from footprintgen import *
 
-g = FootprintGen("TO252_DIODE")
+g = FootprintGen('DIODE_SOD123F_SOD123FL_DO219AB') # aka SOD123F/SOD123FL/DO219AB
 
-w = 1.6
-h = 3.5
+part_w = 2.7
+part_h = 1.8
 
-py = 10.05 - 2.9/2.0 - 6.1/2.0
-px = 4.572
+w = 1.34
+h = 1.8
 
-g.rect_padat(0,        0, w, h, '1')
-g.rect_padat(px,       0, w, h, '1')
-g.rect_padat(px/2,   -py, 6.5, 6.1, '2')
+px = 2.86 # distance between centers
+g.rect_padat(0.0, 0, w, h, "1")
+g.rect_padat(px, 0, w, h, "2")
+
+ox1 = (part_w - px) / 2
+oy1 = part_h / 2
+
+ox2 = part_w - ox1
+oy2 = part_h - oy1
+
+g.outlinerect(-ox1, -oy1, ox2, oy2)
+
+# pin1 line/marker (y direction)
+g.outline(-ox1 + 0.6, -oy1, -ox1 + 0.6, oy2)
 
 g.write()

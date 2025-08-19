@@ -1,5 +1,5 @@
 # Python-EDA
-# Copyright (C) 2018 Luke Cole (ported), David Austin (original author)
+# Copyright (C) 2018-2025 Luke Cole
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -14,34 +14,32 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
+# https://www.diodes.com/assets/Package-Files/SOD123.pdf
+
 import math
 from footprintgen import *
 
-# https://www.taiwansemi.com/assets/uploads/datasheet/1N4148W-G_D1601.pdf
-# https://assets.nexperia.com/documents/data-sheet/PDZ-GW_SER.pdf
+g = FootprintGen('DIODE_SOD123')
 
-part_w = 1.6
-part_h = 2.69
+part_w = 2.65
+part_h = 1.55
 
-w = 0.91
-h = 1.22
-px = 0 # distance between centre of pins
-py = 3.27 # distance between centre of pins
+w = 0.90
+h = 0.95
 
-g = FootprintGen('peSOD123')
-
-# NOTE: this order is based on gschem built-in diodes symbols
-g.rect_padat(0.0, 0.0, w, h, 2)
-g.rect_padat(0.0, py, w, h, 1)
+px = 3.15 # distance between centers
+g.rect_padat(0.0, 0, w, h, "1")
+g.rect_padat(px, 0, w, h, "2")
 
 ox1 = (part_w - px) / 2
-oy1 = (part_h - py * 1) / 2
+oy1 = part_h / 2
 
 ox2 = part_w - ox1
 oy2 = part_h - oy1
 
 g.outlinerect(-ox1, -oy1, ox2, oy2)
 
-g.outline(-ox1, -oy1 + 0.5, ox2, -oy1 + 0.5)
+# pin1 line/marker (y direction)
+g.outline(-ox1 + 0.6, -oy1, -ox1 + 0.6, oy2)
 
 g.write()

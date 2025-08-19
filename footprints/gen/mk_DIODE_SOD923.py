@@ -1,5 +1,5 @@
 # Python-EDA
-# Copyright (C) 2025 Luke Cole
+# Copyright (C) 2019 David Austin
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -14,46 +14,24 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-import math
-
 from footprintgen import *
 
-g = FootprintGen("NPI54C100MTRF")
+g = FootprintGen("DIODE_SOD923")
 
-# https://static6.arrow.com/aropdfconversion/a3c4fc0f142e47fb6042b11c6fbfb2cc8cca1902/npi_c.pdf
+g.rect_padat(0.0, 0.0, 0.36, 0.25, "1")
+g.rect_padat(1.2-0.36, 0.0, 0.36, 0.25, "2")
 
-part_w = 5.8
-part_h = 5.2
+oo = 0.05
+ox1 = (1.2 - 0.36) / 2 - 0.8/2
+oy1 = 0.0 - 0.6 / 2
+ox2 = ox1 + 0.8
+oy2 = oy1 + 0.6
 
-pad_w = 2.15
-pad_h = 5.5
+g.outline(ox1 - oo, oy1 - oo, ox2 + oo, oy1 - oo)
+g.outline(ox1 - oo, oy2 + oo, ox2 + oo, oy2 + oo)
 
-p = 1.7 + pad_w
+g.outline(ox1 - oo, oy1 - oo, ox1 - oo, oy1 + 2 * oo)
+g.outline(ox1 - oo, oy2 + oo, ox1 - oo, oy2 - 2 * oo)
 
-g.rect_padat(0.0, 0.0, pad_w, pad_h, "1")
-g.rect_padat(p, 0.0, pad_w, pad_h, "2")
-
-cx = p / 2.0
-cy = 0
-
-ox1 = cx - part_w / 2.0
-oy1 = cy - part_h / 2.0
-ox2 = ox1
-oy2 = oy1 + part_h
-g.outline(ox1, oy1, ox2, oy2)
-
-ox1 = cx + part_w / 2.0
-ox2 = ox1
-g.outline(ox1, oy1, ox2, oy2)
-
-ox1 = cx - part_w / 2.0
-oy1 = cy - part_h / 2.0
-ox2 = ox1 + part_w
-oy2 = oy1
-g.outline(ox1, oy1, ox2, oy2)
-
-oy1 = cy + part_h / 2.0
-oy2 = oy1
-g.outline(ox1, oy1, ox2, oy2)
 
 g.write()

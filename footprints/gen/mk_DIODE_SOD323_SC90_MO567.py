@@ -14,46 +14,32 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-import math
+# https://www.diodes.com/assets/Package-Files/SOD323.pdf
 
+import math
 from footprintgen import *
 
-g = FootprintGen("SRU1048-100Y")
+g = FootprintGen('DIODE_SOD323_SC90_MO567') # aka SOD323/MO567/SC90
 
-# https://www.bourns.com/docs/Product-Datasheets/SRU1048.pdf
+part_w = 1.7
+part_h = 1.3
 
-part_w = 10.0
-part_h = 10.0
+w = 0.59
+h = 0.45
 
-pad_w = 1.8
-pad_h = 3.6
+px = 2.11 # distance between centers
+g.rect_padat(0.0, 0, w, h, "1")
+g.rect_padat(px, 0, w, h, "2")
 
-p = 7.2 + pad_w
+ox1 = (part_w - px) / 2
+oy1 = part_h / 2
 
-g.rect_padat(0.0, 0.0, pad_w, pad_h, "1")
-g.rect_padat(p, 0.0, pad_w, pad_h, "2")
+ox2 = part_w - ox1
+oy2 = part_h - oy1
 
-cx = p / 2.0
-cy = 0
+g.outlinerect(-ox1, -oy1, ox2, oy2)
 
-ox1 = cx - part_w / 2.0
-oy1 = cy - part_h / 2.0
-ox2 = ox1
-oy2 = oy1 + part_h
-g.outline(ox1, oy1, ox2, oy2)
-
-ox1 = cx + part_w / 2.0
-ox2 = ox1
-g.outline(ox1, oy1, ox2, oy2)
-
-ox1 = cx - part_w / 2.0
-oy1 = cy - part_h / 2.0
-ox2 = ox1 + part_w
-oy2 = oy1
-g.outline(ox1, oy1, ox2, oy2)
-
-oy1 = cy + part_h / 2.0
-oy2 = oy1
-g.outline(ox1, oy1, ox2, oy2)
+# pin1 line/marker (y direction)
+g.outline(-ox1 + 0.5, -oy1, -ox1 + 0.5, oy2)
 
 g.write()

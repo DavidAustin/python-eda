@@ -1,5 +1,5 @@
 # Python-EDA
-# Copyright (C) 2022 Luke Cole
+# Copyright (C) 2018-2025 Luke Cole
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -14,46 +14,33 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-import math
+# https://www.diodes.com/assets/Package-Files/SMB.pdf
+# e.g. https://www.smc-diodes.com/propdf/SMBJ%20SERIES%20N0193%20REV.D.pdf
 
+import math
 from footprintgen import *
 
-g = FootprintGen("SRN8040-3R3Y")
+g = FootprintGen('DIODE_SMB_DO214AB') # aka SMB/SMBJ/DO214AB
 
-# https://www.bourns.com/docs/Product-Datasheets/SRN8040.pdf
+part_w = 4.32
+part_h = 3.62
 
-part_w = 8.0
-part_h = 8.0
+w = 2.5
+h = 2.3
 
-pad_w = 2.6
-pad_h = 8.2
+px = 4.3 # distance between centers
+g.rect_padat(0.0, 0, w, h, "1")
+g.rect_padat(px, 0, w, h, "2")
 
-p = 3.0 + pad_w
+ox1 = (part_w - px) / 2
+oy1 = part_h / 2
 
-g.rect_padat(0.0, 0.0, pad_w, pad_h, "1")
-g.rect_padat(p, 0.0, pad_w, pad_h, "2")
+ox2 = part_w - ox1
+oy2 = part_h - oy1
 
-cx = p / 2.0
-cy = 0
+g.outlinerect(-ox1, -oy1, ox2, oy2)
 
-ox1 = cx - part_w / 2.0
-oy1 = cy - part_h / 2.0
-ox2 = ox1
-oy2 = oy1 + part_h
-g.outline(ox1, oy1, ox2, oy2)
-
-ox1 = cx + part_w / 2.0
-ox2 = ox1
-g.outline(ox1, oy1, ox2, oy2)
-
-ox1 = cx - part_w / 2.0
-oy1 = cy - part_h / 2.0
-ox2 = ox1 + part_w
-oy2 = oy1
-g.outline(ox1, oy1, ox2, oy2)
-
-oy1 = cy + part_h / 2.0
-oy2 = oy1
-g.outline(ox1, oy1, ox2, oy2)
+# pin1 line/marker (y direction)
+g.outline(-ox1 + 1.1, -oy1, -ox1 + 1.1, oy2)
 
 g.write()

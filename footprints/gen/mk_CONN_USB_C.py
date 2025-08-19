@@ -19,7 +19,7 @@ from footprintgen import *
 
 # based on https://www.digikey.com/en/products/detail/gct/USB4056-03-A/14638038
 
-g = FootprintGen('usb_c')
+g = FootprintGen('CONN_USB_C')
 
 h = 0.9
 w = 0.3

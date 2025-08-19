@@ -19,7 +19,7 @@ from footprintgen import *
 
 # based on https://www.taobao.com/list/item/661747754877.htm
 
-g = FootprintGen('W.USB3.0AM.J4')
+g = FootprintGen('CONN_USB_W.USB3.0AM.J4')
 
 px = 2.0
 px2 = 2.5

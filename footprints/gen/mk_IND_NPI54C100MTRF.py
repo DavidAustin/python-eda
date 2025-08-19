@@ -1,5 +1,5 @@
 # Python-EDA
-# Copyright (C) 2019-2025 Luke Cole (originally by David Austin)
+# Copyright (C) 2025 Luke Cole
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -14,32 +14,46 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-# https://www.diodes.com/assets/Package-Files/SMA.pdf
-
 import math
+
 from footprintgen import *
 
-g = FootprintGen('SMA') # aka SMA/SMAJ/DO214AC
+g = FootprintGen("IND_NPI54C100MTRF")
 
-part_w = 4.3
-part_h = 2.605
+# https://static6.arrow.com/aropdfconversion/a3c4fc0f142e47fb6042b11c6fbfb2cc8cca1902/npi_c.pdf
 
-w = 2.5
-h = 1.7
+part_w = 5.8
+part_h = 5.2
 
-px = 4.0 # distance between centers
-g.rect_padat(0.0, 0, w, h, "1")
-g.rect_padat(px, 0, w, h, "2")
+pad_w = 2.15
+pad_h = 5.5
 
-ox1 = (part_w - px) / 2
-oy1 = part_h / 2
+p = 1.7 + pad_w
 
-ox2 = part_w - ox1
-oy2 = part_h - oy1
+g.rect_padat(0.0, 0.0, pad_w, pad_h, "1")
+g.rect_padat(p, 0.0, pad_w, pad_h, "2")
 
-g.outlinerect(-ox1, -oy1, ox2, oy2)
+cx = p / 2.0
+cy = 0
 
-# pin1 line/marker (y direction)
-g.outline(-ox1 + 1.1, -oy1, -ox1 + 1.1, oy2)
+ox1 = cx - part_w / 2.0
+oy1 = cy - part_h / 2.0
+ox2 = ox1
+oy2 = oy1 + part_h
+g.outline(ox1, oy1, ox2, oy2)
+
+ox1 = cx + part_w / 2.0
+ox2 = ox1
+g.outline(ox1, oy1, ox2, oy2)
+
+ox1 = cx - part_w / 2.0
+oy1 = cy - part_h / 2.0
+ox2 = ox1 + part_w
+oy2 = oy1
+g.outline(ox1, oy1, ox2, oy2)
+
+oy1 = cy + part_h / 2.0
+oy2 = oy1
+g.outline(ox1, oy1, ox2, oy2)
 
 g.write()

@@ -19,7 +19,7 @@ from footprintgen import *
 
 # based on https://www.taobao.com/list/item/661747754877.htm
 
-g = FootprintGen('W.USB3.0AM.J4-pin')
+g = FootprintGen('CONN_USB_W.USB3.0AM.J4-pin')
 
 d = 1.0
 a = d * 1.2
