@@ -62,10 +62,9 @@ Where,
 27) symlinks for common names of JEDEC DO-codes? See below notes, currently effecting fp's:
     mk_DO214AC.py (aka SMA)
     mk_DO214AA.py (aka SMB)
-    mk_DO214AB.py, depreciated/mk_SMC.py (both really JEDEC DO-214AB - see below)
-    mk_SOD123F.py depreciated/mk_SOD123FL.py, (both really JEDEC DO-219AB - see below)
+    mk_DO214AB.py, depreciated/mk_SMC.py (aka SMA, both really JEDEC DO-214AB - see below)
+    mk_DO219AB.py, depreciated/mk_SOD123F.py depreciated/mk_SOD123FL.py, (aka SOD123F/SOD123FL, both really JEDEC DO-219AB - see below)
     mk_SOD_923.py - I don't think this fits the JEDEC DO-codes?
-    We also need prefix _pol versions for uni-directional diodes (TVS, Zenor, schotty, etc) - or make them all polarised
 
 ## 📘 JEDEC DO-codes and Common Names
 
