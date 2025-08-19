@@ -59,11 +59,11 @@ Where,
 24) ensure bom created can handle part names with ,
 25) Improve inductor making standing (e.g. mk_IND_*.py, mk_SRN8040-3R3Y.py, mk_SRR6038-100Y.py, mk_SRU1048-100Y.py, mk_NPI54C100MTRF.py)
 26) Drop tvs_vert.sym? Now replaced via tvs_bi.sym ("CA") and tvs_uni.sym ("A")
-27) symlinks for JEDEC DO-codes vs common names or not? See below notes, currently effecting fps:
+27) symlinks for common names of JEDEC DO-codes? See below notes, currently effecting fp's:
     mk_DO214AC.py (aka SMA)
     mk_DO214AA.py (aka SMB)
     mk_DO214AB.py, depreciated/mk_SMC.py (both really JEDEC DO-214AB - see below)
-    mk_SOD123FL.py, mk_SOD123F.py (both really JEDEC DO-219AB - see below)
+    mk_SOD123F.py depreciated/mk_SOD123FL.py, (both really JEDEC DO-219AB - see below)
     mk_SOD_923.py - I don't think this fits the JEDEC DO-codes?
     We also need prefix _pol versions for uni-directional diodes (TVS, Zenor, schotty, etc) - or make them all polarised
 
