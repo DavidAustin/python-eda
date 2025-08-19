@@ -17,7 +17,7 @@
 import math
 from footprintgen import *
 
-g = FootprintGen('DO214AC')
+g = FootprintGen('DO214AB')
 
 part_w = 6.855
 part_h = 5.905

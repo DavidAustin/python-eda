@@ -59,3 +59,60 @@ Where,
 24) ensure bom created can handle part names with ,
 25) Improve inductor making standing (e.g. mk_IND_*.py, mk_SRN8040-3R3Y.py, mk_SRR6038-100Y.py, mk_SRU1048-100Y.py, mk_NPI54C100MTRF.py)
 26) Drop tvs_vert.sym? Now replaced via tvs_bi.sym ("CA") and tvs_uni.sym ("A")
+27) symlinks for JEDEC DO-codes vs common names or not? See below notes, currently effecting fps:
+    mk_DO214AC.py (aka SMA)
+    mk_DO214AA.py (aka SMB)
+    mk_DO214AB.py, mk_SMC.py (both really JEDEC DO-214AB - see below)
+    mk_SOD123FL.py, mk_SOD123F.py (both really JEDEC DO-219AB - see below)
+    mk_SOD_923.py - I don't think this fits the JEDEC DO-codes?
+    We also need prefix _pol versions for uni-directional diodes (TVS, Zenor, schotty, etc) - or make them all polarised
+
+## 📘 JEDEC DO-codes and Common Names
+
+### DO-214 family (surface-mount power diode/TVS)
+
+| JEDEC Code   | Common Name           | Size (L × W mm, approx) | Notes                                        |
+| ------------ | --------------------- | ----------------------- | -------------------------------------------- |
+| **DO-214AC** | **SMA**               | 4.3 × 2.5               | Smallest of SMA/SMB/SMC family (\~400 W TVS) |
+| **DO-214AA** | **SMB** (a.k.a. SMBJ) | 4.6 × 3.6               | Mid-size (\~600 W TVS)                       |
+| **DO-214AB** | **SMC**               | 7.0 × 6.2               | Largest (\~1500 W TVS)                       |
+
+---
+
+### DO-219 / SOD family (low-profile / flat power diodes)
+
+| JEDEC Code   | Common Name              | Size (L × W mm, approx) | Notes                                                               |
+| ------------ | ------------------------ | ----------------------- | ------------------------------------------------------------------- |
+| **DO-219AB** | **SOD-123FL / SOD-123F** | 2.7 × 1.6               | Flat leads, reinforced pads; often used for TVS like **SMF** series |
+| **DO-219AC** | **SOD-123HE**            | 3.7 × 1.6               | “High efficiency” variant, slightly longer                          |
+
+---
+
+### DO-41 / DO-35 (axial leaded through-hole)
+
+| JEDEC Code | Common Name             | Size          | Notes              |
+| ---------- | ----------------------- | ------------- | ------------------ |
+| **DO-41**  | “Rectifier diode axial” | \~5.2 mm body | 1N400x family      |
+| **DO-35**  | “Small signal axial”    | \~4 mm body   | 1N4148 glass diode |
+
+---
+
+### Other small-signal SMD diode packages
+
+| JEDEC Code            | Common/Alt Name     | Size (L × W mm, approx)   | Notes                          |
+| --------------------- | ------------------- | ------------------------- | ------------------------------ |
+| **DO-213AB**          | **MELF / MiniMELF** | Cylindrical, \~3.5 × 1.6  | Glass body, e.g., LL4148       |
+| **DO-213AA**          | **MicroMELF**       | Smaller MELF (\~2 × 1.25) | Rare today                     |
+| **MO-567** (not “DO”) | **SOD-323**         | 2.5 × 1.25                | ESD suppressors, logic TVS     |
+| **JEDEC MO-178**      | **SOT-23**          | 3.0 × 1.3                 | Multi-diode arrays, regulators |
+
+---
+
+### Mapping for TVS “J” series
+
+Vendors tack on **“J”** to show *JEDEC compliant TVS in that package*:
+
+* **SMAJ** → DO-214AC (SMA TVS diode)
+* **SMBJ** → DO-214AA (SMB TVS diode)
+* **SMCJ** → DO-214AB (SMC TVS diode)
+* **SMFJ** → DO-219AB (SOD-123FL TVS diode)

@@ -19,7 +19,7 @@
 import math
 from footprintgen import *
 
-g = FootprintGen('CONN8_SDCAD-MSD-4-A')
+g = FootprintGen('CONN8_SDCARD-MSD-4-A')
 
 part_w = 19.35
 part_h = 26.3
