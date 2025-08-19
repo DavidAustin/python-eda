@@ -23,7 +23,7 @@ g = FootprintGen("TO263_3")
 w = 1.6
 h = 4.3
 
-py = 16.586 - h/2 - 9.296/2
+py = 16.586 - h/2 - 9.296
 px = 5.08
 
 g.rect_padat(0,        0, w, h, 'G')

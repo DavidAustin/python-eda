@@ -1,5 +1,5 @@
 # Python-EDA
-# Copyright (C) 2018 Luke Cole (ported), David Austin (original author)
+# Copyright (C) 2021-2025 Luke Cole
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -17,32 +17,19 @@
 import math
 from footprintgen import *
 
-g = FootprintGen('SOT23_6')
+g = FootprintGen('SOT23_SC59_BCE')
 
-p = 0.95
-w = 0.6
-h = 1.2
-py = 2.9
+dx = (1.341 + 2.459) / 2.0
+dy = (1.245 + 2.692) / 2.0
+px = 1.0
+py = 1.2
+g.rect_padat(0, 0, px, py, "B")
+g.rect_padat(dx, 0, px, py, "E")
+g.rect_padat(dx / 2.0, -dy, px, py, "C")
 
-x = 0.0
-y = 0.0
-for i in range(1,4):
-    g.rect_padat(x, y, w, h, '%d' % i)
-    x += p
-
-x = 2 * p
-y = -py
-for i in range(4,7):
-    g.rect_padat(x, y, w, h, '%d' % i)
-    x -= p
-
-ox1 = p - 3.0/2
-oy1 = -0.7
-ox2 = ox1 + 3.0
-oy2 = -py + 0.7
-
-g.outlinerect(ox1, oy1, ox2, oy2)
-
-g.outlinecirc(ox1 + 0.3, oy1 - 0.3, 0.05, 0.2)
+oo = 0.07
+#g.outlinerect(-px/2, -py/2 - oo, dx + px/2, -dy + py/2 + oo)
+oy = 0.5
+g.outlinerect(dx / 2.0 - 3.1/2, -dy/2 + oy/2, dx/2.0 + 3.1/2, -dy/2 - oy/2)
 
 g.write()

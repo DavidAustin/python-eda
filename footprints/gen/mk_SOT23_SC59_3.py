@@ -17,7 +17,7 @@
 import math
 from footprintgen import *
 
-g = FootprintGen('SOT23_3')
+g = FootprintGen('SOT23_SC59_3')
 
 # https://assets.nexperia.com/documents/data-sheet/NX3008NBK.pdf
 

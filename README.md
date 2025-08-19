@@ -1,6 +1,6 @@
 # python-eda
 
-Python EDA tools (initially gEDA)
+Python EDA tools (initially gEDA/gaf and Lepton EDA)
 
 # Build
 
@@ -31,7 +31,7 @@ Try to standardise fp gen's to:
 * LED_* - LEDs
 * RADIAL_* - THT parts (created by fp generator mk_RADIAL*.py)
 
-# Current fp generators:
+# Current Footprint Generators:
 
 Should always be postfixed with "-N.py"
 
@@ -68,7 +68,32 @@ THT: mk_CONN*.py, mk_RADIAL*.py, mk_holes.py
 18) Cleanup usb sym's - pin number depends on USB version and connector type.
 19) ensure bom created can handle part names with ,
 
-# Footprint naming
+# gEDA/gaf and LeptonEDA built-in footprints
+
+Under Linux:
+
+$ find /usr/share/pcb/ -name "*.fp" | wc -l
+1357
+
+Below is a list of improvements to some key footprints:
+
+* The built-in TO220/TO22OS/TO220SW/TO220W is the common 3-pin
+* The built-in TO220ACSTAND/TO220ACS is the common 2-pin, we offer a better name:
+  - TO220_2 - 2-pin
+* The built-in TO247 and TO247_2 is the common 3-pin and 2-pin THT, we offer others:
+  - TO247_GCE - GCE 3-pin
+* The built-in TO263 is common 3-pin + tab SMT, we offer a few others:
+  - TO263_GSD - GSD 3-pin + tab
+  - TO263_2 - 2-pin + tab
+  - TO263_7 - 7-pin + tab
+* The built-in SOT23/SOT23D is the common 3-pin SMT, we offer:
+  - SOT23_SC59_3 - 3-pin versoin
+  - SOT23_SC59_BCE - BCE 3-pin version
+  - SOT23_SC59_GSD - GSD 3-pin version
+  - SOT23_SC74_5 - 5-pin version
+  - SOT23_SC74A_6 - 6-pin version
+  
+# Footprint Naming
 
 ## 📘 JEDEC DO-codes and Common Names
 
