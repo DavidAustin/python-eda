@@ -19,7 +19,7 @@
 import math
 from footprintgen import *
 
-g = FootprintGen('SOD123F') # aka SOD123F/SOD123FL/DO219AB
+g = FootprintGen('peSOD123F') # aka SOD123F/SOD123FL/DO219AB
 
 part_w = 2.7
 part_h = 1.8

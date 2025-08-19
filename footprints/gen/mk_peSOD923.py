@@ -16,9 +16,7 @@
 
 from footprintgen import *
 
-g = FootprintGen("SOD_923")
-
-
+g = FootprintGen("peSOD923")
 
 g.rect_padat(0.0, 0.0, 0.36, 0.25, "1")
 g.rect_padat(1.2-0.36, 0.0, 0.36, 0.25, "2")
