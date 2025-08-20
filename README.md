@@ -107,8 +107,8 @@ Below is a list of improvements to some key footprints:
 
 | Our Footprint                           | JEDEC / Std Name                | Common Aliases                   | Notes                                        |
 | --------------------------------------- | ------------------------------- | -------------------------------- | -------------------------------------------- |
-| `TO252_2` (should rename diode variant) | TO-252 (JEDEC SC-63)            | DPAK, “TO-252-3 (2 leads + tab)” | Diodes (anode, cathode, tab tied to cathode) |
-| `TO252_3` / `TO252_GSD`                 | TO-252 (JEDEC SC-63)            | DPAK-3, SMD-220                  | MOSFETs (G–S–D, tab = D)                     |
+| `TO252_3`                               | TO-252 (JEDEC SC-63)            | DPAK, “TO-252-3 (2 leads + tab)” | Diodes (anode, cathode, tab tied to cathode) |
+| `TO252_GSD`                             | TO-252 (JEDEC SC-63)            | DPAK-3, SMD-220                  | MOSFETs (G–S–D, tab = D)                     |
 | `TO263_2`                               | TO-263-2 (JEDEC SC-73/83)       | D2PAK-2, SMD-220 large           | Diodes, 2 leads + tab                        |
 | `TO263_3` / `TO263_GSD`                 | TO-263-3 (JEDEC SC-73/83)       | D2PAK-3                          | MOSFETs, tab = D                             |
 | `TO263_7`                               | TO-263-7 (JEDEC MO-169 variant) | D2PAK-7                          | Multi-lead regulators, drivers               |
