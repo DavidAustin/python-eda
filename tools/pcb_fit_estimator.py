@@ -11,81 +11,131 @@ INCH_TO_MM = 25.4
 
 # --- Built-in footprint size guesses (width_mm, length_mm) BEFORE margin ---
 # Values are conservative courtyards (body-ish), you can tweak via --margin.
+# These "peiXXXX" values come directly from mk_pe_foots.py:
+#   data[k] = [part_length (a), pad_gap (b), pad_w (c), pad_h (d)]
+# We map to (W, L) = (d, a) and let --margin add any extra courtyard.
 SIZE_MAP = {
-    # Passives (imperial names used by your lib, "peiXXXX")
-    "pei0201": (0.6, 0.3),
-    "pei0402": (1.0, 0.5),
-    "pei0603": (1.6, 0.8),
-    "pei0805": (2.0, 1.25),
-    "pei1206": (3.2, 1.6),
-    "pei1812": (4.6, 3.2),
-    "pei2312_pol": (5.842, 3.048),
+    # Passives from mk_pe_foots.py (W, L)
+    "pei0100": (0.20, 0.48),
+    "pei0201": (0.40, 1.00),
+    "pei0402": (0.60, 1.50),
+    "pei0603": (0.80, 2.60),
+    "pei0805": (1.20, 3.00),
+    "pei1008": (2.00, 2.50),
+    "pei1206": (1.50, 4.20),
+    "pei1210": (2.40, 4.20),
+    "pei1218": (4.80, 4.20),
+    "pei1812": (3.15, 4.55),
+    "pei2010": (2.40, 6.10),
+    "pei2220": (5.00, 5.70),
+    "pei2512": (3.00, 8.00),
 
-    # Diodes & packages
-    "DIODE_SMA":  (4.6, 2.7),
-    "DIODE_SMB":  (4.6, 2.7),
-    "DIODE_SMC":  (4.6, 2.7),
-    "DIODE_SOD123F": (3.7, 1.8),
-    "DIODE_SOD123": (3.7, 1.8),
-    "DIODE_SOD323": (3.7, 1.8),
-    "DIODE_SOD923": (3.7, 1.8),
-    "SOT23_GSD": (1.7, 2.9),
-    "SOT23_BCE": (1.7, 2.9),
-    "SOT23_3":  (1.7, 2.9),
-    "SOT23_5":  (1.7, 2.9),
-    "SOT23_6":  (1.7, 2.9),
+    # Polarized variants from mk_pe_foots.py (W, L)
+    "pei2917_pol": (4.00, 7.30),
+    "pei2312_pol": (2.40, 6.00),
+    "pei1206_pol": (1.50, 4.20),
+    "pei0603_pol": (0.80, 2.60),
+    "pei0402_pol": (0.60, 1.50),
 
-    # Leaded-ish named
-    "RADIAL-5.00": (5.0, 5.0),  # if we detect diameter ~5mm, we’ll override below
+    # Diodes & small-outline (body-ish before margin)  (W, L)
+    "DIODE_SMA":     (2.90, 4.60),  # DO-214AC
+    "DIODE_SMB":     (3.70, 6.10),  # DO-214AA
+    "DIODE_SMC":     (6.80, 7.80),  # DO-214AB
 
-    # Modules / special (from your list; rough but realistic)
-    "ESP32-WROOM": (18.0, 25.5),
-    "SARA-R5":     (16.0, 26.0),
-    "RPI_HAT":     (5.1, 51.0),  # 2x20 header area (approx footprint courtyard)
-    "UFL-R-SMT-1-10": (3.0, 3.0),
-    #"CONN8_SDCARD-MSD-4-A": (14.5, 15.0),  # µSD push-push
-    "CONN8_SDCARD-MSD-4-A": (26.3, 19.35),  # µSD push-push
-    "CONN8_SIM-0475532001": (26.3, 19.35),  # µSD push-push
-    "BH-25C-1":   (25.0, 25.0),  # coin-cell holder approx
-    "DLW21SZ900HQ2L": (1.2, 2.0),  # 0805 CM choke
-    "SRN8040-3R3Y": (8.0, 8.0),    # 8x8 inductor
-    "SDER041H-2R2MS": (4.0, 4.0),  # 4x4 inductor
-    "CD-1206-SMT": (12.0, 12.0),
-    
-    # crystals
+    # SOD family (body-ish):
+    "DIODE_SOD123":  (1.60, 2.70),
+    "DIODE_SOD123F": (1.60, 2.70),
+    "DIODE_SOD323":  (1.30, 2.50),
+    "DIODE_SOD923":  (0.60, 1.00),
+
+    # SOT-23 family (bodies are very similar; keep conservative):
+    "SOT23_GSD": (1.60, 3.00),
+    "SOT23_BCE": (1.60, 3.00),
+    "SOT23_3":   (1.60, 3.00),
+    "SOT23_5":   (1.70, 2.90),
+    "SOT23_6":   (1.70, 2.90),
+
+    # Radial placeholder (Diameter≈W≈L) if named like RADIAL-<diameter>-...
+    "RADIAL-5.00": (5.00, 5.00),
+
+    # Modules / specials
+    "ESP32-WROOM":          (18.0, 25.5),
+    "SARA-R5":              (16.0, 26.0),
+    "RPI_HAT":              (5.1, 51.0),
+    "UFL-R-SMT-1-10":       (3.0, 3.0),
+    "CONN8_SDCARD-MSD-4-A": (26.3, 19.35),
+    "CONN8_SIM-0475532001": (26.3, 19.35),
+    "BH-25C-1":             (25.0, 25.0),
+    "DLW21SZ900HQ2L":       (1.25, 2.00),
+    "SRN8040-3R3Y":         (8.0, 8.0),
+    "SDER041H-2R2MS":       (4.0, 4.0),
+    "CD-1206-SMT":          (12.0, 12.0),
+
+    # Crystals
     "LFXTAL035939": (13.4, 4.9),
-    
-    # DPAK
-    "TO220_2": (6.6, 9.9),
-    "TO247_GCE": (6.6, 9.9),
-    "TO252_GSD": (6.6, 9.9),
-    "TO252_3": (6.6, 9.9),
-    "TO263_2": (6.6, 9.9),
-    "TO263_GSD": (6.6, 9.9),
-    "TO263_7": (6.6, 9.9),
 
-    # Small ICs without numeric body in name
-    "LGA14": (3.0, 3.0),          # generic
-    "TSSOP16": (4.4, 5.0),        # generic
-    "SOIC-8": (3.9, 4.9),         # will be overridden if numeric dims in name exist
-    "SOIC-14": (3.9, 8.65),
+    # Power packages (body envelopes; not pads/tabs)
+    "TO220_2":   (10.0, 9.7),
+    "TO247_GCE": (15.6, 20.0),
+    "TO252_GSD": (6.6, 6.1),   # DPAK / TO-252 body
+    "TO252_3":   (6.6, 6.1),
+    "TO263_2":   (10.2, 9.1),  # D2PAK / TO-263 body
+    "TO263_GSD": (10.2, 9.1),
+    "TO263_7":   (10.2, 9.1),
 
-    # “Big” connectors (rough pessimistic guesses; please override if you know exacts)
-    "CONN_DT13-48PABCD-R015": (36.0, 127.0),  # Deutsch 48p automotive, beefy
-    "CONN8_254": (8.0, 21.0),     # 8-pin 2.54 header ~ 2 rows; courtyard-ish
-    "CONN3_254": (8.0, 8.0),
+    # Small ICs without numeric dims in name (generic bodies)
+    "LGA14":   (3.0, 3.0),
+    # "TSSOP16": (4.4, 5.0),
+    #"SOIC-8":  (3.9, 4.9),
+    #"SOIC-14": (3.9, 8.7),
+
+    # “Big” connectors (rough)
+    "CONN_DT13-48PABCD-R015": (36.0, 127.0),
+    "CONN8_254":  (8.0, 21.0),
+    "CONN3_254":  (8.0, 8.0),
 }
 
 # Names we ignore for fitting estimate (non-real estate or tiny)
-IGNORE_PREFIXES = (
-    "FID", "TP", "T"  # fiducials, test points, mounting holes like T600, etc.
-)
-IGNORE_EXACT = set([
-    "hole1", "M3"
-])
+IGNORE_PREFIXES = ("FID", "TP", "T")
+IGNORE_EXACT = set(["hole1", "M3"])
 
-# add somewhere near SIZE_MAP
-PEI_RE = re.compile(r'^pei(\d{2})(\d{2})', re.I)   # e.g. pei2312 -> 0.23" x 0.12"
+# ---------------------------------------------
+# Helpers for parsing names & dimensions
+# ---------------------------------------------
+
+# Package names from our -N generators, e.g.:
+#   SOIC-8-4.40x3.60-1.27x6.46-0.64x1.80
+#   TSSOP-16-4.40x5.00-0.65x6.40-0.31x1.00
+#   QFN-32-5.00x5.00-0.50x5.50-0.25x0.80-3.20x3.20
+# IMPORTANT: In your logs, the first pair is always PARTWIDTH x PARTHEIGHT.
+# For estimator, treat that **directly** as (W, L) = (PARTWIDTH, PARTHEIGHT).
+PACKAGE_PREFIXES = [
+    "SOIC", "SSOP", "TSSOP", "MSOP",
+    "QFN", "WFDFN", "WSON",
+    "HTSSOP", "uSIP", "SMD",
+    "BGA", "QFP", "LQFP", "TQFP"
+]
+PKG_LEADING_DIMS_RE = re.compile(
+    r'^(?:' + '|'.join(PACKAGE_PREFIXES) + r')-\d+-'
+    r'(?P<pw>\d+(?:\.\d+)?)x(?P<ph>\d+(?:\.\d+)?)\b',  # PARTWIDTH x PARTHEIGHT
+    flags=re.IGNORECASE
+)
+
+def package_body_dims_from_name(name: str):
+    """
+    If the footprint name starts with one of our -N generator names,
+    return the leading body (W, L) in mm where:
+      W = PARTWIDTH, L = PARTHEIGHT
+    """
+    m = PKG_LEADING_DIMS_RE.match(name.strip())
+    if not m:
+        return None
+    pw = float(m.group("pw"))
+    ph = float(m.group("ph"))
+    return (pw, ph)  # <-- no swapping
+
+# PEI imperial code, e.g. pei2312 -> 0.23" x 0.12"
+PEI_RE = re.compile(r'^pei(\d{2})(\d{2})', re.I)
 
 def infer_pei_imperial_mm(fpname: str):
     m = PEI_RE.match(fpname.strip())
@@ -95,16 +145,9 @@ def infer_pei_imperial_mm(fpname: str):
     W_in = int(m.group(2)) / 100.0   # last two digits  = width in inches
     L_mm = L_in * 25.4
     W_mm = W_in * 25.4
-    # return width x length to match your convention
-    return (W_mm, L_mm)
+    return (W_mm, L_mm)  # (W, L)
 
 def parse_board_size(s):
-    """
-    Accepts forms like:
-      127x165.1mm
-      5x6.5in
-    Returns (width_mm, height_mm)
-    """
     s = s.strip().lower().replace(" ", "")
     m = re.match(r'^([\d\.]+)x([\d\.]+)(mm|in)$', s)
     if not m:
@@ -123,7 +166,6 @@ def load_overrides(path):
         raise FileNotFoundError(path)
     text = p.read_text()
     try:
-        # Try JSON first (so we don't depend on pyyaml)
         data = json.loads(text)
         return normalize_size_map(data)
     except Exception:
@@ -144,7 +186,6 @@ def normalize_size_map(d):
 EL_RE = re.compile(r'^Element\["([^"]*)"\s+"([^"]+)"\s+"([^"]+)"\s+"[^"]*"', re.IGNORECASE)
 
 def looks_bottom(flags):
-    # pcb/pcb-rnd often uses 'onsolder' flag for bottom
     return "onsolder" in flags.lower()
 
 def is_ignored(footprint, refdes):
@@ -156,7 +197,7 @@ def is_ignored(footprint, refdes):
 
 def first_dims_in_name(name):
     """
-    Extract first AxB numeric token from footprint name (e.g., SOIC-8-3.90x4.90-...)
+    Extract first AxB numeric token from footprint name (fallback).
     Returns tuple (A, B) as floats if found else None.
     """
     m = re.search(r'(\d+(?:\.\d+)?)x(\d+(?:\.\d+)?)', name)
@@ -165,9 +206,6 @@ def first_dims_in_name(name):
     return float(m.group(1)), float(m.group(2))
 
 def radial_guess(name):
-    """
-    RADIAL-<diameter>-<pitch>-... -> return diameter as both W and L (round-ish capacitor)
-    """
     m = re.match(r'RADIAL-(\d+(?:\.\d+)?)', name.upper())
     if m:
         d = float(m.group(1))
@@ -177,35 +215,56 @@ def radial_guess(name):
 def normalize_key(s):
     return s.strip()
 
+# Name variants to try during lookup (handle lib/category prefixes)
+def footprint_name_variants(name: str):
+    yield name  # as-is
+    prefixes = ("IND_",)  # extend if needed (e.g., "LED_", "MECH_", ...)
+    for p in prefixes:
+        if name.startswith(p):
+            yield name[len(p):]
+
 def lookup_size(footprint):
-    # Exact match
-    if footprint in SIZE_MAP: return SIZE_MAP[footprint]
+    for cand in footprint_name_variants(footprint):
+        # 1) exact match
+        if cand in SIZE_MAP:
+            return SIZE_MAP[cand]
 
-    # Prefix matches for common libs
-    for key in SIZE_MAP:
-        if footprint.startswith(key):
-            return SIZE_MAP[key]
+        # 2) generator naming (e.g., SOIC-8-4.40x3.60-…)
+        pkg_dims = package_body_dims_from_name(cand)
+        if pkg_dims:
+            return pkg_dims  # (W,L) from first pair, no swap
 
-    # Radial capacitor heuristic
-    r = radial_guess(footprint)
-    if r: return r
+        # 3) radial capacitor heuristic
+        r = radial_guess(cand)
+        if r:
+            return r
 
-    # Numeric dims in name
-    dims = first_dims_in_name(footprint)
-    if dims:
-        # We don't know which is W/L; treat (W, L) in the order encountered.
-        return dims
+        # 4) numeric dims anywhere (generic fallback; keep order)
+        dims = first_dims_in_name(cand)
+        if dims:
+            return dims
 
-    # Some common generic prefixes
-    if footprint.upper().startswith("SOIC-8"):
-        return SIZE_MAP["SOIC-8"]
-    if footprint.upper().startswith("SOIC-14"):
-        return SIZE_MAP["SOIC-14"]
-    if footprint.upper().startswith("SOT23"):
-        return SIZE_MAP["SOT23_3"]
+        # 5) common generics (fallbacks)
+        up = cand.upper()
+        if up.startswith("SOIC-8"):
+            return SIZE_MAP.get("SOIC-8")
+        if up.startswith("SOIC-14"):
+            return SIZE_MAP.get("SOIC-14")
+        if up.startswith("SOT23"):
+            return SIZE_MAP.get("SOT23_3")
+        if up.startswith("TSSOP16"):
+            return SIZE_MAP.get("TSSOP16")
 
-    size = infer_pei_imperial_mm(footprint) or size
-    
+        # 6) PEI imperial inference last
+        pei = infer_pei_imperial_mm(cand)
+        if pei:
+            return pei
+
+        # 7) finally, prefix matches in SIZE_MAP (broad brush)
+        for key in SIZE_MAP:
+            if cand.startswith(key):
+                return SIZE_MAP[key]
+
     return None  # unknown
 
 def mm2(x): return x*x
@@ -230,7 +289,6 @@ def main():
 
     # Merge overrides
     overrides = load_overrides(args.sizes) if args.sizes else {}
-    # Normalize keys in overrides to exact-match first, then prefix fallback below.
     override_exact = {normalize_key(k): tuple(v) for k, v in overrides.items()}
     override_prefix = sorted(override_exact.keys(), key=len, reverse=True)
 
@@ -243,9 +301,9 @@ def main():
             continue
         if args.side != "both":
             bottom = looks_bottom(flags)
-            if args.side == "top" and bottom:  # skip bottom
+            if args.side == "top" and bottom:
                 continue
-            if args.side == "bottom" and not bottom:  # skip top
+            if args.side == "bottom" and not bottom:
                 continue
         selected.append((fp, ref, flags))
 
@@ -301,7 +359,6 @@ def main():
     print(f"Known-size elements: {sum(v['count'] for v in per_fp.values())}")
     print(f"Unknown-size elements: {len(unknown)}")
     if unknown:
-        # show top 10 unique unknown fp names
         uniq = {}
         for fp, ref in unknown:
             uniq[fp] = uniq.get(fp, 0) + 1
@@ -338,7 +395,7 @@ def main():
 #
 # ESP32-WROOM: [18.0, 25.5]
 # CONN_DT13-48PABCD-R015: [40.0, 70.0]
-# SSOP-28-10.19x5.30: {w: 10.5, l: 5.6}   # example adjusting courtyard
+# SSOP-28-10.19x5.30: {w: 10.5, l: 5.6}
 #
 # Then run:
 #   python3 pcb_fit_estimator.py <file>.pcb --board 5x6.5in --sizes my_sizes.yaml

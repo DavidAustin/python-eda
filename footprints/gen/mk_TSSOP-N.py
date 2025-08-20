@@ -54,8 +54,9 @@ make_fp(8, 3.0, 3.0, 0.65, 4.4, 0.45, 1.5)
 
 # https://www.ti.com/lit/ds/symlink/msp430fr2111.pdf
 # https://www.ti.com/lit/ds/symlink/msp430fr2000.pdf
+# https://www.ti.com/lit/ds/symlink/sn74avc4t774.pdf
 make_fp(16, 5.0, 4.4, 0.65, 5.8, 0.45, 1.5)
-
+ 
 # https://toshiba.semicon-storage.com/info/74VHCT245AFT_datasheet_en_20170222.pdf?did=13949&prodName=74VHCT245AFT
 # https://www.ti.com/lit/ds/symlink/txs0108e.pdf?ts=1725240466504
 make_fp(20, 6.5, 4.4, 0.65, 5.8, 0.45, 1.5)
