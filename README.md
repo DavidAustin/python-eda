@@ -73,6 +73,7 @@ THT: mk_CONN*.py, mk_RADIAL*.py, mk_holes.py
 Under Linux:
 
 $ find /usr/share/pcb/ -name "*.fp" | wc -l
+
 1357
 
 Below is a list of improvements to some key footprints:
