@@ -18,7 +18,7 @@ import math
 
 from footprintgen import *
 
-g = FootprintGen("SDER041H-2R2MS")
+g = FootprintGen("IND_SDER041H-2R2MS")
 
 # https://www.cyntec.com/upfile/products/download/SDER041H-000%20(B3).pdf
 
