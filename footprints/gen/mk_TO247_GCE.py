@@ -18,8 +18,7 @@
 import math
 from footprintgen import *
 
-g = FootprintGen("TO247_GCE")
-
+g = FootprintGen("TO247_GCE") # TO-247AD, TO-3P (vendor), MO-247
 
 px = 5.44
 d = 3.0

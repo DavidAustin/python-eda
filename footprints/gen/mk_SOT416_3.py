@@ -17,7 +17,7 @@
 import math
 from footprintgen import *
 
-g = FootprintGen('SOT416_SC75_3')
+g = FootprintGen('SOT416_3') # aka SOT416-3/SC75
 
 # https://toshiba.semicon-storage.com/info/DF3D6.8MS_datasheet_en_20141016.pdf?did=13919&prodName=DF3D6.8MS
 

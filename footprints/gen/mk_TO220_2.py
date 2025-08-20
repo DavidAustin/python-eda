@@ -18,8 +18,7 @@
 import math
 from footprintgen import *
 
-g = FootprintGen("TO220_2")
-
+g = FootprintGen("TO220_2") # aka TO-220AB, I-PAK
 
 px = 5.08
 d = 3.0

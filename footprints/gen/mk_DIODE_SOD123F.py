@@ -19,7 +19,7 @@
 import math
 from footprintgen import *
 
-g = FootprintGen('DIODE_SOD123F_SOD123FL_DO219AB') # aka SOD123F/SOD123FL/DO219AB
+g = FootprintGen('DIODE_SOD123F') # aka SOD123F/SOD123FL/DO219AB
 
 part_w = 2.7
 part_h = 1.8

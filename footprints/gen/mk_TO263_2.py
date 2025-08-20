@@ -18,7 +18,7 @@
 import math
 from footprintgen import *
 
-g = FootprintGen("TO263_2")
+g = FootprintGen("TO263_2") # aka D2PAK-2, SMD-220 large, JEDEC SC-83
 
 w = 1.6
 h = 4.3

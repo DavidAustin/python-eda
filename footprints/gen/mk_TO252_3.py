@@ -19,7 +19,7 @@
 import math
 from footprintgen import *
 
-g = FootprintGen("TO252")
+g = FootprintGen("TO252_3") # aka TO252-3, DPAK (2 Leads + Tab), JEDEC SC-63
 
 w = 1.6
 h = 3.5
@@ -28,7 +28,7 @@ py = 10.05 - 2.9/2.0 - 6.1/2.0
 px = 4.572
 
 g.rect_padat(0,        0, w, h, '1')
-g.rect_padat(px,       0, w, h, '1')
 g.rect_padat(px/2,   -py, 6.5, 6.1, '2')
+g.rect_padat(px,       0, w, h, '3')
 
 g.write()

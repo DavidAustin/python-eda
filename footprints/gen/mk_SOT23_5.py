@@ -17,7 +17,7 @@
 import math
 from footprintgen import *
 
-g = FootprintGen('SOT23_SC74_5')
+g = FootprintGen('SOT23_5') # aka SOT23-5/SC74
 
 # http://ww1.microchip.com/downloads/en/DeviceDoc/MCP6001-1R-1U-2-4-1-MHz-Low-Power-Op-Amp-DS20001733L.pdf
 

@@ -17,7 +17,7 @@
 import math
 from footprintgen import *
 
-g = FootprintGen('SOT23_SC74A')
+g = FootprintGen('SOT23_6') # aka SOT23-6/SC74A
 
 p = 0.95
 w = 0.6

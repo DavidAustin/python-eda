@@ -87,11 +87,11 @@ Below is a list of improvements to some key footprints:
   - TO263_2 - 2-pin + tab
   - TO263_7 - 7-pin + tab
 * The built-in SOT23/SOT23D is the common 3-pin SMT, we offer:
-  - SOT23_SC59_3 - 3-pin versoin
-  - SOT23_SC59_BCE - BCE 3-pin version
-  - SOT23_SC59_GSD - GSD 3-pin version
-  - SOT23_SC74_5 - 5-pin version
-  - SOT23_SC74A_6 - 6-pin version
+  - SOT23_3 - 3-pin versoin
+  - SOT23_BCE - BCE 3-pin version
+  - SOT23_GSD - GSD 3-pin version
+  - SOT23_5 - 5-pin version
+  - SOT23_6 - 6-pin version
   
 # Footprint Naming
 

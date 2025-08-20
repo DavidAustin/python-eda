@@ -17,7 +17,7 @@
 import math
 from footprintgen import *
 
-g = FootprintGen('SOT23_SC59_BCE')
+g = FootprintGen('SOT23_BCE') # aka SOT23-BCE/SC59
 
 dx = (1.341 + 2.459) / 2.0
 dy = (1.245 + 2.692) / 2.0

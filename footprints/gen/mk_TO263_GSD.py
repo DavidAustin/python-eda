@@ -18,7 +18,7 @@
 import math
 from footprintgen import *
 
-g = FootprintGen("TO263_GSD")
+g = FootprintGen("TO263_GSD") # D2PAK MOSFET, JEDEC SC-73 / SC-83
 
 w = 1.6
 h = 4.3
