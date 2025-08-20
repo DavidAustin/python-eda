@@ -32,7 +32,7 @@ g.rect_padat(0, 0, 10.8, 9.4, '0')
 x = -pad_w * 3.5 - 0.47 * 3.0
 y = 16.15 - 9.4 / 2.0 - 4.6 / 2.0
 
-for i in range(1, 7):
+for i in range(1, 8):
     g.rect_padat(x, y, pad_w, pad_h, '%d' % i)
     x += p
 
