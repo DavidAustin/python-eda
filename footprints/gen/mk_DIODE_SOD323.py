@@ -24,8 +24,13 @@ g = FootprintGen('DIODE_SOD323') # aka SOD323/MO567/SC90
 part_w = 1.7
 part_h = 1.3
 
-w = 0.59
-h = 0.45
+# ok for reflow
+#w = 0.59
+#h = 0.45
+
+# suitable for reflow or handsoldering
+w = 0.80
+h = 0.60
 
 px = 2.11 # distance between centers
 g.rect_padat(0.0, 0, w, h, "1")
