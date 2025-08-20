@@ -19,7 +19,7 @@
 import math
 from footprintgen import *
 
-g = FootprintGen('DIODE_SMA') # aka SMA/SMAJ/DO214AA
+g = FootprintGen('DIODE_SMA') # aka SMA/SMAJ/DO214AC
 
 part_w = 4.3
 part_h = 2.605

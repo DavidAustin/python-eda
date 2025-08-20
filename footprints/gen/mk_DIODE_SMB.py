@@ -20,7 +20,7 @@
 import math
 from footprintgen import *
 
-g = FootprintGen('DIODE_SMB') # aka SMB/SMBJ/DO214AB
+g = FootprintGen('DIODE_SMB') # aka SMB/SMBJ/DO214AA
 
 part_w = 4.32
 part_h = 3.62

@@ -103,15 +103,19 @@ Below is a list of improvements to some key footprints:
 | `TO220_2`      | TO-220-2 (JEDEC MO-036, MO-093) | TO-220AB, I-PAK (2 leads)    | Regulators, diodes  |
 | `TO247_GCE`    | TO-247AD (JEDEC MO-247)         | TO-3P (vendor), G–C–E (IGBT) | High-power BJT/IGBT |
 
-## **Surface-mount power packages (DPAK/D2PAK)**
+## **Surface-mount power packages (DPAK / D2PAK)**
 
-| Our Footprint                           | JEDEC / Std Name                | Common Aliases                   | Notes                                        |
-| --------------------------------------- | ------------------------------- | -------------------------------- | -------------------------------------------- |
-| `TO252_3`                               | TO-252 (JEDEC SC-63)            | DPAK, “TO-252-3 (2 leads + tab)” | Diodes (anode, cathode, tab tied to cathode) |
-| `TO252_GSD`                             | TO-252 (JEDEC SC-63)            | DPAK-3, SMD-220                  | MOSFETs (G–S–D, tab = D)                     |
-| `TO263_2`                               | TO-263-2 (JEDEC SC-73/83)       | D2PAK-2, SMD-220 large           | Diodes, 2 leads + tab                        |
-| `TO263_3` / `TO263_GSD`                 | TO-263-3 (JEDEC SC-73/83)       | D2PAK-3                          | MOSFETs, tab = D                             |
-| `TO263_7`                               | TO-263-7 (JEDEC MO-169 variant) | D2PAK-7                          | Multi-lead regulators, drivers               |
+| Our Footprint           | Package / JEDEC Outline   | Common Aliases                 | Notes                                      |
+|--------------------------|---------------------------|--------------------------------|-------------------------------------------|
+| `TO252_3`               | TO-252 (DPAK)             | “TO-252-3 (2 leads + tab)”     | **Diodes** (anode, cathode, **tab = cathode**) |
+| `TO252_GSD`             | TO-252 (DPAK)             | DPAK-3, SMD-220                | **MOSFETs** (G–S–D, **tab = D**)          |
+| `TO263_2`               | TO-263-2 (D2PAK, MO-169)  | D2PAK-2, SMD-220 large         | **Diodes**, 2 leads + tab                 |
+| `TO263_3` / `TO263_GSD` | TO-263-3 (D2PAK, MO-169)  | D2PAK-3                        | **MOSFETs**, tab = D                      |
+| `TO263_7`               | TO-263-7 (D2PAK, MO-169)  | D2PAK-7                        | Multi-lead regulators, drivers             |
+
+**Naming note (TO-252):** We follow distributor/JEDEC terminal count for diodes:
+* `TO252_3` = “2 leads + tab”.
+* For TO-263 we keep the more common **lead-count style** (`TO263_2`, `TO263_7`).
 
 ## **Small-signal transistor packages**
 
@@ -120,25 +124,38 @@ Below is a list of improvements to some key footprints:
 | `SOT23_3`      | TO-236AB (JEDEC MO-178) | SOT-23-3, SC-59     | Generic 3-pin               |
 | `SOT23_BCE`    | TO-236AB                | SOT-23 (BCE pinout) | Bipolar transistors         |
 | `SOT23_GSD`    | TO-236AB                | SOT-23 (GSD pinout) | MOSFETs                     |
-| `SOT23_5`      | JEDEC MO-178 Var. BD    | SOT-23-5, SC-74     | Regulators, op-amps         |
-| `SOT23_6`      | JEDEC MO-178 Var. BA    | SOT-23-6, SC-74A    | Analog switches, FET arrays |
-| `SOT416_3`     | JEDEC MO-193 Var. AA    | SOT-416, SC-75      | 3-pin numbering (BJTs)      |
-| `SOT416_GSD`   | JEDEC MO-193 Var. AB    | SOT-416, SC-73      | MOSFET GSD mapping          |
+| `SOT23_5`      | JEDEC MO-178 (variant)  | SOT-23-5, SC-74     | Regulators, op-amps         |
+| `SOT23_6`      | JEDEC MO-178 (variant)  | SOT-23-6, SC-74A    | Analog switches, FET arrays |
+| `SOT416_3`     | JEDEC MO-193 (variant)  | SOT-416, SC-75      | 3-pin numbering (BJTs)      |
+| `SOT416_GSD`   | JEDEC MO-193 (variant)  | SOT-416, SC-73      | MOSFET G-S-D mapping        |
 
 ## **Surface-mount diode / TVS packages**
 
 | Our Footprint   | JEDEC / Std Name | Common Aliases                 | Notes                     |
 | --------------- | ---------------- | ------------------------------ | ------------------------- |
-| `DIODE_SMA`     | DO-214AA         | SMA, SMAJ (TVS)                | 4.3 × 2.5 mm              |
-| `DIODE_SMB`     | DO-214AB         | SMB, SMBJ (TVS)                | 4.6 × 3.6 mm              |
-| `DIODE_SMC`     | DO-214AC         | SMC, SMCJ (TVS)                | 7.0 × 6.2 mm              |
-| `DIODE_SOD123`  | DO-219AA         | SOD-123                        | 2.7 × 1.6 mm              |
-| `DIODE_SOD123F` | DO-219AB         | SOD-123FL, SOD-123F, SMF (TVS) | Flat lead variant         |
+| `DIODE_SMA`     | DO-214AC         | SMA, **SMAJ** (TVS)            | ~4.3 × 2.5 mm             |
+| `DIODE_SMB`     | DO-214AA         | SMB, **SMBJ** (TVS)            | ~4.6 × 3.6 mm             |
+| `DIODE_SMC`     | DO-214AB         | SMC, **SMCJ** (TVS)            | ~7.0 × 6.2 mm             |
+| `DIODE_SOD123`  | —                | SOD-123                        | ~2.7 × 1.6 mm             |
+| `DIODE_SOD123F` | DO-219AB         | SOD-123FL, SOD-123F, **SMF**   | Flat-lead TVS form factor |
 | `DIODE_SOD323`  | MO-567           | SOD-323, SC-90                 | 2.5 × 1.25 mm             |
-| `DIODE_SOD923`  | JEDEC MO-254     | SOD-923                        | Ultra-mini (1.0 × 0.6 mm) |
+| `DIODE_SOD923`  | MO-254           | SOD-923                        | Ultra-mini (1.0 × 0.6 mm) |
 
-## 📌 Key takeaways
+## **Key takeaways**
 
-* **TO-252 / TO-263**: our “\_2” vs “\_3” naming should follow **lead count (excluding tab)** for consistency → i.e. diodes = `_2`, MOSFETs = `_3`.
-* **SOT / SC naming**: SC-59 = SOT-23-3, SC-74 = SOT-23-5, SC-74A = SOT-23-6, SC-73/75 = SOT-416.
-* **DIODE families**: keep filenames short (`SMA`, `SMB`, `SMC`, `SOD123` …) and put aliases in comments + README.
+* **TO-252 / TO-263:**  
+  - `TO252_3` = diode (2 leads + tab), by distributor convention.  
+  - `TO252_GSD` = MOSFET (3 leads + tab).  
+  - `TO263_2`, `TO263_3`, `TO263_7` follow lead-count style.
+* **SOT / SC naming:**  
+  - SC-59 = SOT-23-3  
+  - SC-74 = SOT-23-5  
+  - SC-74A = SOT-23-6  
+  - SC-73 / SC-75 = SOT-416
+* **DO / SOD families:**  
+  - SMA = DO-214AC  
+  - SMB = DO-214AA  
+  - SMC = DO-214AB  
+  - SOD-123F = DO-219AB (SMF)  
+  - SOD-323 = MO-567  
+  - SOD-923 = MO-254  
