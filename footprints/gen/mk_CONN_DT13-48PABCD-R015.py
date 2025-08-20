@@ -98,8 +98,8 @@ g.holeat(x, y, cc_hole)
 x = -px / 2 + cx + ccx / 2 + cccx / 2
 g.holeat(x, y, cc_hole)
 
-pcb_width = 12.7
-pcb_length = 16.51
+pcb_width = 127
+pcb_length = 165.1
 
 ox1 = -px / 2 + cx + ccx / 2 + pcb_width / 2
 ox2 = -px / 2 + cx + ccx / 2 - pcb_width / 2

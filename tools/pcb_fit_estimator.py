@@ -22,12 +22,18 @@ SIZE_MAP = {
     "pei2312_pol": (5.842, 3.048),
 
     # Diodes & packages
-    "SOD123FL": (3.7, 1.8),
-    "peSOD123": (3.7, 1.8),
-    "DO214AC":  (4.6, 2.7),  # SMA
+    "DIODE_SMA":  (4.6, 2.7),
+    "DIODE_SMB":  (4.6, 2.7),
+    "DIODE_SMC":  (4.6, 2.7),
+    "DIODE_SOD123F": (3.7, 1.8),
+    "DIODE_SOD123": (3.7, 1.8),
+    "DIODE_SOD323": (3.7, 1.8),
+    "DIODE_SOD923": (3.7, 1.8),
+    "SOT23_GSD": (1.7, 2.9),
+    "SOT23_BCE": (1.7, 2.9),
     "SOT23_3":  (1.7, 2.9),
     "SOT23_5":  (1.7, 2.9),
-    "peSOT23_GSD": (1.7, 2.9),
+    "SOT23_6":  (1.7, 2.9),
 
     # Leaded-ish named
     "RADIAL-5.00": (5.0, 5.0),  # if we detect diameter ~5mm, we’ll override below
@@ -49,9 +55,14 @@ SIZE_MAP = {
     # crystals
     "LFXTAL035939": (13.4, 4.9),
     
-    # DPAK / TO-252
+    # DPAK
+    "TO220_2": (6.6, 9.9),
+    "TO247_GCE": (6.6, 9.9),
+    "TO252_GSD": (6.6, 9.9),
     "TO252_3": (6.6, 9.9),
-    "TO252_DIODE": (6.6, 9.9),
+    "TO263_2": (6.6, 9.9),
+    "TO263_GSD": (6.6, 9.9),
+    "TO263_7": (6.6, 9.9),
 
     # Small ICs without numeric body in name
     "LGA14": (3.0, 3.0),          # generic
