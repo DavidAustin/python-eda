@@ -114,7 +114,7 @@ Below is a list of improvements to some key footprints:
 | `TO263_7`               | TO-263-7 (D2PAK, MO-169)  | D2PAK-7                        | Multi-lead regulators, drivers             |
 
 **Naming note (TO-252):** We follow distributor/JEDEC terminal count for diodes:
-* `TO252_3` = “2 leads + tab”.
+* `TO252_3` = “2 leads + tab” - for diodes like symbols/sym/DIODE_TO252_3.sym
 * For TO-263 we keep the more common **lead-count style** (`TO263_2`, `TO263_7`).
 
 ## **Small-signal transistor packages**
