@@ -30,6 +30,8 @@ h = 3.0
 g.rect_padat(0.0, 0.0, w, h, '1')
 g.rect_padat(0.0, 14, w, h, '2')
 
+g.outlineplus(2.5, 13.5)
+
 g.outlinecirc(0.0, part_dia / 2 + 1, part_dia / 2)
 
 #g.outline(-3.5, -0.75, -3.5, 0.75)

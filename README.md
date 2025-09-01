@@ -23,7 +23,7 @@ Where,
 
 Try to standardise fp gen's to:
 
-* DIODE_* - diodes
+* DIODE_* - diodes (pin 1 is cathode, so becareful when using gEDA/gaf and leptonEDA which provide both options in the symbol, e.g. use diode-3.sym, zenor-3.sym, schottky-1.sym)
 * IND_* - inductors
 * CAP_* - caps
 * CONN_* - connectors (created by fp generators mk_CONN*.py)
