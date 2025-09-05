@@ -60,9 +60,16 @@ make_fp(8, 3.9, 4.9, 1.27, 5.75, 0.45, 2.15, 3.1, 2.4) # based on https://www.ti
 make_fp(8, 3.9, 4.9, 1.27, 4.93, 0.53, 1.98) # based on https://www.analog.com/media/en/technical-documentation/data-sheets/DS3231M.pdf
                                              # and https://www.analog.com/media/en/technical-documentation/data-sheets/max33045e-max33046e.pdf
 make_fp(8, 3.9, 4.9, 1.27, 5.4, 0.6, 1.55) # based on https://ww1.microchip.com/downloads/en/DeviceDoc/ATA6562.3-Data-Sheet-DS20005790D.pdf
+make_fp(8, 3.9, 4.9, 1.27, 5.207, 0.762, 1.143) # based on https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/ltc-legacy-soic/05081610_g_so8.pdf
+
+# likely best generic version for SOIC8 narrow because it's JEDEC compliant:
+make_fp(8, 3.9, 4.9, 1.27, 5.6, 0.65, 1.75) # based on JEDEC MS-012 https://www.alldatasheet.com/datasheet-pdf/view/339136/FAIRCHILD/MKT-MO8A.html
+
 make_fp(14, 3.9, 8.65, 1.27, 6.25, 0.8, 1.5) # based on https://en.wikipedia.org/wiki/Small_Outline_Integrated_Circuit#Narrow_SOIC_(JEDEC)
 make_fp(14, 3.9, 8.65, 1.27, 5.4, 0.6, 1.55) # based on https://ww1.microchip.com/downloads/en/DeviceDoc/External-CAN-FD-Controller-with-SPI-Interface-DS20006027B.pdf
+
 make_fp(16, 3.9, 9.9, 1.27, 5.4, 0.8, 1.5) # based on https://ww1.microchip.com/downloads/en/DeviceDoc/21295d.pdf
 make_fp(16, 4.4, 10.28, 1.27, 6.25, 0.8, 1.5) # based on http://optoelectronics.liteon.com/upload/download/DS70-2009-0014/LTV-2X7%20sereis%20Mar17.PDF
 make_fp(16, 7.5, 12.8, 1.27, 8.9, 0.8, 1.5) # based on https://www.analog.com/media/en/technical-documentation/data-sheets/ADuM6020-6028.pdf
+
 make_fp(28, 5.3, 10.2, 0.65, 7.2, 0.45, 1.75) # based on http://ww1.microchip.com/downloads/en/DeviceDoc/20001952C.pdf
