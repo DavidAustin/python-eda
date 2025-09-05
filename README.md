@@ -19,11 +19,23 @@ Where,
 * symbols/sym/ - for manually crafted *.sym files
 * symbols/tsv/ - for *.tsv files (used to auto generate *.sym files)
 
+# Built-in symbols and footprints
+
+Under Linux:
+
+$ find /usr/share/pcb/ -name "*.fp" | wc -l
+
+1357
+
+$ find /usr/share/lepton-eda/ -name "*.sym" | wc -l
+
+1488
+
 # Goal
 
 Try to standardise fp gen's to:
 
-* DIODE_* - diodes (pin 1 is cathode, so becareful when using gEDA/gaf and leptonEDA which provide both options in the symbol, e.g. use diode-3.sym, zenor-3.sym, schottky-1.sym)
+* DIODE_* - diodes (see diodes section below)
 * IND_* - inductors
 * CAP_* - caps
 * CONN_* - connectors (created by fp generators mk_CONN*.py)
@@ -68,13 +80,9 @@ THT: mk_CONN*.py, mk_RADIAL*.py, mk_holes.py
 18) Cleanup usb sym's - pin number depends on USB version and connector type.
 19) ensure bom created can handle part names with ,
 
-# gEDA/gaf and LeptonEDA built-in footprints
+# Diodes
 
-Under Linux:
-
-$ find /usr/share/pcb/ -name "*.fp" | wc -l
-
-1357
+pin 1 is cathode, so becareful when using gEDA/gaf and leptonEDA which provide both options in the symbol, e.g. use diode-3.sym, zenor-3.sym, schottky-1.sym
 
 Below is a list of improvements to some key footprints:
 
