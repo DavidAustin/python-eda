@@ -1,0 +1,110 @@
+# This is the template file for creating symbols with tragesym
+# every line starting with '#' is a comment line.
+
+[options]
+# wordswap swaps labels if the pin is on the right side an looks like this:
+#   "PB1 (CLK)". That's useful for micro controller port labels
+# rotate_labels rotates the pintext of top and bottom pins
+#   this is useful for large symbols like FPGAs with more than 100 pins
+# sort_labels will sort the pins by it's labels
+#   useful for address ports, busses, ...
+wordswap=no
+rotate_labels=no
+sort_labels=no
+generate_pinseq=yes
+sym_width=3000
+pinwidthvertical=500
+pinwidthhorizontal=500
+
+[geda_attr]
+# name will be printed in the top of the symbol
+# name is only some graphical text, not an attribute
+# version specifies a gschem version.
+# if you have a device with slots, you'll have to use slot= and slotdef=
+# use comment= if there are special information you want to add
+version=20060113 1
+name=ADG704BRMZ-REEL
+device=ADG704BRMZ-REEL
+refdes=U?
+footprint=TQFP-48
+description=
+documentation=
+author=
+dist-license=
+use-license=
+numslots=0
+#slot=1
+#slotdef=1:
+#slotdef=2:
+#slotdef=3:
+#slotdef=4:
+#comment=
+#comment=
+#comment=
+
+[pins]
+# tabseparated list of pin descriptions
+# ----------------------------------------
+# pinnr is the physical number of the pin
+# seq is the pinseq= attribute, leave it blank if it doesn't matter
+# type can be (in, out, io, oc, oe, pas, tp, tri, clk, pwr)
+# style can be (line,dot,clk,dotclk,spacer,none). none if only want to add a net
+# posit. can be (l,r,t,b) or empty for nets.
+# net specifies the name of the net. Vcc or GND for example.
+# label represents the pinlabel.
+#	negation lines can be added with "\_" example: \_enable\_ 
+#	if you want to write a "\" use "\\" as escape sequence
+#-----------------------------------------------------
+#pinnr	seq	type	style	posit.	net	label	
+#-----------------------------------------------------
+43		io	line	r		D
+
+12		io	line	l		S1
+11		io	line	l		S2
+10		io	line	l		S3
+9		io	line	l		S4
+8		io	line	l		S5
+7		io	line	l		S6
+6		io	line	l		S7
+5		io	line	l		S8
+4		io	line	l		S9
+3		io	line	l		S10
+2		io	line	l		S11
+1		io	line	l		S12
+48		io	line	l		S13
+47		io	line	l		S14
+46		io	line	l		S15
+45		io	line	l		S16
+25		io	line	l		S17
+26		io	line	l		S18
+27		io	line	l		S19
+28		io	line	l		S20
+29		io	line	l		S21
+30		io	line	l		S22
+31		io	line	l		S23
+32		io	line	l		S24
+33		io	line	l		S25
+34		io	line	l		S26
+35		io	line	l		S27
+36		io	line	l		S28
+37		io	line	l		S29
+38		io	line	l		S30
+39		io	line	l		S31
+40		io	line	l		S32
+
+13		pwr	line	t		VDD
+14		pwr	line	t		VDD
+23		pwr	line	b		GND
+24		pwr	line	b		VSS
+
+21		in	line	r		\_WR\_
+20		in	line	r		\_CS\_
+22		in	line	r		\_EN\_
+15		in	line	r		A0
+16		in	line	r		A1
+17		in	line	r		A2
+18		in	line	r		A3
+19		in	line	r		A4
+41		io	line	r		NIC
+42		io	line	r		NIC
+44		io	line	r		NIC
