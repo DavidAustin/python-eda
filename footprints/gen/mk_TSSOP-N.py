@@ -44,6 +44,8 @@ def make_fp(n_pins, part_w, part_h, px, py, pad_w, pad_h):
 
     g.write()
 
+# NOTE: generaly TSSOP pitch is 0.65mm, not 0.5mm (e.g. MSOP)
+
 # https://en.wikipedia.org/wiki/Small_outline_integrated_circuit#Thin-shrink_small-outline_package_(TSSOP)
 
 # http://ww1.microchip.com/downloads/en/DeviceDoc/22147a.pdf
@@ -51,6 +53,12 @@ make_fp(6, 2, 1.25, 0.65, 2.2, 0.4, 0.9)
 
 # https://www.ti.com/lit/ds/symlink/lm4889.pdf
 make_fp(8, 3.0, 3.0, 0.65, 4.4, 0.45, 1.5)
+
+# based on https://www.analog.com/media/en/technical-documentation/data-sheets/18645fb.pdf
+make_fp(8, 3.0, 3.0, 0.65, 4.341, 0.65, 0.889) 
+
+#https://ww1.microchip.com/downloads/en/DeviceDoc/MCP6001-1R-1U-2-4-1-MHz-Low-Power-Op-Amp-DS20001733L.pdf
+make_fp(14, 4.4, 5.0, 0.65, 5.9, 0.45, 1.45)
 
 # https://www.ti.com/lit/ds/symlink/msp430fr2111.pdf
 # https://www.ti.com/lit/ds/symlink/msp430fr2000.pdf
@@ -64,7 +72,7 @@ make_fp(20, 6.5, 4.4, 0.65, 5.8, 0.45, 1.5)
 # https://www.nxp.com/docs/en/data-sheet/PCA9685.pdf
 make_fp(28, 9.7, 4.4, 0.65, 5.4, 0.45, 1.5)
 
-# http://www.ti.com/lit/ds/symlink/msp430fr2355.pdf
+# http://www.ti.com/lit/ds/symlink/msp430fr2355.pdf - this is perhaps MSOP
 make_fp(38, 9.7, 4.4, 0.5, 5.6, 0.25, 1.55)
 
 # NOTE: 18/3/24 corrected part_w and part_h to align with x, y

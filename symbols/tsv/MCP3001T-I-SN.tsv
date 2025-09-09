@@ -58,10 +58,10 @@ numslots=0
 #pinnr	seq	type	style	posit.	net	label	
 #-----------------------------------------------------
 1		pwr	line	t		VREF
-2		in	line	r		IN+
-3		in	line	r		IN-
+2		in	line	l		IN+
+3		in	line	l		IN-
 4		pwr	line	b		VSS
-5		in	line	l		\_CS\_/SHDN
-6		out	line	l		DOUT
-7		in	line	l		CLK
+5		in	line	r		\_CS\_/SHDN
+6		out	line	r		DOUT
+7		in	line	r		CLK
 8		pwr	line	t		VDD
