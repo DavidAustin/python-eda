@@ -55,7 +55,7 @@ make_fp(6, 2, 1.25, 0.65, 2.2, 0.4, 0.9)
 make_fp(8, 3.0, 3.0, 0.65, 4.4, 0.45, 1.5)
 
 # based on https://www.analog.com/media/en/technical-documentation/data-sheets/18645fb.pdf
-make_fp(8, 3.0, 3.0, 0.65, 4.341, 0.65, 0.889) 
+make_fp(8, 3.0, 3.0, 0.65, 4.341, 0.42, 0.889) 
 
 #https://ww1.microchip.com/downloads/en/DeviceDoc/MCP6001-1R-1U-2-4-1-MHz-Low-Power-Op-Amp-DS20001733L.pdf
 make_fp(14, 4.4, 5.0, 0.65, 5.9, 0.45, 1.45)
