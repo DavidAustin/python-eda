@@ -69,6 +69,9 @@ make_fp(16, 5.0, 4.4, 0.65, 5.8, 0.45, 1.5)
 # https://www.ti.com/lit/ds/symlink/txs0108e.pdf?ts=1725240466504
 make_fp(20, 6.5, 4.4, 0.65, 5.8, 0.45, 1.5)
 
+# https://www.ti.com/lit/ds/symlink/tcal9539.pdf
+make_fp(24, 7.8, 4.4, 0.65, 5.8, 0.45, 1.5)
+
 # https://www.nxp.com/docs/en/data-sheet/PCA9685.pdf
 make_fp(28, 9.7, 4.4, 0.65, 5.4, 0.45, 1.5)
 
