@@ -51,6 +51,8 @@ SMT: mk_QFN-N.py, mk_TQFP-N.py, mk_WFDFN-N.py, mk_SOIC-N.py, mk_SSOP-N.py, mk_TS
 
 THT: mk_CONN*.py, mk_RADIAL*.py, mk_holes.py
 
+NOTE: for custom SMD/SMT's array's use mk_SMD-N.py
+
 # To Do List - up for discussion
 
 1) fp gen - Support for arrays of pins/pads - should be able to do a whole row
