@@ -25,15 +25,19 @@ g = FootprintGen("DLW21SZ900HQ2L")
 part_w = 2.0
 part_h = 1.2
 
-pad_w = 1.5
-pad_h = 1.5
+pad_w = 0.9
+pad_h = 0.35
 
-p = 2-0.45 + pad_w
+px = 1.7
+py = 0.85
 
-g.rect_padat(0.0, 0.0, pad_w, pad_h, "1")
-g.rect_padat(p, 0.0, pad_w, pad_h, "2")
+g.rect_padat(0.0, -py / 2, pad_w, pad_h, "1")
+g.rect_padat(px, -py / 2, pad_w, pad_h, "2")
 
-cx = p / 2.0
+g.rect_padat(0.0, py / 2, pad_w, pad_h, "4")
+g.rect_padat(px, py / 2, pad_w, pad_h, "3")
+
+cx = px / 2.0
 cy = 0
 
 ox1 = cx - part_w / 2.0
@@ -55,5 +59,7 @@ g.outline(ox1, oy1, ox2, oy2)
 oy1 = cy + part_h / 2.0
 oy2 = oy1
 g.outline(ox1, oy1, ox2, oy2)
+
+g.outlinecirc(0, -part_h / 2 - 0.3, 0.05, 0.2)
 
 g.write()
