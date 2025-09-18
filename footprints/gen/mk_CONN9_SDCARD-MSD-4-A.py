@@ -14,63 +14,73 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-# http://www.assmann-wsw.com/uploads/datasheets/ASS_4888_CO.pdf
+# https://www.sameskydevices.com/product/resource/msd-4-a.pdf
 
 import math
 from footprintgen import *
 
-g = FootprintGen('CONN8_SDCARD-MSD-4-A')
+g = FootprintGen('CONN9_SDCARD-MSD-4-A')
 
-part_w = 19.35
-part_h = 26.3
+part_w = 14.75
+part_h = 14.5
 
-pad_x = 1.0
-pad_y = 2.3
+pad_x = 0.7
+pad_y = 1.6
 
-p = 1.27
+p = 1.1
 x = 0
 y = 0
 
 g.rect_padat(x, y, pad_x, pad_y, "1")
 x -= p
-g.rect_padat(x, y, pad_x, pad_y, "5")
-x -= p
 g.rect_padat(x, y, pad_x, pad_y, "2")
-x -= p
-g.rect_padat(x, y, pad_x, pad_y, "6")
 x -= p
 g.rect_padat(x, y, pad_x, pad_y, "3")
 x -= p
-g.rect_padat(x, y, pad_x, pad_y, "7")
-x -= p
 g.rect_padat(x, y, pad_x, pad_y, "4")
 x -= p
+g.rect_padat(x, y, pad_x, pad_y, "5")
+x -= p
+g.rect_padat(x, y, pad_x, pad_y, "6")
+x -= p
+g.rect_padat(x, y, pad_x, pad_y, "7")
+x -= p
 g.rect_padat(x, y, pad_x, pad_y, "8")
+x -= p
+g.rect_padat(x, y, pad_x, pad_y, "9")
 
-x_edge = x
+pad_x = 1.2
+pad_y = 1.8
 
-pad_x = 1.5
-pad_y = 2.95
-
-x = x_edge - 4.37
-y = 20.7
-g.rect_padat(x, y, pad_x, pad_y, "0")
-x += 20.55
+x = x - 0.6 - pad_x / 2
+y = 1.6 / 2 + 10.2 - 8.8 - 1.8 / 2
 g.rect_padat(x, y, pad_x, pad_y, "0")
 
-dia = 1.4
-od = dia * 1.5
+y = 1.6 / 2 + 10.2 + 0.7 - 2.2 / 2
+g.rect_padat(x, y, pad_x, pad_y, "0")
 
-x = x_edge - 4.37 + 2.11
-y = 21.47
-g.pinat(x, y, dia, od,  "0")
+x = x + 14.3 + 1.2
+g.rect_padat(x, y, pad_x, pad_y, "0")
 
-x = x_edge - 4.37 + 18.16
-y = 11.67
-g.pinat(x, y, dia, od,  "0")
+center_x = -8 * 1.1 + 6.55
 
-ox1 = x_edge - 3.77
-oy1 = -2.3 / 2.0 + 0.6
+pad_x = 1.6
+pad_y = 1.5
+x = center_x - 4.95 + 8 + 3 + 1.6 / 2
+y = 1.6 / 2 + 10.2 - 9.2 - 1.5
+g.rect_padat(x, y, pad_x, pad_y, "0")
+
+dia = 1.0
+x = center_x - 4.95
+y = 1.6 / 2 + 10.2
+g.holeat(x, y, dia)
+
+x += 8
+y = 1.6 / 2 + 10.2
+g.holeat(x, y, dia)
+
+ox1 = center_x - part_w / 2
+oy1 = -1.6 / 2
 ox2 = ox1 + part_w
 oy2 = oy1 + part_h
 
