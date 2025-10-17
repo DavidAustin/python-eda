@@ -42,10 +42,9 @@ g.rect_padat(px / 2.0 + px * 3 + px1 + px2, py, w * 2, h, '12')
 
 x = 5.78 / 2.0
 d = 0.65
-a = 1.0524
 
-g.pinat(x, 0, d, a, '0')
-g.pinat(-x, 0, d, a, '0')
+g.holeat(x, 0, d)
+g.holeat(-x, 0, d)
 
 h = 2
 w = (11-8.94) / 2.0 # normally 2.18 - but we want smaller footprint

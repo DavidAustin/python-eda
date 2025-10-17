@@ -68,10 +68,9 @@ g.pinat(px * 3, py, d, a, 'B2')
 
 p = 7.2
 d = 0.65
-a = 0.96
 
-g.pinat(p / 2.0, 0, d, a, '0')
-g.pinat(-p / 2.0, 0, d, a, '0')
+g.holeat(p / 2.0, 0, d)
+g.holeat(-p / 2.0, 0, d)
 
 # ground pins
 

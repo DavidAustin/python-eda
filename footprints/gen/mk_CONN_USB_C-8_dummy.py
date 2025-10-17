@@ -46,10 +46,9 @@ g.rect_padat(px / 2.0 + px * 3 + px1 + px2, py, w * 2, h, '12')
 
 p = 5.79
 d = 0.65
-a = 1.0524
 
-g.pinat(p / 2.0, 0, d, a, '0')
-g.pinat(-p / 2.0, 0, d, a, '0')
+g.holeat(p / 2.0, 0, d)
+g.holeat(-p / 2.0, 0, d)
 
 # ground pads
 

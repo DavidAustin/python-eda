@@ -59,15 +59,14 @@ x += 20.55
 g.rect_padat(x, y, pad_x, pad_y, "0")
 
 dia = 1.4
-od = dia * 1.5
 
 x = x_edge - 4.37 + 2.11
 y = 21.47
-g.pinat(x, y, dia, od,  "0")
+g.holeat(x, y, dia)
 
 x = x_edge - 4.37 + 18.16
 y = 11.67
-g.pinat(x, y, dia, od,  "0")
+g.holeat(x, y, dia)
 
 ox1 = x_edge - 3.77
 oy1 = -2.3 / 2.0 + 0.6
