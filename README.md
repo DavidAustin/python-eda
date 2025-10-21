@@ -47,7 +47,7 @@ Try to standardise fp gen's to:
 
 Should always be postfixed with "-N.py"
 
-SMT: mk_QFN-N.py, mk_TQFP-N.py, mk_WFDFN-N.py, mk_SOIC-N.py, mk_SSOP-N.py, mk_TSSOP-N.py, mk_HTSSOP-N.py, mk_WSOP-N.py, mk_BGA-N.py, mk_uSIP-N.py, mk_pe*.py
+SMT: mk_QFN-N.py, mk_VQFN-N.py, mk_TQFP-N.py, mk_WFDFN-N.py, mk_SOIC-N.py, mk_SSOP-N.py, mk_TSSOP-N.py, mk_HTSSOP-N.py, mk_WSOP-N.py, mk_BGA-N.py, mk_uSIP-N.py, mk_pe*.py
 
 THT: mk_CONN*.py, mk_RADIAL*.py, mk_holes.py
 
