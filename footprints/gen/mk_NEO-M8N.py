@@ -22,7 +22,7 @@ from footprintgen import *
 part_w = 12.2
 part_h = 16.0
 px = 1.1
-py = 12.2 - 0.9
+py = 12.2 + 0.9 / 2.0
 pad_w = 0.8
 pad_h = 0.9
 
@@ -33,7 +33,7 @@ for i in range(1, 8):
     g.rect_padat(x, 0, pad_w, pad_h, i)
     x += px
 
-x += 3.0
+x = x - px + 3.0
 for i in range(8, 13):
     g.rect_padat(x, 0, pad_w, pad_h, i)
     x += px
@@ -43,19 +43,19 @@ for i in range(13, 18):
     g.rect_padat(x, -py, pad_w, pad_h, i)
     x -= px
 
-x -= 3.0
+x = x + px - 3.0
 for i in range(18, 25):
     g.rect_padat(x, -py, pad_w, pad_h, i)
     x -= px
     
-ox1 = (part_h - px * 11 - 3.0) / 2.0
-oy1 = (part_w + py) / 2.0
+ox1 = -1.0
+oy1 = -(part_w + py) / 2.0
 
-ox2 = part_h - ox1
-oy2 = part_w - oy1
+ox2 = ox1 + part_h
+oy2 = oy1 + part_w
 
-g.outlinerect(-ox1, -oy1, ox2, oy2)
+g.outlinerect(ox1, oy1, ox2, oy2)
 
-g.outlinecirc(-ox1 - 0.3, oy1 - py - 0.3, 0.05, 0.2)
+g.outlinecirc(ox1 - 0.3, oy2 + 0.3, 0.05, 0.2)
 
 g.write()
