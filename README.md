@@ -56,10 +56,8 @@ NOTE: for custom SMD/SMT's array's use mk_SMD-N.py
 # IC Design Rules
 
 Rule-of-thumb with IPC-style land patterns:
-
-Pad width ≈ lead width + 0.05 mm per side (e.g. lead_width = 3mm, pad_width = 3.1mm)
-
-Pad length ≈ lead length + 0.15-0.2mm per side (e.g. lead_length = 0.78mm, lead_length = 1.08-1.18mm)
+* Pad width ≈ lead width + 0.05 mm per side (e.g. lead_width = 3mm, pad_width = 3.1mm)
+* Pad length ≈ lead length + 0.15-0.2mm per side (e.g. lead_length = 0.78mm, lead_length = 1.08-1.18mm)
 
 # ICs
 
