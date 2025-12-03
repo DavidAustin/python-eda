@@ -51,9 +51,9 @@ SMT: mk_QFN-N.py, mk_VQFN-N.py, mk_TQFP-N.py, mk_WFDFN-N.py, mk_SOIC-N.py, mk_SS
 
 THT: mk_CONN*.py, mk_RADIAL*.py, mk_holes.py
 
-NOTE: for custom SMD/SMT's array's use mk_SMD-N.py
+NOTE: for custom CRYSTALS/SMD/SMT's array's use mk_SMD-N.py
 
-# IC Design Rules
+# Pad Design Rules
 
 Rule-of-thumb with IPC-style land patterns:
 * Pad width ≈ lead width + 0.05 mm per side (e.g. lead_width = 3mm, pad_width = 3.1mm)

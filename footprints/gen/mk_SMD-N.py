@@ -53,6 +53,10 @@ def make_fp(n_pins, part_w, part_h, px, py, pad_w, pad_h, thermal_pad_w = False,
 
     g.write()
 
+make_fp(4, 2.5, 3.2, 2.2, 1.6, 1.4, 1.1) # based on https://www.raltron.com/webproducts/specs/CRYSTAL/RH100-32.000-6-F-1020-EXT-TR.pdf
+    
+make_fp(4, 2.5, 3.2, 2.3, 1.9, 1.3, 1.1) # based on https://ecsxtal.com/store/pdf/ECX-33QZ.pdf
+    
 make_fp(4, 6.5, 4.6, 2.54, 9.16, 1.7, 2.0) # based on https://docs.broadcom.com/doc/HCPL-817-Phototransistor-Optocoupler-High-Density-Mounting-Type-DS
 
 make_fp(12, 2.2, 3.6, 0.6, 0.738 * 2, 0.35, 0.575) # based on https://look.ams-osram.com/m/5a5ee86d4b8fe5f3/original/TMF8701-Time-of-Flight-Sensor.pdf
