@@ -47,40 +47,64 @@ Try to standardise fp gen's to:
 
 Should always be postfixed with "-N.py"
 
-SMT: mk_QFN-N.py, mk_VQFN-N.py, mk_TQFP-N.py, mk_WFDFN-N.py, mk_SOIC-N.py, mk_SSOP-N.py, mk_TSSOP-N.py, mk_HTSSOP-N.py, mk_WSOP-N.py, mk_BGA-N.py, mk_uSIP-N.py, mk_pe*.py
+SMT: mk_QFN-N.py, mk_VQFN-N.py, mk_TQFP-N.py, mk_WFDFN-N.py, mk_SOIC-N.py, mk_SSOP-N.py, mk_TSSOP-N.py, mk_HTSSOP-N.py, mk_WSOP-N.py, mk_BBSOP-N.py, mk_BGA-N.py, mk_uSIP-N.py, mk_pe*.py
 
 THT: mk_CONN*.py, mk_RADIAL*.py, mk_holes.py
 
 NOTE: for custom SMD/SMT's array's use mk_SMD-N.py
 
-# To Do List - up for discussion
+# IC Design Rules
 
-1) fp gen - Support for arrays of pins/pads - should be able to do a whole row
-   in one function call
-2) fp gen - REFDES text and better positioning of REFDES text - better
-   footprint metadata
-3) fp gen - Support for two-way and four-way symmetrical arrays of pins and
-   pads
-4) w/x vs l/h/y definition/clarification - perhaps vertical/horizontal
-   or stick with x/y standard coordinated frame: x = left/right, y = up/down
-5) .sym generator (replacing .tsv) - particular for families
-6) .sym to match manufacturer part number - likely the high level .sym
-   generator should produce all names in the family
-7) Check hole sizes - seems tight
-8) Produce ruler for checking footprints
-9) Add comment to link datasheet (to clarify dimensions)
-10) Should connectors show the minimal outline and maximum outline
-   (e.g. plug) - or perhaps two different footprints depending on size
-   objectives
-11) Enforce 80 char line limit?
-12) Increase pin clearance suitable for pcbway design rules
-13) Ensure footprints pads are larger then part pads
-14) Ensure sch part pin spacing is 500
-15) Ensure CONN 0,0 is at pin 1
-16) Prefix SMT CAPs with CAP_SMT
-17) Remove old radials scripts and use mk_RADIAL.py only
-18) Cleanup usb sym's - pin number depends on USB version and connector type.
-19) ensure bom created can handle part names with ,
+Rule-of-thumb with IPC-style land patterns:
+
+Pad width ≈ lead width + 0.05 mm per side (e.g. lead_width = 3mm, pad_width = 3.1mm)
+Pad length ≈ lead length + 0.15-0.2mm per side (e.g. lead_length = 0.78mm, lead_length = 1.08-1.18mm)
+
+# ICs
+
+These are *conventions*, not strict rules. Always check the specific part’s datasheet.
+
+## SSOP (Shrink Small Outline Package)
+
+* Legacy / older style small-outline
+* Common pitches: **0.65 mm**, sometimes 0.635 or 0.5 mm
+* No exposed thermal pad in basic variants
+* Body is usually wider than TSSOP for the same pin count
+
+## TSSOP (Thin Shrink Small Outline Package)
+
+* Thinner body than SSOP
+* Common pitches: **0.65 mm or 0.5 mm**
+* Narrower body than equivalent SSOP
+* Often **no exposed pad**, but some have a thermal pad variant
+
+## HTSSOP (Heat-slug TSSOP)
+
+* Mechanically similar outline to TSSOP of same pin count
+* **Has a big exposed thermal pad** underneath
+* Requires a footprint with:
+
+  * Central copper pad
+  * Multiple vias (often) for heat spreading
+  * Solder mask & paste pattern tuned for the pad
+* So: HTSSOP and TSSOP are **not** footprint-compatible because of that pad.
+
+## WSOP (Wafer-level S-SOP / “Very” small SOP – depends on vendor)
+
+* This one is **vendor-specific naming** (Microchip and others)
+* Sometimes closer to a **WSON/QFN-like** or ultra-small SOP-style outline
+* May have **different pitch** and/or different body width vs standard SSOP/TSSOP
+* Absolutely not safe to assume same footprint as “generic SSOP/TSSOP”
+
+## BSSOP (Body/Bonded Shrink Small Outline Package)
+
+* Also a **vendor-specific** package name (e.g., some call it "B" or "mini" SSOP)
+* “B” can mean *“body reduced”*, *“micro”*, or some special mechanical variation.
+* In practice it usually means:
+
+  * Similar **pitch** as an SSOP or TSSOP family (e.g., 0.5 or 0.65 mm)
+  * **Different body width/length and land pattern** recommendations
+* That means even if the pitch matches, **pad length and courtyard might not**, and sometimes the lead form is slightly different.
 
 # Diodes
 
@@ -169,3 +193,32 @@ Below is a list of improvements to some key footprints:
   - SOD-123F = DO-219AB (SMF)  
   - SOD-323 = MO-567  
   - SOD-923 = MO-254  
+
+# To Do List - up for discussion
+
+1) fp gen - Support for arrays of pins/pads - should be able to do a whole row
+   in one function call
+2) fp gen - REFDES text and better positioning of REFDES text - better
+   footprint metadata
+3) fp gen - Support for two-way and four-way symmetrical arrays of pins and
+   pads
+4) w/x vs l/h/y definition/clarification - perhaps vertical/horizontal
+   or stick with x/y standard coordinated frame: x = left/right, y = up/down
+5) .sym generator (replacing .tsv) - particular for families
+6) .sym to match manufacturer part number - likely the high level .sym
+   generator should produce all names in the family
+7) Check hole sizes - seems tight
+8) Produce ruler for checking footprints
+9) Add comment to link datasheet (to clarify dimensions)
+10) Should connectors show the minimal outline and maximum outline
+   (e.g. plug) - or perhaps two different footprints depending on size
+   objectives
+11) Enforce 80 char line limit?
+12) Increase pin clearance suitable for pcbway design rules
+13) Ensure footprints pads are larger then part pads
+14) Ensure sch part pin spacing is 500
+15) Ensure CONN 0,0 is at pin 1
+16) Prefix SMT CAPs with CAP_SMT
+17) Remove old radials scripts and use mk_RADIAL.py only
+18) Cleanup usb sym's - pin number depends on USB version and connector type.
+19) ensure bom created can handle part names with ,
