@@ -47,19 +47,7 @@ def make_fp(k, data, pol = False):
 
     if pol:
 
-        pos = c / 2.0 + oo
-        
-        ox1 = -pos
-        oy1 = oo
-        ox2 = -pos
-        oy2 = -oo        
-        g.outline(ox1, oy1, ox2, oy2)
-
-        ox1 = -pos - oo
-        oy1 = 0
-        ox2 = -pos + oo
-        oy2 = 0
-        g.outline(ox1, oy1, ox2, oy2)
+        g.outlineplus(cx - a / 2 * csx - oo - 0.7, 0)
         
     g.write()
 
