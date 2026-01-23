@@ -1,5 +1,5 @@
 # Python-EDA
-# Copyright (C) 2020-2022 Luke Cole
+# Copyright (C) 2025 Luke Cole
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -19,12 +19,12 @@ import math
 from footprintgen import *
 
 def make_fp():
-    name = 'ESP32-WROOM'
+    name = 'ESP32-WROOM-1'
     g = FootprintGen(name)
 
     # === Module dimensions ===
     mod_w = 18.0  # mm
-    mod_h = 25.5  # mm
+    mod_h = 25.5  # mm (for PCB antenna)
 
     # === Pad params ===
     pad_w = 1.5   # mm (width)
