@@ -30,11 +30,11 @@ h = (5.5 - 3.5) / 2.0
 px = 3.5 + h
 py = 2.15
 
-g.rect_padat(-px / 2.0, -py / 2.0, h, w, '0')
-g.rect_padat(-px / 2.0, py / 2.0, h, w, '1')
+g.rect_padat(-px / 2.0, -py / 2.0, h, w, '1')
+g.rect_padat(px / 2.0, -py / 2.0, h, w, '1')
 
+g.rect_padat(-px / 2.0, py / 2.0, h, w, '2')
 g.rect_padat(px / 2.0, py / 2.0, h, w, '2')
-g.rect_padat(px / 2.0, -py / 2.0, h, w, '2')
 
 ox1 = -(part_w - px) / 2.0 - px / 2.0
 ox2 = ox1 + part_w
