@@ -29,8 +29,8 @@ py = 4.45
 cx = 45.72 - 19.56
 ccx = 19.56 * 2
 
-d_hole = 1.588 + 1
-d_ann = d_hole * 1.5
+d_hole = 1.75
+d_ann = 2.69
 
 # A set
 x = 0
@@ -46,22 +46,8 @@ for i in range(7,13):
     g.pinat(x, y, d_hole, d_ann,  "A%d" % i)
     y -= py
 
-# B set
-x = cx
-y = 0
-g.pinat(x, y, d_hole, d_ann,  "B1", {'square' : 1})
-y += py
-for i in range(2,7):
-    g.pinat(x, y, d_hole, d_ann,  "B%d" % i)
-    y += py
-y -= py
-x -= px
-for i in range(7,13):
-    g.pinat(x, y, d_hole, d_ann,  "B%d" % i)
-    y -= py
-
 # C set
-x = cx + ccx
+x = cx
 y = 0
 g.pinat(x, y, d_hole, d_ann,  "C1", {'square' : 1})
 y += py
@@ -75,7 +61,7 @@ for i in range(7,13):
     y -= py
 
 # D set
-x = 2 * cx + ccx
+x = cx + ccx
 y = 0
 g.pinat(x, y, d_hole, d_ann,  "D1", {'square' : 1})
 y += py
@@ -86,6 +72,20 @@ y -= py
 x -= px
 for i in range(7,13):
     g.pinat(x, y, d_hole, d_ann,  "D%d" % i)
+    y -= py
+
+# B set
+x = 2 * cx + ccx
+y = 0
+g.pinat(x, y, d_hole, d_ann,  "B1", {'square' : 1})
+y += py
+for i in range(2,7):
+    g.pinat(x, y, d_hole, d_ann,  "B%d" % i)
+    y += py
+y -= py
+x -= px
+for i in range(7,13):
+    g.pinat(x, y, d_hole, d_ann,  "B%d" % i)
     y -= py
 
 cccx = 118.11
