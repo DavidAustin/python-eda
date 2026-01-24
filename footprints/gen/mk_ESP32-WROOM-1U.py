@@ -34,7 +34,7 @@ def make_fp():
     # === Pad rows ===
     # Left (pins 1–14, top to bottom)
     x_lhs = -17.5 / 2
-    y_lhs_start = -mod_h / 2 + 1.5
+    y_lhs_start = mod_h / 2 - pitch * 13 - 1.5
     for i in range(14):
         y = y_lhs_start + i * pitch
         g.rect_padat(x_lhs, y, pad_w, pad_h, i + 1)
