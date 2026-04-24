@@ -57,9 +57,11 @@ numslots=0
 #-----------------------------------------------------
 #pinnr	seq	type	style	posit.	net	label	
 #-----------------------------------------------------
+0		pwr	line	b		PAD
+
 1		io	line	l		SDA
 2		io	line	l		SCL
-3		pwr	line	l		VSS
+3		pwr	line	b		VSS
 4		pas	line	l		NC
 5		pwr	line	l		VDD
 6		in	line	l		BAT
