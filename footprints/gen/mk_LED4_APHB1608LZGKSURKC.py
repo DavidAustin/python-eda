@@ -19,7 +19,7 @@ from footprintgen import *
 
 g = FootprintGen('LED4_APHB1608LZGKSURKC')
 
-#For this LED, 1 * 3 are anode/positive
+#For this LED, 1 and 3 are anode/positive
 
 pad_w = 0.5
 pad_h = 0.4

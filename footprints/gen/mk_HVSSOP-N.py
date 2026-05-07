@@ -18,8 +18,11 @@
 import math
 from footprintgen import *
 
-def make_fp(n_pins, part_w, part_h, px, py, pad_w, pad_h):
-    g = FootprintGen('VSSOP-%d-%.2fx%.2f-%.2fx%.2f-%.2fx%.2f' % (n_pins, part_w, part_h, px, py, pad_w, pad_h))
+def make_fp(n_pins, part_w, part_h, px, py, pad_w, pad_h, thermal_pad_w = False, thermal_pad_h = False):
+    if thermal_pad_w and thermal_pad_h:
+        g = FootprintGen('HVSSOP-%d-%.2fx%.2f-%.2fx%.2f-%.2fx%.2f-%.2fx%.2f' % (n_pins, part_w, part_h, px, py, pad_w, pad_h, thermal_pad_w, thermal_pad_h))
+    else:
+        g = FootprintGen('HVSSOP-%d-%.2fx%.2f-%.2fx%.2f-%.2fx%.2f' % (n_pins, part_w, part_h, px, py, pad_w, pad_h))
 
     x = 0
     for i in range(1, n_pins // 2 + 1):
@@ -32,6 +35,12 @@ def make_fp(n_pins, part_w, part_h, px, py, pad_w, pad_h):
         g.rect_padat(x, -py, pad_w, pad_h, j + i)
         x -= px
 
+    cx = -(part_w - px * (n_pins / 2.0 - 1)) / 2.0 + part_w / 2.0
+    cy = -py / 2.0
+    
+    if thermal_pad_w and thermal_pad_h:
+        g.rect_padat(cx, cy, thermal_pad_w, thermal_pad_h, '0')
+        
     ox1 = (part_w - px * (n_pins / 2.0 - 1)) / 2
     oy1 = (part_h + py) / 2.0
 
@@ -40,12 +49,9 @@ def make_fp(n_pins, part_w, part_h, px, py, pad_w, pad_h):
 
     g.outlinerect(-ox1, -oy1, ox2, oy2)
 
-    g.outlinecirc(-ox1 - 0.3, oy2 + 0.3, 0.05, 0.2)
+    g.outlinecirc(-ox1 + 0.3, oy1 - py - 0.3, 0.05, 0.2)
 
     g.write()
 
-# https://www.ti.com/lit/ds/symlink/dac60501.pdf
-make_fp(10, 3, 3, 0.5, 4.4, 0.3, 1.45)
-
-# https://www.ti.com/lit/ds/symlink/tca9548a.pdf
-make_fp(24, 7.8, 4.4, 0.65, 5.8, 0.45, 1.5)
+# https://www.ti.com/lit/ds/symlink/xtr111.pdf
+make_fp(10, 3, 3, 0.5, 4.4, 0.3, 1.45, 1.89, 1.83)

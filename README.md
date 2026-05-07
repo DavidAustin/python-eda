@@ -47,7 +47,7 @@ Try to standardise fp gen's to:
 
 Should always be postfixed with "-N.py"
 
-SMT: mk_QFN-N.py, mk_VQFN-N.py, mk_TQFP-N.py, mk_WFDFN-N.py, mk_SOIC-N.py, mk_SSOP-N.py, mk_TSSOP-N.py, mk_HTSSOP-N.py, mk_WSOP-N.py, mk_BBSOP-N.py, mk_BGA-N.py, mk_uSIP-N.py, mk_pe*.py
+SMT: mk_QFN-N.py, mk_VQFN-N.py, mk_TQFP-N.py, mk_WFDFN-N.py, mk_SOIC-N.py, mk_SSOP-N.py, mk_TSSOP-N.py, mk_HTSSOP-N.py, mk_HVSSOP-N.py, mk_WSOP-N.py, mk_BBSOP-N.py, mk_BGA-N.py, mk_uSIP-N.py, mk_pe*.py
 
 THT: mk_CONN*.py, mk_RADIAL*.py, mk_holes.py
 
@@ -76,6 +76,14 @@ These are *conventions*, not strict rules. Always check the specific part’s da
 * Common pitches: **0.65 mm or 0.5 mm**
 * Narrower body than equivalent SSOP
 * Often **no exposed pad**, but some have a thermal pad variant
+
+## VSSOP (Very Small Small Outline Package)
+
+* TI package code often DGS (example: TCA9548A DGS / “DGSR” ordering suffix)
+* Common pitch: 0.50 mm (big gotcha vs TSSOP’s common 0.65 mm)
+* Typical body width: 3.00 mm (TSSOP-24 is typically 4.40 mm wide)
+* Usually no exposed pad
+* Not footprint-compatible with TSSOP even when pin-count matches
 
 ## HTSSOP (Heat-slug TSSOP)
 

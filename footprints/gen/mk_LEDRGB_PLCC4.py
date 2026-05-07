@@ -33,20 +33,14 @@ g.rect_padat(-pad_gap_x / 2, pad_gap_y / 2, pad_w, pad_h, '1')
 g.rect_padat(pad_gap_x / 2, -pad_gap_y / 2, pad_w, pad_h, '3')
 g.rect_padat(pad_gap_x / 2, pad_gap_y / 2, pad_w, pad_h, '4')
 
-oo_x = 0.3
-oo_y = 0.1
+part_w = 3.2
+part_h = 1.5
 
-ox1 = - pad_w / 2 - pad_gap_x / 2 - oo_x
-oy1 = - pad_h / 2 - pad_gap_y / 2 - oo_y
+ox1 = -(part_w - p_large) / 2.0
+oy1 = -0.25
+ox2 = ox1 + part_w
+oy2 = oy1 + part_h
 
-ox2 = pad_gap_x / 2 + pad_w / 2 + oo_x
-oy2 = pad_gap_y / 2 + pad_h / 2 + oo_y
 g.outlinerect(ox1, oy1, ox2, oy2)
-
-oy0 = oy1 - 0.15
-g.outline(ox1, oy0, ox2, oy0, 0.2)
-
-oy3 = oy2 + 0.15
-g.outline(ox1, oy3, ox2 - ((ox2 - ox1) / 2), oy3, 0.2)
 
 g.write()

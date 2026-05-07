@@ -62,3 +62,4 @@ make_fp(8, 3.0, 3.0, 0.65, 4.4, 0.45, 1.4, 3.0 * 0.65, 3.0 * 0.65)
 # https://www.analog.com/media/en/technical-documentation/data-sheets/max3311e-max3313e.pdf
 # https://www.analog.com/media/en/technical-documentation/data-sheets/ADG704.pdf
 make_fp(10, 3.0, 3.0, 0.5, 3.0 + 1.0, 0.3, 1.4) 
+

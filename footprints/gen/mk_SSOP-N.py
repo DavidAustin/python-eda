@@ -1,5 +1,5 @@
 # Python-EDA
-# Copyright (C) 2024-2025 Luke Cole
+# Copyright (C) 2024-2026 Luke Cole
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -47,7 +47,16 @@ def make_fp(n_pins, part_w, part_h, px, py, pad_w, pad_h):
 # https://en.wikipedia.org/wiki/Small_outline_integrated_circuit
 # https://www.holtek.com/webapi/106680/Footprints_for_SOP_SSOP_Series_20230710.pdf/b3eb1361-295e-4f22-b705-8f1008399503
 
-make_fp(16, 4.8895, 6.0075, 0.635, 5.1435, 0.4191, 1.143) # based on https://www.analog.com/media/en/technical-documentation/data-sheets/LTC1863-1867.pdf
+# https://www.ti.com/lit/ds/scas290t/scas290t.pdf
+make_fp(14, 5.0, 6.1, 0.65, 7, 0.45, 1.85)
+
+# https://www.analog.com/media/en/technical-documentation/data-sheets/LTC1863-1867.pdf
+make_fp(16, 4.8895, 6.0075, 0.635, 5.1435, 0.4191, 1.143)
+
+
+# https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/ssop/21-0056.pdf
+# https://www.analog.com/media/en/package-pcb-resources/land-pattern/ssop/90-0094.pdf
+make_fp(20, 7.2, 5.29, 0.65, 6.85, 0.43, 1.63)
 
 # https://pdfserv.maximintegrated.com/land_patterns/90-0095.PDF
 make_fp(28, 10.185, 3.81, 0.635, 5.4, 0.35, 1.5) # 150mil version (3.81mm)
