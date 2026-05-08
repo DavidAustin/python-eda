@@ -17,7 +17,7 @@
 import math
 from footprintgen import *
 
-g = FootprintGen('SOT223_4')
+g = FootprintGen('SOT223_4_GSD')
 
 # https://www.infineon.com/assets/row/public/documents/24/49/infineon-bsp170p-ds-en.pdf
 
@@ -31,15 +31,17 @@ py = 4.8 + 1.4
 
 x = 0.0
 y = 0.0
-for i in range(1,4):
-    g.rect_padat(x, y, w, h, '%d' % i)
-    x += px
+g.rect_padat(x, y, w, h, 'G')
+x += px
+g.rect_padat(x, y, w, h, 'D')
+x += px
+g.rect_padat(x, y, w, h, 'S')
+x += px
 
 x = px
 y = -py
 w = 3.5
-i = 4
-g.rect_padat(x, y, w, h, '%d' % i)
+g.rect_padat(x, y, w, h, 'D')
 
 ox1 = px - part_w / 2.0
 oy1 = -part_h / 2.0
