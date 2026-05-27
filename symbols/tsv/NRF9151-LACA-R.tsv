@@ -1,0 +1,172 @@
+# This is the template file for creating symbols with tragesym
+# every line starting with '#' is a comment line.
+#
+# Generated for Nordic Semiconductor NRF9151-LACA-R / nRF9151-LACA.
+# Pin names and assignments based on nRF9151 Product Specification v1.1
+# LGA pin assignments table.
+#
+# Notes:
+# - RESERVED_31..33 are the special thermally/mechanically connected pads that
+#   Nordic says to leave electrically unconnected.
+# - RESERVED_81..104 are do-not-connect/reserved-for-future-use pads.
+# - RF pins ANT, AUX and GPS are typed as passive in this symbol.
+
+[options]
+# wordswap swaps labels if the pin is on the right side an looks like this:
+#   "PB1 (CLK)". That's useful for micro controller port labels
+# rotate_labels rotates the pintext of top and bottom pins
+#   this is useful for large symbols like FPGAs with more than 100 pins
+# sort_labels will sort the pins by it's labels
+#   useful for address ports, busses, ...
+wordswap=yes
+rotate_labels=no
+sort_labels=no
+generate_pinseq=yes
+sym_width=18000
+pinwidthvertical=500
+pinwidthhorizontal=500
+
+[geda_attr]
+# name will be printed in the top of the symbol
+# name is only some graphical text, not an attribute
+# version specifies a gschem version.
+# if you have a device with slots, you'll have to use slot= and slotdef=
+# use comment= if there are special information you want to add
+version=20060113 1
+name=NRF9151-LACA-R
+device=NRF9151-LACA-R
+refdes=U?
+footprint=NRF9151-LACA
+description=Nordic nRF9151 low power cellular IoT / DECT NR+ SiP, LGA package
+documentation=https://www.nordicsemi.com/Products/nRF9151
+author=
+dist-license=
+use-license=
+numslots=0
+#slot=1
+#slotdef=1:
+#slotdef=2:
+#slotdef=3:
+#slotdef=4:
+#comment=Check Nordic nRF9151 hardware design guidelines before PCB layout.
+#comment=Reserved pins must follow Nordic connection guidance.
+#comment=
+
+[pins]
+# tabseparated list of pin descriptions
+# ----------------------------------------
+# pinnr	seq	type	style	posit.	net	label	
+#-----------------------------------------------------
+56		io	line	l		P0.00
+57		io	line	l		P0.01
+58		io	line	l		P0.02
+59		io	line	l		P0.03
+61		io	line	l		P0.04
+62		io	line	l		P0.05
+63		io	line	l		P0.06
+64		io	line	l		P0.07
+67		io	line	l		P0.08
+68		io	line	l		P0.09
+69		io	line	l		P0.10
+70		io	line	l		P0.11
+72		io	line	l		P0.12
+73		io	line	l		P0.13/AIN0
+74		io	line	l		P0.14/AIN1
+75		io	line	l		P0.15/AIN2
+77		io	line	l		P0.16/AIN3
+78		io	line	l		P0.17/AIN4
+79		io	line	l		P0.18/AIN5
+80		io	line	l		P0.19/AIN6
+2		io	line	l		P0.20/AIN7
+5		io	line	l		P0.21/TRACECLK
+6		io	line	l		P0.22/TRACEDATA0
+8		io	line	l		P0.23/TRACEDATA1
+11		io	line	l		P0.24/TRACEDATA2
+12		io	line	l		P0.25/TRACEDATA3
+44		io	line	l		P0.26
+45		io	line	l		P0.27
+47		io	line	l		P0.28
+48		io	line	l		P0.29
+49		io	line	l		P0.30
+50		io	line	l		P0.31
+3		in	line	r		SWDCLK
+4		io	line	r		SWDIO
+9		io	line	r		nRESET
+10		in	line	r		ENABLE
+16		out	line	r		SIM_RST
+17		io	line	r		SIM_IO
+18		out	line	r		SIM_CLK
+26		in	line	r		SIM_DET
+21		io	line	r		MAGPIO0
+22		io	line	r		MAGPIO1
+23		io	line	r		MAGPIO2
+27		io	line	r		MIPI_SDATA
+28		io	line	r		MIPI_SCLK
+52		io	line	r		COEX0
+53		io	line	r		COEX1
+54		io	line	r		COEX2
+35		pas	line	r		ANT
+37		pas	line	r		AUX
+42		pas	line	r		GPS
+31		pas	line	r		RESERVED_31
+32		pas	line	r		RESERVED_32
+33		pas	line	r		RESERVED_33
+81		pas	line	r		RESERVED_81
+82		pas	line	r		RESERVED_82
+83		pas	line	r		RESERVED_83
+84		pas	line	r		RESERVED_84
+85		pas	line	r		RESERVED_85
+86		pas	line	r		RESERVED_86
+87		pas	line	r		RESERVED_87
+88		pas	line	r		RESERVED_88
+89		pas	line	r		RESERVED_89
+90		pas	line	r		RESERVED_90
+91		pas	line	r		RESERVED_91
+92		pas	line	r		RESERVED_92
+93		pas	line	r		RESERVED_93
+94		pas	line	r		RESERVED_94
+95		pas	line	r		RESERVED_95
+96		pas	line	r		RESERVED_96
+97		pas	line	r		RESERVED_97
+98		pas	line	r		RESERVED_98
+99		pas	line	r		RESERVED_99
+100		pas	line	r		RESERVED_100
+101		pas	line	r		RESERVED_101
+102		pas	line	r		RESERVED_102
+103		pas	line	r		RESERVED_103
+104		pas	line	r		RESERVED_104
+14		pwr	line	t		VDD
+65		pwr	line	t		VDD_GPIO
+19		pwr	line	t		SIM_1V8
+29		pwr	line	t		VIO
+24		pwr	line	t		DEC0
+1		pwr	line	b		GND
+7		pwr	line	b		GND
+13		pwr	line	b		GND
+15		pwr	line	b		GND
+20		pwr	line	b		GND
+25		pwr	line	b		GND
+30		pwr	line	b		GND
+34		pwr	line	b		GND
+36		pwr	line	b		GND
+38		pwr	line	b		GND
+39		pwr	line	b		GND
+40		pwr	line	b		GND
+41		pwr	line	b		GND
+43		pwr	line	b		GND
+46		pwr	line	b		GND
+51		pwr	line	b		GND
+55		pwr	line	b		GND
+60		pwr	line	b		GND
+66		pwr	line	b		GND
+71		pwr	line	b		GND
+76		pwr	line	b		GND
+105		pwr	line	b		GND
+106		pwr	line	b		GND
+107		pwr	line	b		GND
+108		pwr	line	b		GND
+109		pwr	line	b		GND
+110		pwr	line	b		GND
+111		pwr	line	b		GND
+112		pwr	line	b		GND
+113		pwr	line	b		GND
