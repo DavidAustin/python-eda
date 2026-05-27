@@ -1,0 +1,58 @@
+# This is the template file for creating symbols with tragesym
+# every line starting with '#' is a comment line.
+
+[options]
+# wordswap swaps labels if the pin is on the right side an looks like this:
+#   "PB1 (CLK)". That's useful for micro controller port labels
+# rotate_labels rotates the pintext of top and bottom pins
+#   this is useful for large symbols like FPGAs with more than 100 pins
+# sort_labels will sort the pins by it's labels
+#   useful for address ports, busses, ...
+wordswap=yes
+rotate_labels=no
+sort_labels=no
+generate_pinseq=yes
+sym_width=4000
+pinwidthvertical=500
+pinwidthhorizontal=500
+
+[geda_attr]
+# name will be printed in the top of the symbol
+# name is only some graphical text, not an attribute
+# version specifies a gschem version.
+# if you have a device with slots, you'll have to use slot= and slotdef=
+# use comment= if there are special information you want to add
+version=20060113 1
+name=TPD3F303DPVR
+device=TPD3F303DPVR
+refdes=U?
+footprint=TPD3F303DPVR
+description=3-channel ESD protection and EMI filter for SIM card interface, TI DPV USON-8
+documentation=https://www.ti.com/lit/ds/symlink/tpd3f303.pdf
+author=
+dist-license=
+use-license=
+numslots=0
+#slot=1
+#slotdef=1:
+#slotdef=2:
+#slotdef=3:
+#slotdef=4:
+#comment=Pad 9 is the exposed thermal/GND pad used by the footprint.
+#comment=DATA1 and DATA2 can be used interchangeably for DATA or RESET per TI datasheet.
+#comment=
+
+[pins]
+# tabseparated list of pin descriptions
+# ----------------------------------------
+# pinnr	seq	type	style	posit.	net	label	
+#-----------------------------------------------------
+1		pas	line	l		DATA1_OUT
+2		pas	line	l		CLK_OUT
+3		pas	line	l		DATA2_OUT
+4		pas	line	b		NC
+5		pwr	line	t		VCC
+6		pas	line	r		DATA2_IN
+7		pas	line	r		CLK_IN
+8		pas	line	r		DATA1_IN
+9		pwr	line	b		GND
